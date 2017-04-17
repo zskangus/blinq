@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="SettingCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="64.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JbJ-uo-wTQ">
+                        <rect key="frame" x="22" y="22" width="216" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wX6-Lo-Hoq" customClass="customSwitch">
+                        <rect key="frame" x="246" y="18" width="60" height="30"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="XOU-lv-K99"/>
+                            <constraint firstAttribute="height" constant="30" id="kOb-XA-3f2"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstAttribute="bottomMargin" secondItem="wX6-Lo-Hoq" secondAttribute="bottom" constant="8.5" id="5Kx-f5-5Ro"/>
+                    <constraint firstItem="JbJ-uo-wTQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="14" id="70i-qG-UVb"/>
+                    <constraint firstItem="JbJ-uo-wTQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="14" id="Bbg-0J-b2D"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="wX6-Lo-Hoq" secondAttribute="trailing" constant="6" id="IFr-8s-s5o"/>
+                    <constraint firstItem="wX6-Lo-Hoq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="QcT-IL-vEr"/>
+                    <constraint firstItem="JbJ-uo-wTQ" firstAttribute="centerY" secondItem="wX6-Lo-Hoq" secondAttribute="centerY" id="SUk-8a-vVb"/>
+                    <constraint firstItem="wX6-Lo-Hoq" firstAttribute="leading" secondItem="JbJ-uo-wTQ" secondAttribute="trailing" constant="8" id="nBE-Bd-uvY"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="customSwitch" destination="wX6-Lo-Hoq" id="g5R-TB-9ER"/>
+                <outlet property="settingCellLabel" destination="JbJ-uo-wTQ" id="ZVA-yX-ibG"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

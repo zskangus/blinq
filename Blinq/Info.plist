@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Application Description</key>
+	<string>We'd like to use your location when sending SOS information to your emergency contact by knocking your smart ring.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -15,15 +17,233 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.2.5</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb1220436458013683</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>3</string>
+	<key>FacebookAppID</key>
+	<string>1220436458013683</string>
+	<key>FacebookDisplayName</key>
+	<string>Smart Ring</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>com.kayak.travel</string>
+		<string>medisafe</string>
+		<string>fb327155777447519</string>
+		<string>primenow</string>
+		<string>com.redfin.redfin</string>
+		<string>com.waze.iphone</string>
+		<string>between</string>
+		<string>cozi</string>
+		<string>dochalo</string>
+		<string>egenciatripnav</string>
+		<string>comgooglemaps</string>
+		<string>com.pushbullet.client</string>
+		<string>ifttt</string>
+		<string>docusignit</string>
+		<string>bSafe</string>
+		<string>dexcomcgm</string>
+		<string>covetBranch</string>
+		<string>com.amazon.mobile.shopping</string>
+		<string>hppn</string>
+		<string>thuuz</string>
+		<string>cnry</string>
+		<string>parcel</string>
+		<string>maple</string>
+		<string>shipt-grocery</string>
+		<string>talkspace</string>
+		<string>MIDPatient</string>
+		<string>classdojo</string>
+		<string>com.espn.ScoreCenter</string>
+		<string>nbcliveapp</string>
+		<string>ydf</string>
+		<string>foxnews</string>
+		<string>theskimm</string>
+		<string>twcweather</string>
+		<string>glow</string>
+		<string>loseit</string>
+		<string>wwmobile</string>
+		<string>niketrainingclub</string>
+		<string>myzone</string>
+		<string>fb205050386284699</string>
+		<string>com.the-new-stand.TheNewStand</string>
+		<string>amp457f8c357d74d133d500488-98c3a082-af22-11e5-272d-00deb82fd81f</string>
+		<string>rover</string>
+		<string>hipchat</string>
+		<string>accom.tigertext.tigertext</string>
+		<string>Voxer</string>
+		<string>com.livechatinc.LiveChat</string>
+		<string>wickr</string>
+		<string>com.goldenvoice.coachellafest</string>
+		<string>com.shazam.Shazam</string>
+		<string>com.nytimes.nytimes</string>
+		<string>apmobile</string>
+		<string>latimes</string>
+		<string>com.hootsuite.hootsuite</string>
+		<string>pscp</string>
+		<string>meerkat</string>
+		<string>com.aa.AmericanAirlines.AAToday</string>
+		<string>ualmobile</string>
+		<string>tripit</string>
+		<string>offerupapp</string>
+		<string>com.letgo.ios</string>
+		<string>birchbox</string>
+		<string>shopify-admin</string>
+		<string>shopify-pos</string>
+		<string>fb-pma</string>
+		<string>com.salesforce.salesforce1</string>
+		<string>com.6wunderkinder.wunderlistmobile</string>
+		<string>com.anydo.AnyDO</string>
+		<string>x-apple-reminder</string>
+		<string>keep</string>
+		<string>reminders</string>
+		<string>alipay</string>
+		<string>momochat</string>
+		<string>sms</string>
+		<string>fbapi</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+		<string>fbapi20150629</string>
+		<string>fb1220436458013683</string>
+		<string>pinterestsdk.v1</string>
+		<string>phone</string>
+		<string>textmessage</string>
+		<string>reminders</string>
+		<string>calendar</string>
+		<string>mail</string>
+		<string>email</string>
+		<string>mailto</string>
+		<string>googlegmail</string>
+		<string>inbox-gmail</string>
+		<string>ms-outlook</string>
+		<string>ymail</string>
+		<string>gmm</string>
+		<string>goodwork</string>
+		<string>com.google.calendar</string>
+		<string>sunrise</string>
+		<string>todoist</string>
+		<string>com.salesforce.salesforce1</string>
+		<string>fb</string>
+		<string>instagram</string>
+		<string>twitter</string>
+		<string>skype</string>
+		<string>vine</string>
+		<string>snapchat</string>
+		<string>pinterest</string>
+		<string>tumblr</string>
+		<string>alienblue</string>
+		<string>linkedin</string>
+		<string>sinaweibo</string>
+		<string>okcupid</string>
+		<string>tinder</string>
+		<string>bumble</string>
+		<string>hinge</string>
+		<string>com.tenthbit.Juliet</string>
+		<string>avocado</string>
+		<string>lyft</string>
+		<string>uber</string>
+		<string>flywheel</string>
+		<string>parkmobile</string>
+		<string>flydelta-mytrips</string>
+		<string>jetblue</string>
+		<string>airbnb</string>
+		<string>findmyfriends</string>
+		<string>ebay</string>
+		<string>etsy</string>
+		<string>soe</string>
+		<string>nap</string>
+		<string>gilt</string>
+		<string>poshmark</string>
+		<string>shopspring</string>
+		<string>keep</string>
+		<string>mint</string>
+		<string>paypal</string>
+		<string>venmo</string>
+		<string>fb-messenger</string>
+		<string>whatsapp</string>
+		<string>slack</string>
+		<string>wechat</string>
+		<string>groupme</string>
+		<string>bbmi</string>
+		<string>skype</string>
+		<string>kakaotalk</string>
+		<string>kik</string>
+		<string>life360</string>
+		<string>line</string>
+		<string>sgnl</string>
+		<string>tel</string>
+		<string>telegram</string>
+		<string>peach</string>
+		<string>textnow</string>
+		<string>textme2</string>
+		<string>viber</string>
+		<string>google</string>
+		<string>com.google.hangouts</string>
+		<string>googlevoice</string>
+		<string>googleshoppingex</string>
+		<string>comgooglekeep</string>
+		<string>com.shazam.Shazam</string>
+		<string>soundhound-free</string>
+		<string>darksky</string>
+		<string>com.wunderground.weatherunderground</string>
+		<string>AccuWeatherApp</string>
+		<string>mypillapp</string>
+		<string>clue</string>
+		<string>mfp</string>
+		<string>mfp-mapmyfitness-imapmyfitness</string>
+		<string>mfp-mapmyfitness-imapmyhike</string>
+		<string>mfp-mapmyfitness-imapmyrun</string>
+		<string>mfp-mapmyfitness-imapmywalk</string>
+		<string>mfp-mapmyfitness-imapmyride</string>
+		<string>mfp-mapmyfitness-imapmydogwalk</string>
+		<string>fitbit</string>
+		<string>mindbodyconnect</string>
+		<string>com.getsomeheadspace.headspace</string>
+		<string>thescore</string>
+		<string>dropcam</string>
+		<string>nestmobile</string>
+		<string>hooks</string>
+		<string>mobileiron</string>
+		<string>OpsGenie</string>
+		<string>pagerduty</string>
+		<string>dexcomshare1installed</string>
+		<string>dexcomshare2installed</string>
+		<string>com.dexcom.DexcomRM</string>
+		<string>NewWordsWithFriendsFree</string>
+		<string>com.google.ingress</string>
+		<string>mqq</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>PLEASE TURN ON THE BLUETOOTH DEVICE TO CONNECT TO THE SMART RING,IN“SETTINGS”-&gt;”BLUETOOTH”.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We need to know your location when sending SOS information. Select “Allow" to enable SOS distress functions. </string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>YES</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>audio</string>
+		<string>bluetooth-central</string>
+		<string>bluetooth-peripheral</string>
+	</array>
+	<key>UIFileSharingEnabled</key>
+	<false/>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -33,8 +253,12 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>

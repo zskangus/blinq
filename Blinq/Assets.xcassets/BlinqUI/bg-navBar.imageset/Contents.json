@@ -1,0 +1,37 @@
+{
+  "images" : [
+    {
+      "resizing" : {
+        "mode" : "9-part",
+        "center" : {
+          "mode" : "tile",
+          "width" : 368,
+          "height" : 55
+        },
+        "cap-insets" : {
+          "bottom" : 6,
+          "top" : 4,
+          "right" : 4,
+          "left" : 3
+        }
+      },
+      "idiom" : "universal",
+      "filename" : "bg-navBar.png",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "bg-navBar@2x.png",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "bg-navBar@3x.png",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}

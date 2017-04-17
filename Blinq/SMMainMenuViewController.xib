@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SMMainMenuViewController">
+            <connections>
+                <outlet property="tableView" destination="c5T-xV-UaI" id="tNV-d7-3FP"/>
+                <outlet property="unpairBtn" destination="L4O-xX-Oe5" id="5zx-H5-EA4"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="ugf-eb-Af4"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Myp-Sv-cE6">
+                    <subviews>
+                        <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L4O-xX-Oe5">
+                            <frame key="frameInset" minX="25" minY="22" width="234" height="25"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <inset key="titleEdgeInsets" minX="25" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="UNPAIR MY RING" image="pink icon"/>
+                            <connections>
+                                <action selector="UNPIRMYRING:" destination="-1" eventType="touchUpInside" id="5te-8b-tH3"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="sO4-6Z-l7U"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="c5T-xV-UaI">
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="cVX-ep-w2B"/>
+                        <outlet property="delegate" destination="-1" id="eiN-Nb-ZRl"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="c5T-xV-UaI" firstAttribute="leading" secondItem="Myp-Sv-cE6" secondAttribute="leading" id="1W8-w0-ycB"/>
+                <constraint firstAttribute="trailing" secondItem="Myp-Sv-cE6" secondAttribute="trailing" id="8XY-YL-wMQ"/>
+                <constraint firstItem="c5T-xV-UaI" firstAttribute="trailing" secondItem="Myp-Sv-cE6" secondAttribute="trailing" id="E4v-3U-bDQ"/>
+                <constraint firstItem="Myp-Sv-cE6" firstAttribute="top" secondItem="c5T-xV-UaI" secondAttribute="bottom" id="Rdz-Jf-TQc"/>
+                <constraint firstItem="Myp-Sv-cE6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="fiW-pj-MNj"/>
+                <constraint firstAttribute="bottom" secondItem="Myp-Sv-cE6" secondAttribute="bottom" id="rmv-sS-4cm"/>
+                <constraint firstItem="c5T-xV-UaI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="zna-GI-E3Q"/>
+            </constraints>
+            <point key="canvasLocation" x="238.5" y="322.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="pink icon" width="22" height="24"/>
+    </resources>
+</document>

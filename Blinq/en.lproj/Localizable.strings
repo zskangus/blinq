@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  Blinq
+
+  Created by zsk on 16/8/10.
+  Copyright © 2016年 zsk. All rights reserved.
+*/
+
+"asd" = "aaaa";
+"language" = "English";
+"sos_sms" = "I need your help right now";
+"sos_sms_have_name" = "needs your help right now";
+"sos_occurred_sent_message"="SOS EMERGENCY MESSAGE HAS BEEN SENT SUCCESSFULLY";
+"sos_occurred_post_to_facebook"="SOS EMERGENCY MESSAGE HAS BEEN POST TO FACEBOOK.";
+"sos_message_sent_failure" = "SOS EMERGENCY MESSAGE SENT FAILURE.";
+"sos_Location_services_title" = "LOCATION SERVICES OFF";
+"sos_Location_services" = "TURN ON LOCATION SERVICES IN SETTINGS > PRIVACY TO ALLOW BLINQ TO DETERMINE YOUR CURRENT LOCATION";
+"sos_failed_to_locate_address" = "FAILED TO LOCATE ADDRESS";
+
+"battery_low" ="LOW BATTERY.";
+"battery_low_desc" ="RING LOW BATTERY.";
+"battery_charge_completion" = "CHARGE COMPLETION";
+"battery_charge_completion_desc" = "THE RING HAS BEEN FULLY CHARGED.";

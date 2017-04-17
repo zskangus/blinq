@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Number</key>
+		<string>1</string>
+		<key>Name</key>
+		<string>UNITED STATES</string>
+		<key>CountryCode</key>
+		<string>US</string>
+	</dict>
+	<dict>
+		<key>Number</key>
+		<string>1</string>
+		<key>Name</key>
+		<string>CANADA</string>
+		<key>CountryCode</key>
+		<string>CA</string>
+	</dict>
+	<dict>
+		<key>Number</key>
+		<string>44</string>
+		<key>Name</key>
+		<string>BRITAIN</string>
+	</dict>
+	<dict>
+		<key>Number</key>
+		<string>49</string>
+		<key>Name</key>
+		<string>GERMANY</string>
+	</dict>
+	<dict>
+		<key>Number</key>
+		<string>86</string>
+		<key>Name</key>
+		<string>CHINA</string>
+		<key>CountryCode</key>
+		<string>CN</string>
+	</dict>
+	<dict>
+		<key>Number</key>
+		<string>91</string>
+		<key>Name</key>
+		<string>INDIA</string>
+		<key>CountryCode</key>
+		<string>IN</string>
+	</dict>
+	<dict>
+		<key>Number</key>
+		<string>852</string>
+		<key>Name</key>
+		<string>HONG KONG SAR CHINA</string>
+		<key>CountryCode</key>
+		<string>HK</string>
+	</dict>
+	<dict>
+		<key>Number</key>
+		<string>853</string>
+		<key>Name</key>
+		<string>MACAU SAR CHINA</string>
+		<key>CountryCode</key>
+		<string>MO</string>
+	</dict>
+	<dict>
+		<key>Number</key>
+		<string>886</string>
+		<key>Name</key>
+		<string>TAIWAN</string>
+		<key>CountryCode</key>
+		<string>TW</string>
+	</dict>
+</array>
+</plist>

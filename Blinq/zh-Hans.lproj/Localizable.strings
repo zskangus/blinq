@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  Blinq
+
+  Created by zsk on 16/8/10.
+  Copyright © 2016年 zsk. All rights reserved.
+*/
+"asd" = "bbbb";
+"language" = "中文";
+"sos_sms" = "我需要你的帮助";
+"sos_occurred_sent_message"="已发送求救信息。";
+"sos_occurred_post_to_facebook"="求救信息已发布到Facebook。";
+"sos_message_sent_failure" = "求救信息发送失败。";
+"sos_failed_to_locate_address" = "定位地址失败。";
+
+"battery_low" ="LOW BATTERY.";
+"battery_low_desc" ="RING LOW BATTERY.";
+"battery_charge_completion" = "CHARGE COMPLETION";
+"battery_charge_completion_desc" = "THE RING HAS BEEN FULLY CHARGED.";

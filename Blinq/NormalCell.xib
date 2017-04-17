@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NormalCell" id="KGk-i7-Jjw" customClass="NormalCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <frame key="frameInset" width="320" height="49.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z7I-ah-d0P">
+                        <constraints>
+                            <constraint firstAttribute="width" constant="44" id="j8b-ey-GTJ"/>
+                            <constraint firstAttribute="height" constant="41" id="uPw-aE-iw0"/>
+                        </constraints>
+                        <state key="normal" image="circleRed"/>
+                        <connections>
+                            <action selector="circle:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="h99-Tt-sBR"/>
+                        </connections>
+                    </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lQR-yz-dQG" customClass="customSwitch">
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="GAO-Mi-Rtz"/>
+                            <constraint firstAttribute="height" constant="30" id="GIk-Us-S9u"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEXT MESSAGES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vGq-DV-55h">
+                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="z7I-ah-d0P" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="4PS-IF-e1Z"/>
+                    <constraint firstItem="vGq-DV-55h" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="6" id="8QH-AV-Ln9"/>
+                    <constraint firstItem="lQR-yz-dQG" firstAttribute="leading" secondItem="z7I-ah-d0P" secondAttribute="trailing" constant="10" id="Dpb-ZA-JE1"/>
+                    <constraint firstItem="lQR-yz-dQG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="LLJ-Jv-qgY"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="lQR-yz-dQG" secondAttribute="bottom" constant="1" id="ZGJ-pv-K3t"/>
+                    <constraint firstItem="z7I-ah-d0P" firstAttribute="leading" secondItem="vGq-DV-55h" secondAttribute="trailing" constant="1" id="kvy-0B-3CH"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="lQR-yz-dQG" secondAttribute="trailing" constant="4" id="lGJ-6A-r1l"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="vGq-DV-55h" secondAttribute="bottom" constant="5" id="tx2-fm-agx"/>
+                    <constraint firstItem="vGq-DV-55h" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="17" id="wcZ-aG-et1"/>
+                    <constraint firstAttribute="bottom" secondItem="z7I-ah-d0P" secondAttribute="bottom" constant="3" id="zJD-Am-P67"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="circle" destination="z7I-ah-d0P" id="pC9-v8-Ws4"/>
+                <outlet property="customSwitch" destination="lQR-yz-dQG" id="0OV-65-agx"/>
+                <outlet property="normalCellLabel" destination="vGq-DV-55h" id="tn7-Ws-3hI"/>
+            </connections>
+            <point key="canvasLocation" x="193" y="271"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="circleRed" width="26" height="26"/>
+    </resources>
+</document>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina3_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SMNotificationBewriteViewController">
+            <connections>
+                <outlet property="nextButton" destination="YXm-Ei-iuO" id="hBL-fw-d0g"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_2345.PNG" translatesAutoresizingMaskIntoConstraints="NO" id="oRc-jd-fne">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YXm-Ei-iuO">
+                    <rect key="frame" x="16" y="420" width="288" height="40"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.80784313725490198" green="0.54509803921568623" blue="0.83137254901960778" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="NEXT"/>
+                    <connections>
+                        <action selector="goVc:" destination="-1" eventType="touchUpInside" id="oLn-SL-lOh"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="NotificationBewrite-image" translatesAutoresizingMaskIntoConstraints="NO" id="R07-iI-1Ld">
+                    <rect key="frame" x="93" y="155" width="135" height="135"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="oRc-jd-fne" secondAttribute="trailing" id="Bih-v9-oPk"/>
+                <constraint firstItem="oRc-jd-fne" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="KRg-83-1bF"/>
+                <constraint firstItem="oRc-jd-fne" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="L3v-IO-1SN"/>
+                <constraint firstAttribute="bottom" secondItem="oRc-jd-fne" secondAttribute="bottom" id="xHX-sd-Stu"/>
+            </constraints>
+            <point key="canvasLocation" x="32" y="75"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="IMG_2345.PNG" width="640" height="960"/>
+        <image name="NotificationBewrite-image" width="175" height="175"/>
+    </resources>
+</document>
