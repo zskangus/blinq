@@ -74,6 +74,9 @@ static SMlocationManager* _defaultLocation = nil;
     if ([CLLocationManager locationServicesEnabled] &&
         ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorized
          || [CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined)) {
+            
+            [self.accuracyArray removeAllObjects];
+            
             // 开始定位用户的位置
             if (!self.locationManager)
             {
@@ -280,24 +283,24 @@ static SMlocationManager* _defaultLocation = nil;
     [self stopTheAccuracyTimer];
     [self.locationManager stopUpdatingLocation];
     
-    NSInteger min = 10000;
-    NSDictionary *minDic = [NSDictionary dictionary];
-    
-    for (NSDictionary *dic in self.accuracyArray) {
+    if (self.accuracyArray.count > 0) {
+        NSDictionary *minDic = self.accuracyArray[0];
         
-        NSInteger accuracy = [dic[@"accuracy"]integerValue];
-        
-        NSLog(@"jingdu%ld",(long)accuracy);
-        
-        if ((accuracy < min) && (accuracy > 0)){
-            min = accuracy;
-            minDic = dic;
+        for (NSDictionary *dic in self.accuracyArray) {
+            
+            if ([dic[@"accuracy"] integerValue] > 0 && [dic[@"accuracy"] integerValue] < [minDic[@"accuracy"] integerValue]) {
+                minDic = dic;
+            }
+            
+            NSLog(@"jingdu%ld", [dic[@"accuracy"] integerValue]);
         }
+        
+        NSLog(@"最终：%@",minDic);
+        self.location = minDic[@"location"];
+        [self reverseGeocode:minDic[@"location"]];
+        
     }
     
-    NSLog(@"最终：%@",minDic);
-    self.location = minDic[@"location"];
-    [self reverseGeocode:minDic[@"location"]];
 }
 
 @end
