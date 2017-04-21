@@ -166,13 +166,13 @@
     SOSLevel level;
     
     if ([SKUserDefaults boolForKey:@"sensitivityPower"]) {
-        level.Count = 25;
-        level.DPercent = 20.0/25;
+        level.Count = 20;
+        level.DPercent = 16.0/20;
         level.TLimit = 500;
         level.TWindow = 0;
     }else{
-        level.Count = 15;
-        level.DPercent = 12.0/15;
+        level.Count = 10;
+        level.DPercent = 8.0/10;
         level.TLimit = 500;
         level.TWindow = 0;
     }

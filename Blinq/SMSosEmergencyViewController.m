@@ -108,7 +108,7 @@ static BOOL isUserClick;
 
 - (void)setupUi{
     
-    [SKAttributeString setLabelFontContent2:self.promptLable title:@"IN THE EVENT OF AN EMERGENCY THE BLINQ SMART RING CAN BE TAPPED REPEATEDLY TO SEND OUT AN EMERGENCY SOS MESSAGE AND PHONE CALL." font:Avenir_Light Size:11 spacing:3.3 color:[UIColor whiteColor]];
+    [SKAttributeString setLabelFontContent2:self.promptLable title:@"IN THE EVENT OF AN EMERGENCY THE BLINQ SMART RING CAN BE TAPPED REPEATEDLY TO SEND OUT AN EMERGENCY SOS MESSAGE." font:Avenir_Light Size:11 spacing:3.3 color:[UIColor whiteColor]];
     
     [SKAttributeString setLabelFontContent:self.emergencyLable title:@"SOS/EMERGENCY MODE" font:Avenir_Book Size:16 spacing:2.46 color:[UIColor whiteColor]];
     
@@ -279,13 +279,13 @@ static BOOL isUserClick;
             SOSLevel level;
             
             if (isOn) {
-                level.Count = 25;
-                level.DPercent = 20.0/25;
+                level.Count = 20;
+                level.DPercent = 16.0/20;
                 level.TLimit = 500;
                 level.TWindow = 0;
             }else{
-                level.Count = 15;
-                level.DPercent = 12.0/15;
+                level.Count = 10;
+                level.DPercent = 8.0/10;
                 level.TLimit = 500;
                 level.TWindow = 0;
             }

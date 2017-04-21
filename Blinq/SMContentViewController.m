@@ -742,7 +742,10 @@ static NSInteger checkCount;
                 
                 NSString *title = @"Blinq Smart Ring Emergency Broadcast";
                 
-                [self shareLineContentUrl:url andTitle:title andDescription:description];
+                
+                NSString *locationString = [NSString stringWithFormat:@"Location(%f, %f)",currentUserCoordinate.latitude,currentUserCoordinate.longitude];
+                
+                [self shareLineContentUrl:url andTitle:title andDescription:description location:locationString];
                 
             }
             
@@ -752,7 +755,7 @@ static NSInteger checkCount;
     };
 }
 
-- (void)shareLineContentUrl:(NSString*)url andTitle:(NSString*)title andDescription:(NSString*)description{
+- (void)shareLineContentUrl:(NSString*)url andTitle:(NSString*)title andDescription:(NSString*)description location:(NSString*)location{
     
     BOOL postToWallPower = [SKUserDefaults boolForKey:@"postToWallPower"];
     BOOL socialPower = [SKUserDefaults boolForKey:@"socialPower"];
@@ -767,10 +770,15 @@ static NSInteger checkCount;
         FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
         content.contentURL = [NSURL URLWithString:url];
         content.contentTitle = title;
-        content.contentDescription = description;
+        content.contentDescription = location;
         
-        [FBSDKShareAPI shareWithContent:content delegate:self];
-        
+        FBSDKShareAPI *api = [[FBSDKShareAPI alloc]init];
+        if(api != nil){
+            api.message = description;
+            api.shareContent = content;
+            api.delegate = self;
+            [api share];
+        }
         
     }else {
         FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];

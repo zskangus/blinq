@@ -228,7 +228,7 @@ static BTServer* _defaultBTServer = nil;
     
     NSDictionary *dic = [userDefaults dictionaryRepresentation];
     
-    NSArray *array =@[@"isHaveBeenBound",@"LastPeriphrealIdentifierConnectedKey",@"sensitivityTurnedOn",@"sosVcTurnedOn",@"socialTurnedOn",@"notification_contactVcTurnedOn",@"main_contactVcTurnedOn",@"firstName",@"lastName",@"isUploadSuccessful"];
+    NSArray *array =@[@"isHaveBeenBound",@"LastPeriphrealIdentifierConnectedKey",@"sensitivityTurnedOn",@"sosVcTurnedOn",@"socialTurnedOn",@"notification_contactVcTurnedOn",@"main_contactVcTurnedOn",@"firstName",@"lastName",@"isUploadSuccessful",@"sendMessagePower",@"locationPower"];
     
     NSMutableArray *array1 = [NSMutableArray array];
     NSString *string = [[NSString alloc]init];
@@ -859,6 +859,13 @@ static BTServer* _defaultBTServer = nil;
                             NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
                             [userDefaults setBool:YES forKey:@"isBinding"];
                             [userDefaults setBool:YES forKey:@"isFirstTime"];
+                            
+                            
+                            if ([userDefaults boolForKey:@"isHaveBeenBound"] == NO) {
+                                [userDefaults setBool:YES forKey:@"sendMessagePower"];
+                                [userDefaults setBool:YES forKey:@"locationPower"];
+                            }
+                            
                             // 记录程序是否被绑定过
                             [userDefaults setBool:YES forKey:@"isHaveBeenBound"];
                             //强制保存到硬盘中
