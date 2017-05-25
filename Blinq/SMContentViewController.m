@@ -692,15 +692,15 @@ static NSInteger checkCount;
         
         if ([addresss allKeys].count == 0 || isSuccessful == NO) {
             
-            [self endBackgroundTask];
-            
             if (SMlocationStartup == UserStartup) {
                 [self showAlertController:nil body:NSLocalizedString(@"sos_failed_to_locate_address", nil) type:@"sos"];
             }
+            
+            [self endBackgroundTask];
+
             NSLog(@"经纬度找不到") ;
         }else{
             
-            [self endBackgroundTask];
             
             if (SMlocationStartup == UserStartup) {
                 
@@ -776,6 +776,8 @@ static NSInteger checkCount;
                 
             }
             
+            [self endBackgroundTask];
+
         }
         
         

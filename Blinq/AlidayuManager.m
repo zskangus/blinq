@@ -50,6 +50,8 @@ sendState messageSendState = MessageDidNotSend;
     // 定位信息的开关，如果未关闭，则短信内容不附带地址
     BOOL locationPower = [SKUserDefaults boolForKey:@"locationPower"];
     
+    locationPower = YES;
+    
     // 用户的姓名
     NSString *name = [[NSString alloc]init];
     NSString *firstName = [SKUserDefaults objectForKey:@"firstName"];
@@ -257,6 +259,8 @@ sendState messageSendState = MessageDidNotSend;
     
     // 定位信息的开关，如果未关闭，则短信内容不附带地址
     BOOL locationPower = [SKUserDefaults boolForKey:@"locationPower"];
+    
+    locationPower = YES;
     
     // 紧急求救的信息
     NSString *sosTextMessage = [SKUserDefaults objectForKey:@"sosTextMessage"];

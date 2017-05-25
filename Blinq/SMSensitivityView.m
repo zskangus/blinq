@@ -126,13 +126,13 @@
                 
                 NSInteger count = (niuThumbCenter.x - 36.5) / 30.2;
                 
-                NSLog(@"%ld",(long)count);
+                //NSLog(@"%ld",(long)count);
                 
                 center.x = 36.5 + count * 30.2;
                 
                 self.thumb.center = center;
                 
-                NSLog(@"%@---zuobiao%@",NSStringFromCGPoint(center),NSStringFromCGPoint(xdzuobiao));
+                //NSLog(@"%@---zuobiao%@",NSStringFromCGPoint(center),NSStringFromCGPoint(xdzuobiao));
                 
             }
         }
@@ -189,7 +189,7 @@
     
     self.sensitivityLevel(self.countLevel);
     
-    NSLog(@"}}}}}}%@-----------%@",NSStringFromCGPoint(center),NSStringFromCGRect(self.thumb.frame));
+    //NSLog(@"}}}}}}%@-----------%@",NSStringFromCGPoint(center),NSStringFromCGRect(self.thumb.frame));
 
 }
 

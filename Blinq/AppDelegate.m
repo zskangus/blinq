@@ -246,13 +246,51 @@ static NSTimeInterval inComingCallTime = 0;
     NSInteger sensitivityLevel = [sensitivityInfo integerForKey:@"sensitivityLevel"];
     
     SOSLevel level;
+    
     level.Count = 20 - (int)sensitivityLevel;
-    level.DPercent = (16.0 - sensitivityLevel * 0.8) / level.Count;
     level.TLimit = 500;
     level.TWindow = 0;
     
+    switch (level.Count) {
+        case 20:
+            level.DPercent = 16.0 / level.Count;
+            break;
+        case 19:
+            level.DPercent = 16.0 / level.Count;
+            break;
+        case 18:
+            level.DPercent = 16.0 / level.Count;
+            break;
+        case 17:
+            level.DPercent = 14.0 / level.Count;
+            break;
+        case 16:
+            level.DPercent = 14.0 / level.Count;
+            break;
+        case 15:
+            level.DPercent = 12.0 / level.Count;
+            break;
+        case 14:
+            level.DPercent = 12.0 / level.Count;
+            break;
+        case 13:
+            level.DPercent = 10.0 / level.Count;
+            break;
+        case 12:
+            level.DPercent = 10.0 / level.Count;
+            break;
+        case 11:
+            level.DPercent = 8.0 / level.Count;
+            break;
+        case 10:
+            level.DPercent = 8.0 / level.Count;
+            break;
+        default:
+            break;
+    }
+
     NSLog(@"灵敏度等级%d -- 百分比%f",level.Count,level.DPercent);
-    
+
     [[SMSOSCheckAlgorithmService sharedSMSOSCheckAlgorithmService]setLevel:level];
 }
 

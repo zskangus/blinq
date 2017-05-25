@@ -228,7 +228,7 @@ static BTServer* _defaultBTServer = nil;
     
     NSDictionary *dic = [userDefaults dictionaryRepresentation];
     
-    NSArray *array =@[@"isHaveBeenBound",@"LastPeriphrealIdentifierConnectedKey",@"sensitivityTurnedOn",@"sosVcTurnedOn",@"socialTurnedOn",@"notification_contactVcTurnedOn",@"main_contactVcTurnedOn",@"firstName",@"lastName",@"isUploadSuccessful",@"sendMessagePower",@"locationPower"];
+    NSArray *array =@[@"isHaveBeenBound",@"LastPeriphrealIdentifierConnectedKey",@"sensitivityTurnedOn",@"sosVcTurnedOn",@"socialTurnedOn",@"notification_contactVcTurnedOn",@"main_contactVcTurnedOn",@"firstName",@"lastName",@"isUploadSuccessful",@"sendMessagePower",@"locationPower",@"sensitivityLevel"];
     
     NSMutableArray *array1 = [NSMutableArray array];
     NSString *string = [[NSString alloc]init];
@@ -872,7 +872,8 @@ static BTServer* _defaultBTServer = nil;
                             NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
                             [userDefaults setBool:YES forKey:@"isBinding"];
                             [userDefaults setBool:YES forKey:@"isFirstTime"];
-                            
+                            [userDefaults setInteger:5 forKey:@"sensitivityLevel"];
+
                             
                             if ([userDefaults boolForKey:@"isHaveBeenBound"] == NO) {
                                 [userDefaults setBool:YES forKey:@"sendMessagePower"];

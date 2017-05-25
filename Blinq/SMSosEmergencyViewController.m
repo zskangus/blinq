@@ -131,24 +131,60 @@ static BOOL isUserClick;
     
     NSUserDefaults *sensitivityInfo = [NSUserDefaults standardUserDefaults];
 
-    SMSensitivityView *sitivity = [[SMSensitivityView alloc]createWithFrame:CGRectMake(0, 0, 375, 55) sensitivity:^(NSInteger sensitivityLevel) {
+    SMSensitivityView *sitivity = [[SMSensitivityView alloc]createWithFrame:CGRectMake(0, 0, 375, 65) sensitivity:^(NSInteger sensitivityLevel) {
         
         [sensitivityInfo setInteger:sensitivityLevel forKey:@"sensitivityLevel"];
         
         SOSLevel level;
+
         level.Count = 20 - (int)sensitivityLevel;
-        level.DPercent = (16.0 - sensitivityLevel * 0.8) / level.Count;
         level.TLimit = 500;
         level.TWindow = 0;
 
-        NSLog(@"灵敏度等级%d -- 百分比%f",level.Count,level.DPercent);
-        //[[SMSOSCheckAlgorithmService sharedSMSOSCheckAlgorithmService] setLevel:level];
+        switch (level.Count) {
+            case 20:
+                level.DPercent = 16.0 / level.Count;
+                break;
+            case 19:
+                level.DPercent = 16.0 / level.Count;
+                break;
+            case 18:
+                level.DPercent = 16.0 / level.Count;
+                break;
+            case 17:
+                level.DPercent = 14.0 / level.Count;
+                break;
+            case 16:
+                level.DPercent = 14.0 / level.Count;
+                break;
+            case 15:
+                level.DPercent = 12.0 / level.Count;
+                break;
+            case 14:
+                level.DPercent = 12.0 / level.Count;
+                break;
+            case 13:
+                level.DPercent = 10.0 / level.Count;
+                break;
+            case 12:
+                level.DPercent = 10.0 / level.Count;
+                break;
+            case 11:
+                level.DPercent = 8.0 / level.Count;
+                break;
+            case 10:
+                level.DPercent = 8.0 / level.Count;
+                break;
+            default:
+                break;
+        }
+        
+        NSLog(@"次数%d -- 百分比%f",level.Count,level.DPercent);
+        [[SMSOSCheckAlgorithmService sharedSMSOSCheckAlgorithmService] setLevel:level];
         
     }];
     
     [sitivity setCount:[sensitivityInfo integerForKey:@"sensitivityLevel"]];
-    
-    sitivity.backgroundColor = RGB_COLORA(0, 0, 0, 0.07);
     
     [self.contactView addSubview:sitivity];
 }
@@ -272,27 +308,27 @@ static BOOL isUserClick;
             [SKUserDefaults synchronize];
             break;
         case 3:// 响应定位的开关按钮
-            NSLog(@"定位开关按钮为%@",isOn?@"YES":@"NO");
-            [SKUserDefaults setBool:isOn forKey:@"locationPower"];
-            [SKUserDefaults synchronize];
+//            NSLog(@"定位开关按钮为%@",isOn?@"YES":@"NO");
+//            [SKUserDefaults setBool:isOn forKey:@"locationPower"];
+//            [SKUserDefaults synchronize];
             break;
         case 4:// 响应social的开关按钮
-        {
-
-            
-            BOOL socialTurnedOn = [SKUserDefaults boolForKey:@"socialTurnedOn"];
-            
-            if (isOn == YES && socialTurnedOn == NO) {
-                SMSocialDescriptionViewController *description = [[SMSocialDescriptionViewController alloc]initWithNibName:@"SMSocialDescriptionViewController" bundle:nil];
-            [self.navigationController pushViewController:description animated:YES];
-            }else{
-            
-            }
-            
-            NSLog(@"social开关按钮为%@",isOn?@"YES":@"NO");
-            [SKUserDefaults setBool:isOn forKey:@"socialPower"];
-            [SKUserDefaults synchronize];
-        }
+//        {
+//
+//            
+//            BOOL socialTurnedOn = [SKUserDefaults boolForKey:@"socialTurnedOn"];
+//            
+//            if (isOn == YES && socialTurnedOn == NO) {
+//                SMSocialDescriptionViewController *description = [[SMSocialDescriptionViewController alloc]initWithNibName:@"SMSocialDescriptionViewController" bundle:nil];
+//            [self.navigationController pushViewController:description animated:YES];
+//            }else{
+//            
+//            }
+//            
+//            NSLog(@"social开关按钮为%@",isOn?@"YES":@"NO");
+//            [SKUserDefaults setBool:isOn forKey:@"socialPower"];
+//            [SKUserDefaults synchronize];
+//        }
             break;
             
         case 5:// 响应灵敏度开关
