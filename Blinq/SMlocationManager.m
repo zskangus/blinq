@@ -9,6 +9,7 @@
 #import "SMlocationManager.h"
 #import <CoreLocation/CoreLocation.h>
 #import "transform.h"
+#import <UIKit/UIKit.h>
 
 @interface SMlocationManager()<CLLocationManagerDelegate>
 
@@ -246,6 +247,11 @@ static SMlocationManager* _defaultLocation = nil;
 
 
 - (void)againStartUpdatingLocation{
+    
+    NSTimeInterval backgroundTimeRemaining =[[UIApplication sharedApplication] backgroundTimeRemaining];
+    
+    NSLog(@"backgroundTaskIdentifier  剩余时间:%f",backgroundTimeRemaining);
+    
     
     if (checkCount < 3) {
         NSLog(@"再次尝试定位%ld",(long)checkCount);

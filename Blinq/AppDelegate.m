@@ -79,6 +79,7 @@
 
 @implementation AppDelegate
 
+static NSTimeInterval inComingCallTime = 0;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
@@ -98,7 +99,9 @@
         }
     }
     
-     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(onUserClickEvent:) name:@"onUserClickEvent" object:nil];
+    
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     
     NSSetUncaughtExceptionHandler (&UncaughtExceptionHandler);
     
@@ -122,7 +125,7 @@
     UINavigationController *nvcsidebar = [[UINavigationController alloc]initWithRootViewController:contentVie];
     
     SMSSidebarViewController *sidebar = [[SMSSidebarViewController alloc]initWithCenterController:nvcsidebar leftController:nvcMenu];
-
+    
     BOOL isBinding = [SKUserDefaults boolForKey:@"isBinding"];
     
     if (isBinding) {
@@ -139,7 +142,7 @@
         if (screenHeight == 480) {
             SMStartupViewController *startup = [[SMStartupViewController alloc]initWithNibName:@"SMStartupViewController_ip4" bundle:nil];
             self.window.rootViewController = startup;
-
+            
         }else{
             SMStartupViewController *startup = [[SMStartupViewController alloc]initWithNibName:@"SMStartupViewController" bundle:nil];
             self.window.rootViewController = startup;
@@ -147,9 +150,6 @@
         
     };
     
-    //SKNotificationIntroduce *ins= [[SKNotificationIntroduce alloc]initWithNibName:@"SKNotificationIntroduce" bundle:nil];
-    
-    //self.window.rootViewController = ins;
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         [self createCallCenter];
@@ -161,28 +161,8 @@
     return YES;
 }
 
-- (void)setSosLevel{
-    
-    SOSLevel level;
-    
-    if ([SKUserDefaults boolForKey:@"sensitivityPower"]) {
-        level.Count = 20;
-        level.DPercent = 16.0/20;
-        level.TLimit = 500;
-        level.TWindow = 0;
-    }else{
-        level.Count = 10;
-        level.DPercent = 8.0/10;
-        level.TLimit = 500;
-        level.TWindow = 0;
-    }
-    
-    [[SMSOSCheckAlgorithmService sharedSMSOSCheckAlgorithmService]setLevel:level];
-}
-
 - (void)createCallCenter{
     self.callCenter = [[CTCallCenter alloc] init];
-    
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         
@@ -199,6 +179,7 @@
                 Byte appId = 0;
                 Byte configs[]= {COMMAND_ID_NTF_REMOVED, TYPE_TAG_NOTIFICATIONS, CONFIG_ERR_CODE_OK, dely,catId,color,appId};
                 
+                inComingCallTime = 0;
                 //发送一条通知
                 SmartRemindManager *manager = [[SmartRemindManager alloc]init];
                 [manager writerData:ModID_Remind reqData:configs length:7];
@@ -206,21 +187,23 @@
             }
             else if ([call.callState isEqualToString:CTCallStateConnected])
             {
-                NSLog(@"电话通了Call has just been connected");
+                NSLog(@"挂断了电话咯Call has been disconnected");
+                
                 Byte dely = 0;
                 Byte catId = 1;
                 Byte color = 0xff;
                 Byte appId = 0;
                 Byte configs[]= {COMMAND_ID_NTF_REMOVED, TYPE_TAG_NOTIFICATIONS, CONFIG_ERR_CODE_OK, dely,catId,color,appId};
                 
+                inComingCallTime = 0;
                 //发送一条通知
                 SmartRemindManager *manager = [[SmartRemindManager alloc]init];
                 [manager writerData:ModID_Remind reqData:configs length:7];
             }
             else if([call.callState isEqualToString:CTCallStateIncoming])
             {
+                inComingCallTime = [[NSDate dateWithTimeIntervalSinceNow:0]timeIntervalSince1970];
                 NSLog(@"来电话了Call is incoming");
-                
             }
             else if ([call.callState isEqualToString:CTCallStateDialing])
             {
@@ -231,14 +214,46 @@
                 NSLog(@"嘛都没做Nothing is done");
             }
             
-            
-            // SMBaseViewController *bbs = [[SMBaseViewController alloc]init];
-            //[bbs showAlertController:@"sdsd" body:@"sdsd" type:@"ss"];
         };
         
     });
     
     
+}
+
+- (void)onUserClickEvent:(NSNotification*)obj{
+    
+#define COMMAND_ID_NTF_ACTION             0x30
+    
+    NSNumber *count = obj.object;
+    NSTimeInterval currentTime = [[NSDate dateWithTimeIntervalSinceNow:0]timeIntervalSince1970];
+    
+    NSLog(@"AppDelegate onUserClickEvent: %@", count);
+    
+    if (inComingCallTime && currentTime - inComingCallTime > 3 && count && count.unsignedIntegerValue == 2) {
+        Byte configs[]= {COMMAND_ID_NTF_ACTION, TYPE_TAG_SMARTREMIND, CONFIG_ERR_CODE_OK, 0x01, 0x01};
+        
+        //发送一条通知
+        SmartRemindManager *manager = [[SmartRemindManager alloc]init];
+        [manager writerData:ModID_Remind reqData:configs length:5];
+    }
+}
+
+- (void)setSosLevel{
+    
+    NSUserDefaults *sensitivityInfo = [NSUserDefaults standardUserDefaults];
+    
+    NSInteger sensitivityLevel = [sensitivityInfo integerForKey:@"sensitivityLevel"];
+    
+    SOSLevel level;
+    level.Count = 20 - (int)sensitivityLevel;
+    level.DPercent = (16.0 - sensitivityLevel * 0.8) / level.Count;
+    level.TLimit = 500;
+    level.TWindow = 0;
+    
+    NSLog(@"灵敏度等级%d -- 百分比%f",level.Count,level.DPercent);
+    
+    [[SMSOSCheckAlgorithmService sharedSMSOSCheckAlgorithmService]setLevel:level];
 }
 
 void UncaughtExceptionHandler(NSException *exception) {
@@ -328,25 +343,6 @@ static NSString *passWord = @"s3T6m7K6";
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    
-    UIApplication*   app = [UIApplication sharedApplication];
-    __block    UIBackgroundTaskIdentifier bgTask;
-    bgTask = [app beginBackgroundTaskWithExpirationHandler:^{
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (bgTask != UIBackgroundTaskInvalid)
-            {
-                bgTask = UIBackgroundTaskInvalid;
-            }
-        });
-    }];
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (bgTask != UIBackgroundTaskInvalid)
-            {
-                bgTask = UIBackgroundTaskInvalid;
-            }
-        });
-    });
 
     NSLog(@"程序进入后台");
 }

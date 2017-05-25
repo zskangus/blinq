@@ -100,6 +100,8 @@ location SMlocationStartup;
 
 @property(nonatomic,strong)NSTimer *timer;
 
+@property(nonatomic, unsafe_unretained)UIBackgroundTaskIdentifier backgroundTaskIdentifier;
+
 @end
 
 static NSInteger checkCount;
@@ -614,8 +616,27 @@ static NSInteger checkCount;
     //[self setupLocationManager];
 }
 
+- (void)startBackgroundTask{
+    
+    UIApplication *app = [UIApplication sharedApplication];
+    
+    self.backgroundTaskIdentifier = [app beginBackgroundTaskWithExpirationHandler:^( void) {
+        [self endBackgroundTask];
+    }];
+    
+    
+    NSLog(@"backgroundTaskIdentifier:%lu",(unsigned long)self.backgroundTaskIdentifier);
+}
+
+- (void)endBackgroundTask{
+    [[UIApplication sharedApplication]endBackgroundTask:self.backgroundTaskIdentifier];
+    // 销毁后台任务标识符
+    self.backgroundTaskIdentifier = UIBackgroundTaskInvalid;
+}
 
 - (void)setupLocation{
+    
+    [self startBackgroundTask];
     
     SMlocationManager *helper= [SMlocationManager sharedLocationManager];
     
@@ -670,11 +691,17 @@ static NSInteger checkCount;
         NSLog(@"returnBlock返回的地址信息：%@ --- 是否定位成功%@",addresss,isSuccessful?@"YES":@"NO");
         
         if ([addresss allKeys].count == 0 || isSuccessful == NO) {
+            
+            [self endBackgroundTask];
+            
             if (SMlocationStartup == UserStartup) {
                 [self showAlertController:nil body:NSLocalizedString(@"sos_failed_to_locate_address", nil) type:@"sos"];
             }
             NSLog(@"经纬度找不到") ;
         }else{
+            
+            [self endBackgroundTask];
+            
             if (SMlocationStartup == UserStartup) {
                 
                 checkCount = 0;

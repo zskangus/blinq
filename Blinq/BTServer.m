@@ -809,6 +809,19 @@ static BTServer* _defaultBTServer = nil;
             {
                 [Utils printfData2Byte:msg.body and:@"固件信息解析："];
                 
+                if([msg.body length] >= 3){
+                    Byte *buff = (Byte *)[msg.body bytes];
+                    if (buff != nil && buff[0] == 0xE0) {
+                        
+                        // 敲击数
+                        int tapCount = buff[2];
+                        NSLog(@"%d",tapCount);
+                        
+                        //Notification click Event
+                        [[NSNotificationCenter defaultCenter] postNotificationName:@"onUserClickEvent" object:[NSNumber numberWithInt:tapCount]];
+                    }
+                }
+                
                 [self sosTriggerToMonitor:msg.body successful:^{
                     BOOL emergencyPower = [SKUserDefaults boolForKey:@"emergencyPower"];
                     

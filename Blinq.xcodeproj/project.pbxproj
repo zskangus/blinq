@@ -92,6 +92,7 @@
 		7373DFAC1DD07EB7003668D7 /* SMSosDescriptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7373DFAA1DD07EB7003668D7 /* SMSosDescriptionViewController.xib */; };
 		7373DFB01DD098D4003668D7 /* SMSocialDescriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7373DFAE1DD098D4003668D7 /* SMSocialDescriptionViewController.m */; };
 		7373DFB11DD098D4003668D7 /* SMSocialDescriptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7373DFAF1DD098D4003668D7 /* SMSocialDescriptionViewController.xib */; };
+		7376F05E1ED57EA000BEBF11 /* SMSensitivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7376F05D1ED57EA000BEBF11 /* SMSensitivityView.m */; };
 		737B1E481CA4CCDC00A4AA60 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 737B1E471CA4CCDC00A4AA60 /* main.m */; };
 		737B1E4B1CA4CCDC00A4AA60 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 737B1E4A1CA4CCDC00A4AA60 /* AppDelegate.m */; };
 		737B1E511CA4CCDC00A4AA60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 737B1E4F1CA4CCDC00A4AA60 /* Main.storyboard */; };
@@ -344,6 +345,8 @@
 		7373DFAD1DD098D4003668D7 /* SMSocialDescriptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSocialDescriptionViewController.h; sourceTree = "<group>"; };
 		7373DFAE1DD098D4003668D7 /* SMSocialDescriptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSocialDescriptionViewController.m; sourceTree = "<group>"; };
 		7373DFAF1DD098D4003668D7 /* SMSocialDescriptionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SMSocialDescriptionViewController.xib; sourceTree = "<group>"; };
+		7376F05C1ED57EA000BEBF11 /* SMSensitivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSensitivityView.h; sourceTree = "<group>"; };
+		7376F05D1ED57EA000BEBF11 /* SMSensitivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSensitivityView.m; sourceTree = "<group>"; };
 		737B1E431CA4CCDB00A4AA60 /* Blinq.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blinq.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		737B1E471CA4CCDC00A4AA60 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		737B1E491CA4CCDC00A4AA60 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -975,6 +978,8 @@
 				734102701E9E2A6800799C73 /* SMSensitivityDescriptionViewController.xib */,
 				734102731E9E5B0200799C73 /* SMSOSCheckAlgorithmService.h */,
 				734102741E9E5B0200799C73 /* SMSOSCheckAlgorithmService.m */,
+				7376F05C1ED57EA000BEBF11 /* SMSensitivityView.h */,
+				7376F05D1ED57EA000BEBF11 /* SMSensitivityView.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -1640,6 +1645,7 @@
 				7383BE7B1CB53A50006EC0A9 /* SmartRemindData.m in Sources */,
 				73F858091CBA999C005170E8 /* SosContactCell.m in Sources */,
 				73F8580E1CBA9C6C005170E8 /* contactModel.m in Sources */,
+				7376F05E1ED57EA000BEBF11 /* SMSensitivityView.m in Sources */,
 				7373DFAB1DD07EB7003668D7 /* SMSosDescriptionViewController.m in Sources */,
 				73F348C31CB6C31600745650 /* SmartRemindManager.m in Sources */,
 				7383BE731CB53A50006EC0A9 /* ModuleClass.m in Sources */,

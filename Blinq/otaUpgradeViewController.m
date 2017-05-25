@@ -197,7 +197,6 @@ static NSString *_url;
 - (void)goOtaUpdateFaildViewController{
     
     [self cancelTheTimer];
-    
     NSLog(@"升级成功重连失败");
     otaUpdateFaildViewController *failed = [[otaUpdateFaildViewController alloc]initWithNibName:@"otaUpdateFaildViewController" bundle:nil];
     
@@ -396,7 +395,6 @@ static NSString *_url;
             
             // 开启定时器
             NSLog(@"开启定时，如果30秒连接不上就跳转到失败界面");
-            //[self performSelector:@selector(goOtaUpdateFaildViewController) withObject:nil afterDelay:30];
             [self startTheTimer];
             
             break;

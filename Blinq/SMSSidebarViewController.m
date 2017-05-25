@@ -82,7 +82,6 @@ typedef NS_ENUM(NSInteger,DrawerState){
     
     NSLog(@"%@", NSStringFromClass([touch.view class]));
     
-    
         // 获取当前的触摸点
     
         CGPoint curP = [touch locationInView:touch.view];

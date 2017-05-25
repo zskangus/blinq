@@ -24,6 +24,7 @@
 #import "SMSosDescriptionViewController.h"
 #import "SMSensitivityDescriptionViewController.h"
 #import "SMSOSCheckAlgorithmService.h"
+#import "SMSensitivityView.h"
 #import "BTServer.h"
 
 typedef NS_ENUM(NSInteger,sosDescription){
@@ -127,7 +128,31 @@ static BOOL isUserClick;
     [SKAttributeString setLabelFontContent:self.placeHolderLabel title:@"ENTER SOS MESSAGE HERE…" font:Avenir_Light Size:10 spacing:2.4 color:[UIColor blackColor]];
     
     [SKAttributeString setButtonFontContent:self.socialBtn title:@"SOCIAL S.O.S. SETTINGS" font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    NSUserDefaults *sensitivityInfo = [NSUserDefaults standardUserDefaults];
+
+    SMSensitivityView *sitivity = [[SMSensitivityView alloc]createWithFrame:CGRectMake(0, 0, 375, 55) sensitivity:^(NSInteger sensitivityLevel) {
+        
+        [sensitivityInfo setInteger:sensitivityLevel forKey:@"sensitivityLevel"];
+        
+        SOSLevel level;
+        level.Count = 20 - (int)sensitivityLevel;
+        level.DPercent = (16.0 - sensitivityLevel * 0.8) / level.Count;
+        level.TLimit = 500;
+        level.TWindow = 0;
+
+        NSLog(@"灵敏度等级%d -- 百分比%f",level.Count,level.DPercent);
+        //[[SMSOSCheckAlgorithmService sharedSMSOSCheckAlgorithmService] setLevel:level];
+        
+    }];
+    
+    [sitivity setCount:[sensitivityInfo integerForKey:@"sensitivityLevel"]];
+    
+    sitivity.backgroundColor = RGB_COLORA(0, 0, 0, 0.07);
+    
+    [self.contactView addSubview:sitivity];
 }
+
 
 - (void)setupContactInfo{
     
@@ -271,37 +296,37 @@ static BOOL isUserClick;
             break;
             
         case 5:// 响应灵敏度开关
-        {
-            
-            [SKUserDefaults setBool:isOn forKey:@"sensitivityPower"];
-            [SKUserDefaults synchronize];
-            
-            SOSLevel level;
-            
-            if (isOn) {
-                level.Count = 20;
-                level.DPercent = 16.0/20;
-                level.TLimit = 500;
-                level.TWindow = 0;
-            }else{
-                level.Count = 10;
-                level.DPercent = 8.0/10;
-                level.TLimit = 500;
-                level.TWindow = 0;
-            }
-            
-            [[SMSOSCheckAlgorithmService sharedSMSOSCheckAlgorithmService] setLevel:level];
-            
-            BOOL sensitivityTurnedOn = [SKUserDefaults boolForKey:@"sensitivityTurnedOn"];
-            
-            if (isOn == YES && sensitivityTurnedOn == NO) {
-                SMSensitivityDescriptionViewController *sensitivity = [[SMSensitivityDescriptionViewController alloc]initWithNibName:@"SMSensitivityDescriptionViewController" bundle:nil];
-                
-                [self.navigationController pushViewController:sensitivity animated:YES];
-            }
-            
-
-        }
+//        {
+//            
+//            [SKUserDefaults setBool:isOn forKey:@"sensitivityPower"];
+//            [SKUserDefaults synchronize];
+//            
+//            SOSLevel level;
+//            
+//            if (isOn) {
+//                level.Count = 20;
+//                level.DPercent = 16.0/20;
+//                level.TLimit = 500;
+//                level.TWindow = 0;
+//            }else{
+//                level.Count = 10;
+//                level.DPercent = 8.0/10;
+//                level.TLimit = 500;
+//                level.TWindow = 0;
+//            }
+//            
+//            [[SMSOSCheckAlgorithmService sharedSMSOSCheckAlgorithmService] setLevel:level];
+//            
+//            BOOL sensitivityTurnedOn = [SKUserDefaults boolForKey:@"sensitivityTurnedOn"];
+//            
+//            if (isOn == YES && sensitivityTurnedOn == NO) {
+//                SMSensitivityDescriptionViewController *sensitivity = [[SMSensitivityDescriptionViewController alloc]initWithNibName:@"SMSensitivityDescriptionViewController" bundle:nil];
+//                
+//                [self.navigationController pushViewController:sensitivity animated:YES];
+//            }
+//            
+//
+//        }
             break;
         default:
             break;
