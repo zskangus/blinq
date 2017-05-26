@@ -54,6 +54,10 @@
         
         [alertController addAction:okAction];
         
+        [alertController setValue:[self setAlertControllerWithStrring:@"WARNING" fontSize:17 spacing:1.85] forKey:@"attributedTitle"];
+        
+        [alertController setValue:[self setAlertControllerWithStrring:@"NETWORK UNAVAILABLE.CHECK NETWORK" fontSize:14 spacing:1.85]  forKey:@"attributedMessage"];
+        
         [self presentViewController:alertController animated:YES completion:nil];
         
         return;

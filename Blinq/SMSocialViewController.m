@@ -152,6 +152,8 @@ static BOOL isUserClick = NO;
             
             [alertController addAction:okAction];
             
+            [alertController setValue:[self setAlertControllerWithStrring:[str uppercaseString] fontSize:14 spacing:1.85]  forKey:@"attributedMessage"];
+            
             [self presentViewController:alertController animated:YES completion:nil];
             
         }

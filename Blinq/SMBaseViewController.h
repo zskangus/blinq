@@ -21,4 +21,6 @@
 
 - (void)showAlertController:(NSString*)string type:(NSString*)type;
 
+- (NSMutableAttributedString*)setAlertControllerWithStrring:(NSString*)string fontSize:(NSInteger)size spacing:(NSInteger)spacing;
+
 @end

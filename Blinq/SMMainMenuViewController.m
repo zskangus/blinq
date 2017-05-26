@@ -96,7 +96,7 @@ static NSString * const mainMeunCell = @"MainMenuCell";
 
 - (IBAction)UNPIRMYRING:(id)sender {
     
-    NSString *str = @"This operation will unpair your phone and the ring. If you want to pair a new ring, you also need to forget the paired ring in 'Settings - > Bluetooth'. Continue to unpair the ring?";
+    NSString *str = @"This operation will unpair your phone and the ring. If you want to pair a new ring, you also need to forget the paired ring in 'Settings -> Bluetooth'. Continue to unpair the ring?";
     
     // 蓝牙的取消
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"WARNING" message:[str uppercaseString] preferredStyle:UIAlertControllerStyleAlert];
@@ -117,6 +117,20 @@ static NSString * const mainMeunCell = @"MainMenuCell";
     
     [alertController addAction:cancelAction];
     [alertController addAction:okAction];
+    
+    //修改title
+    NSMutableAttributedString *alertControllerTitleStr = [[NSMutableAttributedString alloc] initWithString:@"WARNING"];
+    [alertControllerTitleStr addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:17] range:NSMakeRange(0, @"WARNING".length)];
+    [alertControllerTitleStr addAttribute:NSKernAttributeName value:@1.85 range:NSMakeRange(0, @"WARNING".length)];
+    
+    //修改message
+    NSMutableAttributedString *alertControllerMessageStr = [[NSMutableAttributedString alloc] initWithString:[str uppercaseString]];
+    [alertControllerMessageStr addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:12] range:NSMakeRange(0, str.length)];
+    [alertControllerMessageStr addAttribute:NSKernAttributeName value:@1.85 range:NSMakeRange(0, str.length)];
+
+    [alertController setValue:alertControllerTitleStr forKey:@"attributedTitle"];
+
+    [alertController setValue:alertControllerMessageStr forKey:@"attributedMessage"];
     
     [self presentViewController:alertController animated:YES completion:nil];
 }

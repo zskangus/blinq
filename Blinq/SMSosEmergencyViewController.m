@@ -65,6 +65,7 @@ sosDescription openStartup = sosDescriptionOpened;
 @property (weak, nonatomic) IBOutlet UILabel *placeHolderLabel;
 
 @property (weak, nonatomic) IBOutlet UIButton *socialBtn;
+@property (weak, nonatomic) IBOutlet UIView *socialSosView;
 
 @end
 
@@ -81,6 +82,8 @@ static BOOL isUserClick;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupContactInfo) name:@"ReloadSettingView" object:nil];
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(resignFirst) name:@"resignFirst" object:nil];
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(postSiderbarNotification) name:@"popupSidebar" object:nil];
     
     //增加监听，当键盘出现或改变时收出消息
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -186,6 +189,8 @@ static BOOL isUserClick;
     
     [sitivity setCount:[sensitivityInfo integerForKey:@"sensitivityLevel"]];
     
+    sitivity.backgroundColor = RGB_COLORA(0, 0, 0, 0.07);
+    
     [self.contactView addSubview:sitivity];
 }
 
@@ -240,8 +245,8 @@ static BOOL isUserClick;
             [self.customSwitch setOn:NO];
         }
         
-        //[SKUserDefaults setBool:NO forKey:@"emergencyPower"];
-        [SMMessageManager emergencyPower:NO];
+        [SKUserDefaults setBool:NO forKey:@"emergencyPower"];
+        //[SMMessageManager emergencyPower:NO];
     }
 
 }
@@ -270,7 +275,9 @@ static BOOL isUserClick;
     switch (Switch.tag) {
         case 1:// 响应紧急联系人的开关按钮
         {
-            [SMMessageManager emergencyPower:isOn];
+            [SKUserDefaults setBool:isOn forKey:@"emergencyPower"];
+
+//            [SMMessageManager emergencyPower:isOn];
             [SKUserDefaults setBool:NO forKey:@"addContactBtn"];
             BOOL sosVcTurnedOn = [SKUserDefaults boolForKey:@"sosVcTurnedOn"];
             if (isOn == YES && sosVcTurnedOn == NO) {
@@ -313,22 +320,22 @@ static BOOL isUserClick;
 //            [SKUserDefaults synchronize];
             break;
         case 4:// 响应social的开关按钮
-//        {
-//
-//            
-//            BOOL socialTurnedOn = [SKUserDefaults boolForKey:@"socialTurnedOn"];
-//            
-//            if (isOn == YES && socialTurnedOn == NO) {
-//                SMSocialDescriptionViewController *description = [[SMSocialDescriptionViewController alloc]initWithNibName:@"SMSocialDescriptionViewController" bundle:nil];
-//            [self.navigationController pushViewController:description animated:YES];
-//            }else{
-//            
-//            }
-//            
-//            NSLog(@"social开关按钮为%@",isOn?@"YES":@"NO");
-//            [SKUserDefaults setBool:isOn forKey:@"socialPower"];
-//            [SKUserDefaults synchronize];
-//        }
+        {
+
+            
+            BOOL socialTurnedOn = [SKUserDefaults boolForKey:@"socialTurnedOn"];
+            
+            if (isOn == YES && socialTurnedOn == NO) {
+                SMSocialDescriptionViewController *description = [[SMSocialDescriptionViewController alloc]initWithNibName:@"SMSocialDescriptionViewController" bundle:nil];
+            [self.navigationController pushViewController:description animated:YES];
+            }else{
+            
+            }
+            
+            NSLog(@"social开关按钮为%@",isOn?@"YES":@"NO");
+            [SKUserDefaults setBool:isOn forKey:@"socialPower"];
+            [SKUserDefaults synchronize];
+        }
             break;
             
         case 5:// 响应灵敏度开关
@@ -538,7 +545,9 @@ static BOOL isUserClick;
         contact.countriesName = @"UNITED STATES";
     }
 
-    [SMMessageManager emergencyPower:YES];
+    [SKUserDefaults setBool:YES forKey:@"emergencyPower"];
+
+    //[SMMessageManager emergencyPower:YES];
     
     NationalListViewController *national = [[NationalListViewController alloc]initWithNibName:@"NationalListViewController" bundle:nil];
     national.contact = contact;
@@ -642,6 +651,13 @@ static BOOL isUserClick;
         NSLog(@"键盘高度是  %d",height);
         NSLog(@"键盘宽度是  %d",width);
         
+        if (keyboardHeight == 216 || keyboardHeight == 0) {
+            keyboardHeight = 289;
+        }
+        
+        if (keyboardHeight == 184) {
+            keyboardHeight = 253;
+        }
         
         CGFloat ratio = 0;
         
@@ -649,7 +665,7 @@ static BOOL isUserClick;
         if(SCREEN_HEIGHT == 568) ratio = SCREEN_HEIGHT/667;
         if(SCREEN_HEIGHT == 736) ratio = SCREEN_HEIGHT/667;
         
-        CGFloat textHeight = self.textView.frame.origin.y + self.textView.frame.size.height;
+        CGFloat textHeight = self.textView.frame.origin.y + self.textView.frame.size.height ;
         
         textHeight = textHeight*ratio;
         
@@ -731,6 +747,10 @@ static BOOL isUserClick;
         return NO;
     }
     return YES;
+}
+
+- (void)postSiderbarNotification{
+    [self.textView resignFirstResponder];
 }
 
 - (void)applicationWillResignActive{

@@ -358,7 +358,7 @@
         [smartRemind setBool:powerConfig.AntilostPower forKey:@"antilostPower"];
         [smartRemind setBool:!powerConfig.DisVib forKey:@"vib"];
         [smartRemind setBool:!powerConfig.DisFlash forKey:@"flash"];
-        [smartRemind setBool:powerConfig.EmergencyPower forKey:@"emergencyPower"];
+        //[smartRemind setBool:powerConfig.EmergencyPower forKey:@"emergencyPower"];
         
         
         if (powerConfig.AntilostPower == YES) {
@@ -412,7 +412,7 @@
     NSUserDefaults *sos = [NSUserDefaults standardUserDefaults];
     NSData *savedata = [NSKeyedArchiver archivedDataWithRootObject:config];
     [sos setObject:savedata forKey:@"emergency_power_config"];
-    [sos setBool:config.EmergencyPower forKey:@"emergencyPower"];
+    [sos setBool:setOn forKey:@"emergencyPower"];
     [sos synchronize];
 }
 

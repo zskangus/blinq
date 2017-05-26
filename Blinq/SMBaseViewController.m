@@ -135,4 +135,13 @@
     
 }
 
+- (NSMutableAttributedString*)setAlertControllerWithStrring:(NSString*)string fontSize:(NSInteger)size spacing:(NSInteger)spacing{
+    //修改message
+    NSMutableAttributedString *alertControllerStrring = [[NSMutableAttributedString alloc] initWithString:string];
+    [alertControllerStrring addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:size] range:NSMakeRange(0, string.length)];
+    [alertControllerStrring addAttribute:NSKernAttributeName value:[NSNumber numberWithInteger:spacing] range:NSMakeRange(0, string.length)];
+    
+    return alertControllerStrring;
+}
+
 @end

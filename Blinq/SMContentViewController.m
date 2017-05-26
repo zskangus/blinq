@@ -508,6 +508,16 @@ static NSInteger checkCount;
         
         [alertController addAction:okAction];
         
+        if (![self isBlankString:title]) {
+            [alertController setValue:[self setAlertControllerWithStrring:title fontSize:17 spacing:1.85] forKey:@"attributedTitle"];
+        }
+        
+        if (![self isBlankString:body]) {
+            [alertController setValue:[self setAlertControllerWithStrring:body fontSize:14 spacing:1.85]  forKey:@"attributedMessage"];;
+        }
+
+        
+        
         [self presentViewController:alertController animated:YES completion:nil];
         
     }
@@ -543,6 +553,15 @@ static NSInteger checkCount;
     
 
     
+}
+
+- (NSMutableAttributedString*)setAlertControllerWithStrring:(NSString*)string fontSize:(NSInteger)size spacing:(NSInteger)spacing{
+    //修改message
+    NSMutableAttributedString *alertControllerStrring = [[NSMutableAttributedString alloc] initWithString:string];
+    [alertControllerStrring addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:size] range:NSMakeRange(0, string.length)];
+    [alertControllerStrring addAttribute:NSKernAttributeName value:[NSNumber numberWithInteger:spacing] range:NSMakeRange(0, string.length)];
+    
+    return alertControllerStrring;
 }
 
 - (void)detectionAppVersion{

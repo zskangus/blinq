@@ -950,8 +950,8 @@
 		73D393731CAA68B6007EA376 /* SOSemergency */ = {
 			isa = PBXGroup;
 			children = (
-				73F858011CBA985C005170E8 /* ContactSOSSelect(紧急联系人选择界面) */,
 				7328E88D1D9BB34B000E0EFF /* tool */,
+				73F858011CBA985C005170E8 /* ContactSOSSelect(紧急联系人选择界面) */,
 				73D393741CAA68D1007EA376 /* controller */,
 			);
 			name = SOSemergency;

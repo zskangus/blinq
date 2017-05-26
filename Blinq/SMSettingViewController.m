@@ -212,6 +212,10 @@ static NSString * const settingCell = @"SettingCell";
         
         [alertController addAction:okAction];
         
+        [alertController setValue:[self setAlertControllerWithStrring:@"TIP" fontSize:17 spacing:1.85] forKey:@"attributedTitle"];
+        
+        [alertController setValue:[self setAlertControllerWithStrring:@"DISCONNECTED" fontSize:14 spacing:1.85]  forKey:@"attributedMessage"];
+        
         [self presentViewController:alertController animated:YES completion:nil];
         
         return;
@@ -228,6 +232,10 @@ static NSString * const settingCell = @"SettingCell";
         
         
         [alertController addAction:okAction];
+        
+        [alertController setValue:[self setAlertControllerWithStrring:@"TIP" fontSize:17 spacing:1.85] forKey:@"attributedTitle"];
+        
+        [alertController setValue:[self setAlertControllerWithStrring:@"NETWORK UNAVAILABLE.CHECK NETWORK" fontSize:14 spacing:1.85]  forKey:@"attributedMessage"];
         
         [self presentViewController:alertController animated:YES completion:nil];
         
@@ -272,7 +280,10 @@ static NSString * const settingCell = @"SettingCell";
 
 - (void)timeout{
     
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"TIP" message:@"CONNECTION FAILS" preferredStyle:UIAlertControllerStyleAlert];
+    NSString *titleStr = @"TIP";
+    NSString *messageStr = @"CONNECTION FAILED";
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"TIP" message:@"CONNECTION FAILED" preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
@@ -280,6 +291,20 @@ static NSString * const settingCell = @"SettingCell";
     
     
     [alertController addAction:okAction];
+    
+    //修改title
+    NSMutableAttributedString *alertControllerTitleStr = [[NSMutableAttributedString alloc] initWithString:titleStr];
+    [alertControllerTitleStr addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:17] range:NSMakeRange(0, titleStr.length)];
+    [alertControllerTitleStr addAttribute:NSKernAttributeName value:@1.85 range:NSMakeRange(0, titleStr.length)];
+    
+    //修改message
+    NSMutableAttributedString *alertControllerMessageStr = [[NSMutableAttributedString alloc] initWithString:[messageStr uppercaseString]];
+    [alertControllerMessageStr addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:14] range:NSMakeRange(0, messageStr.length)];
+    [alertControllerMessageStr addAttribute:NSKernAttributeName value:@1.85 range:NSMakeRange(0, messageStr.length)];
+    
+    [alertController setValue:alertControllerTitleStr forKey:@"attributedTitle"];
+    
+    [alertController setValue:alertControllerMessageStr forKey:@"attributedMessage"];
     
     [self presentViewController:alertController animated:YES completion:nil];
     

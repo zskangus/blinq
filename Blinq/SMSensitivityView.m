@@ -34,21 +34,22 @@
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     
-    UIImageView *bgImage = [[UIImageView alloc]initWithFrame:CGRectMake(19.5, 40/2-21.5/2,336, 21.5)];
+    UIImageView *bgImage = [[UIImageView alloc]initWithFrame:CGRectMake(20.5, 40/2-21.5/2,334, 21.5)];
     [bgImage setImage:[UIImage imageNamed:@"slider_background"]];
     
     [self addSubview:bgImage];
     
-    UIButton *removeBtn = [[UIButton alloc]initWithFrame:CGRectMake(16, 0, 40, 40)];
+    UIButton *removeBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 56, 56)];
     [removeBtn setImage:[UIImage imageNamed:@"slider_remove"] forState:UIControlStateNormal];
     removeBtn.tag = 1;
     [removeBtn addTarget:self action:@selector(buttonEvent:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:removeBtn];
     
-    UIButton *addBtn = [[UIButton alloc]initWithFrame:CGRectMake(319, 0, 40, 40)];
+    UIButton *addBtn = [[UIButton alloc]initWithFrame:CGRectMake(319, 0, 56, 56)];
     addBtn.tag = 2;
     [addBtn setImage:[UIImage imageNamed:@"slider_add"] forState:UIControlStateNormal];
     [addBtn addTarget:self action:@selector(buttonEvent:) forControlEvents:UIControlEventTouchUpInside];
+    //addBtn.backgroundColor = [UIColor blackColor];
     [self addSubview:addBtn];
     
     self.thumb = [[UIImageView alloc]initWithFrame:CGRectMake(self.frame.size.width/2-40/2, 40/2-40/2, 40, 40)];
@@ -126,7 +127,7 @@
                 
                 NSInteger count = (niuThumbCenter.x - 36.5) / 30.2;
                 
-                //NSLog(@"%ld",(long)count);
+                NSLog(@"%ld",(long)count);
                 
                 center.x = 36.5 + count * 30.2;
                 
@@ -139,9 +140,12 @@
             break;
         case UIGestureRecognizerStateEnded:
         {
-            CGPoint center = self.thumb.center;
+            CGPoint center = self.niuthumb.center;
             
             NSInteger count = (center.x - 36.5) / 30.2;
+            
+            NSLog(@"%ldsdsdsd",(long)count);
+
             
             self.niuthumb.center = self.thumb.center;
 
@@ -169,15 +173,27 @@
     switch (button.tag) {
         case 1:
             NSLog(@"减");
+            
+            if (self.countLevel == 0) {
+                return;
+            }
+            
             self.countLevel--;
             break;
         case 2:
+            
+            if (self.countLevel == 10) {
+                return;
+            }
+            
             self.countLevel++;
             break;
             
         default:
             break;
     }
+    
+    NSLog(@"%ld",self.countLevel);
     
     // 把中心点赋给图片
     center.x = 36.5 + self.countLevel * 30.2;

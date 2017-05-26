@@ -218,6 +218,8 @@ static NSString * const manAgeContactAlertsCell = @"ManAgeContactAlertsCell";
             
             [alertController addAction:okAction];
             
+            [alertController setValue:[self setAlertControllerWithStrring:@"PLEASE MANAGE SELECTED CONTACTS" fontSize:14 spacing:1.85]  forKey:@"attributedMessage"];
+            
             [self presentViewController:alertController animated:YES completion:nil];
             
         }];

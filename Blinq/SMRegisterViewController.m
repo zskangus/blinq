@@ -246,6 +246,7 @@ static int keyboardHeight;
             
         }];
         
+        [alertController setValue:[self setAlertControllerWithStrring:@"PLEASE FILL IN ALL FIELDS TO CONTINUE" fontSize:14 spacing:1.85]  forKey:@"attributedMessage"];
         
         [alertController addAction:okAction];
         
@@ -265,6 +266,10 @@ static int keyboardHeight;
             
             [alertController addAction:okAction];
             
+            [alertController setValue:[self setAlertControllerWithStrring:@"WARNING" fontSize:17 spacing:1.85] forKey:@"attributedTitle"];
+            
+            [alertController setValue:[self setAlertControllerWithStrring:@"NETWORK UNAVAILABLE.CHECK NETWORK" fontSize:14 spacing:1.85]  forKey:@"attributedMessage"];
+            
             [self presentViewController:alertController animated:YES completion:nil];
             
             return;
@@ -279,6 +284,8 @@ static int keyboardHeight;
                 }];
                 
                 [alertController addAction:okAction];
+                
+                [alertController setValue:[self setAlertControllerWithStrring:@"NTHE EMAIL ADDRESS YOU ENTERED IS NOT VALID" fontSize:14 spacing:1.85]  forKey:@"attributedMessage"];
                 
                 [self presentViewController:alertController animated:YES completion:nil];
                 
