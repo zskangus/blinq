@@ -782,7 +782,7 @@ static NSInteger checkCount;
                 //faceBook
                 NSString *description = [[NSString alloc]init];
                 
-                description = [NSString stringWithFormat:@"EMERGENCY: I need help or i am currently in trouble. Please try to contact me immediately to make sure this isn't a false alarm. If I am unresponsive please send help to the following location right away. This message was sent from Blinq Smart Ring's Emergency Social S.O.S. system."];
+                description = [NSString stringWithFormat:@"EMERGENCY: I need help or I am currently in trouble. Please try to contact me immediately to make sure this isn't a false alarm. If I am unresponsive please send help to the following location right away. This message was sent from Blinq Smart Ring's Emergency Social S.O.S. system."];
                 
                 NSString *url = [NSString stringWithFormat:@"https://maps.google.com/maps?q=%f,%f",currentUserCoordinate.latitude,currentUserCoordinate.longitude];
                 

@@ -451,6 +451,7 @@ static Byte category;
         
         if ([self checkContactName:contact callName:sendAppName]) {
             vip(contact);
+            return;
         }
     }
     

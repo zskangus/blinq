@@ -11,7 +11,7 @@
 "sos_sms" = "I need your help right now";
 "sos_sms_have_name" = "needs your help right now";
 "sos_occurred_sent_message"="SOS EMERGENCY MESSAGE HAS BEEN SENT SUCCESSFULLY";
-"sos_occurred_post_to_facebook"="SOS EMERGENCY MESSAGE HAS BEEN POST TO FACEBOOK.";
+"sos_occurred_post_to_facebook"="SOS EMERGENCY MESSAGE HAS BEEN POSTED TO FACEBOOK.";
 "sos_message_sent_failure" = "SOS EMERGENCY MESSAGE SENT FAILURE.";
 "sos_Location_services_title" = "LOCATION SERVICES OFF";
 "sos_Location_services" = "TURN ON LOCATION SERVICES IN SETTINGS > PRIVACY TO ALLOW BLINQ TO DETERMINE YOUR CURRENT LOCATION";
