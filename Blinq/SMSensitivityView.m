@@ -70,12 +70,12 @@
     
     
     UILabel *low = [[UILabel alloc]initWithFrame:CGRectMake(16, 40, 40, 15)];
-    [SKAttributeString setLabelFontContent2:low title:@"LOW" font:Avenir_Book Size:10 spacing:1.53 color:[UIColor whiteColor]];
+    [SKAttributeString setLabelFontContent2:low title:@"EASY" font:Avenir_Book Size:8 spacing:1.53 color:[UIColor whiteColor]];
     low.textAlignment = NSTextAlignmentCenter;
     [self addSubview:low];
     
-    UILabel *high = [[UILabel alloc]initWithFrame:CGRectMake(319, 40, 40, 15)];
-    [SKAttributeString setLabelFontContent2:high title:@"HIGH" font:Avenir_Book Size:10 spacing:1.53 color:[UIColor whiteColor]];
+    UILabel *high = [[UILabel alloc]initWithFrame:CGRectMake(314, 40, 50, 15)];
+    [SKAttributeString setLabelFontContent2:high title:@"DIFFICULT" font:Avenir_Book Size:8 spacing:1.53 color:[UIColor whiteColor]];
     high.textAlignment = NSTextAlignmentCenter;
     [self addSubview:high];
     

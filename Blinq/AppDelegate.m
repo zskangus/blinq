@@ -252,48 +252,48 @@ static NSTimeInterval inComingCallTime = 0;
     
     switch (sensitivityLevel) {
         case 0:
-            level.Count = 15;
-            level.DPercent = 12.0 / 15;
+            level.Count = 5;
+            level.DPercent = 4.0 / 5;
             break;
         case 1:
-            level.Count = 14;
-            level.DPercent = 12.0 / 14;
+            level.Count = 6;
+            level.DPercent = 4.0 / 6;
             break;
         case 2:
-            level.Count = 13;
-            level.DPercent = 10.0 / 13;
+            level.Count = 7;
+            level.DPercent = 6.0 / 7;
             break;
         case 3:
-            level.Count = 12;
-            level.DPercent = 10.0 / 12;
+            level.Count = 8;
+            level.DPercent = 6.0 / 8;
             break;
         case 4:
-            level.Count = 11;
-            level.DPercent = 8.0 / 11;
+            level.Count = 9;
+            level.DPercent = 8.0 / 9;
             break;
         case 5:
             level.Count = 10;
             level.DPercent = 8.0 / 10;
             break;
         case 6:
-            level.Count = 9;
-            level.DPercent = 8.0 / 9;
+            level.Count = 11;
+            level.DPercent = 8.0 / 11;
             break;
         case 7:
-            level.Count = 8;
-            level.DPercent = 6.0 / 8;
+            level.Count = 12;
+            level.DPercent = 10.0 / 12;
             break;
         case 8:
-            level.Count = 7;
-            level.DPercent = 6.0 / 7;
+            level.Count = 13;
+            level.DPercent = 10.0 / 13;
             break;
         case 9:
-            level.Count = 6;
-            level.DPercent = 4.0 / 6;
+            level.Count = 14;
+            level.DPercent = 12.0 / 14;
             break;
         case 10:
-            level.Count = 5;
-            level.DPercent = 4.0 / 5;
+            level.Count = 15;
+            level.DPercent = 12.0 / 15;
             break;
         default:
             break;
