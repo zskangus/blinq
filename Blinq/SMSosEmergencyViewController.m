@@ -139,51 +139,63 @@ static BOOL isUserClick;
         [sensitivityInfo setInteger:sensitivityLevel forKey:@"sensitivityLevel"];
         
         SOSLevel level;
-
-        level.Count = 20 - (int)sensitivityLevel;
+        
         level.TLimit = 500;
         level.TWindow = 0;
-
-        switch (level.Count) {
-            case 20:
-                level.DPercent = 16.0 / level.Count;
+        
+        switch (sensitivityLevel) {
+            case 0:
+                level.Count = 15;
+                level.DPercent = 12.0 / 15;
                 break;
-            case 19:
-                level.DPercent = 16.0 / level.Count;
+            case 1:
+                level.Count = 14;
+                level.DPercent = 12.0 / 14;
                 break;
-            case 18:
-                level.DPercent = 16.0 / level.Count;
+            case 2:
+                level.Count = 13;
+                level.DPercent = 10.0 / 13;
                 break;
-            case 17:
-                level.DPercent = 14.0 / level.Count;
+            case 3:
+                level.Count = 12;
+                level.DPercent = 10.0 / 12;
                 break;
-            case 16:
-                level.DPercent = 14.0 / level.Count;
+            case 4:
+                level.Count = 11;
+                level.DPercent = 8.0 / 11;
                 break;
-            case 15:
-                level.DPercent = 12.0 / level.Count;
+            case 5:
+                level.Count = 10;
+                level.DPercent = 8.0 / 10;
                 break;
-            case 14:
-                level.DPercent = 12.0 / level.Count;
+            case 6:
+                level.Count = 9;
+                level.DPercent = 8.0 / 9;
                 break;
-            case 13:
-                level.DPercent = 10.0 / level.Count;
+            case 7:
+                level.Count = 8;
+                level.DPercent = 6.0 / 8;
                 break;
-            case 12:
-                level.DPercent = 10.0 / level.Count;
+            case 8:
+                level.Count = 7;
+                level.DPercent = 6.0 / 7;
                 break;
-            case 11:
-                level.DPercent = 8.0 / level.Count;
+            case 9:
+                level.Count = 6;
+                level.DPercent = 4.0 / 6;
                 break;
             case 10:
-                level.DPercent = 8.0 / level.Count;
+                level.Count = 5;
+                level.DPercent = 4.0 / 5;
                 break;
             default:
                 break;
         }
         
-        NSLog(@"次数%d -- 百分比%f",level.Count,level.DPercent);
-        [[SMSOSCheckAlgorithmService sharedSMSOSCheckAlgorithmService] setLevel:level];
+        
+        NSLog(@"灵敏度等级%d -- 百分比%f",level.Count,level.DPercent);
+        
+        [[SMSOSCheckAlgorithmService sharedSMSOSCheckAlgorithmService]setLevel:level];
         
     }];
     
