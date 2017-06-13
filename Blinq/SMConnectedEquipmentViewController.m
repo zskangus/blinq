@@ -17,6 +17,8 @@
 
 #import "otaUpdateProgress.h"
 
+#import "SKTimerManager.h"
+
 @interface SMConnectedEquipmentViewController ()
 {
     
@@ -35,6 +37,8 @@
 @property(nonatomic,strong)otaUpdateProgress *progress2;
 @property(nonatomic,strong)otaUpdateProgress *progress3;
 @property(nonatomic,strong)otaUpdateProgress *progress4;
+
+@property(nonatomic,strong)SKTimerManager *bleConnectTimer;
 
 @end
 
@@ -118,17 +122,24 @@ static NSInteger _seconds;
         [self.timer setFireDate:[NSDate distantFuture]];
         self.timer = nil;
         
-        // 连接失败进图 失败界面
+        [self.ble connectDeviceFromBluetoothlList];
         
-        if (screenHeight == 480) {
-            SMConnectionFailureViewController *failure = [[SMConnectionFailureViewController alloc]initWithNibName:@"SMConnectionFailureViewController_ip4" bundle:nil];
-            [self presentViewController:failure animated:YES completion:nil];
+        self.bleConnectTimer = [[SKTimerManager alloc]init];
+        [self.bleConnectTimer createTimerWithType:TimerType_create_open updateInterval:5 repeatCount:1 update:^{
+            // 连接失败进图 失败界面
+            
+            if (screenHeight == 480) {
+                SMConnectionFailureViewController *failure = [[SMConnectionFailureViewController alloc]initWithNibName:@"SMConnectionFailureViewController_ip4" bundle:nil];
+                [self presentViewController:failure animated:YES completion:nil];
+                
+            }else{
+                SMConnectionFailureViewController *failure = [[SMConnectionFailureViewController alloc]initWithNibName:@"SMConnectionFailureViewController" bundle:nil];
+                [self presentViewController:failure animated:YES completion:nil];
+                
+            }
+        }];
+        
 
-        }else{
-            SMConnectionFailureViewController *failure = [[SMConnectionFailureViewController alloc]initWithNibName:@"SMConnectionFailureViewController" bundle:nil];
-            [self presentViewController:failure animated:YES completion:nil];
-
-        }
     }
     
     
@@ -179,6 +190,8 @@ static NSInteger _seconds;
     //关闭定时器
     [self.timer invalidate];
     self.timer = nil;
+    
+    [self.bleConnectTimer stopTimer];
     
     [[NSNotificationCenter defaultCenter]removeObserver:self];
 }

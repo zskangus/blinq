@@ -61,4 +61,7 @@
 - (void)readBatteryLevel;
 - (void)readBatteryState;
 - (void)readFirmwareVersion;
+
+- (void)connectDeviceFromBluetoothlList;
+
 @end

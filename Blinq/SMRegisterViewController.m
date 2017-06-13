@@ -285,7 +285,7 @@ static int keyboardHeight;
                 
                 [alertController addAction:okAction];
                 
-                [alertController setValue:[self setAlertControllerWithStrring:@"NTHE EMAIL ADDRESS YOU ENTERED IS NOT VALID" fontSize:14 spacing:1.85]  forKey:@"attributedMessage"];
+                [alertController setValue:[self setAlertControllerWithStrring:@"THE EMAIL ADDRESS YOU ENTERED IS NOT VALID" fontSize:14 spacing:1.85]  forKey:@"attributedMessage"];
                 
                 [self presentViewController:alertController animated:YES completion:nil];
                 

@@ -606,65 +606,23 @@ static BTServer* _defaultBTServer = nil;
    
 }
 
-// 从蓝牙列表里查已配对过的外设
-- (void)retrieveConnectedPeripherals{
-    
-    // 取出上次连接成功后，存的 peripheral identifier
-    NSString *lastPeripheralIdentifierConnected = [[NSUserDefaults standardUserDefaults] objectForKey:LastPeriphrealIdentifierConnectedKey];
-    // 如果没有，则不做任何操作，说明需要用户点击开始扫描的按钮，进行手动搜索
-    if (lastPeripheralIdentifierConnected == nil || lastPeripheralIdentifierConnected.length == 0) {
-        NSLog(@"未连接过外设，启动扫描");
-        [self scan];
-        return;
-    }
-    
-    
-    
-    // 查看上次存入的 identifier 还能否找到 peripheral
-    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:lastPeripheralIdentifierConnected];
-    NSArray *peripherals = [self.centralManager retrievePeripheralsWithIdentifiers:@[uuid]];
-//    if (peripherals.count>0) {
-//        
-//        // 如果能找到则开始建立连接
-//        CBPeripheral *peripheral = [peripherals firstObject];
-//        
-//        // 注意保留 Peripheral 的引用
-//        self.peripherals = peripheral;
-//        NSLog(@"连接已绑定过的外设:%@",peripheral);
-//        
-//        [self.centralManager connectPeripheral:peripheral options:nil];
-//        
-//        [logMessage generateTheLogRecords:[NSString stringWithFormat:@"连接已绑定过的外设:%@",peripheral]];
-//    }else {
-//        
-//        NSLog(@"fail");
-//    }
-    
+- (void)connectDeviceFromBluetoothlList{
     CBUUID *service_uuid = [self IntToCBUUID:SPOTA_SERVICE_UUID];
     NSUUID *UUID1 = [[NSUUID alloc] initWithUUIDString:kCBAdvDataServceUUID];
     CBUUID *CBUUID1 = [CBUUID UUIDWithNSUUID:UUID1];
     
     NSArray *array = [[NSArray alloc]initWithObjects:CBUUID1,service_uuid, nil];
-    NSArray *peripherals2 =[self.centralManager retrieveConnectedPeripheralsWithServices:array];
+    NSArray *peripherals =[self.centralManager retrieveConnectedPeripheralsWithServices:array];
     
-        if (peripherals2.count>0) {
-    
-            // 如果能找到则开始建立连接
-            CBPeripheral *peripheral = [peripherals firstObject];
-            
-            if ([peripheral.identifier.UUIDString isEqualToString:lastPeripheralIdentifierConnected]) {
-                // 注意保留 Peripheral 的引用
-                self.peripherals = peripheral;
-                NSLog(@"连接已绑定过的外设:%@",peripheral);
-                
-                [self.centralManager connectPeripheral:peripheral options:nil];
-                
-            }
+    for (CBPeripheral *peripheral in peripherals) {
+        self.peripherals = peripheral;
+        //if (peripheral.state == CBPeripheralStateConnecting || peripheral.state == CBPeripheralStateConnected) {
+            [self.centralManager connectPeripheral:self.peripherals options:nil];
+            return;
+        //}
+        NSLog(@"蓝牙列表的外设=:%@",peripheral);
+    }
 
-        }else {
-            [self scan];
-            NSLog(@"fail");
-        }
 }
 
 

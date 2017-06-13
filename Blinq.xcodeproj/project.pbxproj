@@ -146,6 +146,7 @@
 		7383BE901CB53A71006EC0A9 /* SMDateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7383BE8A1CB53A71006EC0A9 /* SMDateUtil.m */; };
 		7383BE911CB53A71006EC0A9 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7383BE8C1CB53A71006EC0A9 /* Utils.m */; };
 		73892D2C1DD0237000115D62 /* SOS emergency CONTACT.png in Resources */ = {isa = PBXBuildFile; fileRef = 73892D2B1DD0237000115D62 /* SOS emergency CONTACT.png */; };
+		739ACCE21EEA963E0043D838 /* SKTimerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 739ACCE11EEA963E0043D838 /* SKTimerManager.m */; };
 		73C87B471D58242500E0F672 /* otaUpdateFaildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C87B451D58242500E0F672 /* otaUpdateFaildViewController.m */; };
 		73C87B481D58242500E0F672 /* otaUpdateFaildViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73C87B461D58242500E0F672 /* otaUpdateFaildViewController.xib */; };
 		73C87B4B1D58696500E0F672 /* SMBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C87B4A1D58696500E0F672 /* SMBaseTableViewController.m */; };
@@ -450,6 +451,8 @@
 		7383BE8B1CB53A71006EC0A9 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		7383BE8C1CB53A71006EC0A9 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		73892D2B1DD0237000115D62 /* SOS emergency CONTACT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SOS emergency CONTACT.png"; sourceTree = "<group>"; };
+		739ACCE01EEA963E0043D838 /* SKTimerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKTimerManager.h; sourceTree = "<group>"; };
+		739ACCE11EEA963E0043D838 /* SKTimerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKTimerManager.m; sourceTree = "<group>"; };
 		73C87B441D58242500E0F672 /* otaUpdateFaildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = otaUpdateFaildViewController.h; sourceTree = "<group>"; };
 		73C87B451D58242500E0F672 /* otaUpdateFaildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = otaUpdateFaildViewController.m; sourceTree = "<group>"; };
 		73C87B461D58242500E0F672 /* otaUpdateFaildViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = otaUpdateFaildViewController.xib; sourceTree = "<group>"; };
@@ -640,6 +643,8 @@
 				730F12A01D51946C00AAD594 /* SKAttributeString.m */,
 				73461C361DD4756500F3DE59 /* SKViewTransitionManager.h */,
 				73461C371DD4756500F3DE59 /* SKViewTransitionManager.m */,
+				739ACCE01EEA963E0043D838 /* SKTimerManager.h */,
+				739ACCE11EEA963E0043D838 /* SKTimerManager.m */,
 				73D0AB311D9A6197008ACE89 /* transform.c */,
 				73D0AB321D9A6197008ACE89 /* transform.h */,
 				7330D03A1DFD6C9B0049850D /* SKFTPManager.h */,
@@ -1669,6 +1674,7 @@
 				730473421D9BE51C001B5BAF /* countriesModel.m in Sources */,
 				7383BE691CB53A50006EC0A9 /* APPSManager.m in Sources */,
 				7383BE631CB53A50006EC0A9 /* SmartDeviceManager.m in Sources */,
+				739ACCE21EEA963E0043D838 /* SKTimerManager.m in Sources */,
 				732FA3851E31AA6100AB2B80 /* SKNotificationIntroduce.m in Sources */,
 				73F2C7E21CC7639600226197 /* CustomProgress.m in Sources */,
 				73E682B11D5B25C500F873BE /* NSArray+decription.m in Sources */,
