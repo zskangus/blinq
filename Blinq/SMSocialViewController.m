@@ -76,7 +76,7 @@ static BOOL isUserClick = NO;
 - (void)removeSocialDescriptionVc{
     //得到当前视图控制器中的所有控制器
     NSMutableArray *array = [self.navigationController.viewControllers mutableCopy];
-    NSLog(@"%d",array.count);
+    NSLog(@"%lu",(unsigned long)array.count);
     if (array.count >= 3) {
         //把SocialDescriptionVc从里面删除
         [array removeObjectAtIndex:1];
