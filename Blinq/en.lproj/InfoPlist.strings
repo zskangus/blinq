@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  Blinq
+
+  Created by zsk on 2017/6/15.
+  Copyright © 2017年 zsk. All rights reserved.
+*/
+
+NSLocationAlwaysUsageDescription = "We need to know your location when sending SOS information. Select \“Allow\" to enable SOS distress functions.";

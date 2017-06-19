@@ -26,6 +26,7 @@
 
 @property(nonatomic,strong)NSTimer *vibrate;// 控制震动
 
+@property (weak, nonatomic) IBOutlet UILabel *playTitle;
 @property(nonatomic,assign)BOOL isStart;
 
 @end
@@ -63,9 +64,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [SKAttributeString setButtonFontContent:self.vibrateBtn title:@"VIBRATE" font:Avenir_Black Size:15 spacing:2.46 color:[UIColor whiteColor] forState:UIControlStateNormal];
+    [SKAttributeString setLabelFontContent:self.playTitle title:NSLocalizedString(@"play_page_title", nil) font:Avenir_Light Size:11 spacing:3.3 color:[UIColor whiteColor]];
     
-    [SKAttributeString setButtonFontContent:self.pulseBtn title:@"PULSE" font:Avenir_Black Size:15 spacing:2.46 color:[UIColor whiteColor] forState:UIControlStateNormal];
+    [SKAttributeString setButtonFontContent:self.vibrateBtn title:NSLocalizedString(@"play_page_vibBtn_title", nil) font:Avenir_Black Size:15 spacing:2.46 color:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    [SKAttributeString setButtonFontContent:self.pulseBtn title:NSLocalizedString(@"play_page_pulseBtn_title", nil) font:Avenir_Black Size:15 spacing:2.46 color:[UIColor whiteColor] forState:UIControlStateNormal];
     
     self.view.transform = CGAffineTransformMakeScale([UIScreen mainScreen].bounds.size.width / 375, [UIScreen mainScreen].bounds.size.width / 375);
     

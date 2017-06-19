@@ -10,7 +10,7 @@
 #import "SMMainMenuCell.h"
 #import "SMStartupViewController.h"
 #import "SMSSidebarViewController.h"
-
+#import "SKAttributeString.h"
 #import "BTServer.h"
 
 #import "SMAppTool.h"
@@ -38,7 +38,12 @@ static NSString * const mainMeunCell = @"MainMenuCell";
 
 - (NSArray *)labelArray{
     if (!_labelArray) {
-        _labelArray = @[@"NOTIFICATIONS",@"CONTACTS",@"PLAY",@"SOS EMERGENCY",@"SETTINGS",@"HELP"];
+        
+        if ([NSLocalizedString(@"language", nil)isEqualToString:@"German"]) {
+            _labelArray = @[@"BENACHRICHTIGUNGEN",@"KONTAKTE",@"ABSPIELEN",@"SOS NOTFALL",@"EINSTELLUNGEN",@"HILFE"];
+        }else{
+            _labelArray = @[@"NOTIFICATIONS",@"CONTACTS",@"PLAY",@"SOS EMERGENCY",@"SETTINGS",@"HELP"];
+        }
     }
     return _labelArray;
 }
@@ -62,6 +67,15 @@ static NSString * const mainMeunCell = @"MainMenuCell";
     [SKAttributeString setButtonFontContent:self.unpairBtn title:@"UNPAIR MY RING" font:Avenir_Book Size:16 spacing:2.46 color:[UIColor whiteColor] forState:UIControlStateNormal];
     
     [self SetupNavigationBarColorAndLogo];
+    
+    
+    if ([NSLocalizedString(@"language", nil)isEqualToString:@"German"]) {
+        [SKAttributeString setButtonFontContent:self.unpairBtn title:NSLocalizedString(@"unpairButton_title", nil) font:Avenir_Heavy Size:15 spacing:2.5 color:[UIColor whiteColor] forState:UIControlStateNormal];
+        self.unpairBtn.titleLabel.lineBreakMode = 0;
+
+    }else{
+        [SKAttributeString setButtonFontContent:self.unpairBtn title:NSLocalizedString(@"unpairButton_title", nil) font:Avenir_Heavy Size:18 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
+    }
 }
 
 - (void)SetupNavigationBarColorAndLogo{
@@ -96,14 +110,15 @@ static NSString * const mainMeunCell = @"MainMenuCell";
 
 - (IBAction)UNPIRMYRING:(id)sender {
     
-    NSString *str = @"This operation will unpair your phone and the ring. If you want to pair a new ring, you also need to forget the paired ring in 'Settings -> Bluetooth'. Continue to unpair the ring?";
+    NSString *titleStr = NSLocalizedString(@"warning", nil);
+    NSString *str = NSLocalizedString(@"unpairDescribe", nil);
     
     // 蓝牙的取消
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"WARNING" message:[str uppercaseString] preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:titleStr message:[str uppercaseString] preferredStyle:UIAlertControllerStyleAlert];
     
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"NO" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"no", nil) style:UIAlertActionStyleCancel handler:nil];
     
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"YES" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"yes", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
         [SKUserDefaults setBool:NO forKey:isBinding];
         
@@ -119,9 +134,9 @@ static NSString * const mainMeunCell = @"MainMenuCell";
     [alertController addAction:okAction];
     
     //修改title
-    NSMutableAttributedString *alertControllerTitleStr = [[NSMutableAttributedString alloc] initWithString:@"WARNING"];
-    [alertControllerTitleStr addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:17] range:NSMakeRange(0, @"WARNING".length)];
-    [alertControllerTitleStr addAttribute:NSKernAttributeName value:@1.85 range:NSMakeRange(0, @"WARNING".length)];
+    NSMutableAttributedString *alertControllerTitleStr = [[NSMutableAttributedString alloc] initWithString:titleStr];
+    [alertControllerTitleStr addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:17] range:NSMakeRange(0, titleStr.length)];
+    [alertControllerTitleStr addAttribute:NSKernAttributeName value:@1.85 range:NSMakeRange(0, titleStr.length)];
     
     //修改message
     NSMutableAttributedString *alertControllerMessageStr = [[NSMutableAttributedString alloc] initWithString:[str uppercaseString]];
@@ -155,7 +170,12 @@ static NSString * const mainMeunCell = @"MainMenuCell";
     
     cell.cellImange.image = [UIImage imageNamed:self.imageArray[indexPath.row]];
     
-    [SKAttributeString setLabelFontContent:cell.cellLabel title:self.labelArray[indexPath.row] font:Avenir_Book Size:16 spacing:2.46 color:[UIColor whiteColor]];
+    
+    if ([self.labelArray[indexPath.row] isEqualToString:@"BENACHRICHTIGUNGEN"]) {
+        [SKAttributeString setLabelFontContent:cell.cellLabel title:self.labelArray[indexPath.row] font:Avenir_Book Size:14 spacing:2.46 color:[UIColor whiteColor]];
+    }else{
+        [SKAttributeString setLabelFontContent:cell.cellLabel title:self.labelArray[indexPath.row] font:Avenir_Book Size:16 spacing:2.46 color:[UIColor whiteColor]];
+    }
     
     // 设置cell的背景为透明
     cell.backgroundColor=[UIColor clearColor];   

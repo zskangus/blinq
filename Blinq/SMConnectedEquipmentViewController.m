@@ -56,10 +56,9 @@
         [self.ble scan];
     }
     
-    [SKAttributeString setLabelFontContent:self.titleLabel title:@"PLEASE WAIT" font:Avenir_Black Size:36 spacing:5.4 color:[UIColor whiteColor]];
+    [SKAttributeString setLabelFontContent:self.titleLabel title:NSLocalizedString(@"connecting_page_title", nil) font:Avenir_Black Size:36 spacing:5.4 color:[UIColor whiteColor]];
     
-    [SKAttributeString setLabelFontContent:self.lebel title:@"WE ARE ATTEMPTING TO PAIR YOUR DEVICE. MAKE SURE YOUR RING IS CHARGED AND WITHIN RANGE." font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor]];
-    
+    [SKAttributeString setLabelFontContent:self.lebel title:NSLocalizedString(@"connecting_page_copyright", nil) font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor]];
 }
 
 - (void)viewWillAppear:(BOOL)animated{

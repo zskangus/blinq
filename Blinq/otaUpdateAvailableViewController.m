@@ -25,13 +25,22 @@
 }
 
 - (void)setupUi{
-    [SKAttributeString setLabelFontContent:self.titleLabel title:@"UPDATE AVAILABLE" font:Avenir_Black Size:32 spacing:4.8 color:[UIColor whiteColor]];
+    [SKAttributeString setLabelFontContent:self.titleLabel title:NSLocalizedString(@"update_available_page_title", nil) font:Avenir_Black Size:32 spacing:4.8 color:[UIColor whiteColor]];
     
-    [SKAttributeString setLabelFontContent:self.label title:@"PLEASE MAKE SURE YOUR RING IS CONNECTED TO THE CHARGER BEFORE YOU UPDATE TO ENSURE THAT IT STAYS CONNECTED." font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor]];
+    [SKAttributeString setLabelFontContent:self.label title:NSLocalizedString(@"update_available_page_lable", nil) font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor]];
     
-    [SKAttributeString setButtonFontContent:self.updateButton title:@"UPDATE NOW" font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
+    if ([NSLocalizedString(@"language", nil)isEqualToString:@"German"]) {
+        CGRect frame = self.label.frame;
+        //frame.size.width += 40;
+        frame.size.height += 40;
+        //frame.origin.x -= 20;
+        self.label.frame = frame;
+    }
     
-    [SKAttributeString setButtonFontContent:self.notNowButton title:@"NOT NOW" font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
+    [SKAttributeString setButtonFontContent:self.updateButton title:NSLocalizedString(@"update_available_page_buttonTitle1", nil) font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    [SKAttributeString setButtonFontContent:self.notNowButton title:NSLocalizedString(@"update_available_page_buttonTitle2", nil) font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
+
 }
 
 - (IBAction)updateButton:(id)sender {

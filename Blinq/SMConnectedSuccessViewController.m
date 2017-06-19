@@ -62,11 +62,13 @@
     
     [self batteryLevelUpdated];
     
-    [SKAttributeString setLabelFontContent:self.label1 title:@"YOUR RING IS NOW" font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor]];
+    [SKAttributeString setLabelFontContent:self.titleLabel title:NSLocalizedString(@"connect_successful_page_title", nil) font:Avenir_Black Size:36 spacing:5.4 color:[UIColor whiteColor]];
     
-    [SKAttributeString setLabelFontContent:self.label2 title:@"CONNECTED" font:Avenir_Heavy Size:24 spacing:3.6 color:[UIColor whiteColor]];
+    [SKAttributeString setLabelFontContent:self.label1 title:NSLocalizedString(@"connect_successful_page_label1", nil) font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor]];
+    
+    [SKAttributeString setLabelFontContent:self.label2 title:NSLocalizedString(@"connect_successful_page_label2", nil) font:Avenir_Heavy Size:24 spacing:3.6 color:[UIColor whiteColor]];
 
-    [SKAttributeString setButtonFontContent:self.getStarted title:@"GET STARTED" font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
+    [SKAttributeString setButtonFontContent:self.getStarted title:NSLocalizedString(@"connect_successful_page_label3", nil) font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
     NSLog(@"进入链接成功界面");
 
 }

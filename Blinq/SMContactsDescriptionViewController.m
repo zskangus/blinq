@@ -22,14 +22,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [SKAttributeString setLabelFontContent:self.titleLabel title:@"CONTACTS" font:Avenir_Black Size:44 spacing:6.6 color:[UIColor whiteColor]];
     
-    [SKAttributeString setLabelFontContent:self.label1 title:@"BLINQ LETS YOU CREATE DIFFERENT SETS OF ALERTS FOR CALLS AND TEXT MESSAGES THAT COME FROM SELECTED CONTACTS." font:Avenir_Heavy Size:13 spacing:3.9 color:[UIColor whiteColor]];
+    if ([NSLocalizedString(@"language", nil)isEqualToString:@"German"]) {
+        [SKAttributeString setLabelFontContent:self.titleLabel title:NSLocalizedString(@"contacts_page_title", nil) font:Avenir_Black Size:40 spacing:6.6 color:[UIColor whiteColor]];
+    }else{
+        [SKAttributeString setLabelFontContent:self.titleLabel title:NSLocalizedString(@"contacts_page_title", nil) font:Avenir_Black Size:44 spacing:6.6 color:[UIColor whiteColor]];
+    }
     
-    [SKAttributeString setLabelFontContent:self.label2 title:@"INCOMING ALERTS FROM THE FOLLOWING CONTACTS WILL LIGHT UP THE GEMSTONE FOR 5 SECONDS." font:Avenir_Heavy Size:15 spacing:4.5 color:[UIColor whiteColor]];
+    [SKAttributeString setLabelFontContent:self.label1 title:NSLocalizedString(@"contacts_page_label1", nil) font:Avenir_Heavy Size:13 spacing:3.9 color:[UIColor whiteColor]];
     
-    [SKAttributeString setButtonFontContent:self.okButton title:@"OK" font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
+    [SKAttributeString setLabelFontContent:self.label2 title:NSLocalizedString(@"contacts_page_label2", nil) font:Avenir_Heavy Size:15 spacing:4.5 color:[UIColor whiteColor]];
     
+    [SKAttributeString setButtonFontContent:self.okButton title:NSLocalizedString(@"contacts_page_buttonTitle", nil) font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
 }
 
 - (IBAction)goBack:(id)sender {

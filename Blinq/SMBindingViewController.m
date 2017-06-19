@@ -22,6 +22,7 @@
 @property(nonatomic,strong)SMConnectedEquipmentViewController *connectedEQ;
 @property (weak, nonatomic) IBOutlet UILabel *label;
 @property (weak, nonatomic) IBOutlet UIButton *pairBtn;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end
 
@@ -38,9 +39,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [SKAttributeString setLabelFontContent2:self.label title:@"PLEASE MAKE SURE YOUR BLUETOOTH IS TURNED ON AND PLACE YOUR RING IN THE MIDDLE TO CONTINUE." font:Avenir_Heavy Size:14 spacing:4.2 color:[UIColor whiteColor]];
+    [SKAttributeString setLabelFontContent:self.titleLabel title:NSLocalizedString(@"binding_page_title", nil) font:Avenir_Heavy Size:24 spacing:4.2 color:[UIColor whiteColor]];
     
-    [SKAttributeString setButtonFontContent:self.pairBtn title:@"PAIR NOW" font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
+    [SKAttributeString setLabelFontContent2:self.label title:NSLocalizedString(@"binding_page_describe", nil) font:Avenir_Heavy Size:14 spacing:4.2 color:[UIColor whiteColor]];
+    
+    [SKAttributeString setButtonFontContent:self.pairBtn title:NSLocalizedString(@"binding_page_buttonTitle", nil) font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+
 }
 
 - (IBAction)pairNow:(id)sender {

@@ -42,17 +42,30 @@
 }
 
 - (void)setupUi{
-    [SKAttributeString setLabelFontContent:self.titleLabel title:@"SUCCESSFUL" font:Avenir_Black Size:36 spacing:5.4 color:[UIColor whiteColor]];
+
     
-    [SKAttributeString setLabelFontContent:self.label1 title:@"YOUR RING IS NOW UP TO DATE" font:Avenir_Heavy Size:12 spacing:2.6 color:[UIColor whiteColor]];
+    if ([NSLocalizedString(@"language", nil)isEqualToString:@"German"]) {
+        [SKAttributeString setLabelFontContent:self.titleLabel title:NSLocalizedString(@"update_successful_page_title", nil) font:Avenir_Black Size:36 spacing:5 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent:self.label1 title:NSLocalizedString(@"update_failed_page_label", nil) font:Avenir_Heavy Size:10 spacing:2 color:[UIColor whiteColor]];
+    }else{
+        [SKAttributeString setLabelFontContent:self.titleLabel title:NSLocalizedString(@"update_successful_page_title", nil) font:Avenir_Black Size:36 spacing:5.4 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent:self.label1 title:NSLocalizedString(@"update_failed_page_label", nil) font:Avenir_Heavy Size:12 spacing:2.6 color:[UIColor whiteColor]];
+    }
     
 //    [SKAttributeString setLabelFontContent:self.label2 title:@"YOUR RING IS NOW" font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor]];
     
-    [SKAttributeString setLabelFontContent:self.label3 title:@"YOUR RING HAS BEEN UPDATED AND UPGRADED TO THE LATEST AND GREATEST SOFTWARE. " font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor]];
+    [SKAttributeString setLabelFontContent:self.label3 title:NSLocalizedString(@"update_successful_page_describe", nil) font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor]];
     
 //    [SKAttributeString setLabelFontContent:self.connectStateLabel title:@"CONNECTED" font:Avenir_Heavy Size:24 spacing:3.6 color:[UIColor whiteColor]];
     
-    [SKAttributeString setButtonFontContent:self.pairButton title:@"DONE" font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
+    [SKAttributeString setButtonFontContent:self.pairButton title:NSLocalizedString(@"update_failed_page_button", nil) font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+//    update_successful_page_title = "ERFOLGREICH";
+//    update_failed_page_label = "IHR RING IST JETZT AUF DEM NEUESTEN STAND";
+//    update_successful_page_describe = "IHR RING WURDE AUF DIE AKTUELLSTE UND BESTE SOFTWAREVERSION AKTUALISIERT.";
+//    update_failed_page_button = "ERLEDIGT";
 }
 
 

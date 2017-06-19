@@ -1,0 +1,225 @@
+/* 
+  Localizable.strings
+  Blinq
+
+  Created by zsk on 16/8/10.
+  Copyright © 2016年 zsk. All rights reserved.
+*/
+
+"asd" = "aaaa";
+"language" = "German";
+"sos_sms" = "I need your help right now";
+"sos_sms_have_name" = "needs your help right now";
+"sos_occurred_sent_message"="SOS-NOTFALL-NACHRICHT WURDE ERFOLGREICH VERSENDET";
+"sos_occurred_post_to_facebook"="SOS-NOTFALL-NACHRICHT WURDE AUF FACEBOOK VERÖFFENTLICHT.";
+"sos_message_sent_failure" = "SENDEN DER SOS-NOTFALL-NACHRICHT FEHLGESCHLAGEN.";
+"sos_Location_services_title" = "STANDORTDIENSTE AUS.";
+"sos_Location_services" = "STANDORTDIENSTE IN EINSTELLUNGEN > PRIVATSPHÄRE AKTIVIEREN, UM BLINQ DAS ERFASSEN DER AKTUELLEN POSITION ZU ERLAUBEN";
+"sos_failed_to_locate_address" = "ADRESSLOKALISIERUNG FEHLGESCHLAGEN.";
+
+"battery_low" ="LOW BATTERY.";
+"battery_low_desc" ="RING LOW BATTERY.";
+"battery_charge_completion" = "CHARGE COMPLETION";
+"battery_charge_completion_desc" = "THE RING HAS BEEN FULLY CHARGED.";
+
+//
+yes = "JA";
+no = "NEIN";
+
+//开始界面
+welcome_page_get_started = "LOS GEHT'S";
+welcome_page_copyright = "URHEBERRECHT 2017 BLINQ | PATENT AUSSTEHEND";
+welcome_page_logo = "FILTER DEN LÄRM";
+
+//绑定界面
+binding_page_title = "RING \nHIER \nPLATZIEREN";
+binding_page_describe = "BITTE STELLEN SIE SICHER, DASS IHR BLUETOOTH AN IST UND PLATZIEREN SIE IHREN RING IN DER MITTE, UM FORTZUFAHREN.";
+binding_page_buttonTitle = "JETZT PAAREN";
+
+//连接设备界面
+connecting_page_title = "BITTE WARTEN";
+connecting_page_copyright = "WIR VERSUCHEN IHR GERÄT ZU PAAREN. STELLEN SIE SICHER, DASS IHR RING GELADEN UND IN REICHWEITE IST.";
+
+//连接失败界面
+connect_failure_page_title1 = "OH OH!";
+connect_failure_page_title2 = "VERBINDUNG HINWEISE";
+connect_failure_page_describe1 = "ES SIEHT AUS, ALS KÖNNTEN WIR IHR GERÄT NICHT VERBUNDEN.";
+connect_failure_page_describe2 = "HABEN SIE IHREN RING GELADEN?";
+connect_failure_page_describe3 = "IST IHR BLUETOOTH EINGESCHALTET UND IHR RING IN REICHWEITE?";
+connect_failure_page_describe4 = "UNPAAR RING, VERGESSEN „SMART RING” IN BLUETOOTH EINSTELLUNGEN UND RE-PAAR RING MIT GERÄT";
+connect_failure_page_buttonTitle = "BITTE NOCH EINMAL VERSUCHEN";
+
+//PAARUNG RING AUFHEBEN,VERGESSEN „SMART RING” IN BLUETOOTH EINSTELLUNGEN UND RE-PAIRING MIT GERÄT
+
+//连接成功界面
+connect_successful_page_title = "ERFOLGREICH";
+connect_successful_page_label1 = "IHR RING IST JETZT";
+connect_successful_page_label2 = "VERBUNDEN";
+connect_successful_page_label3 = "LOS GEHT'S";
+
+//通知功能的描述界面
+notifications_page_title = "BENACHRICHTIGUNGEN";
+notifications_page_label1 = "ANRUF-, TEXT-, UND APP-BENACHRICHTIGUNGEN LASSEN DEN RING 3 MAL BLINKEN.";
+notifications_page_label2 = "ALARME DURCH AUSGEWÄHLTE KONTAKTE LASSEN DEN EDELSTEIN FÜR 5 SEKUNDEN AUFLEUCHTEN.";
+notifications_page_buttonTitle = "WEITER";
+
+//导航栏标题
+nav_title_APP_NOTIFICATIONS = "APP-BENACHRICHTIGUNGEN";
+nav_title_CONTACT_NOTIFICATIONS = "KONTAKT-BENACHRICHTIGUNGEN";
+nav_title_PLAY = "ABSPIELEN";
+nav_title_SOS_EMERGENCY = "SOS NOTFALL";
+nav_title_SETTINGS = "EINSTELLUNGEN";
+nav_title_help = "HILFE";
+
+// 通知设置界面
+notifications_page_headerTitle = "ALLE BENACHRICHTIGUNGEN EMPFANGEN";
+notifications_page_vipSwitch_describe = "ANRUFE UND NACHRICHTEN NUR VON AUSGEWÄHLTEN KONTAKTEN EMPFANGEN";
+
+
+// 解除绑定按钮
+unpairButton_title = "PAARUNG MIT RING AUFHEBEN";
+unpairDescribe = "Dieser Vorgang wird die Paarung Ihres Telefons und Rings aufheben. Wenn Sie einen neuen Ring paaren möchten, müssen sie den gepaarten Ring in 'Einstellungen - > Bluetooth' entfernen. Mit Aufhebung der Paarung fortfahren?";
+
+//
+warning = "WARNUNG";
+
+manage_selected_contacts_buttonTitle = "AUSGEWÄHLTE KONTAKTE VERWALTEN";
+
+//联系人功能描述界面
+contacts_page_title = "KONTAKTE";
+contacts_page_label1 = "BLINQ LÄSST SIE, FÜR JEDEN AUSGEWÄHLTEN KONTAKT, EINEN INDIVIDUELLEN ALARM FÜR ANRUFE UND NACHRICHTEN ERSTELLEN.";
+contacts_page_label2 = "EINKOMMENDE BENACHRICHTIGUNGEN FOLGENDER KONTAKTE LASSEN DEN EDELSTEIN FÜR 5 SEKUNDEN AUFLEUCHTEN.";
+contacts_page_buttonTitle = "OK";
+
+contacts_page_describe = "Benachrichtigungen ausgewählter Konakte überschreiben Farbzuweisungen für reguläre Anruf- und Nachrichten-Alarme. Alarme dieser Kontakte lassen den Edelstein für 5 Sekunden aufleuchten.";
+add_contact_buttonTitle = "VON KONTAKTEN HINZUFÜGEN";
+
+// 好玩界面
+play_page_title = "BERÜHREN SIE EINE DER UNTRIGEN FARBEN UM ZU SEHEN, WIE DER RING REAGIERT UND DIE FARBE WECHSELT.";
+play_page_vibBtn_title = "VIBRATION";
+play_page_pulseBtn_title = "PULS";
+
+// sos界面
+sos_page_powerSwitch_title = "SOS/NOTFALLMODUS";
+sos_page_describeLabel = "IM FALLE EINES NOTFALLS KANN DER BLINQ SMART RING WIEDERHOLT ANGETIPPT WERDEN UM EINE SOS NACHRICHT ZU VERSCHICKEN.";
+sos_add_contact_label = "VON KONTAKTEN HINZUFÜGEN";
+sos_send_Message_label = "TEXTNACHRICHT SENDEN";
+sos_social_label = "SOZIAL-S.O.S.";
+sos_textView_Label = "HIER SOS-NACHRICHT EINGEBEN…";
+
+sos_social_setting_label = "SOZIAL-S.O.S. EINSTELLUNGEN";
+
+// social sos界面
+socicl_page_title = "SOZIAL-S.O.S.";
+socicl_page_describe = "IM NOTFALL KANN BLINQ NOTFALL-NACHRICHTEN AUF IHRER FACEBOOK-PINNWAND VERÖFFENTLICHEN.VERBINDEN SIE IHREN ACCOUNT, DAMIT WIR IN IHREM NAMEN POSTS ERSTELLEN KÖNNEN.";
+socicl_page_postLabel = "AUF MEINER PINNWAND VERÖFFENTLICHEN";
+socicl_page_postDescribe = "MEINEN STANDORT AUF MEINER FACEBOOK-PINNWAND VERÖFFENTLICHEN, SO DASS JEDER IN MEINEM NETZWERK DIE NACHRICHT SEHEN UND ZUR HILFE KOMMEN KANN.";
+socicl_page_done = "ERLEDIGT";
+socicl_page_textView_label = "HIER SOS-NACHRICHT EINGEBEN…";
+
+// 设置界面
+setting_page_check = "SUCHE NACH UPDATES";
+setting_page_disconnect_buttonTitle = "RING JETZT TRENNEN";
+setting_page_connect_buttonTitle = "RING JETZT VERBINDEN";
+setting_page_disconnect = "GETRENNT";
+setting_page_connect = "VERBUNDEN";
+
+software_label = "SOFTWARE";
+
+confirm_mobile_number = "HANDYNUMMER BESTÄTIGEN";
+
+tip = "HINWEISE";
+
+tip_disconnect = "ihr Ring wurde getrennt. Eventuell müssen sie die Paarung in 'Einstellungen -> Bluetooth' aufheben und es nach erneutem Verbinden noch einmal versuchen.";
+tip_network = "NETZWERK NICHT ERREICHBAR. BITTE NETZWERKVERBINDUNG PRÜFEN";
+
+tip_manager_contact = "AUSGEWÄHLTE KONTAKTE BITTE VERWALTEN";
+
+tip_fill_text = "BITTE ALLE FELDER AUSFÜLLEN UM FORTZUFAHREN";
+
+tip_email_address = "DIE EINGEGEBENE EMAIL-ADRESSE IST UNGÜLTIG";
+
+close = "SCHLIEßEN";
+
+connect_failed = "VERBINDUNG FEHLGESCHLAGEN";
+
+//注册界面
+register_page_title = "REGISTRIEREN";
+register_page_describe = "REGISTRIEREN SIE IHREN RING HEUTE, UM ZUKÜNFTIG ÜBER ALLE UPGRADES ODER UPDATES INFORMIERT ZU WERDEN. AUßERDEM BLEIBEN SIE STETIG IN DER SCHLEIFE FÜR UNSERE AKTUELLSTEN PROMOTIONEN UND PRODUKTE.";
+register_page_first_name = "VORNAME";
+register_page_last_name = "NACHNAME";
+register_page_email_address = "EMAIL-ADDRESSE";
+register_page_buttonTitle = "JETZT REGISTRIEREN";
+
+//注册成功界面
+register_successful_page_title = "ERFOLGREICH";
+register_successful_page_label = "GROßARTIG! SIE HABEN IHREN RING ERFOLGREICH REGISTRIERT. NUN KÖNNEN WIR DEN RING FÜR ALARMSIGNALE KONFIGURIEREN.";
+register_successful_page_buttonTitle = "OK, LOS GEHT'S!";
+
+// Bewrite
+bewrite_notification_title = "BENACHRICHTIGUNGEN";
+bewrite_notification_label1 = "DAMIT IHR SMART RING FUNKTIONIERT, MÜSSEN WIR IHNEN BENACHRICHTIGUNGEN SCHICKEN";
+bewrite_notification_label2 = "STELLEN SIE SICHER, DASS BENACHRICHTIGUNGEN AKTIVIERT SIND, DAMIT IHR RING RICHTIG FUNKTIONIERT";
+bewrite_notification_buttontTitle = "WEITER";
+
+bewrite_background_title = "HINTERGRUND";
+bewrite_background_label1 = "BLINQ MUSS IM HINTERGRUND LAUFEN, UM BENACHRICHTIGUNGEN ZU SENDEN.";
+bewrite_background_label2 = "STELLEN SIE SICHER, DASS SIE DIE BLINQ APP NICHT MANUELL BEENDEN";
+bewrite_background_buttontTitle = "WEITER";
+
+bewrite_sos_title = "TIPP TIPP TIPP";
+bewrite_sos_label1 = "TIPPEN SIE WIEDERHOLT AUF DEN RING, BIS SIE DIE VIBRATION SPÜREN, UM EINE NOTFALL-NACHRICHT ABZUSENDEN";
+bewrite_sos_label2 = "IM NOTFALL ERLAUBT IHNEN DIE S.O.S.-FUNKTION EINE NACHRICHT MIT IHRER AKTUELLEN POSITION AN EINEN VORHER AUSGEWÄHLTEN KONTAKT ZU SENDEN.";
+bewrite_sos_label3 = "BLINQ IST KEIN ERSATZ FÜR 911 ODERR EINEN ANDEREN NOTRUF. BLINQ EINE ZUSÄTZLICHE EBENE VON SICHERHEIT UND EIN BERUHIGTES GEWISSEN:";
+bewrite_sos_label4 = "NORMALE ÜBERTRAGUNGSKOSTEN FALLEN AN";
+bewrite_sos_buttontTitle = "WEITER";
+
+bewrite_social_sos_title = "SOZIAL-S.O.S.";
+bewrite_social_sos_label1 = "IN EINEM NOTFALL\nKANN BLINQ IHREN STANDORT AUF IHRER FACEBOOK-PINNWAND VERÖFFENTLICHEN. JETZT KÖNNEN IHRE FREUNDE ZUR RETTUNG EILEN.";
+bewrite_social_sos_label2 = "VERBINDEN SIE IHREN RING MIT FACEBOOK UND WENN EIN S.O.S. AUSGELÖST WIRD, POSTEN WIR IHRE NACHRICHT UND IHREN STANDORT AUF IHRER \nÖFFENTLICHEN PINNWAND.";
+bewrite_social_sos_buttonTitle = "OK";
+
+// ota
+updating_jewelry_page_title = "SCHMUCK WIRD AKTUALISIERT";
+updating_jewelry_page_describe = "BITTE DEN RING AM LADEGERÄT LASSEN, BIS DIE UPDATES ABGESCHLOSSEN SIND.";
+
+update_failed_page_title = "AKTUALISIERUNG FEHLGESCHLAGEN";
+update_failed__page_describe = "ES SIEHT AUS, ALS HÄTTE ES PROBLEME MIT DEM UPDATE GEGEBEN.BITTE STELLEN SIE SICHER, DASS IHR RING VERBUNDEN IST UND SIE ONLINE SIND.";
+update_failed_page_label1 = "IST IHR RING AUFGELADEN?";
+update_failed_page_label2 = "IST IHR BLUETOOTH UND IHR RING IN REICHWEITE?";
+update_failed_page_button1 = "NOCH MAL VERSUCHEN";
+update_failed_page_button2 = "NICHT JETZT";
+
+update_successful_page_title = "ERFOLGREICH";
+update_failed_page_label = "IHR RING IST JETZT AUF DEM NEUESTEN STAND";
+update_successful_page_describe = "IHR RING WURDE AUF DIE AKTUELLSTE UND BESTE SOFTWAREVERSION AKTUALISIERT.";
+update_failed_page_button = "ERLEDIGT";
+
+upToDate_page_title = "AKTUELL";
+upToDate_page_describe = "IHR RING WURDE BEREITS AUF DIE AKTUELLSTE UND BESTE SOFTWAREVERSION UPGEDATET UND UPGEGRADET.";
+upToDate_page_buttonTitle = "ERLEDIGT";
+
+update_available_page_title = "UPDATE VERFÜGBAR";
+update_available_page_lable = "BITTE STELLEN SIE SICHER IHR RING IST MIT DEM LADEGERÄT VERBUNDEN EHE SIE UPDATEN DAMIT DIE VERBINDUNG FUNKTIONSFÄHIG BLEIBT";
+update_available_page_buttonTitle1 = "JETZT UPDATEN";
+update_available_page_buttonTitle2 = "NICHT JETZT";
+
+// 灵敏度
+easy = "EINFACH";
+difficult = "SCHWIERIG";
+alert_sensitivity = "ALERTEMPFINDLICHKEIT";
+
+vibrate_alert = "VIBRATIONSSIGNAL";
+flashing_alert = "BLINKSIGNAL";
+
+your_country = "IHR LAND";
+
+faceBook_login_alert = "Zugriff zum Facebook-Account nicht gewährt. Gerät überprüfen.";
+
+// 位置描述
+loaction_title = "STANDORT";
+
+location_describe1 = "WIR BRAUCHEN IHRE STANDORTINFORMATIONEN DAMIT IHR ALARMSIGNAL FUNKTIONIEREN KANN";
+location_describe2 = "ZUGANG ZUM STANDORT IHRES GERÄTS ERMÖGLICHEN DAMIT IHR RING FUNKTIONIERT";
+
+location_buttonTitle = "WEITER";

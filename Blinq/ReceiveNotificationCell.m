@@ -26,10 +26,24 @@
     
        self.customSmallSwitch.delegate = self;
     
-    [SKAttributeString setLabelFontContent:self.latel title:@"ONLY RECEIVE PHONE CALLS AND TEXTS FROM SELECTED CONTACTS" font:Avenir_Heavy Size:9 spacing:2.46 color:[UIColor whiteColor]];
     
-   
+    if ([NSLocalizedString(@"language", nil)isEqualToString:@"German"]) {
+        
+        self.latel.text = @"";
+        
+        UILabel *label = [[UILabel alloc]initWithFrame:self.latel.frame];
+        label.numberOfLines = 0;
+        CGRect frame = label.frame;
+        frame.size.width += 35;
+        label.frame = frame;
+        [self addSubview:label];
+        
+        [SKAttributeString setLabelFontContent:label title:NSLocalizedString(@"notifications_page_vipSwitch_describe", nil) font:Avenir_Heavy Size:8 spacing:2.46 color:[UIColor whiteColor]];
 
+        
+    }else{
+        [SKAttributeString setLabelFontContent:self.latel title:NSLocalizedString(@"notifications_page_vipSwitch_describe", nil) font:Avenir_Heavy Size:9 spacing:2.46 color:[UIColor whiteColor]];
+    }
     
     BOOL Power =  [[NSUserDefaults standardUserDefaults]boolForKey:@"contactPower"];
     

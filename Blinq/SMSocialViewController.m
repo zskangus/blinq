@@ -88,21 +88,24 @@ static BOOL isUserClick = NO;
 
 - (void)setupUI{
     
-    [self setupNavigationTitle:@"SOCIAL S.O.S."];
+    [self setupNavigationTitle:NSLocalizedString(@"socicl_page_title", nil)];
     
-    [SKAttributeString setLabelFontContent:self.titleLabel title:@"SOCIAL S.O.S." font:Avenir_Black Size:20 spacing:3 color:[UIColor whiteColor]];
+    [SKAttributeString setLabelFontContent:self.titleLabel title:NSLocalizedString(@"socicl_page_title", nil) font:Avenir_Black Size:20 spacing:3 color:[UIColor whiteColor]];
     
-    [SKAttributeString setLabelFontContent:self.label1 title:@"BLINQ CAN POST EMERGENCY MESSAGES TO YOUR FACEBOOK WALL IN THE CASE OF AN EMERGENCY. CONNECT YOUR ACCOUNT SO THAT WE CAN POST MESSAGES ON YOUR BEHALF" font:Avenir_Light Size:10 spacing:3 color:[UIColor whiteColor]];
+    [SKAttributeString setLabelFontContent:self.label1 title:NSLocalizedString(@"socicl_page_describe", nil) font:Avenir_Light Size:10 spacing:3 color:[UIColor whiteColor]];
     
-    [SKAttributeString setLabelFontContent:self.postlabel title:@"POST TO MY WALL" font:Avenir_Book Size:16 spacing:2.46 color:[UIColor whiteColor]];
+
+    if ([NSLocalizedString(@"language", nil)isEqualToString:@"German"]) {
+        [SKAttributeString setLabelFontContent:self.postlabel title:NSLocalizedString(@"socicl_page_postLabel", nil) font:Avenir_Book Size:14 spacing:2.46 color:[UIColor whiteColor]];
+    }else{
+        [SKAttributeString setLabelFontContent:self.postlabel title:NSLocalizedString(@"socicl_page_postLabel", nil) font:Avenir_Book Size:16 spacing:2.46 color:[UIColor whiteColor]];
+    }
     
-    [SKAttributeString setLabelFontContent:self.label2 title:@"POST MY LOCATION TO MY FACEBOOK WALL SO THAT ANYONE IN MY NETWORK CAN SEE THE MESSAGE AND COME TO MY RESCUE." font:Avenir_Light Size:8 spacing:2.4 color:[UIColor whiteColor]];
+    [SKAttributeString setLabelFontContent:self.label2 title:NSLocalizedString(@"socicl_page_postDescribe", nil) font:Avenir_Light Size:8 spacing:2.4 color:[UIColor whiteColor]];
     
-    [SKAttributeString setButtonFontContent:self.doneButton title:@"DONE" font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
+    [SKAttributeString setButtonFontContent:self.doneButton title:NSLocalizedString(@"socicl_page_done", nil) font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
     
-    [SKAttributeString setLabelFontContent:self.placeHolderLabel title:@"ENTER SOS MESSAGE HERE…" font:Avenir_Light Size:10 spacing:2.4 color:[UIColor blackColor]];
-    
-    
+    [SKAttributeString setLabelFontContent:self.placeHolderLabel title:NSLocalizedString(@"socicl_page_textView_label", nil) font:Avenir_Light Size:10 spacing:2.4 color:[UIColor blackColor]];
     
     self.postToWall.delegate = self;
     
@@ -142,7 +145,7 @@ static BOOL isUserClick = NO;
         
         if (error.code == 306) {
             
-            NSString *str = @"Access has not been granted to the Facebook account. Verify device settings.";
+            NSString *str = NSLocalizedString(@"faceBook_login_alert", nil);
             
             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:[str uppercaseString] preferredStyle:UIAlertControllerStyleAlert];
             

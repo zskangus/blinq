@@ -25,10 +25,14 @@
 
 - (void)setupUi{
     
-    [SKAttributeString setLabelFontContent:self.titleLabel title:@"UP TO DATE" font:Avenir_Black Size:38 spacing:4 color:[UIColor whiteColor]];
-    [SKAttributeString setLabelFontContent3:self.label title:@"YOUR RING HAS ALREADY BEEN\nUPDATED AND UPGRADED TO THE\nLATEST AND GREATEST SOFTWARE. " font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor]];
+    [SKAttributeString setLabelFontContent:self.titleLabel title:NSLocalizedString(@"upToDate_page_title", nil) font:Avenir_Black Size:38 spacing:4 color:[UIColor whiteColor]];
+    [SKAttributeString setLabelFontContent3:self.label title:NSLocalizedString(@"upToDate_page_describe", nil) font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor]];
     
-    [SKAttributeString setButtonFontContent:self.doneButton title:@"DONE" font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
+    [SKAttributeString setButtonFontContent:self.doneButton title:NSLocalizedString(@"upToDate_page_buttonTitle", nil) font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+//    upToDate_page_title = "AKTUELL";
+//    upToDate_page_describe = "IHR RING WURDE BEREITS AUF DIE AKTUELLSTE UND BESTE SOFTWAREVERSION UPGEDATET UND UPGEGRADET.";
+//    upToDate_page_buttonTitle = "ERLEDIGT";
 }
 
 - (IBAction)doneButton:(id)sender {

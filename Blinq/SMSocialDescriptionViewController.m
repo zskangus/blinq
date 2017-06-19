@@ -28,14 +28,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [SKAttributeString setLabelFontContent:self.titleLabel title:@"SOCIAL S.O.S." font:Avenir_Black Size:30 spacing:4.5 color:[UIColor whiteColor]];
+    [SKAttributeString setLabelFontContent:self.titleLabel title:NSLocalizedString(@"bewrite_social_sos_title", nil) font:Avenir_Black Size:30 spacing:4.5 color:[UIColor whiteColor]];
     
-    [SKAttributeString setLabelFontContent:self.label1 title:@"IN AN EMERGENCY\nBLINQ CAN POST YOUR LOCATION TO YOUR FACEBOOK WALL. NOW YOUR FRIENDS CAN COME TO THE RESCUE." font:Avenir_Heavy Size:16 spacing:4.8 color:[UIColor whiteColor]];
-    
-    [SKAttributeString setLabelFontContent:self.label2 title:@"CONNECT YOUR RING WITH FACEBOOK AND WHEN AN S.O.S. IS TRIGGERED WE’LL POST YOUR MESSAGE AND LOCATION TO YOUR\nPUBLIC WALL." font:Avenir_Heavy Size:13 spacing:3.9 color:[UIColor whiteColor]];
+    if ([NSLocalizedString(@"language", nil)isEqualToString:@"German"]) {
+        [SKAttributeString setLabelFontContent:self.label1 title:NSLocalizedString(@"bewrite_social_sos_label1", nil) font:Avenir_Heavy Size:13 spacing:4 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent:self.label2 title:NSLocalizedString(@"bewrite_social_sos_label2", nil) font:Avenir_Heavy Size:13 spacing:3 color:[UIColor whiteColor]];
+    }else{
+        [SKAttributeString setLabelFontContent:self.label1 title:NSLocalizedString(@"bewrite_social_sos_label1", nil) font:Avenir_Heavy Size:16 spacing:4.8 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent:self.label2 title:NSLocalizedString(@"bewrite_social_sos_label2", nil) font:Avenir_Heavy Size:13 spacing:3.9 color:[UIColor whiteColor]];
+    }
     
     [SKAttributeString setButtonFontContent:self.okButton title:@"OK" font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
-    
     
 }
 

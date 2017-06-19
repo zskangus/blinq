@@ -88,8 +88,7 @@ static NSString * const settingCell = @"SettingCell";
 
 - (NSArray *)labelArray{
     if (!_labelArray) {
-        //_labelArray = @[@"OUT OF RANGE ALERT",@"VIBRATE ALERT",@"FLASHING ALERT"];
-        _labelArray = @[@"VIBRATE ALERT",@"FLASHING ALERT"];
+        _labelArray = @[NSLocalizedString(@"vibrate_alert", nil),NSLocalizedString(@"flashing_alert", nil)];
     }
     return _labelArray;
 }
@@ -141,7 +140,7 @@ static NSString * const settingCell = @"SettingCell";
 
 - (void)setupUi{
     
-    [SKAttributeString setButtonFontContent:self.checkUpdateBtn title:@"CHECK FOR UPDATES" font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor] forState:UIControlStateNormal];
+    [SKAttributeString setButtonFontContent:self.checkUpdateBtn title:NSLocalizedString(@"setting_page_check", nil) font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor] forState:UIControlStateNormal];
 }
 
 - (void)setupConnectStatus{
@@ -161,10 +160,10 @@ static NSString * const settingCell = @"SettingCell";
         
         [self.ringImageView setImage:[UIImage imageNamed:@"settings-ring-image"]];
         
-        [SKAttributeString setLabelFontContent:self.connectStatus title:@"CONNECTED" font:Avenir_Heavy Size:20 spacing:3 color:[UIColor whiteColor]];
+        [SKAttributeString setLabelFontContent:self.connectStatus title:NSLocalizedString(@"setting_page_connect", nil) font:Avenir_Heavy Size:20 spacing:3 color:[UIColor whiteColor]];
         
-        [SKAttributeString setButtonFontContent:self.disConnectButton title:@"DISCONNECT RING NOW" font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor] forState:UIControlStateNormal];
-        
+        [SKAttributeString setButtonFontContent:self.disConnectButton title:NSLocalizedString(@"setting_page_disconnect_buttonTitle", nil) font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor] forState:UIControlStateNormal];
+
     }else{
         
         SMBleConnectState = BleDisConnected;
@@ -178,11 +177,11 @@ static NSString * const settingCell = @"SettingCell";
         
         [self.ringImageView setImage:[UIImage imageNamed:@"ringImageTwo"]];
 
-        [SKAttributeString setLabelFontContent:self.connectStatus title:@"DISCONNECTED" font:Avenir_Heavy Size:20 spacing:3 color:[UIColor whiteColor]];
+        [SKAttributeString setLabelFontContent:self.connectStatus title:NSLocalizedString(@"setting_page_disconnect", nil) font:Avenir_Heavy Size:20 spacing:3 color:[UIColor whiteColor]];
         
         //[self.disConnectButton setSelected:YES];
         
-        [SKAttributeString setButtonFontContent:self.disConnectButton title:@"CONNECT RING NOW" font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor] forState:UIControlStateNormal];
+        [SKAttributeString setButtonFontContent:self.disConnectButton title:NSLocalizedString(@"setting_page_connect_buttonTitle", nil) font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor] forState:UIControlStateNormal];
     }
 }
 
@@ -203,7 +202,7 @@ static NSString * const settingCell = @"SettingCell";
     BOOL status = [[NSUserDefaults standardUserDefaults]boolForKey:@"connectStatus"];
 
     if (status == NO) {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"TIP" message:@"DISCONNECTED" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"tip", nil) message:NSLocalizedString(@"setting_page_disconnect", nil) preferredStyle:UIAlertControllerStyleAlert];
         
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
@@ -212,9 +211,9 @@ static NSString * const settingCell = @"SettingCell";
         
         [alertController addAction:okAction];
         
-        [alertController setValue:[self setAlertControllerWithStrring:@"TIP" fontSize:17 spacing:1.85] forKey:@"attributedTitle"];
+        [alertController setValue:[self setAlertControllerWithStrring:NSLocalizedString(@"tip", nil) fontSize:17 spacing:1.85] forKey:@"attributedTitle"];
         
-        [alertController setValue:[self setAlertControllerWithStrring:@"DISCONNECTED" fontSize:14 spacing:1.85]  forKey:@"attributedMessage"];
+        [alertController setValue:[self setAlertControllerWithStrring:NSLocalizedString(@"setting_page_disconnect", nil) fontSize:14 spacing:1.85]  forKey:@"attributedMessage"];
         
         [self presentViewController:alertController animated:YES completion:nil];
         
@@ -224,7 +223,7 @@ static NSString * const settingCell = @"SettingCell";
     
     if ([SMNetWorkState state] == NO) {
         
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"TIP" message:@"NETWORK UNAVAILABLE.CHECK NETWORK" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"tip", nil) message:NSLocalizedString(@"tip_network", nil) preferredStyle:UIAlertControllerStyleAlert];
         
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
@@ -233,9 +232,9 @@ static NSString * const settingCell = @"SettingCell";
         
         [alertController addAction:okAction];
         
-        [alertController setValue:[self setAlertControllerWithStrring:@"TIP" fontSize:17 spacing:1.85] forKey:@"attributedTitle"];
+        [alertController setValue:[self setAlertControllerWithStrring:NSLocalizedString(@"tip", nil) fontSize:17 spacing:1.85] forKey:@"attributedTitle"];
         
-        [alertController setValue:[self setAlertControllerWithStrring:@"NETWORK UNAVAILABLE.CHECK NETWORK" fontSize:14 spacing:1.85]  forKey:@"attributedMessage"];
+        [alertController setValue:[self setAlertControllerWithStrring:NSLocalizedString(@"tip_network", nil) fontSize:14 spacing:1.85]  forKey:@"attributedMessage"];
         
         [self presentViewController:alertController animated:YES completion:nil];
         
@@ -280,10 +279,10 @@ static NSString * const settingCell = @"SettingCell";
 
 - (void)timeout{
     
-    NSString *titleStr = @"TIP";
-    NSString *messageStr = @"CONNECTION FAILED";
+    NSString *titleStr = NSLocalizedString(@"tip", nil);
+    NSString *messageStr = NSLocalizedString(@"connect_failed", nil);
     
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"TIP" message:@"CONNECTION FAILED" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"tip", nil) message:NSLocalizedString(@"connect_failed", nil) preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
@@ -390,7 +389,7 @@ static NSString * const settingCell = @"SettingCell";
     
     [SKAttributeString setLabelFontContent:self.versionLabel title:[NSString stringWithFormat:@"FIRMWARE %@",versionStr] font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor]];
     
-    [SKAttributeString setLabelFontContent:self.softwareVersionLabel title:[NSString stringWithFormat:@"SOFTWARE %@",localVersion] font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor]];
+    [SKAttributeString setLabelFontContent:self.softwareVersionLabel title:[NSString stringWithFormat:@"%@ %@",NSLocalizedString(@"software_label", nil),localVersion] font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor]];
 
     
 }

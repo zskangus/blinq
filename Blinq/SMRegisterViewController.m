@@ -63,20 +63,25 @@ registerState smRegisterState = registerStandby;
     
 }
 
-
 - (void)setupUi{
-    [SKAttributeString setLabelFontContent:self.titleLabel title:@"REGISTER" font:Avenir_Black Size:20 spacing:3 color:[UIColor whiteColor]];
+    [SKAttributeString setLabelFontContent:self.titleLabel title:NSLocalizedString(@"register_page_title", nil) font:Avenir_Black Size:20 spacing:3 color:[UIColor whiteColor]];
     
     
-    [SKAttributeString setLabelFontContent2:self.label title:@"REGISTER YOUR RING TODAY TO BE NOTIFIED OF ANY UPGRADES OR UPDATES IN THE FUTURE. YOU WILL ALSO BE KEPT IN THE LOOP WITH OUR LATEST PROMOTIONS AND PRODUCTS." font:Avenir_Heavy Size:13 spacing:3.9 color:[UIColor whiteColor]];
     
-    [SKAttributeString setLabelFontContent:self.name title:@"FIRST NAME" font:Avenir_Black Size:16 spacing:2.46 color:[UIColor whiteColor]];
+    if ([NSLocalizedString(@"language", nil)isEqualToString:@"German"]) {
+        [SKAttributeString setLabelFontContent2:self.label title:NSLocalizedString(@"register_page_describe", nil) font:Avenir_Heavy Size:10 spacing:3 color:[UIColor whiteColor]];
+
+    }else{
+        [SKAttributeString setLabelFontContent2:self.label title:NSLocalizedString(@"register_page_describe", nil) font:Avenir_Heavy Size:13 spacing:3.9 color:[UIColor whiteColor]];
+    }
     
-    [SKAttributeString setLabelFontContent:self.lastName title:@"LAST NAME" font:Avenir_Black Size:16 spacing:2.46 color:[UIColor whiteColor]];
+    [SKAttributeString setLabelFontContent:self.name title:NSLocalizedString(@"register_page_first_name", nil) font:Avenir_Black Size:16 spacing:2.46 color:[UIColor whiteColor]];
     
-    [SKAttributeString setLabelFontContent:self.address title:@"EMAIL ADDRESS" font:Avenir_Black Size:16 spacing:2.46 color:[UIColor whiteColor]];
+    [SKAttributeString setLabelFontContent:self.lastName title:NSLocalizedString(@"register_page_last_name", nil) font:Avenir_Black Size:16 spacing:2.46 color:[UIColor whiteColor]];
     
-    [SKAttributeString setButtonFontContent:self.registerButton title:@"REGISTER NOW" font:Avenir_Book Size:16 spacing:2.46 color:[UIColor whiteColor] forState:UIControlStateNormal];
+    [SKAttributeString setLabelFontContent:self.address title:NSLocalizedString(@"register_page_email_address", nil) font:Avenir_Black Size:16 spacing:2.46 color:[UIColor whiteColor]];
+    
+    [SKAttributeString setButtonFontContent:self.registerButton title:NSLocalizedString(@"register_page_buttonTitle", nil) font:Avenir_Book Size:16 spacing:2.46 color:[UIColor whiteColor] forState:UIControlStateNormal];
     
     self.textField1.delegate = self;
     [self.textField1 addTarget:self action:@selector(numTextFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
@@ -240,13 +245,13 @@ static int keyboardHeight;
     
     if ([self isBlankString:firstName] || [self isBlankString:lastName] || [self isBlankString:emailAddress]) {
         
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"PLEASE FILL IN ALL FIELDS TO CONTINUE" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:NSLocalizedString(@"tip_fill_text", nil) preferredStyle:UIAlertControllerStyleAlert];
         
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
         }];
         
-        [alertController setValue:[self setAlertControllerWithStrring:@"PLEASE FILL IN ALL FIELDS TO CONTINUE" fontSize:14 spacing:1.85]  forKey:@"attributedMessage"];
+        [alertController setValue:[self setAlertControllerWithStrring:NSLocalizedString(@"tip_fill_text", nil) fontSize:14 spacing:1.85]  forKey:@"attributedMessage"];
         
         [alertController addAction:okAction];
         
@@ -258,7 +263,7 @@ static int keyboardHeight;
         
         if ([SMNetWorkState state] == NO) {
             
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"WARNING" message:@"NETWORK UNAVAILABLE.CHECK NETWORK" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"warning", nil) message:NSLocalizedString(@"tip_network", nil) preferredStyle:UIAlertControllerStyleAlert];
             
             UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 
@@ -266,9 +271,9 @@ static int keyboardHeight;
             
             [alertController addAction:okAction];
             
-            [alertController setValue:[self setAlertControllerWithStrring:@"WARNING" fontSize:17 spacing:1.85] forKey:@"attributedTitle"];
+            [alertController setValue:[self setAlertControllerWithStrring:NSLocalizedString(@"warning", nil) fontSize:17 spacing:1.85] forKey:@"attributedTitle"];
             
-            [alertController setValue:[self setAlertControllerWithStrring:@"NETWORK UNAVAILABLE.CHECK NETWORK" fontSize:14 spacing:1.85]  forKey:@"attributedMessage"];
+            [alertController setValue:[self setAlertControllerWithStrring:NSLocalizedString(@"tip_network", nil) fontSize:14 spacing:1.85]  forKey:@"attributedMessage"];
             
             [self presentViewController:alertController animated:YES completion:nil];
             
@@ -277,15 +282,15 @@ static int keyboardHeight;
             
             if ([self isValidateEmail:emailAddress] == NO) {
                 
-                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:[@"THE EMAIL ADDRESS YOU ENTERED IS NOT VALID" uppercaseString] preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:[NSLocalizedString(@"tip_email_address", nil) uppercaseString] preferredStyle:UIAlertControllerStyleAlert];
                 
-                UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"CLOSE" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"close", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                     [self.textField3 becomeFirstResponder];
                 }];
                 
                 [alertController addAction:okAction];
                 
-                [alertController setValue:[self setAlertControllerWithStrring:@"THE EMAIL ADDRESS YOU ENTERED IS NOT VALID" fontSize:14 spacing:1.85]  forKey:@"attributedMessage"];
+                [alertController setValue:[self setAlertControllerWithStrring:NSLocalizedString(@"tip_email_address", nil) fontSize:14 spacing:1.85]  forKey:@"attributedMessage"];
                 
                 [self presentViewController:alertController animated:YES completion:nil];
                 

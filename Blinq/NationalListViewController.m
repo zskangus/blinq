@@ -52,7 +52,9 @@ static NSString * const CountriesCell = @"countriesCell";
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"bg-navBarNil"] forBarMetrics:UIBarMetricsDefault];
     
     
-    self.navigationItem.title = @"YOUR COUNTRY";
+    self.navigationItem.title = NSLocalizedString(@"your_country", nil);
+    
+    [self.editBtn setTitle:NSLocalizedString(@"socicl_page_done", nil) forState:UIControlStateNormal];
     
     //[self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
     
@@ -142,14 +144,14 @@ static NSString * const CountriesCell = @"countriesCell";
     [alertControllerMessage addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:17] range:NSMakeRange(0, message.length)];
 
 
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"CONFIRM MOBILE NUMBER" message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"confirm_mobile_number", nil) message:message preferredStyle:UIAlertControllerStyleAlert];
     
         [alertController setValue:alertControllerMessage forKey:@"attributedMessage"];
 
     
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"NO" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"no", nil) style:UIAlertActionStyleCancel handler:nil];
     
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"YES" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"yes", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
         [SKUserDefaults setBool:YES forKey:@"sosVcTurnedOn"];
         

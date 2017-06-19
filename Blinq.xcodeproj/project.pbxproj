@@ -147,6 +147,7 @@
 		7383BE911CB53A71006EC0A9 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7383BE8C1CB53A71006EC0A9 /* Utils.m */; };
 		73892D2C1DD0237000115D62 /* SOS emergency CONTACT.png in Resources */ = {isa = PBXBuildFile; fileRef = 73892D2B1DD0237000115D62 /* SOS emergency CONTACT.png */; };
 		739ACCE21EEA963E0043D838 /* SKTimerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 739ACCE11EEA963E0043D838 /* SKTimerManager.m */; };
+		73ACD3951EF22B09002427C9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 73ACD3971EF22B09002427C9 /* InfoPlist.strings */; };
 		73C87B471D58242500E0F672 /* otaUpdateFaildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C87B451D58242500E0F672 /* otaUpdateFaildViewController.m */; };
 		73C87B481D58242500E0F672 /* otaUpdateFaildViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73C87B461D58242500E0F672 /* otaUpdateFaildViewController.xib */; };
 		73C87B4B1D58696500E0F672 /* SMBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C87B4A1D58696500E0F672 /* SMBaseTableViewController.m */; };
@@ -453,6 +454,10 @@
 		73892D2B1DD0237000115D62 /* SOS emergency CONTACT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SOS emergency CONTACT.png"; sourceTree = "<group>"; };
 		739ACCE01EEA963E0043D838 /* SKTimerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKTimerManager.h; sourceTree = "<group>"; };
 		739ACCE11EEA963E0043D838 /* SKTimerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKTimerManager.m; sourceTree = "<group>"; };
+		73ACD3981EF22B0E002427C9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		73ACD3991EF22B0F002427C9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		73ACD39A1EF22B10002427C9 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		73ADC04F1EEF7FDF008C2BED /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		73C87B441D58242500E0F672 /* otaUpdateFaildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = otaUpdateFaildViewController.h; sourceTree = "<group>"; };
 		73C87B451D58242500E0F672 /* otaUpdateFaildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = otaUpdateFaildViewController.m; sourceTree = "<group>"; };
 		73C87B461D58242500E0F672 /* otaUpdateFaildViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = otaUpdateFaildViewController.xib; sourceTree = "<group>"; };
@@ -823,6 +828,7 @@
 			isa = PBXGroup;
 			children = (
 				737B1E471CA4CCDC00A4AA60 /* main.m */,
+				73ACD3971EF22B09002427C9 /* InfoPlist.strings */,
 				73E682AA1D5AD7C800F873BE /* Localizable.strings */,
 			);
 			name = "Supporting Files";
@@ -1431,6 +1437,7 @@
 				en,
 				Base,
 				"zh-Hans",
+				de,
 			);
 			mainGroup = 737B1E3A1CA4CCDB00A4AA60;
 			productRefGroup = 737B1E441CA4CCDB00A4AA60 /* Products */;
@@ -1482,6 +1489,7 @@
 				73D393871CAA6D7B007EA376 /* SMPlayViewController.xib in Resources */,
 				737B1E7D1CA4CCF000A4AA60 /* SMStartupViewController.xib in Resources */,
 				7301A55E1E1F38B000719B77 /* IMG_2337.PNG in Resources */,
+				73ACD3951EF22B09002427C9 /* InfoPlist.strings in Resources */,
 				73F730F31D9E51C400DABE18 /* SMSocialViewController.xib in Resources */,
 				7328E8951D9BC67D000E0EFF /* NationalListViewController.xib in Resources */,
 				73EF8F371CAA2EDB000F9A0C /* ContactCell.xib in Resources */,
@@ -1755,11 +1763,22 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
+		73ACD3971EF22B09002427C9 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				73ACD3981EF22B0E002427C9 /* en */,
+				73ACD3991EF22B0F002427C9 /* zh-Hans */,
+				73ACD39A1EF22B10002427C9 /* de */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		73E682AA1D5AD7C800F873BE /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				73E682A91D5AD7C800F873BE /* en */,
 				73E682AB1D5AD7CB00F873BE /* zh-Hans */,
+				73ADC04F1EEF7FDF008C2BED /* de */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  Blinq
+
+  Created by zsk on 2017/6/15.
+  Copyright © 2017年 zsk. All rights reserved.
+*/
+
+NSLocationAlwaysUsageDescription = "Wir müssen Ihren Standort beim Senden von SOS-Informationen kennen. Wählen Sie „Erlauben”, um SOS-Notfunktionen zu aktivieren.";

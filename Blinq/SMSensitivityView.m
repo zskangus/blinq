@@ -67,20 +67,28 @@
     // 将手势与视图广联
     [self.niuthumb addGestureRecognizer:pan];
     
-    
-    
-    UILabel *low = [[UILabel alloc]initWithFrame:CGRectMake(16, 40, 40, 15)];
-    [SKAttributeString setLabelFontContent2:low title:@"EASY" font:Avenir_Book Size:8 spacing:1.53 color:[UIColor whiteColor]];
+    UILabel *low = [[UILabel alloc]initWithFrame:CGRectMake(11, 40, 50, 15)];
+    [SKAttributeString setLabelFontContent2:low title:NSLocalizedString(@"easy", nil) font:Avenir_Book Size:8 spacing:1.53 color:[UIColor whiteColor]];
     low.textAlignment = NSTextAlignmentCenter;
     [self addSubview:low];
     
     UILabel *high = [[UILabel alloc]initWithFrame:CGRectMake(314, 40, 50, 15)];
-    [SKAttributeString setLabelFontContent2:high title:@"DIFFICULT" font:Avenir_Book Size:8 spacing:1.53 color:[UIColor whiteColor]];
+    [SKAttributeString setLabelFontContent2:high title:NSLocalizedString(@"difficult", nil) font:Avenir_Book Size:8 spacing:1 color:[UIColor whiteColor]];
     high.textAlignment = NSTextAlignmentCenter;
     [self addSubview:high];
     
-    UILabel *title = [[UILabel alloc]initWithFrame:CGRectMake(104, 40, 170, 15)];
-    [SKAttributeString setLabelFontContent2:title title:@"ALERT SENSITIVITY" font:Avenir_Black Size:14 spacing:2.15 color:[UIColor whiteColor]];
+    UILabel *title = [[UILabel alloc]initWithFrame:CGRectMake(99, 40, 180, 15)];
+    if ([NSLocalizedString(@"language", nil)isEqualToString:@"German"]) {
+        [SKAttributeString setLabelFontContent2:title title:NSLocalizedString(@"alert_sensitivity", nil) font:Avenir_Black Size:11 spacing:2 color:[UIColor whiteColor]];
+        
+        CGRect frame = title.frame;
+        frame.size.width += 40;
+        frame.origin.x -= 20;
+        title.frame = frame;
+    }else{
+        [SKAttributeString setLabelFontContent2:title title:NSLocalizedString(@"alert_sensitivity", nil) font:Avenir_Black Size:14 spacing:2.15 color:[UIColor whiteColor]];
+    }
+    
     title.textAlignment = NSTextAlignmentCenter;
     [self addSubview:title];
     

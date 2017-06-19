@@ -116,7 +116,6 @@ static FMDatabase *_appDb;
         app.config = *(UInt64 *)[configData bytes];;
         app.flag = [set boolForColumn:@"flag"];
         
-        NSLog(@"数据库中保存的应用配置信息%@,appid%@,color%ld--开关%@",app.title,app.identifiers,app.colorId,app.flag?@"YES":@"NO");
         
         [apps addObject:app];
     }

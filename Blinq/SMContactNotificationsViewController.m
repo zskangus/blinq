@@ -22,6 +22,7 @@
 
 @property (nonatomic,strong)NSMutableArray *contacArray;
 @property (weak, nonatomic) IBOutlet UILabel *label;
+@property (weak, nonatomic) IBOutlet UILabel *addContactBtn;
 
 @end
 
@@ -78,10 +79,16 @@ static NSString * const contactCell = @"ContactCell";
 
 - (void)setupUI{
     
-    NSString *string = @"Notifications from selected contacts will override color assignments for regular phone and text alerts. Alerts from these contacts will light up the gemstone for 5 seconds.";
+    NSString *string = NSLocalizedString(@"contacts_page_describe", nil);
     
-    [SKAttributeString setLabelFontContent:self.label title:[string uppercaseString] font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor]];
+    if ([NSLocalizedString(@"language", nil)isEqualToString:@"German"]) {
+        [SKAttributeString setLabelFontContent:self.label title:[string uppercaseString] font:Avenir_Heavy Size:10 spacing:3 color:[UIColor whiteColor]];
+        [SKAttributeString setLabelFontContent:self.addContactBtn title:NSLocalizedString(@"add_contact_buttonTitle", nil) font:Avenir_Book Size:12 spacing:2 color:[UIColor whiteColor]];
 
+    }else{
+        [SKAttributeString setLabelFontContent:self.label title:[string uppercaseString] font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor]];
+        [SKAttributeString setLabelFontContent:self.addContactBtn title:NSLocalizedString(@"add_contact_buttonTitle", nil) font:Avenir_Book Size:16 spacing:2.46 color:[UIColor whiteColor]];
+    }
 }
 
 // 添加联系人
@@ -255,10 +262,10 @@ static NSString * const contactCell = @"ContactCell";
     // 设置cell 之间的间隔颜色
     UIView *interval = [[UIView alloc] initWithFrame:cell.frame];
     if(indexPath.row % 2 ){
-        interval.backgroundColor = [UIColor clearColor];
-    }else{
         UIColor *backgroundColor = [UIColor colorWithRed:(29.0/255.0) green:(29.0/255) blue:(38.0/255) alpha:0.07];
         interval.backgroundColor = backgroundColor;
+    }else{
+        interval.backgroundColor = [UIColor clearColor];
     }
     cell.backgroundView = interval;
     

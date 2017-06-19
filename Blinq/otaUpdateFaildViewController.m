@@ -27,16 +27,33 @@
 
 - (void)setupUi{
     
-    [SKAttributeString setLabelFontContent:self.titleLabel title:@"UPDATE FAILED" font:Avenir_Black Size:32 spacing:4.8 color:[UIColor whiteColor]];
+    if ([NSLocalizedString(@"language", nil)isEqualToString:@"German"]) {
+        [SKAttributeString setLabelFontContent:self.titleLabel title:NSLocalizedString(@"update_failed_page_title", nil) font:Avenir_Black Size:25 spacing:4.8 color:[UIColor whiteColor]];
+        
+        CGRect frame = self.titleLabel.frame;
+        frame.size.width += 100;
+        frame.origin.x -= 50;
+        self.titleLabel.frame = frame;
+        
+        [SKAttributeString setLabelFontContent:self.labelOne title:NSLocalizedString(@"update_failed__page_describe", nil) font:Avenir_Heavy Size:11 spacing:3.3 color:[UIColor whiteColor]];
+        
+        CGRect labelOneFrame = self.labelOne.frame;
+        labelOneFrame.size.width += 50;
+        labelOneFrame.origin.x -= 25;
+        self.labelOne.frame = labelOneFrame;
+    }else{
+        [SKAttributeString setLabelFontContent:self.titleLabel title:NSLocalizedString(@"update_failed_page_title", nil) font:Avenir_Black Size:32 spacing:4.8 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent:self.labelOne title:NSLocalizedString(@"update_failed__page_describe", nil) font:Avenir_Heavy Size:11 spacing:3.3 color:[UIColor whiteColor]];
+    }
     
-    [SKAttributeString setLabelFontContent:self.labelOne title:@"LOOKS LIKE THERE WAS AN ISSUE WITH THE UPDATE. PLEASE ENSURE YOUR RING IS CONNECTED AND THAT YOU ARE ONLINE." font:Avenir_Heavy Size:11 spacing:3.3 color:[UIColor whiteColor]];
+    [SKAttributeString setLabelFontContent:self.labelTwo title:NSLocalizedString(@"update_failed_page_label1", nil) font:Avenir_Heavy Size:12 spacing:3.5 color:[UIColor whiteColor]];
     
-    [SKAttributeString setLabelFontContent:self.labelTwo title:@"IS YOUR RING CHARGED?" font:Avenir_Heavy Size:12 spacing:3.5 color:[UIColor whiteColor]];
+    [SKAttributeString setLabelFontContent2:self.labelThree title:NSLocalizedString(@"update_failed_page_label2", nil) font:Avenir_Heavy Size:12 spacing:3.5 color:[UIColor whiteColor]];
     
-    [SKAttributeString setLabelFontContent2:self.labelThree title:@"IS YOUR BLUETOOTH ON AND YOUR RING WITHIN RANGE?" font:Avenir_Heavy Size:12 spacing:3.5 color:[UIColor whiteColor]];
+    [SKAttributeString setButtonFontContent:self.tryAgainButton title:NSLocalizedString(@"update_failed_page_button1", nil) font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
+    [SKAttributeString setButtonFontContent:self.notNowButton title:NSLocalizedString(@"update_failed_page_button2", nil) font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
     
-    [SKAttributeString setButtonFontContent:self.tryAgainButton title:@"TRY AGAIN" font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
-    [SKAttributeString setButtonFontContent:self.notNowButton title:@"NOT NOW" font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
 }
 
 - (IBAction)tryAgain:(id)sender {
@@ -47,9 +64,9 @@
         [self dismissViewControllerAnimated:YES completion:nil];
     }else{
         
-        NSString *message = @"your ring is disconnected. You may need to forget the paired ring in 'settings->bluetooth' and try again when it is reconnected.";
+        NSString *message = NSLocalizedString(@"tip_disconnect", nil);
         
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"WARNING" message:[message uppercaseString] preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"warning", nil) message:[message uppercaseString] preferredStyle:UIAlertControllerStyleAlert];
         
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
@@ -59,7 +76,7 @@
         
         [alertController addAction:okAction];
         
-        [alertController setValue:[self setAlertControllerWithStrring:@"WARNING" fontSize:17 spacing:1.85] forKey:@"attributedTitle"];
+        [alertController setValue:[self setAlertControllerWithStrring:NSLocalizedString(@"warning", nil) fontSize:17 spacing:1.85] forKey:@"attributedTitle"];
         
         [alertController setValue:[self setAlertControllerWithStrring:message fontSize:14 spacing:1.85]  forKey:@"attributedMessage"];
         

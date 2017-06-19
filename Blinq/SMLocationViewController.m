@@ -36,9 +36,9 @@
     [super viewDidLoad];
     
     [SKAttributeString setLabelFontContent:self.titleLabel title:@"LOCATION" font:Avenir_Black Size:44 spacing:6.6 color:[UIColor whiteColor]];
-    [SKAttributeString setLabelFontContent:self.label1 title:@"WE NEED TO HAVE ACCESS TO YOUR LOCATION IN ORDER FOR YOUR EMERGENCY S.O.S. ALERT TO WORK" font:Avenir_Heavy Size:13 spacing:3.9 color:[UIColor whiteColor]];
-    [SKAttributeString setLabelFontContent:self.label2 title:@"ENABLE ACCESS TO YOUR DEVICE’S LOCATION SO YOUR RING WORKS PROPERLY" font:Avenir_Heavy Size:16 spacing:4.8 color:[UIColor whiteColor]];
-    [SKAttributeString setButtonFontContent:self.nextButton title:@"NEXT" font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
+    [SKAttributeString setLabelFontContent:self.label1 title:NSLocalizedString(@"location_describe1", nil) font:Avenir_Heavy Size:13 spacing:3.9 color:[UIColor whiteColor]];
+    [SKAttributeString setLabelFontContent:self.label2 title:NSLocalizedString(@"location_describe2", nil) font:Avenir_Heavy Size:16 spacing:4.8 color:[UIColor whiteColor]];
+    [SKAttributeString setButtonFontContent:self.nextButton title:NSLocalizedString(@"location_buttonTitle", nil) font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
 }
 
 - (IBAction)goVc:(id)sender {
@@ -46,7 +46,7 @@
     
     if ([SMNetWorkState state] == NO) {
         
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"WARNING" message:@"NETWORK UNAVAILABLE.CHECK NETWORK" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"warning", nil) message:NSLocalizedString(@"tip_network", nil) preferredStyle:UIAlertControllerStyleAlert];
         
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
@@ -54,9 +54,9 @@
         
         [alertController addAction:okAction];
         
-        [alertController setValue:[self setAlertControllerWithStrring:@"WARNING" fontSize:17 spacing:1.85] forKey:@"attributedTitle"];
+        [alertController setValue:[self setAlertControllerWithStrring:NSLocalizedString(@"warning", nil) fontSize:17 spacing:1.85] forKey:@"attributedTitle"];
         
-        [alertController setValue:[self setAlertControllerWithStrring:@"NETWORK UNAVAILABLE.CHECK NETWORK" fontSize:14 spacing:1.85]  forKey:@"attributedMessage"];
+        [alertController setValue:[self setAlertControllerWithStrring:NSLocalizedString(@"tip_network", nil) fontSize:14 spacing:1.85]  forKey:@"attributedMessage"];
         
         [self presentViewController:alertController animated:YES completion:nil];
         

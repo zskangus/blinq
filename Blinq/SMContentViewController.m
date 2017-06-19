@@ -137,7 +137,7 @@ static NSInteger checkCount;
         
         [self.navigationController setNavigationBarHidden:NO animated:YES];
         
-        [self setupNavigationTitle:@"APP NOTIFICATIONS"];
+        [self setupNavigationTitle:NSLocalizedString(@"nav_title_APP_NOTIFICATIONS", nil)];
     
         [self addSubControllers];
         
@@ -208,6 +208,14 @@ static NSInteger checkCount;
 
         
         NSLog(@"pingmukuandu%@",NSStringFromCGRect(self.view.frame));
+    }
+    
+    if ([string isEqualToString:@"APP-BENACHRICHTIGUNGEN"]) {
+        titleLabel.font = [UIFont fontWithName: @"Avenir-Book" size:14];
+    }
+    
+    if ([string isEqualToString:@"KONTAKT-BENACHRICHTIGUNGEN"]) {
+        titleLabel.font = [UIFont fontWithName: @"Avenir-Book" size:11];
     }
     
     titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -323,7 +331,7 @@ static NSInteger checkCount;
             
             [self transitionFromOldViewController:self.currentVC toNewViewController:self.notification];
             
-            [self setupNavigationTitle:@"APP NOTIFICATIONS"];
+            [self setupNavigationTitle:NSLocalizedString(@"nav_title_APP_NOTIFICATIONS", nil)];
 
         }
             break;
@@ -347,7 +355,7 @@ static NSInteger checkCount;
             
             [self transitionFromOldViewController:_currentVC toNewViewController:self.contact];
             
-            [self setupNavigationTitle:@"CONTACT NOTIFICATIONS"];
+            [self setupNavigationTitle:NSLocalizedString(@"nav_title_CONTACT_NOTIFICATIONS", nil)];
             
         }
             break;
@@ -357,7 +365,7 @@ static NSInteger checkCount;
             
             [self transitionFromOldViewController:_currentVC toNewViewController:self.play];
             
-            [self setupNavigationTitle:@"PLAY"];
+            [self setupNavigationTitle:NSLocalizedString(@"nav_title_PLAY", nil)];
 
         }
             break;
@@ -367,7 +375,7 @@ static NSInteger checkCount;
             
             [self transitionFromOldViewController:_currentVC toNewViewController:self.sos];
             
-            [self setupNavigationTitle:@"SOS EMERGENCY"];
+            [self setupNavigationTitle:NSLocalizedString(@"nav_title_SOS_EMERGENCY", nil)];
 
 
         }
@@ -379,7 +387,7 @@ static NSInteger checkCount;
             
             [self transitionFromOldViewController:_currentVC toNewViewController:self.setting];
             
-            [self setupNavigationTitle:@"SETTINGS"];
+            [self setupNavigationTitle:NSLocalizedString(@"nav_title_SETTINGS", nil)];
             
         }
             break;
@@ -391,7 +399,7 @@ static NSInteger checkCount;
             
             [self transitionFromOldViewController:_currentVC toNewViewController:self.help];
             
-            [self setupNavigationTitle:@"HELP"];
+            [self setupNavigationTitle:NSLocalizedString(@"nav_title_help", nil)];
 
         }
             break;
@@ -667,7 +675,14 @@ static NSInteger checkCount;
             dispatch_async(queue, ^{
                 
                 
-                [self showAlertController:@"LOCATION SERVICES OFF" body:@"TURN ON LOCATION SERVICES IN SETTINGS > PRIVACY TO ALLOW BLINQ TO DETERMINE YOUR CURRENT LOCATION" type:@"sos"];
+//                
+//                if ([NSLocalizedString(@"language", nil)isEqualToString:@"German"]) {
+//                    [self showAlertController:@"LOCATION SERVICES OFF" body:@"TURN ON LOCATION SERVICES IN SETTINGS > PRIVACY TO ALLOW BLINQ TO DETERMINE YOUR CURRENT LOCATION" type:@"sos"];
+//
+//                }else{
+//                    [self showAlertController:@"LOCATION SERVICES OFF" body:@"TURN ON LOCATION SERVICES IN SETTINGS > PRIVACY TO ALLOW BLINQ TO DETERMINE YOUR CURRENT LOCATION" type:@"sos"];
+//
+//                }
                 
                 //                UIApplication *app=[UIApplication sharedApplication];
                 //                if (app.applicationState == UIApplicationStateBackground) {

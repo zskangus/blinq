@@ -21,11 +21,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [SKAttributeString setLabelFontContent:self.titleLabel title:@"SUCCESSFUL" font:Avenir_Black Size:38 spacing:5.7 color:[UIColor whiteColor]];
+    [SKAttributeString setLabelFontContent:self.titleLabel title:NSLocalizedString(@"register_successful_page_title", nil) font:Avenir_Black Size:38 spacing:5.7 color:[UIColor whiteColor]];
     
-    [SKAttributeString setLabelFontContent2:self.label title:@"GREAT! YOU SUCCESSFULLY REGISTERED YOUR RING. NOW LET’S GET YOUR RING SET UP FOR ALERTS." font:Avenir_Heavy Size:13 spacing:3.9 color:[UIColor whiteColor]];
+    if ([NSLocalizedString(@"language", nil)isEqualToString:@"German"]) {
+        [SKAttributeString setLabelFontContent2:self.label title:NSLocalizedString(@"register_successful_page_label", nil) font:Avenir_Heavy Size:13 spacing:3 color:[UIColor whiteColor]];
+
+    }else{
+        [SKAttributeString setLabelFontContent2:self.label title:NSLocalizedString(@"register_successful_page_label", nil) font:Avenir_Heavy Size:13 spacing:3.9 color:[UIColor whiteColor]];
+    }
     
-    [SKAttributeString setButtonFontContent:self.button title:@"OK LET’S GO!" font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
+    [SKAttributeString setButtonFontContent:self.button title:NSLocalizedString(@"register_successful_page_buttonTitle", nil) font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
 }
 - (IBAction)buttonTouchEvent:(id)sender {
     

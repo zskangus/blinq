@@ -21,7 +21,12 @@
 
     [super awakeFromNib];
     
-    [SKAttributeString setButtonFontContent:self.manAgeBtn title:@"MANAGE SELECTED CONTACTS" font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor] forState:UIControlStateNormal];
+    if ([NSLocalizedString(@"language", nil)isEqualToString:@"German"]) {
+        [SKAttributeString setButtonFontContent:self.manAgeBtn title:NSLocalizedString(@"manage_selected_contacts_buttonTitle", nil) font:Avenir_Heavy Size:10 spacing:3.6 color:[UIColor whiteColor] forState:UIControlStateNormal];
+
+    }else{
+        [SKAttributeString setButtonFontContent:self.manAgeBtn title:NSLocalizedString(@"manage_selected_contacts_buttonTitle", nil) font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor] forState:UIControlStateNormal];
+    }
 }
 - (IBAction)goContactsVc:(id)sender {
 

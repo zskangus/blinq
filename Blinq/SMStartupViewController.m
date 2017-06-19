@@ -56,13 +56,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [SKAttributeString setButtonFontContent:self.getStarted title:@"GET STARTED" font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
+
+    [SKAttributeString setButtonFontContent:self.getStarted title:NSLocalizedString(@"welcome_page_get_started", nil) font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
     
     if (screenHeight == 480) {
-        [SKAttributeString setLabelFontContent:self.copyrightLabel title:@"COPYRIGHT 2017 BLINQ | PATENT PENDING" font:Avenir_Heavy Size:9 spacing:3 color:[UIColor whiteColor]];
+        
+        if ([NSLocalizedString(@"language", nil)isEqualToString:@"German"]) {
+            [SKAttributeString setLabelFontContent:self.copyrightLabel title:NSLocalizedString(@"welcome_page_copyright", nil) font:Avenir_Heavy Size:9 spacing:2 color:[UIColor whiteColor]];
+
+        }else{
+            [SKAttributeString setLabelFontContent:self.copyrightLabel title:NSLocalizedString(@"welcome_page_copyright", nil) font:Avenir_Heavy Size:9 spacing:3 color:[UIColor whiteColor]];
+
+        }
+    
     }else{
-        [SKAttributeString setLabelFontContent:self.copyrightLabel title:@"COPYRIGHT 2017 BLINQ | PATENT PENDING" font:Avenir_Heavy Size:10 spacing:3 color:[UIColor whiteColor]];
+        
+        if ([NSLocalizedString(@"language", nil)isEqualToString:@"German"]) {
+            [SKAttributeString setLabelFontContent:self.copyrightLabel title:NSLocalizedString(@"welcome_page_copyright", nil) font:Avenir_Heavy Size:10 spacing:2 color:[UIColor whiteColor]];
+
+        }else{
+            [SKAttributeString setLabelFontContent:self.copyrightLabel title:NSLocalizedString(@"welcome_page_copyright", nil) font:Avenir_Heavy Size:10 spacing:3 color:[UIColor whiteColor]];
+
+        }
+
     }
     
     [self playMovie];

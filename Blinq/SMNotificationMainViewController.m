@@ -185,8 +185,6 @@ static NSString * const manAgeContactAlertsCell = @"ManAgeContactAlertsCell";
         
         cell.delegate = self;
         
-        [SKAttributeString setLabelFontContent:cell.normalCellLabel title:self.info.title font:Avenir_Book Size:16 spacing:2.46 color:[UIColor whiteColor]];
-        
         cell.circle.hidden = !self.info.flag;
         
         [cell.customSwitch setOn:self.info.flag];
@@ -196,6 +194,27 @@ static NSString * const manAgeContactAlertsCell = @"ManAgeContactAlertsCell";
         cell.app = self.info;
         
         [self cellIntervalColor:cell indexPath:indexPath];
+        
+        
+        NSString *titleString = [[NSString alloc]init];
+        
+        if ([NSLocalizedString(@"language", nil)isEqualToString:@"German"]) {
+            
+            if ([self.info.title isEqualToString:@"PHONE CALLS"]) {
+                titleString = @"TELEFON";
+            }
+            
+            if ([self.info.title isEqualToString:@"TEXT MESSAGES"]) {
+                titleString = @"NACHRICHTEN";
+            }
+            [SKAttributeString setLabelFontContent:cell.normalCellLabel title:titleString font:Avenir_Book Size:16 spacing:2.46 color:[UIColor whiteColor]];
+
+        }else{
+            [SKAttributeString setLabelFontContent:cell.normalCellLabel title:self.info.title font:Avenir_Book Size:16 spacing:2.46 color:[UIColor whiteColor]];
+
+        }
+        
+        
         
         return cell;
     }
@@ -210,7 +229,7 @@ static NSString * const manAgeContactAlertsCell = @"ManAgeContactAlertsCell";
         
         [cell handlerButtonAction:^{
             
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:[@"PLEASE MANAGE SELECTED CONTACTS" uppercaseString] preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:[NSLocalizedString(@"tip_manager_contact", nil) uppercaseString] preferredStyle:UIAlertControllerStyleAlert];
             
             UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 
@@ -218,7 +237,7 @@ static NSString * const manAgeContactAlertsCell = @"ManAgeContactAlertsCell";
             
             [alertController addAction:okAction];
             
-            [alertController setValue:[self setAlertControllerWithStrring:@"PLEASE MANAGE SELECTED CONTACTS" fontSize:14 spacing:1.85]  forKey:@"attributedMessage"];
+            [alertController setValue:[self setAlertControllerWithStrring:NSLocalizedString(@"tip_manager_contact", nil) fontSize:14 spacing:1.85]  forKey:@"attributedMessage"];
             
             [self presentViewController:alertController animated:YES completion:nil];
             
@@ -236,7 +255,7 @@ static NSString * const manAgeContactAlertsCell = @"ManAgeContactAlertsCell";
             
             SMContactNotificationsViewController *contactView = [[SMContactNotificationsViewController alloc]init];
             
-            contactView.title = @"CONTACT NOTIFICATIONS";
+            contactView.title = NSLocalizedString(@"nav_title_CONTACT_NOTIFICATIONS", nil);
             
             //            // 避免内容被导航条遮挡
             //            contactView.edgesForExtendedLayout = UIRectEdgeNone;
@@ -338,12 +357,20 @@ static NSString * const manAgeContactAlertsCell = @"ManAgeContactAlertsCell";
     headerLabel.opaque = NO;
     headerLabel.textAlignment = NSTextAlignmentCenter;
     headerLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    headerLabel.numberOfLines = 0;
     
     if (section == 0) {
-        [SKAttributeString setLabelFontContent:headerLabel title:@"RECEIVE ALL NOTIFICATIONS" font:Avenir_Black Size:14 spacing:4.2 color:[UIColor whiteColor]];
+        if ([NSLocalizedString(@"language", nil)isEqualToString:@"German"]) {
+            [SKAttributeString setLabelFontContent:headerLabel title:NSLocalizedString(@"notifications_page_headerTitle", nil) font:Avenir_Black Size:14 spacing:4.2 color:[UIColor whiteColor]];
+        }else{
+            [SKAttributeString setLabelFontContent:headerLabel title:NSLocalizedString(@"notifications_page_headerTitle", nil) font:Avenir_Black Size:14 spacing:4.2 color:[UIColor whiteColor]];
+        }
     }else{
-        
-        [SKAttributeString setLabelFontContent:headerLabel title:@"APP NOTIFICATIONS" font:Avenir_Black Size:14 spacing:4.2 color:[UIColor whiteColor]];
+        if ([NSLocalizedString(@"language", nil)isEqualToString:@"German"]) {
+        [SKAttributeString setLabelFontContent:headerLabel title:NSLocalizedString(@"nav_title_APP_NOTIFICATIONS", nil) font:Avenir_Black Size:14 spacing:4.2 color:[UIColor whiteColor]];
+        }else{
+        [SKAttributeString setLabelFontContent:headerLabel title:NSLocalizedString(@"nav_title_APP_NOTIFICATIONS", nil) font:Avenir_Black Size:14 spacing:4.2 color:[UIColor whiteColor]];
+        }
     }
     
     

@@ -104,10 +104,16 @@ static NSString *_url;
 
 - (void)setupUi{
     
-    
-    [SKAttributeString setLabelFontContent:self.titleLabel title:@"UPDATING JEWELRY" font:Avenir_Black Size:32 spacing:5.4 color:[UIColor whiteColor]];
-    
-    [SKAttributeString setLabelFontContent:self.label title:@"PLEASE LEAVE THE RING ON THE CHARGER UNTIL ALL OF THE UPDATES ARE COMPLETE." font:Avenir_Heavy Size:14 spacing:4.2 color:[UIColor whiteColor]];
+    if ([NSLocalizedString(@"language", nil)isEqualToString:@"German"]) {
+        [SKAttributeString setLabelFontContent:self.titleLabel title:NSLocalizedString(@"updating_jewelry_page_title", nil) font:Avenir_Black Size:20 spacing:4 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent:self.label title:NSLocalizedString(@"updating_jewelry_page_describe", nil) font:Avenir_Heavy Size:12 spacing:4.2 color:[UIColor whiteColor]];
+    }else{
+        [SKAttributeString setLabelFontContent:self.titleLabel title:NSLocalizedString(@"updating_jewelry_page_title", nil) font:Avenir_Black Size:32 spacing:5.4 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent:self.label title:NSLocalizedString(@"updating_jewelry_page_describe", nil) font:Avenir_Heavy Size:14 spacing:4.2 color:[UIColor whiteColor]];
+    }
+
 }
 
 - (void)setupotaUpdateProgressUi{
