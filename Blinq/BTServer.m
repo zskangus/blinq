@@ -787,10 +787,12 @@ static BTServer* _defaultBTServer = nil;
                     
                     if (emergencyPower == YES) {
                         
-                        [[NSNotificationCenter defaultCenter] postNotificationName:@"NOTIFICATION_SOS" object:nil];
-                        
-                        [SMInstructionsClass notificationAlertModType:MODTYPE_TAG_INDICATIONS indication:INDICATION_TYPE_NORMAL_V_TWO_SEC];
-                        NSLog(@"SOS Happend!!!");
+                        if ([[NSUserDefaults standardUserDefaults]boolForKey:@"openSosFunc"]) {
+                            [[NSNotificationCenter defaultCenter] postNotificationName:@"NOTIFICATION_SOS" object:nil];
+                            
+                            [SMInstructionsClass notificationAlertModType:MODTYPE_TAG_INDICATIONS indication:INDICATION_TYPE_NORMAL_V_TWO_SEC];
+                            NSLog(@"SOS Happend!!!");
+                        }
                     }
                 }];
                 

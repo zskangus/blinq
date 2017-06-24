@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SMRegisterViewController">
             <connections>
                 <outlet property="address" destination="1oe-46-0MN" id="six-tm-eV6"/>
+                <outlet property="headImage" destination="gyx-Y7-T31" id="mqq-Ts-Q1d"/>
                 <outlet property="label" destination="6xv-Ah-6EX" id="9qz-9r-NA2"/>
                 <outlet property="lastName" destination="tXh-Fv-y3F" id="bQP-lP-FuZ"/>
                 <outlet property="name" destination="K3Y-2t-Hc0" id="5Aw-S1-00a"/>

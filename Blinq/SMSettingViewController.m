@@ -140,7 +140,15 @@ static NSString * const settingCell = @"SettingCell";
 
 - (void)setupUi{
     
-    [SKAttributeString setButtonFontContent:self.checkUpdateBtn title:NSLocalizedString(@"setting_page_check", nil) font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    if ([NSLocalizedString(@"language", nil)isEqualToString:@"German"]) {
+        [SKAttributeString setButtonFontContent:self.checkUpdateBtn title:NSLocalizedString(@"setting_page_check", nil) font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor] forState:UIControlStateNormal];
+    }else if ([NSLocalizedString(@"language", nil)isEqualToString:@"中文"]){
+        [SKAttributeString setButtonFontContent:self.checkUpdateBtn title:NSLocalizedString(@"setting_page_check", nil) font:Avenir_Heavy Size:15 spacing:3.6 color:[UIColor whiteColor] forState:UIControlStateNormal];
+    }else{
+        [SKAttributeString setButtonFontContent:self.checkUpdateBtn title:NSLocalizedString(@"setting_page_check", nil) font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor] forState:UIControlStateNormal];
+        
+    }
 }
 
 - (void)setupConnectStatus{
@@ -162,7 +170,12 @@ static NSString * const settingCell = @"SettingCell";
         
         [SKAttributeString setLabelFontContent:self.connectStatus title:NSLocalizedString(@"setting_page_connect", nil) font:Avenir_Heavy Size:20 spacing:3 color:[UIColor whiteColor]];
         
-        [SKAttributeString setButtonFontContent:self.disConnectButton title:NSLocalizedString(@"setting_page_disconnect_buttonTitle", nil) font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor] forState:UIControlStateNormal];
+        if ([NSLocalizedString(@"language", nil)isEqualToString:@"中文"]) {
+            [SKAttributeString setButtonFontContent:self.disConnectButton title:NSLocalizedString(@"setting_page_disconnect_buttonTitle", nil) font:Avenir_Heavy Size:15 spacing:3.6 color:[UIColor whiteColor] forState:UIControlStateNormal];
+        }else{
+            [SKAttributeString setButtonFontContent:self.disConnectButton title:NSLocalizedString(@"setting_page_disconnect_buttonTitle", nil) font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor] forState:UIControlStateNormal];
+        }
+
 
     }else{
         
@@ -179,9 +192,11 @@ static NSString * const settingCell = @"SettingCell";
 
         [SKAttributeString setLabelFontContent:self.connectStatus title:NSLocalizedString(@"setting_page_disconnect", nil) font:Avenir_Heavy Size:20 spacing:3 color:[UIColor whiteColor]];
         
-        //[self.disConnectButton setSelected:YES];
-        
-        [SKAttributeString setButtonFontContent:self.disConnectButton title:NSLocalizedString(@"setting_page_connect_buttonTitle", nil) font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor] forState:UIControlStateNormal];
+        if ([NSLocalizedString(@"language", nil)isEqualToString:@"中文"]) {
+            [SKAttributeString setButtonFontContent:self.disConnectButton title:NSLocalizedString(@"setting_page_connect_buttonTitle", nil) font:Avenir_Heavy Size:15 spacing:3.6 color:[UIColor whiteColor] forState:UIControlStateNormal];
+        }else{
+            [SKAttributeString setButtonFontContent:self.disConnectButton title:NSLocalizedString(@"setting_page_connect_buttonTitle", nil) font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor] forState:UIControlStateNormal];
+        }
     }
 }
 
@@ -204,7 +219,7 @@ static NSString * const settingCell = @"SettingCell";
     if (status == NO) {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"tip", nil) message:NSLocalizedString(@"setting_page_disconnect", nil) preferredStyle:UIAlertControllerStyleAlert];
         
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"ok", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
         }];
         
@@ -225,7 +240,7 @@ static NSString * const settingCell = @"SettingCell";
         
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"tip", nil) message:NSLocalizedString(@"tip_network", nil) preferredStyle:UIAlertControllerStyleAlert];
         
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"ok", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
         }];
         
@@ -284,7 +299,7 @@ static NSString * const settingCell = @"SettingCell";
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"tip", nil) message:NSLocalizedString(@"connect_failed", nil) preferredStyle:UIAlertControllerStyleAlert];
     
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"ok", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
     }];
     
@@ -387,11 +402,15 @@ static NSString * const settingCell = @"SettingCell";
     
     NSString * localVersion = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
     
-    [SKAttributeString setLabelFontContent:self.versionLabel title:[NSString stringWithFormat:@"FIRMWARE %@",versionStr] font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor]];
-    
-    [SKAttributeString setLabelFontContent:self.softwareVersionLabel title:[NSString stringWithFormat:@"%@ %@",NSLocalizedString(@"software_label", nil),localVersion] font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor]];
-
-    
+    if ([NSLocalizedString(@"language", nil)isEqualToString:@"中文"]) {
+        [SKAttributeString setLabelFontContent:self.versionLabel title:[NSString stringWithFormat:@"%@ %@",NSLocalizedString(@"firmware_label", nil),versionStr] font:Avenir_Heavy Size:15 spacing:3.6 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent:self.softwareVersionLabel title:[NSString stringWithFormat:@"%@ %@",NSLocalizedString(@"software_label", nil),localVersion] font:Avenir_Heavy Size:15 spacing:3.6 color:[UIColor whiteColor]];
+    }else{
+        [SKAttributeString setLabelFontContent:self.versionLabel title:[NSString stringWithFormat:@"%@ %@",NSLocalizedString(@"firmware_label", nil),versionStr] font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent:self.softwareVersionLabel title:[NSString stringWithFormat:@"%@ %@",NSLocalizedString(@"software_label", nil),localVersion] font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor]];
+    }
 }
 
 - (void)batteryLevelUpdated{
@@ -417,7 +436,7 @@ static NSString * const settingCell = @"SettingCell";
         if (status == YES) {
             self.batteryLoading.hidden = NO;
             
-            [SKAttributeString setLabelFontContent:self.batteryLoading title:@"LOADING" font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor]];
+            [SKAttributeString setLabelFontContent:self.batteryLoading title:NSLocalizedString(@"loading", nil) font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor]];
         }
 
     }else{

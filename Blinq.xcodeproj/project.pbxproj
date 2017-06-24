@@ -35,7 +35,7 @@
 		730399131D864766008930FE /* otaUpToDateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 730399111D864766008930FE /* otaUpToDateViewController.xib */; };
 		730411361CEC3F2C008651B1 /* SMAppModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 730411351CEC3F2C008651B1 /* SMAppModel.m */; };
 		730411391CEC3FB9008651B1 /* SMAppTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 730411381CEC3FB9008651B1 /* SMAppTool.m */; };
-		7304733F1D9BE41E001B5BAF /* countresList2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7304733E1D9BE41E001B5BAF /* countresList2.plist */; };
+		7304733F1D9BE41E001B5BAF /* countresList_english.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7304733E1D9BE41E001B5BAF /* countresList_english.plist */; };
 		730473421D9BE51C001B5BAF /* countriesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 730473411D9BE51C001B5BAF /* countriesModel.m */; };
 		730473461D9BE54A001B5BAF /* countriesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 730473441D9BE54A001B5BAF /* countriesCell.m */; };
 		730473471D9BE54A001B5BAF /* countriesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 730473451D9BE54A001B5BAF /* countriesCell.xib */; };
@@ -85,6 +85,8 @@
 		734102721E9E2A6800799C73 /* SMSensitivityDescriptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 734102701E9E2A6800799C73 /* SMSensitivityDescriptionViewController.xib */; };
 		734102751E9E5B0200799C73 /* SMSOSCheckAlgorithmService.m in Sources */ = {isa = PBXBuildFile; fileRef = 734102741E9E5B0200799C73 /* SMSOSCheckAlgorithmService.m */; };
 		73461C381DD4756500F3DE59 /* SKViewTransitionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73461C371DD4756500F3DE59 /* SKViewTransitionManager.m */; };
+		73574E191EFB9ECD00789E6C /* countresList_deutsch.plist in Resources */ = {isa = PBXBuildFile; fileRef = 73574E181EFB9ECD00789E6C /* countresList_deutsch.plist */; };
+		73574E1B1EFBA2BA00789E6C /* countresList_chinese.plist in Resources */ = {isa = PBXBuildFile; fileRef = 73574E1A1EFBA2BA00789E6C /* countresList_chinese.plist */; };
 		735B23A71CEF044E004915D4 /* SMMessageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 735B23A61CEF044E004915D4 /* SMMessageManager.m */; };
 		7373DFA61DD06D0D003668D7 /* SMContactsDescriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7373DFA41DD06D0D003668D7 /* SMContactsDescriptionViewController.m */; };
 		7373DFA71DD06D0D003668D7 /* SMContactsDescriptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7373DFA51DD06D0D003668D7 /* SMContactsDescriptionViewController.xib */; };
@@ -254,7 +256,7 @@
 		730411351CEC3F2C008651B1 /* SMAppModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMAppModel.m; sourceTree = "<group>"; };
 		730411371CEC3FB9008651B1 /* SMAppTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMAppTool.h; sourceTree = "<group>"; };
 		730411381CEC3FB9008651B1 /* SMAppTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMAppTool.m; sourceTree = "<group>"; };
-		7304733E1D9BE41E001B5BAF /* countresList2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = countresList2.plist; sourceTree = "<group>"; };
+		7304733E1D9BE41E001B5BAF /* countresList_english.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = countresList_english.plist; sourceTree = "<group>"; };
 		730473401D9BE51C001B5BAF /* countriesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = countriesModel.h; sourceTree = "<group>"; };
 		730473411D9BE51C001B5BAF /* countriesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = countriesModel.m; sourceTree = "<group>"; };
 		730473431D9BE54A001B5BAF /* countriesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = countriesCell.h; sourceTree = "<group>"; };
@@ -335,6 +337,8 @@
 		734102741E9E5B0200799C73 /* SMSOSCheckAlgorithmService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSOSCheckAlgorithmService.m; sourceTree = "<group>"; };
 		73461C361DD4756500F3DE59 /* SKViewTransitionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKViewTransitionManager.h; sourceTree = "<group>"; };
 		73461C371DD4756500F3DE59 /* SKViewTransitionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKViewTransitionManager.m; sourceTree = "<group>"; };
+		73574E181EFB9ECD00789E6C /* countresList_deutsch.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = countresList_deutsch.plist; sourceTree = "<group>"; };
+		73574E1A1EFBA2BA00789E6C /* countresList_chinese.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = countresList_chinese.plist; sourceTree = "<group>"; };
 		735B23A51CEF044E004915D4 /* SMMessageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMMessageManager.h; sourceTree = "<group>"; };
 		735B23A61CEF044E004915D4 /* SMMessageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMMessageManager.m; sourceTree = "<group>"; };
 		737386391D59D25B00175772 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -978,7 +982,9 @@
 				7328E8911D9BC67D000E0EFF /* NationalListViewController.h */,
 				7328E8921D9BC67D000E0EFF /* NationalListViewController.m */,
 				7328E8931D9BC67D000E0EFF /* NationalListViewController.xib */,
-				7304733E1D9BE41E001B5BAF /* countresList2.plist */,
+				7304733E1D9BE41E001B5BAF /* countresList_english.plist */,
+				73574E181EFB9ECD00789E6C /* countresList_deutsch.plist */,
+				73574E1A1EFBA2BA00789E6C /* countresList_chinese.plist */,
 				730473401D9BE51C001B5BAF /* countriesModel.h */,
 				730473411D9BE51C001B5BAF /* countriesModel.m */,
 				730473431D9BE54A001B5BAF /* countriesCell.h */,
@@ -1492,11 +1498,13 @@
 				73ACD3951EF22B09002427C9 /* InfoPlist.strings in Resources */,
 				73F730F31D9E51C400DABE18 /* SMSocialViewController.xib in Resources */,
 				7328E8951D9BC67D000E0EFF /* NationalListViewController.xib in Resources */,
+				73574E1B1EFBA2BA00789E6C /* countresList_chinese.plist in Resources */,
 				73EF8F371CAA2EDB000F9A0C /* ContactCell.xib in Resources */,
 				73EF4F3A1CA7D4C8001B000E /* SMMainMenuViewController.xib in Resources */,
 				7301A55A1E1F383300719B77 /* IMG_2349.PNG in Resources */,
 				7328E8871D9B6967000E0EFF /* SMNotificationBewriteViewController.xib in Resources */,
 				737B1E511CA4CCDC00A4AA60 /* Main.storyboard in Resources */,
+				73574E191EFB9ECD00789E6C /* countresList_deutsch.plist in Resources */,
 				737B1EAB1CA50F2E00A4AA60 /* SMMainMenuCell.xib in Resources */,
 				73EF4F461CA83DB9001B000E /* NormalCell.xib in Resources */,
 				7335EDB61E1CEE27008A3226 /* blinq-welcome.mp4 in Resources */,
@@ -1512,7 +1520,7 @@
 				737B1E861CA4E71300A4AA60 /* SMBindingViewController.xib in Resources */,
 				7301A5591E1F383300719B77 /* IMG_2348.PNG in Resources */,
 				73F38C0D1CC942E900F0DF31 /* SettingCell.xib in Resources */,
-				7304733F1D9BE41E001B5BAF /* countresList2.plist in Resources */,
+				7304733F1D9BE41E001B5BAF /* countresList_english.plist in Resources */,
 				730473471D9BE54A001B5BAF /* countriesCell.xib in Resources */,
 				7328E88C1D9B9A61000E0EFF /* SMLocationViewController.xib in Resources */,
 				7301A5641E1F3B5500719B77 /* SMRegisterViewController_ip4.xib in Resources */,

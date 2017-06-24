@@ -126,6 +126,11 @@ static SMlocationManager* _defaultLocation = nil;
         return;
     }
     
+    if (self.isReverseGeocodeLocation == NO) {
+        self.returnBlock(nil,kCLLocationCoordinate2DInvalid,YES);
+        return;
+    }
+    
     NSLog(@"位置精度：%f，%@",newLocation.horizontalAccuracy,newLocation);
     
     if (newLocation.horizontalAccuracy <= 60 && newLocation.horizontalAccuracy != -1){

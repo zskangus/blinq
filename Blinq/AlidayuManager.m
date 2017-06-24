@@ -83,8 +83,7 @@ sendState messageSendState = MessageDidNotSend;
 //        }
 //    }
     
-    
-    sosTextMessage = [NSString stringWithFormat:@"You are %@'s emergency contact and they need your help or are in trouble. Please call them immediately to make sure this isn't a false alarm. If no one answers send help to the following location right away. This message was sent from Blinq's Smart Ring.",name];
+    sosTextMessage = [NSString stringWithFormat:NSLocalizedString(@"sos_message_content_template", nil),name];
     
     if ([self isChinese:sosTextMessage]) {//如果信息内容是中文
         type = @"unicode";
@@ -106,7 +105,8 @@ sendState messageSendState = MessageDidNotSend;
 
     }
     
-    if ([language isEqualToString:@"English"] && [areaCode isEqualToString:@"86"]) {
+    if (([language isEqualToString:@"English"] && [areaCode isEqualToString:@"86"]) ||
+        ([language isEqualToString:@"German"] && [areaCode isEqualToString:@"86"])) {
         
         NSString *url = [NSString stringWithFormat:@"https://maps.google.cn/maps?q=%@,%@",latitude,longtitude];
         
@@ -119,7 +119,8 @@ sendState messageSendState = MessageDidNotSend;
         NSLog(@"-----生成的信息内容%@",sms);
     }
     
-    if ([language isEqualToString:@"English"] && ![areaCode isEqualToString:@"86"]) {
+    if (([language isEqualToString:@"English"] && ![areaCode isEqualToString:@"86"]) ||
+        ([language isEqualToString:@"German"] && ![areaCode isEqualToString:@"86"]) ) {
         
         NSString *url = [NSString stringWithFormat:@"https://maps.google.com/maps?q=%@,%@",latitude,longtitude];
         
@@ -131,8 +132,6 @@ sendState messageSendState = MessageDidNotSend;
         
         NSLog(@"发送谷歌连接地图");
     }
-    
-    
     
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     

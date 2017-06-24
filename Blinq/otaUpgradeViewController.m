@@ -108,6 +108,20 @@ static NSString *_url;
         [SKAttributeString setLabelFontContent:self.titleLabel title:NSLocalizedString(@"updating_jewelry_page_title", nil) font:Avenir_Black Size:20 spacing:4 color:[UIColor whiteColor]];
         
         [SKAttributeString setLabelFontContent:self.label title:NSLocalizedString(@"updating_jewelry_page_describe", nil) font:Avenir_Heavy Size:12 spacing:4.2 color:[UIColor whiteColor]];
+    }else if ([NSLocalizedString(@"language", nil)isEqualToString:@"中文"]){
+    
+        [SKAttributeString setLabelFontContent:self.titleLabel title:NSLocalizedString(@"updating_jewelry_page_title", nil) font:Avenir_Black Size:32 spacing:5.4 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent:self.label title:NSLocalizedString(@"updating_jewelry_page_describe", nil) font:Avenir_Heavy Size:18 spacing:0 color:[UIColor whiteColor]];
+        
+        self.label.textAlignment = NSTextAlignmentCenter;
+        
+        CGRect labelFrame = self.label.frame;
+        labelFrame.origin.x = 0;
+        labelFrame.size.width = 375;
+        self.label.frame = labelFrame;
+        
+        
     }else{
         [SKAttributeString setLabelFontContent:self.titleLabel title:NSLocalizedString(@"updating_jewelry_page_title", nil) font:Avenir_Black Size:32 spacing:5.4 color:[UIColor whiteColor]];
         
@@ -165,8 +179,6 @@ static NSString *_url;
 - (void)otabluetoothConnectState:(NSNotification*)notification{
     
     BOOL status = [[notification object][@"status"]boolValue];
-    
-    NSError *error = [notification object][@"error"];
     
     NSLog(@"OTA界面连接状态:%@,与戒指的连接已断开,弹出更新失败界面",status?@"YES":@"NO");
     

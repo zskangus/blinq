@@ -147,8 +147,10 @@ static NSInteger checkCount;
     
     
     SMlocationStartup = SystemStartup;
-    [self setupLocation];
-
+    
+    if ([[NSUserDefaults standardUserDefaults]boolForKey:@"openSosFunc"]) {
+        [self setupLocation];
+    }
     
     [self viewClickEvent];
     
@@ -324,6 +326,12 @@ static NSInteger checkCount;
         return;
     }
     
+    if ([[NSUserDefaults standardUserDefaults]boolForKey:@"openSosFunc"] == NO) {
+        [self offSosFuncState:item];
+        self.vcCount = item;
+        return;
+    }
+    
     switch (item) {
         case 0:
         {
@@ -409,6 +417,80 @@ static NSInteger checkCount;
     
     self.vcCount = item;
     
+}
+
+- (void)offSosFuncState:(NSInteger)integer{
+    switch (integer) {
+        case 0:
+        {
+            [self fitFrameForChildViewController:self.notification];
+            
+            [self transitionFromOldViewController:self.currentVC toNewViewController:self.notification];
+            
+            [self setupNavigationTitle:NSLocalizedString(@"nav_title_APP_NOTIFICATIONS", nil)];
+            
+        }
+            break;
+        case 1:
+        {
+            
+            BOOL notification_contactVcTurnedOn = [SKUserDefaults boolForKey:@"main_contactVcTurnedOn"];
+            
+            if (notification_contactVcTurnedOn == NO) {
+                SMContactsDescriptionViewController *description = [[SMContactsDescriptionViewController alloc]initWithNibName:@"SMContactsDescriptionViewController" bundle:nil];
+                description.entrance = @"main";
+                
+                [SKViewTransitionManager presentModalViewControllerFrom:self to:description duration:0.3 transitionType:TransitionPush directionType:TransitionFromRight];
+                
+                description.returnBlock = ^(){
+                    
+                };
+            }
+            
+            [self fitFrameForChildViewController:self.contact];
+            
+            [self transitionFromOldViewController:_currentVC toNewViewController:self.contact];
+            
+            [self setupNavigationTitle:NSLocalizedString(@"nav_title_CONTACT_NOTIFICATIONS", nil)];
+            
+        }
+            break;
+        case 2:
+        {
+            [self fitFrameForChildViewController:self.play];
+            
+            [self transitionFromOldViewController:_currentVC toNewViewController:self.play];
+            
+            [self setupNavigationTitle:NSLocalizedString(@"nav_title_PLAY", nil)];
+            
+        }
+            break;
+        case 3:
+        {
+            [self fitFrameForChildViewController:self.setting];
+            
+            [self transitionFromOldViewController:_currentVC toNewViewController:self.setting];
+            
+            [self setupNavigationTitle:NSLocalizedString(@"nav_title_SETTINGS", nil)];
+            
+        }
+            break;
+            
+            
+        case 4:
+        {
+            [self fitFrameForChildViewController:self.help];
+            
+            [self transitionFromOldViewController:_currentVC toNewViewController:self.help];
+            
+            [self setupNavigationTitle:NSLocalizedString(@"nav_title_help", nil)];
+            
+        }
+            break;
+        default:
+            break;
+    }
+
 }
 
 - (void)fitFrameForChildViewController:(UIViewController *)chileViewController{
@@ -509,7 +591,7 @@ static NSInteger checkCount;
         
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:body preferredStyle:UIAlertControllerStyleAlert];
         
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"ok", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
         }];
         
@@ -797,11 +879,11 @@ static NSInteger checkCount;
                 //faceBook
                 NSString *description = [[NSString alloc]init];
                 
-                description = [NSString stringWithFormat:@"EMERGENCY: I need help or I am currently in trouble. Please try to contact me immediately to make sure this isn't a false alarm. If I am unresponsive please send help to the following location right away. This message was sent from Blinq Smart Ring's Emergency Social S.O.S. system."];
+                description = [NSString stringWithFormat:NSLocalizedString(@"facebook_message_content_template", nil)];
                 
                 NSString *url = [NSString stringWithFormat:@"https://maps.google.com/maps?q=%f,%f",currentUserCoordinate.latitude,currentUserCoordinate.longitude];
                 
-                NSString *title = @"Blinq Smart Ring Emergency Broadcast";
+                NSString *title = NSLocalizedString(@"facebook_message_title", nil);
                 
                 
                 NSString *locationString = [NSString stringWithFormat:@"Location(%f, %f)",currentUserCoordinate.latitude,currentUserCoordinate.longitude];

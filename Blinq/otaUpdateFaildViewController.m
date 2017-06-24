@@ -41,19 +41,43 @@
         labelOneFrame.size.width += 50;
         labelOneFrame.origin.x -= 25;
         self.labelOne.frame = labelOneFrame;
+        
+        [SKAttributeString setLabelFontContent:self.labelTwo title:NSLocalizedString(@"update_failed_page_label1", nil) font:Avenir_Heavy Size:12 spacing:3.5 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent2:self.labelThree title:NSLocalizedString(@"update_failed_page_label2", nil) font:Avenir_Heavy Size:12 spacing:3.5 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setButtonFontContent:self.tryAgainButton title:NSLocalizedString(@"update_failed_page_button1", nil) font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
+        [SKAttributeString setButtonFontContent:self.notNowButton title:NSLocalizedString(@"update_failed_page_button2", nil) font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
+        
+    }else if ([NSLocalizedString(@"language", nil)isEqualToString:@"中文"]){
+        
+        [SKAttributeString setLabelFontContent:self.titleLabel title:NSLocalizedString(@"update_failed_page_title", nil) font:Avenir_Black Size:32 spacing:4.8 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent:self.labelOne title:NSLocalizedString(@"update_failed__page_describe", nil) font:Avenir_Heavy Size:18 spacing:3.3 color:[UIColor whiteColor]];
+        self.labelOne.textAlignment = NSTextAlignmentCenter;
+        
+        [SKAttributeString setLabelFontContent:self.labelTwo title:NSLocalizedString(@"update_failed_page_label1", nil) font:Avenir_Heavy Size:18 spacing:3.5 color:[UIColor whiteColor]];
+        self.labelTwo.textAlignment = NSTextAlignmentCenter;
+        
+        [SKAttributeString setLabelFontContent2:self.labelThree title:NSLocalizedString(@"update_failed_page_label2", nil) font:Avenir_Heavy Size:18 spacing:3.5 color:[UIColor whiteColor]];
+        self.labelThree.textAlignment = NSTextAlignmentCenter;
+
+        
+        [SKAttributeString setButtonFontContent:self.tryAgainButton title:NSLocalizedString(@"update_failed_page_button1", nil) font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
+        [SKAttributeString setButtonFontContent:self.notNowButton title:NSLocalizedString(@"update_failed_page_button2", nil) font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
     }else{
         [SKAttributeString setLabelFontContent:self.titleLabel title:NSLocalizedString(@"update_failed_page_title", nil) font:Avenir_Black Size:32 spacing:4.8 color:[UIColor whiteColor]];
         
         [SKAttributeString setLabelFontContent:self.labelOne title:NSLocalizedString(@"update_failed__page_describe", nil) font:Avenir_Heavy Size:11 spacing:3.3 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent:self.labelTwo title:NSLocalizedString(@"update_failed_page_label1", nil) font:Avenir_Heavy Size:12 spacing:3.5 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent2:self.labelThree title:NSLocalizedString(@"update_failed_page_label2", nil) font:Avenir_Heavy Size:12 spacing:3.5 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setButtonFontContent:self.tryAgainButton title:NSLocalizedString(@"update_failed_page_button1", nil) font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
+        [SKAttributeString setButtonFontContent:self.notNowButton title:NSLocalizedString(@"update_failed_page_button2", nil) font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
     }
-    
-    [SKAttributeString setLabelFontContent:self.labelTwo title:NSLocalizedString(@"update_failed_page_label1", nil) font:Avenir_Heavy Size:12 spacing:3.5 color:[UIColor whiteColor]];
-    
-    [SKAttributeString setLabelFontContent2:self.labelThree title:NSLocalizedString(@"update_failed_page_label2", nil) font:Avenir_Heavy Size:12 spacing:3.5 color:[UIColor whiteColor]];
-    
-    [SKAttributeString setButtonFontContent:self.tryAgainButton title:NSLocalizedString(@"update_failed_page_button1", nil) font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
-    [SKAttributeString setButtonFontContent:self.notNowButton title:NSLocalizedString(@"update_failed_page_button2", nil) font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
-    
+
 }
 
 - (IBAction)tryAgain:(id)sender {
@@ -68,7 +92,7 @@
         
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"warning", nil) message:[message uppercaseString] preferredStyle:UIAlertControllerStyleAlert];
         
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"ok", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
                 //[self dismissViewController];
             

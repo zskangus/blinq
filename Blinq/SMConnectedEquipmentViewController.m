@@ -58,7 +58,15 @@
     
     [SKAttributeString setLabelFontContent:self.titleLabel title:NSLocalizedString(@"connecting_page_title", nil) font:Avenir_Black Size:36 spacing:5.4 color:[UIColor whiteColor]];
     
-    [SKAttributeString setLabelFontContent:self.lebel title:NSLocalizedString(@"connecting_page_copyright", nil) font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor]];
+
+    
+    if ([NSLocalizedString(@"language", nil)isEqualToString:@"中文"]) {
+        [SKAttributeString setLabelFontContent:self.lebel title:NSLocalizedString(@"connecting_page_copyright", nil) font:Avenir_Heavy Size:18 spacing:5 color:[UIColor whiteColor]];
+        self.lebel.textAlignment = NSTextAlignmentCenter;
+    
+    }else{
+        [SKAttributeString setLabelFontContent:self.lebel title:NSLocalizedString(@"connecting_page_copyright", nil) font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor]];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated{

@@ -33,6 +33,7 @@ registerState smRegisterState = registerStandby;
 
 @property (weak, nonatomic) IBOutlet UIButton *registerButton;
 
+@property (weak, nonatomic) IBOutlet UIImageView *headImage;
 @property(nonatomic)CGRect textframe;
 
 @end
@@ -64,24 +65,60 @@ registerState smRegisterState = registerStandby;
 }
 
 - (void)setupUi{
-    [SKAttributeString setLabelFontContent:self.titleLabel title:NSLocalizedString(@"register_page_title", nil) font:Avenir_Black Size:20 spacing:3 color:[UIColor whiteColor]];
-    
-    
-    
-    if ([NSLocalizedString(@"language", nil)isEqualToString:@"German"]) {
-        [SKAttributeString setLabelFontContent2:self.label title:NSLocalizedString(@"register_page_describe", nil) font:Avenir_Heavy Size:10 spacing:3 color:[UIColor whiteColor]];
 
+    if ([NSLocalizedString(@"language", nil)isEqualToString:@"German"]) {
+        [SKAttributeString setLabelFontContent:self.titleLabel title:NSLocalizedString(@"register_page_title", nil) font:Avenir_Black Size:20 spacing:3 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent2:self.label title:NSLocalizedString(@"register_page_describe", nil) font:Avenir_Heavy Size:10 spacing:3 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent:self.name title:NSLocalizedString(@"register_page_first_name", nil) font:Avenir_Black Size:16 spacing:2.46 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent:self.lastName title:NSLocalizedString(@"register_page_last_name", nil) font:Avenir_Black Size:16 spacing:2.46 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent:self.address title:NSLocalizedString(@"register_page_email_address", nil) font:Avenir_Black Size:16 spacing:2.46 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setButtonFontContent:self.registerButton title:NSLocalizedString(@"register_page_buttonTitle", nil) font:Avenir_Book Size:20 spacing:2.46 color:[UIColor whiteColor] forState:UIControlStateNormal];
+
+    }else if ([NSLocalizedString(@"language", nil)isEqualToString:@"中文"]){
+        
+        CGRect headImageFrame = self.headImage.frame;
+        headImageFrame.origin.y += 40;
+        self.headImage.frame = headImageFrame;
+        
+        CGRect titileFrmae = self.titleLabel.frame;
+        titileFrmae.origin.y += 15;
+        self.titleLabel.frame = titileFrmae;
+        
+        
+        [SKAttributeString setLabelFontContent:self.titleLabel title:NSLocalizedString(@"register_page_title", nil) font:Avenir_Black Size:20 spacing:3 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent2:self.label title:NSLocalizedString(@"register_page_describe", nil) font:Avenir_Heavy Size:16 spacing:5.2 color:[UIColor whiteColor]];
+        self.label.textAlignment = NSTextAlignmentCenter;
+        
+        CGRect labelFrame = self.label.frame;
+        labelFrame.origin.y += 15;
+        self.label.frame = labelFrame;
+        
+        [SKAttributeString setLabelFontContent:self.name title:NSLocalizedString(@"register_page_first_name", nil) font:Avenir_Black Size:16 spacing:2.46 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent:self.lastName title:NSLocalizedString(@"register_page_last_name", nil) font:Avenir_Black Size:16 spacing:2.46 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent:self.address title:NSLocalizedString(@"register_page_email_address", nil) font:Avenir_Black Size:16 spacing:2.46 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setButtonFontContent:self.registerButton title:NSLocalizedString(@"register_page_buttonTitle", nil) font:Avenir_Book Size:20 spacing:2.46 color:[UIColor whiteColor] forState:UIControlStateNormal];
     }else{
+        [SKAttributeString setLabelFontContent:self.titleLabel title:NSLocalizedString(@"register_page_title", nil) font:Avenir_Black Size:20 spacing:3 color:[UIColor whiteColor]];
+        
         [SKAttributeString setLabelFontContent2:self.label title:NSLocalizedString(@"register_page_describe", nil) font:Avenir_Heavy Size:13 spacing:3.9 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent:self.name title:NSLocalizedString(@"register_page_first_name", nil) font:Avenir_Black Size:16 spacing:2.46 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent:self.lastName title:NSLocalizedString(@"register_page_last_name", nil) font:Avenir_Black Size:16 spacing:2.46 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent:self.address title:NSLocalizedString(@"register_page_email_address", nil) font:Avenir_Black Size:16 spacing:2.46 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setButtonFontContent:self.registerButton title:NSLocalizedString(@"register_page_buttonTitle", nil) font:Avenir_Book Size:20 spacing:2.46 color:[UIColor whiteColor] forState:UIControlStateNormal];
     }
-    
-    [SKAttributeString setLabelFontContent:self.name title:NSLocalizedString(@"register_page_first_name", nil) font:Avenir_Black Size:16 spacing:2.46 color:[UIColor whiteColor]];
-    
-    [SKAttributeString setLabelFontContent:self.lastName title:NSLocalizedString(@"register_page_last_name", nil) font:Avenir_Black Size:16 spacing:2.46 color:[UIColor whiteColor]];
-    
-    [SKAttributeString setLabelFontContent:self.address title:NSLocalizedString(@"register_page_email_address", nil) font:Avenir_Black Size:16 spacing:2.46 color:[UIColor whiteColor]];
-    
-    [SKAttributeString setButtonFontContent:self.registerButton title:NSLocalizedString(@"register_page_buttonTitle", nil) font:Avenir_Book Size:16 spacing:2.46 color:[UIColor whiteColor] forState:UIControlStateNormal];
     
     self.textField1.delegate = self;
     [self.textField1 addTarget:self action:@selector(numTextFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
@@ -247,7 +284,7 @@ static int keyboardHeight;
         
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:NSLocalizedString(@"tip_fill_text", nil) preferredStyle:UIAlertControllerStyleAlert];
         
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"ok", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
         }];
         
@@ -265,7 +302,7 @@ static int keyboardHeight;
             
             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"warning", nil) message:NSLocalizedString(@"tip_network", nil) preferredStyle:UIAlertControllerStyleAlert];
             
-            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"ok", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 
             }];
             

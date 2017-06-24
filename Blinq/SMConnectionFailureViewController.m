@@ -89,6 +89,33 @@
         [SKAttributeString setLabelFontContent2:self.labelFour title:NSLocalizedString(@"connect_failure_page_describe4", nil) font:Avenir_Heavy Size:10.5 spacing:3.3 color:[UIColor whiteColor]];
 
         [SKAttributeString setButtonFontContent:self.tryAginBtn title:NSLocalizedString(@"connect_failure_page_buttonTitle", nil) font:Avenir_Light Size:15 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
+    }else if ([NSLocalizedString(@"language", nil)isEqualToString:@"中文"]){
+    
+        [SKAttributeString setLabelFontContent2:self.labelOne title:NSLocalizedString(@"connect_failure_page_describe1", nil) font:Avenir_Heavy Size:18 spacing:2 color:[UIColor whiteColor]];
+        self.labelOne.textAlignment = NSTextAlignmentCenter;
+        
+        [SKAttributeString setLabelFontContent2:self.labelTwo title:NSLocalizedString(@"connect_failure_page_describe2", nil) font:Avenir_Heavy Size:18 spacing:2 color:[UIColor whiteColor]];
+        self.labelTwo.textAlignment = NSTextAlignmentCenter;
+
+        
+        [SKAttributeString setLabelFontContent2:self.labelThree title:NSLocalizedString(@"connect_failure_page_describe3", nil) font:Avenir_Heavy Size:18 spacing:2 color:[UIColor whiteColor]];
+        self.labelThree.textAlignment = NSTextAlignmentCenter;
+        
+        CGRect labelThreeFrame = self.labelThree.frame;
+        labelThreeFrame.size.width += 50;
+        labelThreeFrame.origin.x -= 25;
+        self.labelThree.frame = labelThreeFrame;
+        
+        [SKAttributeString setLabelFontContent2:self.labelFour title:NSLocalizedString(@"connect_failure_page_describe4", nil) font:Avenir_Heavy Size:18 spacing:2 color:[UIColor whiteColor]];
+        self.labelFour.textAlignment = NSTextAlignmentCenter;
+
+        CGRect labelFourFrame = self.labelFour.frame;
+        labelFourFrame.size.width += 60;
+        labelFourFrame.size.height += 30;
+        labelFourFrame.origin.x -= 30;
+        self.labelFour.frame = labelFourFrame;
+
+    
     }
 }
 

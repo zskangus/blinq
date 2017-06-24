@@ -112,30 +112,54 @@ static BOOL isUserClick;
 
 - (void)setupUi{
     
-    [SKAttributeString setLabelFontContent2:self.promptLable title:NSLocalizedString(@"sos_page_describeLabel", nil) font:Avenir_Light Size:11 spacing:3.3 color:[UIColor whiteColor]];
-    
-    [SKAttributeString setLabelFontContent:self.emergencyLable title:NSLocalizedString(@"sos_page_powerSwitch_title", nil) font:Avenir_Book Size:16 spacing:2.46 color:[UIColor whiteColor]];
-    
-    //[SKAttributeString setLabelFontContent:self.sensitivityLabel title:@"LOW SENSITIVITY MODE" font:Avenir_Book Size:16 spacing:2.46 color:[UIColor whiteColor]];
-    
-    [SKAttributeString setLabelFontContent:self.addContacts title:NSLocalizedString(@"sos_add_contact_label", nil) font:Avenir_Black Size:16 spacing:2.46 color:[UIColor whiteColor]];
-    
-    
     if ([NSLocalizedString(@"language", nil)isEqualToString:@"German"]) {
+        
+        [SKAttributeString setLabelFontContent2:self.promptLable title:NSLocalizedString(@"sos_page_describeLabel", nil) font:Avenir_Light Size:11 spacing:3.3 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent:self.emergencyLable title:NSLocalizedString(@"sos_page_powerSwitch_title", nil) font:Avenir_Book Size:16 spacing:2.46 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent:self.addContacts title:NSLocalizedString(@"sos_add_contact_label", nil) font:Avenir_Black Size:16 spacing:2.46 color:[UIColor whiteColor]];
+        
         [SKAttributeString setLabelFontContent:self.sendTextMessageLabel title:NSLocalizedString(@"sos_send_Message_label", nil) font:Avenir_Book Size:14 spacing:2.46 color:[UIColor whiteColor]];
-    }else{
+        
+        [SKAttributeString setLabelFontContent:self.socialLabel title:NSLocalizedString(@"sos_social_label", nil) font:Avenir_Book Size:16 spacing:2.46 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent:self.placeHolderLabel title:NSLocalizedString(@"sos_textView_Label", nil) font:Avenir_Light Size:10 spacing:2.4 color:[UIColor blackColor]];
+        
+        [SKAttributeString setButtonFontContent:self.socialBtn title:NSLocalizedString(@"sos_social_setting_label", nil) font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor] forState:UIControlStateNormal];
+    }else if ([NSLocalizedString(@"language", nil)isEqualToString:@"中文"]){
+        [SKAttributeString setLabelFontContent2:self.promptLable title:NSLocalizedString(@"sos_page_describeLabel", nil) font:Avenir_Light Size:16 spacing:3.3 color:[UIColor whiteColor]];
+        self.promptLable.textAlignment = NSTextAlignmentCenter;
+        
+        [SKAttributeString setLabelFontContent:self.emergencyLable title:NSLocalizedString(@"sos_page_powerSwitch_title", nil) font:Avenir_Book Size:16 spacing:2.46 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent:self.addContacts title:NSLocalizedString(@"sos_add_contact_label", nil) font:Avenir_Black Size:16 spacing:2.46 color:[UIColor whiteColor]];
+        
         [SKAttributeString setLabelFontContent:self.sendTextMessageLabel title:NSLocalizedString(@"sos_send_Message_label", nil) font:Avenir_Book Size:16 spacing:2.46 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent:self.socialLabel title:NSLocalizedString(@"sos_social_label", nil) font:Avenir_Book Size:16 spacing:2.46 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent:self.placeHolderLabel title:NSLocalizedString(@"sos_textView_Label", nil) font:Avenir_Light Size:10 spacing:2.4 color:[UIColor blackColor]];
+        
+        [SKAttributeString setButtonFontContent:self.socialBtn title:NSLocalizedString(@"sos_social_setting_label", nil) font:Avenir_Heavy Size:15 spacing:3.6 color:[UIColor whiteColor] forState:UIControlStateNormal];
+
+    }else{
+        
+        [SKAttributeString setLabelFontContent2:self.promptLable title:NSLocalizedString(@"sos_page_describeLabel", nil) font:Avenir_Light Size:11 spacing:3.3 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent:self.emergencyLable title:NSLocalizedString(@"sos_page_powerSwitch_title", nil) font:Avenir_Book Size:16 spacing:2.46 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent:self.addContacts title:NSLocalizedString(@"sos_add_contact_label", nil) font:Avenir_Black Size:16 spacing:2.46 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent:self.sendTextMessageLabel title:NSLocalizedString(@"sos_send_Message_label", nil) font:Avenir_Book Size:16 spacing:2.46 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent:self.socialLabel title:NSLocalizedString(@"sos_social_label", nil) font:Avenir_Book Size:16 spacing:2.46 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent:self.placeHolderLabel title:NSLocalizedString(@"sos_textView_Label", nil) font:Avenir_Light Size:10 spacing:2.4 color:[UIColor blackColor]];
+        
+        [SKAttributeString setButtonFontContent:self.socialBtn title:NSLocalizedString(@"sos_social_setting_label", nil) font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor] forState:UIControlStateNormal];
     }
     
-    //[SKAttributeString setLabelFontContent:self.promplabel2 title:@"SEND LOCATION AS SMS (STANDARD CARRIER RATES APPLY) LOCATION SERVICES MUST BE ENABLED FOR BLINQ TO SEND LOCATION." font:Avenir_Light Size:8 spacing:2.4 color:[UIColor whiteColor]];
-    
-    //self.locationSwitch.transform = CGAffineTransformMakeScale(0.7, 0.7);
-    
-    [SKAttributeString setLabelFontContent:self.socialLabel title:NSLocalizedString(@"sos_social_label", nil) font:Avenir_Book Size:16 spacing:2.46 color:[UIColor whiteColor]];
-    
-    [SKAttributeString setLabelFontContent:self.placeHolderLabel title:NSLocalizedString(@"sos_textView_Label", nil) font:Avenir_Light Size:10 spacing:2.4 color:[UIColor blackColor]];
-    
-    [SKAttributeString setButtonFontContent:self.socialBtn title:NSLocalizedString(@"sos_social_setting_label", nil) font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor] forState:UIControlStateNormal];
     
     NSUserDefaults *sensitivityInfo = [NSUserDefaults standardUserDefaults];
 
@@ -303,7 +327,7 @@ static BOOL isUserClick;
                 
                 SMSosDescriptionViewController *description = [[SMSosDescriptionViewController alloc]initWithNibName:@"SMSosDescriptionViewController" bundle:nil];
                 
-                description.bottomButtonTitle = @"NEXT";
+                description.bottomButtonTitle = NSLocalizedString(@"location_buttonTitle", nil);
                 
                 [SKViewTransitionManager presentModalViewControllerFrom:self to:description duration:0.3 transitionType:TransitionPush directionType:TransitionFromRight];
                 
@@ -559,7 +583,19 @@ static BOOL isUserClick;
         contact.countriesName = defaultCountry[@"defaultCountryiesName"];
     }else{
         contact.countryCode = @"1";
-        contact.countriesName = @"UNITED STATES";
+        
+        if ([NSLocalizedString(@"language", nil)isEqualToString:@"English"]) {
+            contact.countriesName = @"UNITED STATES";
+        }
+        
+        if ([NSLocalizedString(@"language", nil)isEqualToString:@"中文"]) {
+            contact.countriesName = @"美国";
+        }
+        
+        if ([NSLocalizedString(@"language", nil)isEqualToString:@"German"]) {
+            contact.countriesName = @"VEREINIGTE STAATEN";
+        }
+        
     }
 
     [SKUserDefaults setBool:YES forKey:@"emergencyPower"];

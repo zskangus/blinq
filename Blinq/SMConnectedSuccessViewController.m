@@ -70,7 +70,11 @@
 
     [SKAttributeString setButtonFontContent:self.getStarted title:NSLocalizedString(@"connect_successful_page_label3", nil) font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
     NSLog(@"进入链接成功界面");
-
+    
+    if ([NSLocalizedString(@"language", nil)isEqualToString:@"German"]) {
+    }else if ([NSLocalizedString(@"language", nil)isEqualToString:@"中文"]){
+        [SKAttributeString setLabelFontContent:self.label1 title:NSLocalizedString(@"connect_successful_page_label1", nil) font:Avenir_Heavy Size:16 spacing:3.6 color:[UIColor whiteColor]];
+    }
 }
 
 
@@ -91,7 +95,13 @@
         self.batteryState.hidden = YES;
         self.batteryLoading.hidden = NO;
         
-        [SKAttributeString setLabelFontContent:self.batteryLoading title:@"LOADING" font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor]];
+        [SKAttributeString setLabelFontContent:self.batteryLoading title:NSLocalizedString(@"loading", nil) font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor]];
+        
+        if ([NSLocalizedString(@"language", nil)isEqualToString:@"German"]) {
+        }else if ([NSLocalizedString(@"language", nil)isEqualToString:@"中文"]){
+            [SKAttributeString setLabelFontContent:self.batteryLoading title:NSLocalizedString(@"loading", nil) font:Avenir_Heavy Size:16 spacing:3.6 color:[UIColor whiteColor]];
+        }
+
     }else{
         
         self.batteryView.hidden = NO;

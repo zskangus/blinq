@@ -22,10 +22,23 @@
 "battery_charge_completion" = "CHARGE COMPLETION";
 "battery_charge_completion_desc" = "THE RING HAS BEEN FULLY CHARGED.";
 
+sos_message_content_template = "You are %@'s emergency contact and they need your help or are in trouble. Please call them immediately to make sure this isn't a false alarm. If no one answers send help to the following location right away. This message was sent from Blinq's Smart Ring.";
+
+facebook_message_content_template = "EMERGENCY: I need help or I am currently in trouble. Please try to contact me immediately to make sure this isn't a false alarm. If I am unresponsive please send help to the following location right away. This message was sent from Blinq Smart Ring's Emergency Social S.O.S. system.";
+
+facebook_message_title = "Blinq Smart Ring Emergency Broadcast";
 
 //
 yes = "YES";
 no = "NO";
+ok = "OK";
+
+menu_title_notifications = "NOTIFICATIONS";
+menu_title_contacts = "CONTACTS";
+menu_title_play = "PLAY";
+menu_title_emergency= "SOS EMERGENCY";
+menu_title_settings = "SETTINGS";
+menu_title_help = "HELP";
 
 //开始界面
 welcome_page_get_started = "GET STARTED";
@@ -125,6 +138,7 @@ setting_page_disconnect = "DISCONNECTED";
 setting_page_connect = "CONNECTED";
 
 software_label = "SOFTWARE";
+firmware_label = "FIRMWARE";
 
 confirm_mobile_number = "CONFIRM MOBILE NUMBER";
 
@@ -223,4 +237,34 @@ loaction_title = "LOCATION";
 location_describe1 = "WE NEED TO HAVE ACCESS TO YOUR LOCATION IN ORDER FOR YOUR EMERGENCY S.O.S. ALERT TO WORK";
 location_describe2 = "ENABLE ACCESS TO YOUR DEVICE’S LOCATION SO YOUR RING WORKS PROPERLY";
 
-location_buttonTitle = "WEITER";
+location_buttonTitle = "NEXT";
+
+loading = "LOADING";
+
+// 国家
+UnitedStates = "UNITED STATES";
+Canada = "CANADA";
+Britain = "BRITAIN";
+Germany = "GERMANY";
+China = "CHINA";
+India = "INDIA";
+HongKong = "HONG KONG";
+Macau = "MACAU";
+Taiwan = "TAIWAN";
+
+location_description1 = "WE NEED TO HAVE ACCESS TO YOUR LOCATION IN ORDER FOR YOUR EMERGENCY S.O.S. ALERT TO WORK ENABLE ACCESS TO YOUR DEVICE’S LOCATION SO YOUR RING WORKS PROPERLY";
+
+location_description2 = "ENABLE ACCESS TO YOUR DEVICE\'S LOCATION SO YOUR RING WORKS PROPERLY";
+
+// need translation
+NSLocationAlwaysUsageDescription = "We need to know your location when sending SOS information. Select \“Allow\" to enable SOS distress functions.";
+
+NSBluetoothPeripheralUsageDescription = "PLEASE TURN ON THE BLUETOOTH DEVICE TO CONNECT TO THE SMART RING,IN“SETTINGS”->”BLUETOOTH”.";
+
+location_alert_title = "LOCATION SERVICES OFF";
+
+location_alert_content = "TURN ON LOCATION SERVICES IN SETTINGS > PRIVACY TO ALLOW BLINQ TO DETERMINE YOUR CURRENT LOCATION";
+
+description = "We'd like to use your location when sending SOS information to your emergency contact by knocking your smart ring.";
+
+

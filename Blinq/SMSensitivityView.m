@@ -85,6 +85,15 @@
         frame.size.width += 40;
         frame.origin.x -= 20;
         title.frame = frame;
+    }else if ([NSLocalizedString(@"language", nil)isEqualToString:@"中文"]){
+        [SKAttributeString setLabelFontContent2:title title:NSLocalizedString(@"alert_sensitivity", nil) font:Avenir_Black Size:14 spacing:2.15 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent2:low title:NSLocalizedString(@"easy", nil) font:Avenir_Book Size:14 spacing:1.53 color:[UIColor whiteColor]];
+        low.textAlignment = NSTextAlignmentCenter;
+
+        [SKAttributeString setLabelFontContent2:high title:NSLocalizedString(@"difficult", nil) font:Avenir_Book Size:14 spacing:1 color:[UIColor whiteColor]];
+        high.textAlignment = NSTextAlignmentCenter;
+
     }else{
         [SKAttributeString setLabelFontContent2:title title:NSLocalizedString(@"alert_sensitivity", nil) font:Avenir_Black Size:14 spacing:2.15 color:[UIColor whiteColor]];
     }

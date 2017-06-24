@@ -41,6 +41,8 @@
         [SKAttributeString setLabelFontContent:label title:NSLocalizedString(@"notifications_page_vipSwitch_describe", nil) font:Avenir_Heavy Size:8 spacing:2.46 color:[UIColor whiteColor]];
 
         
+    }else if ([NSLocalizedString(@"language", nil)isEqualToString:@"中文"]){
+        [SKAttributeString setLabelFontContent:self.latel title:NSLocalizedString(@"notifications_page_vipSwitch_describe", nil) font:Avenir_Heavy Size:12 spacing:2 color:[UIColor whiteColor]];
     }else{
         [SKAttributeString setLabelFontContent:self.latel title:NSLocalizedString(@"notifications_page_vipSwitch_describe", nil) font:Avenir_Heavy Size:9 spacing:2.46 color:[UIColor whiteColor]];
     }

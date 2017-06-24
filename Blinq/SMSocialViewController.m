@@ -90,22 +90,48 @@ static BOOL isUserClick = NO;
     
     [self setupNavigationTitle:NSLocalizedString(@"socicl_page_title", nil)];
     
-    [SKAttributeString setLabelFontContent:self.titleLabel title:NSLocalizedString(@"socicl_page_title", nil) font:Avenir_Black Size:20 spacing:3 color:[UIColor whiteColor]];
-    
-    [SKAttributeString setLabelFontContent:self.label1 title:NSLocalizedString(@"socicl_page_describe", nil) font:Avenir_Light Size:10 spacing:3 color:[UIColor whiteColor]];
-    
-
     if ([NSLocalizedString(@"language", nil)isEqualToString:@"German"]) {
+        
+        [SKAttributeString setLabelFontContent:self.titleLabel title:NSLocalizedString(@"socicl_page_title", nil) font:Avenir_Black Size:20 spacing:3 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent:self.label1 title:NSLocalizedString(@"socicl_page_describe", nil) font:Avenir_Light Size:10 spacing:3 color:[UIColor whiteColor]];
+        
         [SKAttributeString setLabelFontContent:self.postlabel title:NSLocalizedString(@"socicl_page_postLabel", nil) font:Avenir_Book Size:14 spacing:2.46 color:[UIColor whiteColor]];
-    }else{
+        
+        [SKAttributeString setLabelFontContent:self.label2 title:NSLocalizedString(@"socicl_page_postDescribe", nil) font:Avenir_Light Size:8 spacing:2.4 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setButtonFontContent:self.doneButton title:NSLocalizedString(@"socicl_page_done", nil) font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
+        
+        [SKAttributeString setLabelFontContent:self.placeHolderLabel title:NSLocalizedString(@"socicl_page_textView_label", nil) font:Avenir_Light Size:10 spacing:2.4 color:[UIColor blackColor]];
+
+    }else if ([NSLocalizedString(@"language", nil)isEqualToString:@"中文"]){
+        
+        [SKAttributeString setLabelFontContent:self.titleLabel title:NSLocalizedString(@"socicl_page_title", nil) font:Avenir_Black Size:20 spacing:3 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent:self.label1 title:NSLocalizedString(@"socicl_page_describe", nil) font:Avenir_Light Size:15 spacing:1 color:[UIColor whiteColor]];
+        
         [SKAttributeString setLabelFontContent:self.postlabel title:NSLocalizedString(@"socicl_page_postLabel", nil) font:Avenir_Book Size:16 spacing:2.46 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent:self.label2 title:NSLocalizedString(@"socicl_page_postDescribe", nil) font:Avenir_Light Size:14 spacing:1 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setButtonFontContent:self.doneButton title:NSLocalizedString(@"socicl_page_done", nil) font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
+        
+        [SKAttributeString setLabelFontContent:self.placeHolderLabel title:NSLocalizedString(@"socicl_page_textView_label", nil) font:Avenir_Light Size:10 spacing:2.4 color:[UIColor blackColor]];
+        
+    }else{
+        [SKAttributeString setLabelFontContent:self.titleLabel title:NSLocalizedString(@"socicl_page_title", nil) font:Avenir_Black Size:20 spacing:3 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent:self.label1 title:NSLocalizedString(@"socicl_page_describe", nil) font:Avenir_Light Size:10 spacing:3 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent:self.postlabel title:NSLocalizedString(@"socicl_page_postLabel", nil) font:Avenir_Book Size:16 spacing:2.46 color:[UIColor whiteColor]];
+
+        [SKAttributeString setLabelFontContent:self.label2 title:NSLocalizedString(@"socicl_page_postDescribe", nil) font:Avenir_Light Size:8 spacing:2.4 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setButtonFontContent:self.doneButton title:NSLocalizedString(@"socicl_page_done", nil) font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
+        
+        [SKAttributeString setLabelFontContent:self.placeHolderLabel title:NSLocalizedString(@"socicl_page_textView_label", nil) font:Avenir_Light Size:10 spacing:2.4 color:[UIColor blackColor]];
     }
     
-    [SKAttributeString setLabelFontContent:self.label2 title:NSLocalizedString(@"socicl_page_postDescribe", nil) font:Avenir_Light Size:8 spacing:2.4 color:[UIColor whiteColor]];
-    
-    [SKAttributeString setButtonFontContent:self.doneButton title:NSLocalizedString(@"socicl_page_done", nil) font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
-    
-    [SKAttributeString setLabelFontContent:self.placeHolderLabel title:NSLocalizedString(@"socicl_page_textView_label", nil) font:Avenir_Light Size:10 spacing:2.4 color:[UIColor blackColor]];
     
     self.postToWall.delegate = self;
     
@@ -149,7 +175,7 @@ static BOOL isUserClick = NO;
             
             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:[str uppercaseString] preferredStyle:UIAlertControllerStyleAlert];
             
-            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"ok", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 
             }];
             

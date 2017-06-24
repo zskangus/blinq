@@ -13,209 +13,251 @@
 "sos_message_sent_failure" = "求救信息发送失败。";
 "sos_failed_to_locate_address" = "定位地址失败。";
 
-"battery_low" ="LOW BATTERY.";
-"battery_low_desc" ="RING LOW BATTERY.";
-"battery_charge_completion" = "CHARGE COMPLETION";
-"battery_charge_completion_desc" = "THE RING HAS BEEN FULLY CHARGED.";
+"battery_low" ="低电量";
+"battery_low_desc" ="戒指电量过低";
+"battery_charge_completion" = "充电完成";
+"battery_charge_completion_desc" = "戒指已经完全充电";
+
+sos_message_content_template = "You are %@'s emergency contact and they need your help or are in trouble. Please call them immediately to make sure this isn't a false alarm. If no one answers send help to the following location right away. This message was sent from Blinq's Smart Ring.";
+
+facebook_message_content_template = "EMERGENCY: I need help or I am currently in trouble. Please try to contact me immediately to make sure this isn't a false alarm. If I am unresponsive please send help to the following location right away. This message was sent from Blinq Smart Ring's Emergency Social S.O.S. system.";
+
+facebook_message_title = "Blinq Smart Ring Emergency Broadcast";
 
 //
-yes = "YES";
-no = "NO";
+yes = "是";
+no = "否";
+ok = "好的";
+
+menu_title_notifications = "通知";
+menu_title_contacts = "联系人";
+menu_title_play = "玩一玩";
+menu_title_emergency= "紧急求救";
+menu_title_settings = "设置";
+menu_title_help = "帮助";
 
 //开始界面
-welcome_page_get_started = "GET STARTED";
+welcome_page_get_started = "开始";
 welcome_page_copyright = "COPYRIGHT 2017 BLINQ | PATENT PENDING";
 welcome_page_logo = "FILTER THE NOISE";
 
 //绑定界面
-binding_page_title = "PUT RING HERE";
-binding_page_describe = "PLEASE MAKE SURE YOUR BLUETOOTH IS TURNED ON AND PLACE YOUR RING IN THE MIDDLE TO CONTINUE.";
-binding_page_buttonTitle = "PAIR NOW";
+binding_page_title = "戒指放在这里";
+binding_page_describe = "请确保手机蓝牙功能已开启，并将戒指放入上面圆圈中间。";
+binding_page_buttonTitle = "开始配对";
 
 //连接设备界面
-connecting_page_title = "PLEASE WAIT";
-connecting_page_copyright = "WE ARE ATTEMPTING TO PAIR YOUR DEVICE. MAKE SURE YOUR RING IS CHARGED AND WITHIN RANGE.";
+connecting_page_title = "请稍候";
+connecting_page_copyright = "我们正在尝试配对你的设备，请确保你的戒指就在附近并且电量充足。";
 
 //连接失败界面
-connect_failure_page_title1 = "UH OH!";
-connect_failure_page_title2 = "CONNECTION TIPS";
-connect_failure_page_describe1 = "LOOKS LIKE WE AREN’T ABLE TO CONNECT TO YOUR DEVICE.";
-connect_failure_page_describe2 = "DID YOU CHARGE YOUR RING?";
-connect_failure_page_describe3 = "IS YOUR BLUETOOTH ON AND YOUR RING IN RANGE?";
-connect_failure_page_describe4 = "UNPAIR RING, FORGET “SMART RING” IN BLUETOOTH SETTINGS AND RE-PAIR RING WITH DEVICE";
-connect_failure_page_buttonTitle = "TRY AGAIN";
+connect_failure_page_title1 = "哎!";
+connect_failure_page_title2 = "连接小贴示";
+connect_failure_page_describe1 = "我们似乎没法连上你的戒指。";
+connect_failure_page_describe2 = "戒指充电了吗?";
+connect_failure_page_describe3 = "手机蓝牙是否打开，设备在附近吗?";
+connect_failure_page_describe4 = "解除配对, 在蓝牙设置里面忽略“SMART RING”，然后重新配对";
+connect_failure_page_buttonTitle = "重试";
 
 //连接成功界面
-connect_successful_page_title = "SUCCESSFUL";
-connect_successful_page_label1 = "YOUR RING IS NOW";
-connect_successful_page_label2 = "CONNECTED";
-connect_successful_page_label3 = "GET STARTED";
+connect_successful_page_title = "成功";
+connect_successful_page_label1 = "你的戒指";
+connect_successful_page_label2 = "已连接";
+connect_successful_page_label3 = "开始";
 
 //通知功能的描述界面
-notifications_page_title = "NOTIFICATIONS";
-notifications_page_label1 = "PHONE, TEXT AND APP NOTIFICATIONS WILL BLINK THE RING 3 TIMES.";
-notifications_page_label2 = "SELECTED CONTACT ALERTS WILL LIGHT UP THE GEMSTONE FOR 5 SECONDS AT A TIME.";
-notifications_page_buttonTitle = "NEXT";
+notifications_page_title = "通知";
+notifications_page_label1 = "收到电话，短信和应用通知戒指将会闪灯3次。";
+notifications_page_label2 = "收到选定的联系人的通知戒指将会点亮5秒钟。";
+notifications_page_buttonTitle = "下一步";
 
 
 //导航栏标题
-nav_title_APP_NOTIFICATIONS = "APP NOTIFICATIONS";
-nav_title_CONTACT_NOTIFICATIONS = "CONTACT NOTIFICATIONS";
-nav_title_PLAY = "PLAY";
-nav_title_SOS_EMERGENCY = "SOS EMERGENCY";
-nav_title_SETTINGS = "SETTINGS";
-nav_title_help = "HELP";
+nav_title_APP_NOTIFICATIONS = "应用通知";
+nav_title_CONTACT_NOTIFICATIONS = "联系人通知";
+nav_title_PLAY = "玩一玩";
+nav_title_SOS_EMERGENCY = "紧急求救";
+nav_title_SETTINGS = "设置";
+nav_title_help = "帮助";
 
 // 通知设置界面
-notifications_page_headerTitle = "RECEIVE ALL NOTIFICATIONS";
-notifications_page_vipSwitch_describe = "ONLY RECEIVE PHONE CALLS AND TEXTS FROM SELECTED CONTACTS";
+notifications_page_headerTitle = "所有通知提醒";
+notifications_page_vipSwitch_describe = "只提醒来自选定联系人的电话和短信";
 
 // 解除绑定按钮
-unpairButton_title = "UNPAIR MY RING";
-unpairDescribe = "This operation will unpair your phone and the ring. If you want to pair a new ring, you also need to forget the paired ring in 'Settings - > Bluetooth'. Continue to unpair the ring?";
+unpairButton_title = "解除绑定";
+unpairDescribe = "即将解除手机与戒指的配对，如需配对新的戒指您还需要在”设置->蓝牙“中忽略已经配对的戒指，确定要解除配对吗?";
 
 //
-warning = "WARNING";
+warning = "警告";
 
 //管理联系人
-manage_selected_contacts_buttonTitle = "MANAGE SELECTED CONTACTS";
+manage_selected_contacts_buttonTitle = "管理选定的联系人";
 
 //联系人功能描述界面
-contacts_page_title = "CONTACTS";
-contacts_page_label1 = "BLINQ LETS YOU CREATE DIFFERENT SETS OF ALERTS FOR CALLS AND TEXT MESSAGES THAT COME FROM SELECTED CONTACTS.";
-contacts_page_label2 = "INCOMING ALERTS FROM THE FOLLOWING CONTACTS WILL LIGHT UP THE GEMSTONE FOR 5 SECONDS.";
-contacts_page_buttonTitle = "OK";
+contacts_page_title = "联系人";
+contacts_page_label1 = "BLINQ允许您为选定联系人的来电和短信创建不同的提醒设置。";
+contacts_page_label2 = "收到以下联系人的通知戒指将会点亮5秒钟。";
+contacts_page_buttonTitle = "好的";
 
-contacts_page_describe = "Notifications from selected contacts will override color assignments for regular phone and text alerts. Alerts from these contacts will light up the gemstone for 5 seconds.";
-add_contact_buttonTitle = "ADD FROM CONTACTS";
+contacts_page_describe = "所选联系人的通知将覆盖常规电话和短信的颜色分配。 收到这些联系人的通知会将宝石点亮5秒钟。";
+add_contact_buttonTitle = "从联系人添加";
 
 // 好玩界面
-play_page_title = "TAP ANY OF THE COLORS BELOW TO SEE HOW THE RING REACTS AND CHANGES COLORS.";
-play_page_vibBtn_title = "VIBRATE";
-play_page_pulseBtn_title = "PULSE";
+play_page_title = "点选下面任何颜色，戒指会对应闪灯。";
+play_page_vibBtn_title = "持续震动";
+play_page_pulseBtn_title = "间隙震动";
 
 // sos界面
-sos_page_powerSwitch_title = "SOS/EMERGENCY MODE";
-sos_page_describeLabel = "IN THE EVENT OF AN EMERGENCY THE BLINQ SMART RING CAN BE TAPPED REPEATEDLY TO SEND OUT AN EMERGENCY SOS MESSAGE.";
-sos_add_contact_label = "ADD FROM CONTACTS";
-sos_send_Message_label = "SEND TEXT MESSAGE";
-sos_social_label = "SOCIAL S.O.S.";
-sos_textView_Label = "ENTER SOS MESSAGE HERE…";
+sos_page_powerSwitch_title = "紧急求救";
+sos_page_describeLabel = "在紧急情况下，持续敲击戒指发送紧急求救消息。";
+sos_add_contact_label = "从联系人添加";
+sos_send_Message_label = "发送短信";
+sos_social_label = "社交SOS";
+sos_textView_Label = "填写求助信息…";
 
-sos_social_setting_label = "SOCIAL S.O.S. SETTINGS";
+sos_social_setting_label = "社交SOS设置";
 
 // social sos界面
-socicl_page_title = "SOCIAL S.O.S.";
-socicl_page_describe = "BLINQ CAN POST EMERGENCY MESSAGES TO YOUR FACEBOOK WALL IN THE CASE OF AN EMERGENCY. CONNECT YOUR ACCOUNT SO THAT WE CAN POST MESSAGES ON YOUR BEHALF";
-socicl_page_postLabel = "POST TO MY WALL";
-socicl_page_postDescribe = "POST MY LOCATION TO MY FACEBOOK WALL SO THAT ANYONE IN MY NETWORK CAN SEE THE MESSAGE AND COME TO MY RESCUE.";
-socicl_page_done = "DONE";
-socicl_page_textView_label = "ENTER SOS MESSAGE HERE…";
+socicl_page_title = "社交SOS";
+socicl_page_describe = "在紧急情况下，BLINQ可以将紧急信息发送的您的FACEBOOK圈子。 连接您的账户，以便我们可以在您的账户上发送消息";
+socicl_page_postLabel = "发送到我的圈子";
+socicl_page_postDescribe = "将我的位置发送到我的FACEBOOK圈子，这样我的网络中的任何人都可以看到信息和求助";
+socicl_page_done = "完成";
+socicl_page_textView_label = "填写求助信息…";
 
 // 设置界面
-setting_page_check = "CHECK FOR UPDATES";
-setting_page_disconnect_buttonTitle = "DISCONNECT RING NOW";
-setting_page_connect_buttonTitle = "CONNECT RING NOW";
-setting_page_disconnect = "DISCONNECTED";
-setting_page_connect = "CONNECTED";
+setting_page_check = "检查更新";
+setting_page_disconnect_buttonTitle = "断开戒指";
+setting_page_connect_buttonTitle = "连接戒指";
+setting_page_disconnect = "已断开";
+setting_page_connect = "已连接";
 
-software_label = "SOFTWARE";
+software_label = "软件";
+firmware_label = "固件";
 
-confirm_mobile_number = "CONFIRM MOBILE NUMBER";
+confirm_mobile_number = "确认电话号码";
 
-tip = "TIP";
+tip = "提示";
 
-tip_disconnect = "your ring is disconnected. You may need to forget the paired ring in 'settings->bluetooth' and try again when it is reconnected.";
-tip_network = "NETWORK UNAVAILABLE.CHECK NETWORK";
+tip_disconnect = "你的戒指断开了。 您可能需要忽略“设置->蓝牙”中已配对的戒指，重新连接后重试。";
+tip_network = "网络不可用，请检查";
 
-tip_manager_contact = "PLEASE MANAGE SELECTED CONTACTS";
+tip_manager_contact = "请先设定联系人";
 
-tip_fill_text = "PLEASE FILL IN ALL FIELDS TO CONTINUE";
+tip_fill_text = "请填写所有字段再继续";
 
-tip_email_address = "THE EMAIL ADDRESS YOU ENTERED IS NOT VALID";
+tip_email_address = "邮件地址无效";
 
-close = "CLOSE";
+close = "关闭";
 
-connect_failed = "CONNECTION FAILED";
+connect_failed = "连接失败";
 
 //注册界面
-register_page_title = "REGISTER";
-register_page_describe = "REGISTER YOUR RING TODAY TO BE NOTIFIED OF ANY UPGRADES OR UPDATES IN THE FUTURE. YOU WILL ALSO BE KEPT IN THE LOOP WITH OUR LATEST PROMOTIONS AND PRODUCTS.";
-register_page_first_name = "FIRST NAME";
-register_page_last_name = "LAST NAME";
-register_page_email_address = "EMAIL ADDRESS";
-register_page_buttonTitle = "REGISTER NOW";
+register_page_title = "注册";
+register_page_describe = "注册您的戒指以获取升级或更新， 同时你也可以接收我们最新的产品促销信息。";
+register_page_first_name = "名";
+register_page_last_name = "姓";
+register_page_email_address = "邮件地址";
+register_page_buttonTitle = "立即注册";
 
 //注册成功界面
-register_successful_page_title = "SUCCESSFUL";
-register_successful_page_label = "GREAT! YOU SUCCESSFULLY REGISTERED YOUR RING. NOW LET’S GET YOUR RING SET UP FOR ALERTS.";
-register_successful_page_buttonTitle = "OK LET’S GO!";
+register_successful_page_title = "成功";
+register_successful_page_label = "太棒了，注册成功，现在开始设置你的戒指。";
+register_successful_page_buttonTitle = "好， 开始！";
 
 // Bewrite
-bewrite_notification_title = "NOTIFICATIONS";
-bewrite_notification_label1 = "IN ORDER FOR YOUR SMART RING TO WORK WE NEED TO SEND YOU NOTIFICATIONS.";
-bewrite_notification_label2 = "MAKE SURE YOU ENABLE NOTIFICATIONS SO YOUR RING WORKS PROPERLY";
-bewrite_notification_buttontTitle = "NEXT";
+bewrite_notification_title = "通知";
+bewrite_notification_label1 = "我们需要给您发送通知，以便您的戒指能更好地工作";
+bewrite_notification_label2 = "确保您启用了通知，以便您的戒指工作正常";
+bewrite_notification_buttontTitle = "下一步";
 
-bewrite_background_title = "BACKGROUND";
-bewrite_background_label1 = "BLINQ NEEDS TO RUN IN THE BACKGROUND IN ORDER TO SEND RING NOTIFICATIONS.";
-bewrite_background_label2 = "MAKE SURE YOU DON’T MANUALLY QUIT THE BLINQ APP";
-bewrite_background_buttontTitle = "NEXT";
+bewrite_background_title = "后台";
+bewrite_background_label1 = "BLINQ需要在后台运行以便发送通知。";
+bewrite_background_label2 = "确认您不会手动退出BLINQ应用程序";
+bewrite_background_buttontTitle = "下一步";
 
-bewrite_sos_title = "TAP TAP TAP";
-bewrite_sos_label1 = "TAP THE RING REPEATEDLY UNTIL VIBRATION IS FELT TO SEND AN EMERGENCY MESSAGE";
-bewrite_sos_label2 = "IN THE EVENT OF AN EMERGENCY THE S.O.S. FEATURE ALLOWS YOU TO SEND A TEXT MESSAGE WITH YOUR LOCATION TO ANY PRESELECTED CONTACT.";
-bewrite_sos_label3 = "BLINQ IS NOT A SUBSTITUTE FOR 911 OR ANY EMERGENCY SERVICES. BLINQ IS AN EXTRA LAYER OF SECURITY AND PEACE OF MIND.";
-bewrite_sos_label4 = "NORMAL CARRIER RATES APPLY";
-bewrite_sos_buttontTitle = "NEXT";
+bewrite_sos_title = "敲击 敲击 敲击";
+bewrite_sos_label1 = "持续敲击戒指直到振动即会发送求救信息";
+bewrite_sos_label2 = "在紧急情况下，紧急求救功能允许您将您的位置发送到任何预先设定的联系人。";
+bewrite_sos_label3 = "BLINQ不是911或任何紧急服务的替代品。BLINQ是安全与和平的附加层。";
+bewrite_sos_label4 = "需要支付基本的运营商费用";
+bewrite_sos_buttontTitle = "下一步";
 
-bewrite_social_sos_title = "SOCIAL S.O.S.";
-bewrite_social_sos_label1 = "IN AN EMERGENCY\nBLINQ CAN POST YOUR LOCATION TO YOUR FACEBOOK WALL. NOW YOUR FRIENDS CAN COME TO THE RESCUE.";
-bewrite_social_sos_label2 = "CONNECT YOUR RING WITH FACEBOOK AND WHEN AN S.O.S. IS TRIGGERED WE’LL POST YOUR MESSAGE AND LOCATION TO YOUR\nPUBLIC WALL.";
-bewrite_social_sos_buttonTitle = "OK";
+bewrite_social_sos_title = "社交SOS";
+bewrite_social_sos_label1 = "在紧急情况下BLINQ可以将您的位置发送给您的FACEBOOK圈子。 现在你的朋友可以帮忙了。";
+bewrite_social_sos_label2 = "把你的戒指与FACEBOOK连接，当SOS被触发时我们将您的信息和位置发送到您的公共圈子。";
+bewrite_social_sos_buttonTitle = "好的";
 
 // ota
-updating_jewelry_page_title = "UPDATING JEWELRY";
-updating_jewelry_page_describe = "PLEASE LEAVE THE RING ON THE CHARGER UNTIL ALL OF THE UPDATES ARE COMPLETE.";
+updating_jewelry_page_title = "升级中";
+updating_jewelry_page_describe = "请将戒指放到充电器上，直到升级完成。";
 
-update_failed_page_title = "UPDATE FAILED";
-update_failed__page_describe = "LOOKS LIKE THERE WAS AN ISSUE WITH THE UPDATE. PLEASE ENSURE YOUR RING IS CONNECTED AND THAT YOU ARE ONLINE.";
-update_failed_page_label1 = "IS YOUR RING CHARGED?";
-update_failed_page_label2 = "IS YOUR BLUETOOTH ON AND YOUR RING WITHIN RANGE?";
-update_failed_page_button1 = "TRY AGAIN";
-update_failed_page_button2 = "NOT NOW";
+update_failed_page_title = "升级失败";
+update_failed__page_describe = "好像更新有问题。 请确保您的戒指已经连接上并保持连接。";
+update_failed_page_label1 = "戒指有电吗?";
+update_failed_page_label2 = "蓝牙打开并且戒指在附近吗？";
+update_failed_page_button1 = "重试";
+update_failed_page_button2 = "暂不";
 
-update_successful_page_title = "SUCCESSFUL";
-update_failed_page_label = "YOUR RING IS NOW UP TO DATE";
-update_successful_page_describe = "YOUR RING HAS BEEN UPDATED AND UPGRADED TO THE LATEST AND GREATEST SOFTWARE.";
-update_failed_page_button = "DONE";
+update_successful_page_title = "成功";
+update_failed_page_label = "您的戒指是最新版本";
+update_successful_page_describe = "您的戒指已经更新并升级到最新版本。";
+update_failed_page_button = "完成";
 
-upToDate_page_title = "UP TO DATE";
-upToDate_page_describe = "YOUR RING HAS ALREADY BEEN UPDATED AND UPGRADED TO THE LATEST AND GREATEST SOFTWARE.";
-upToDate_page_buttonTitle = "DONE";
+upToDate_page_title = "最新";
+upToDate_page_describe = "您的戒指已经更新并升级到最新版本。";
+upToDate_page_buttonTitle = "完成";
 
-update_available_page_title = "UPDATE AVAILABLE";
-update_available_page_lable = "PLEASE MAKE SURE YOUR RING IS CONNECTED TO THE CHARGER BEFORE YOU UPDATE TO ENSURE THAT IT STAYS CONNECTED.";
-update_available_page_buttonTitle1 = "UPDATE NOW";
-update_available_page_buttonTitle2 = "NOT NOW";
+update_available_page_title = "更新可用";
+update_available_page_lable = "在您更新之前，请确保您的戒指连接到充电器，以确保其保持连接。";
+update_available_page_buttonTitle1 = "立即更新";
+update_available_page_buttonTitle2 = "暂不";
 
 // 灵敏度
-easy = "EASY";
-difficult = "DIFFICULT";
-alert_sensitivity = "ALERT SENSITIVITY";
+easy = "简单";
+difficult = "困难";
+alert_sensitivity = "灵敏度";
 
-vibrate_alert = "VIBRATE ALERT";
-flashing_alert = "FLASHING ALERT";
+vibrate_alert = "震动提醒";
+flashing_alert = "闪灯提醒";
 
-your_country = "YOUR COUNTRY";
+your_country = "国家或地区";
 
-faceBook_login_alert = "Access has not been granted to the Facebook account. Verify device settings.";
+faceBook_login_alert = "尚未授予Facebook帐户访问权限。 验证设备设置。";
 
 // 位置描述
 
-loaction_title = "LOCATION";
+loaction_title = "位置";
 
-location_describe1 = "WE NEED TO HAVE ACCESS TO YOUR LOCATION IN ORDER FOR YOUR EMERGENCY S.O.S. ALERT TO WORK";
-location_describe2 = "ENABLE ACCESS TO YOUR DEVICE’S LOCATION SO YOUR RING WORKS PROPERLY";
+location_describe1 = "为了您能使用紧急求救功能，我们需要访问您的位置";
+location_describe2 = "允许应用访问定位功能，以便您的戒指工作正常";
 
-location_buttonTitle = "WEITER";
+location_buttonTitle = "下一步";
+
+loading = "加载中";
+
+// 国家
+UnitedStates = "UNITED STATES";
+Canada = "CANADA";
+Britain = "BRITAIN";
+Germany = "GERMANY";
+China = "CHINA";
+India = "INDIA";
+HongKong = "HONG KONG";
+Macau = "MACAU";
+Taiwan = "TAIWAN";
+
+location_description1 = "WE NEED TO HAVE ACCESS TO YOUR LOCATION IN ORDER FOR YOUR EMERGENCY S.O.S. ALERT TO WORK ENABLE ACCESS TO YOUR DEVICE’S LOCATION SO YOUR RING WORKS PROPERLY";
+
+location_description2 = "ENABLE ACCESS TO YOUR DEVICE\'S LOCATION SO YOUR RING WORKS PROPERLY";
+
+// need translation
+NSLocationAlwaysUsageDescription = "发送SOS信息时我们需要知道你的位置。选择“允许”，启用SOS求救功能。";
+
+location_alert_title = "定位服务未开启";
+location_alert_content = "在“设置->隐私”打开定位服务并允许Blinq以访问当前位置";
+
+description = "当你通过敲击戒指发送求救信息给紧急联系人时，我们需要使用你的位置信息。";
+
+location_description = "允许应用访问定位功能，以便您的戒指工作正常";

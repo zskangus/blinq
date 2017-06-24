@@ -70,6 +70,12 @@
     
     [SKAttributeString setButtonFontContent:self.pulseBtn title:NSLocalizedString(@"play_page_pulseBtn_title", nil) font:Avenir_Black Size:15 spacing:2.46 color:[UIColor whiteColor] forState:UIControlStateNormal];
     
+    if ([NSLocalizedString(@"language", nil)isEqualToString:@"中文"]) {
+        [SKAttributeString setLabelFontContent:self.playTitle title:NSLocalizedString(@"play_page_title", nil) font:Avenir_Heavy Size:16 spacing:2 color:[UIColor whiteColor]];
+        self.playTitle.textAlignment = NSTextAlignmentCenter;
+        
+    }
+    
     self.view.transform = CGAffineTransformMakeScale([UIScreen mainScreen].bounds.size.width / 375, [UIScreen mainScreen].bounds.size.width / 375);
     
 }

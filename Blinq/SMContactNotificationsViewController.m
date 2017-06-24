@@ -85,6 +85,9 @@ static NSString * const contactCell = @"ContactCell";
         [SKAttributeString setLabelFontContent:self.label title:[string uppercaseString] font:Avenir_Heavy Size:10 spacing:3 color:[UIColor whiteColor]];
         [SKAttributeString setLabelFontContent:self.addContactBtn title:NSLocalizedString(@"add_contact_buttonTitle", nil) font:Avenir_Book Size:12 spacing:2 color:[UIColor whiteColor]];
 
+    }else if ([NSLocalizedString(@"language", nil)isEqualToString:@"中文"]){
+        [SKAttributeString setLabelFontContent:self.label title:[string uppercaseString] font:Avenir_Heavy Size:16 spacing:3.6 color:[UIColor whiteColor]];
+        [SKAttributeString setLabelFontContent:self.addContactBtn title:NSLocalizedString(@"add_contact_buttonTitle", nil) font:Avenir_Book Size:16 spacing:2.46 color:[UIColor whiteColor]];
     }else{
         [SKAttributeString setLabelFontContent:self.label title:[string uppercaseString] font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor]];
         [SKAttributeString setLabelFontContent:self.addContactBtn title:NSLocalizedString(@"add_contact_buttonTitle", nil) font:Avenir_Book Size:16 spacing:2.46 color:[UIColor whiteColor]];

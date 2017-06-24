@@ -39,18 +39,32 @@ static NSString * const mainMeunCell = @"MainMenuCell";
 - (NSArray *)labelArray{
     if (!_labelArray) {
         
-        if ([NSLocalizedString(@"language", nil)isEqualToString:@"German"]) {
-            _labelArray = @[@"BENACHRICHTIGUNGEN",@"KONTAKTE",@"ABSPIELEN",@"SOS NOTFALL",@"EINSTELLUNGEN",@"HILFE"];
+        if ([[NSUserDefaults standardUserDefaults]boolForKey:@"openSosFunc"]) {
+            _labelArray = @[NSLocalizedString(@"menu_title_notifications", nil),
+                            NSLocalizedString(@"menu_title_contacts", nil),
+                            NSLocalizedString(@"menu_title_play", nil),
+                            NSLocalizedString(@"menu_title_emergency", nil),
+                            NSLocalizedString(@"menu_title_settings", nil),
+                            NSLocalizedString(@"menu_title_help", nil)];
         }else{
-            _labelArray = @[@"NOTIFICATIONS",@"CONTACTS",@"PLAY",@"SOS EMERGENCY",@"SETTINGS",@"HELP"];
+            _labelArray = @[NSLocalizedString(@"menu_title_notifications", nil),
+                            NSLocalizedString(@"menu_title_contacts", nil),
+                            NSLocalizedString(@"menu_title_play", nil),
+                            NSLocalizedString(@"menu_title_settings", nil),
+                            NSLocalizedString(@"menu_title_help", nil)];
         }
+        
     }
     return _labelArray;
 }
 
 -(NSArray *)imageArray{
     if (!_imageArray) {
-        _imageArray = @[@"icon-shape",@"icon-lists",@"icon-home",@"icon-profile",@"icon-settings",@"icon-form"];
+        if ([[NSUserDefaults standardUserDefaults]boolForKey:@"openSosFunc"]) {
+            _imageArray = @[@"icon-shape",@"icon-lists",@"icon-home",@"icon-profile",@"icon-settings",@"icon-form"];
+        }else{
+            _imageArray = @[@"icon-shape",@"icon-lists",@"icon-home",@"icon-settings",@"icon-form"];
+        }
     }
     return _imageArray;
 }

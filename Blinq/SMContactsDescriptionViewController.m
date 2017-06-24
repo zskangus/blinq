@@ -34,6 +34,39 @@
     [SKAttributeString setLabelFontContent:self.label2 title:NSLocalizedString(@"contacts_page_label2", nil) font:Avenir_Heavy Size:15 spacing:4.5 color:[UIColor whiteColor]];
     
     [SKAttributeString setButtonFontContent:self.okButton title:NSLocalizedString(@"contacts_page_buttonTitle", nil) font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    
+    if ([NSLocalizedString(@"language", nil)isEqualToString:@"German"]) {
+        [SKAttributeString setLabelFontContent:self.titleLabel title:NSLocalizedString(@"contacts_page_title", nil) font:Avenir_Black Size:40 spacing:6.6 color:[UIColor whiteColor]];
+
+        [SKAttributeString setLabelFontContent:self.label1 title:NSLocalizedString(@"contacts_page_label1", nil) font:Avenir_Heavy Size:13 spacing:3.9 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent:self.label2 title:NSLocalizedString(@"contacts_page_label2", nil) font:Avenir_Heavy Size:15 spacing:4.5 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setButtonFontContent:self.okButton title:NSLocalizedString(@"contacts_page_buttonTitle", nil) font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
+    }else if ([NSLocalizedString(@"language", nil)isEqualToString:@"中文"]){
+        [SKAttributeString setLabelFontContent:self.titleLabel title:NSLocalizedString(@"contacts_page_title", nil) font:Avenir_Black Size:44 spacing:6.6 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent:self.label1 title:NSLocalizedString(@"contacts_page_label1", nil) font:Avenir_Heavy Size:18 spacing:5 color:[UIColor whiteColor]];
+        
+        CGRect label1Frame = self.label1.frame;
+        label1Frame.size.width += 50;
+        label1Frame.origin.x -= 25;
+        self.label1.frame = label1Frame;
+        
+        
+        [SKAttributeString setLabelFontContent:self.label2 title:NSLocalizedString(@"contacts_page_label2", nil) font:Avenir_Heavy Size:18 spacing:5 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setButtonFontContent:self.okButton title:NSLocalizedString(@"contacts_page_buttonTitle", nil) font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
+    }else{
+        [SKAttributeString setLabelFontContent:self.titleLabel title:NSLocalizedString(@"contacts_page_title", nil) font:Avenir_Black Size:44 spacing:6.6 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent:self.label1 title:NSLocalizedString(@"contacts_page_label1", nil) font:Avenir_Heavy Size:13 spacing:3.9 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent:self.label2 title:NSLocalizedString(@"contacts_page_label2", nil) font:Avenir_Heavy Size:15 spacing:4.5 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setButtonFontContent:self.okButton title:NSLocalizedString(@"contacts_page_buttonTitle", nil) font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
+    }
 }
 
 - (IBAction)goBack:(id)sender {

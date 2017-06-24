@@ -35,10 +35,35 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [SKAttributeString setLabelFontContent:self.titleLabel title:@"LOCATION" font:Avenir_Black Size:44 spacing:6.6 color:[UIColor whiteColor]];
-    [SKAttributeString setLabelFontContent:self.label1 title:NSLocalizedString(@"location_describe1", nil) font:Avenir_Heavy Size:13 spacing:3.9 color:[UIColor whiteColor]];
-    [SKAttributeString setLabelFontContent:self.label2 title:NSLocalizedString(@"location_describe2", nil) font:Avenir_Heavy Size:16 spacing:4.8 color:[UIColor whiteColor]];
-    [SKAttributeString setButtonFontContent:self.nextButton title:NSLocalizedString(@"location_buttonTitle", nil) font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
+    if ([NSLocalizedString(@"language", nil)isEqualToString:@"German"]) {
+        
+        [SKAttributeString setLabelFontContent:self.titleLabel title:NSLocalizedString(@"loaction_title", nil) font:Avenir_Black Size:44 spacing:6.6 color:[UIColor whiteColor]];
+        [SKAttributeString setLabelFontContent:self.label1 title:NSLocalizedString(@"location_describe1", nil) font:Avenir_Heavy Size:13 spacing:3.9 color:[UIColor whiteColor]];
+        [SKAttributeString setLabelFontContent:self.label2 title:NSLocalizedString(@"location_describe2", nil) font:Avenir_Heavy Size:16 spacing:4.8 color:[UIColor whiteColor]];
+        [SKAttributeString setButtonFontContent:self.nextButton title:NSLocalizedString(@"location_buttonTitle", nil) font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
+        
+    }else if ([NSLocalizedString(@"language", nil)isEqualToString:@"中文"]){
+        
+        [SKAttributeString setLabelFontContent:self.titleLabel title:NSLocalizedString(@"loaction_title", nil) font:Avenir_Black Size:30 spacing:6.6 color:[UIColor whiteColor]];
+        [SKAttributeString setLabelFontContent:self.label1 title:NSLocalizedString(@"location_describe1", nil) font:Avenir_Heavy Size:18 spacing:3.9 color:[UIColor whiteColor]];
+        [SKAttributeString setLabelFontContent:self.label2 title:NSLocalizedString(@"location_describe2", nil) font:Avenir_Heavy Size:18 spacing:3.9 color:[UIColor whiteColor]];
+        
+        CGRect label1Frame = self.label2.frame;
+        label1Frame.origin.y= self.label1.frame.origin.y-30;
+        self.label1.frame = label1Frame;
+        
+        [SKAttributeString setButtonFontContent:self.nextButton title:NSLocalizedString(@"location_buttonTitle", nil) font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
+        
+    }else{
+        
+        [SKAttributeString setLabelFontContent:self.titleLabel title:NSLocalizedString(@"loaction_title", nil) font:Avenir_Black Size:44 spacing:6.6 color:[UIColor whiteColor]];
+        [SKAttributeString setLabelFontContent:self.label1 title:NSLocalizedString(@"location_describe1", nil) font:Avenir_Heavy Size:13 spacing:3.9 color:[UIColor whiteColor]];
+        [SKAttributeString setLabelFontContent:self.label2 title:NSLocalizedString(@"location_describe2", nil) font:Avenir_Heavy Size:16 spacing:4.8 color:[UIColor whiteColor]];
+        [SKAttributeString setButtonFontContent:self.nextButton title:NSLocalizedString(@"location_buttonTitle", nil) font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
+        
+    }
+    
+
 }
 
 - (IBAction)goVc:(id)sender {
@@ -48,7 +73,7 @@
         
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"warning", nil) message:NSLocalizedString(@"tip_network", nil) preferredStyle:UIAlertControllerStyleAlert];
         
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"ok", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
         }];
         
@@ -78,7 +103,7 @@
         
         
     }];
-    location.returnBlock = ^(NSMutableDictionary * addresss,CLLocationCoordinate2D currentUserCoordinate,BOOL isSuccessful){
+    location.returnBlock=^(NSMutableDictionary * addresss,CLLocationCoordinate2D currentUserCoordinate, BOOL isSuccessful){
 
         BackgroundViewController *binding = [[BackgroundViewController alloc]initWithNibName:@"BackgroundViewController" bundle:nil];
         

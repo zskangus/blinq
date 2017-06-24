@@ -66,6 +66,24 @@
 #import <CoreTelephony/CTCall.h>
 
 
+
+#import "SMConnectedEquipmentViewController.h"
+#import "SMConnectionFailureViewController.h"
+#import "SMConnectedSuccessViewController.h"
+#import "SMNotificationBewriteViewController.h"
+#import "BackgroundViewController.h"
+#import "SMRegisterViewController.h"
+#import "SMRegisterSuccessfullyViewController.h"
+#import "SMBindingViewController.h"
+#import "SMSosDescriptionViewController.h"
+#import "SKNotificationIntroduce.h"
+#import "SMPlayViewController.h"
+#import "SMSocialViewController.h"
+#import "SMSettingViewController.h"
+#import "otaUpdateFaildViewController.h"
+#import "otaUpdateSuccessfulViewController.h"
+#import "otaUpgradeViewController.h"
+
 @interface AppDelegate ()
 
 @property(nonatomic,strong)BTServer *defaultBTServer;
@@ -83,6 +101,8 @@ static NSTimeInterval inComingCallTime = 0;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [[NSUserDefaults standardUserDefaults]setBool:NO forKey:@"openSosFunc"];
     
     [SMNetWorkState whetherTheNetworkIsAvailable];
     

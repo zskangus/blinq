@@ -26,6 +26,10 @@
     if ([NSLocalizedString(@"language", nil)isEqualToString:@"German"]) {
         [SKAttributeString setLabelFontContent2:self.label title:NSLocalizedString(@"register_successful_page_label", nil) font:Avenir_Heavy Size:13 spacing:3 color:[UIColor whiteColor]];
 
+    }else if ([NSLocalizedString(@"language", nil)isEqualToString:@"中文"]){
+        [SKAttributeString setLabelFontContent2:self.label title:NSLocalizedString(@"register_successful_page_label", nil) font:Avenir_Heavy Size:18 spacing:5 color:[UIColor whiteColor]];
+        
+        self.label.textAlignment = NSTextAlignmentCenter;
     }else{
         [SKAttributeString setLabelFontContent2:self.label title:NSLocalizedString(@"register_successful_page_label", nil) font:Avenir_Heavy Size:13 spacing:3.9 color:[UIColor whiteColor]];
     }

@@ -69,13 +69,12 @@ static NSString * const CountriesCell = @"countriesCell";
     [self.navigationController.navigationBar setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
                                                            [UIColor blackColor], NSForegroundColorAttributeName,nil]];
     
+    [self.navigationItem setHidesBackButton:YES];
 }
 
 - (void)setupPhoneNumberAndCurrentCountresLabel{
     
-    if (([self.contact.countriesName isEqualToString:@"UNITED STATES"] && [[self.contact.phoneNum substringToIndex:1] isEqualToString:@"1"])
-        ||
-        ([self.contact.countriesName isEqualToString:@"CANADA"] && [[self.contact.phoneNum substringToIndex:1] isEqualToString:@"1"])) {
+    if ((self.currentCountryCode.text.integerValue == 1 && [[self.contact.phoneNum substringToIndex:1] isEqualToString:@"1"])){
         
         [self setupAreaCode:[NSString stringWithFormat:@"+%@",self.contact.countryCode]];
         
@@ -84,22 +83,34 @@ static NSString * const CountriesCell = @"countriesCell";
         [self setupCellNumber:str];
         
         self.currentCountres.text = self.contact.countriesName;
-        self.currentCountryCode.text = self.contact.countryCode;
-
+        self.currentCountryCode.text = [NSString stringWithFormat:@"+%@",self.contact.countryCode];;
+        
     }else{
         [self setupAreaCode:[NSString stringWithFormat:@"+%@",self.contact.countryCode]];
         [self setupCellNumber:self.contact.phoneNum];
         
         self.currentCountres.text = self.contact.countriesName;
-        self.currentCountryCode.text = self.contact.countryCode;
+        self.currentCountryCode.text = [NSString stringWithFormat:@"+%@",self.contact.countryCode];;
     }
-    
 }
 
 - (NSMutableArray*)setupCountresData{
     
-    NSString *path = [[NSBundle mainBundle]pathForResource:@"countresList2.plist" ofType:nil];
+    NSString *path = [[NSString alloc]init];
+    
+    if ([NSLocalizedString(@"language", nil)isEqualToString:@"English"]) {
+        path = [[NSBundle mainBundle]pathForResource:@"countresList_english.plist" ofType:nil];
+    }
+    
+    if ([NSLocalizedString(@"language", nil)isEqualToString:@"中文"]) {
+        path = [[NSBundle mainBundle]pathForResource:@"countresList_chinese.plist" ofType:nil];
+    }
+    
+    if ([NSLocalizedString(@"language", nil)isEqualToString:@"German"]) {
+        path = [[NSBundle mainBundle]pathForResource:@"countresList_deutsch.plist" ofType:nil];
+    }
 
+    
     //加载数组
     NSArray *dicArray=[NSArray arrayWithContentsOfFile:path];
     
@@ -130,9 +141,7 @@ static NSString * const CountriesCell = @"countriesCell";
     
     NSString *message = [[NSString alloc]init];
     
-    if (([self.currentCountres.text isEqualToString:@"UNITED STATES"] && [[self.contact.phoneNum substringToIndex:1] isEqualToString:@"1"])
-        ||
-        ([self.currentCountres.text isEqualToString:@"CANADA"] && [[self.contact.phoneNum substringToIndex:1] isEqualToString:@"1"])) {
+    if ((self.currentCountryCode.text.integerValue == 1 && [[self.contact.phoneNum substringToIndex:1] isEqualToString:@"1"])){
         
         message = [NSString stringWithFormat:@"+%@ %@",[self.currentCountryCode.text stringByReplacingOccurrencesOfString:@"+" withString:@""],[self.contact.phoneNum substringFromIndex:1]];
         
@@ -158,9 +167,7 @@ static NSString * const CountriesCell = @"countriesCell";
         //先删除旧数据
         [SMSosContactTool deleteContactData];
         
-        if (([self.currentCountres.text isEqualToString:@"UNITED STATES"] && [[self.contact.phoneNum substringToIndex:1] isEqualToString:@"1"])
-            ||
-            ([self.currentCountres.text isEqualToString:@"CANADA"] && [[self.contact.phoneNum substringToIndex:1] isEqualToString:@"1"])) {
+    if ((self.currentCountryCode.text.integerValue == 1 && [[self.contact.phoneNum substringToIndex:1] isEqualToString:@"1"])){
             
             NSLog(@"原本的号码%@",self.contact.phoneNum);
             self.contact.countriesName = self.currentCountres.text;
@@ -224,7 +231,7 @@ static NSString * const CountriesCell = @"countriesCell";
         
         SMSosDescriptionViewController *description = [[SMSosDescriptionViewController alloc]initWithNibName:@"SMSosDescriptionViewController" bundle:nil];
         
-        description.bottomButtonTitle = @"OK";
+        description.bottomButtonTitle = NSLocalizedString(@"ok", nil);
         
         CATransition * animation = [CATransition animation];
         
@@ -382,9 +389,7 @@ static NSString * const CountriesCell = @"countriesCell";
     
     countriesModel *countries = self.countresList[indexPath.row];
     
-    if (([countries.countriesName isEqualToString:@"UNITED STATES"] && [[self.contact.phoneNum substringToIndex:1] isEqualToString:@"1"])
-        ||
-        ([countries.countriesName isEqualToString:@"CANADA"] && [[self.contact.phoneNum substringToIndex:1] isEqualToString:@"1"])) {
+    if ((self.currentCountryCode.text.integerValue == 1 && [[self.contact.phoneNum substringToIndex:1] isEqualToString:@"1"])){
         self.currentCountres.text = countries.countriesName;
         self.currentCountryCode.text = [NSString stringWithFormat:@"+%@",countries.countriesNumBer];
         [self setupAreaCode:[NSString stringWithFormat:@"+%@",countries.countriesNumBer]];

@@ -43,6 +43,14 @@
     
     [SKAttributeString setLabelFontContent2:self.label title:NSLocalizedString(@"binding_page_describe", nil) font:Avenir_Heavy Size:14 spacing:4.2 color:[UIColor whiteColor]];
     
+    if ([NSLocalizedString(@"language", nil)isEqualToString:@"中文"]) {
+        [SKAttributeString setLabelFontContent2:self.label title:NSLocalizedString(@"binding_page_describe", nil) font:Avenir_Heavy Size:18 spacing:5 color:[UIColor whiteColor]];
+
+        self.label.textAlignment = NSTextAlignmentCenter;
+        
+        self.titleLabel.frame = self.putRingHere.frame;
+    }
+    
     [SKAttributeString setButtonFontContent:self.pairBtn title:NSLocalizedString(@"binding_page_buttonTitle", nil) font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
     
 

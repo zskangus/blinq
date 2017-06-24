@@ -17,14 +17,29 @@
 "sos_Location_services" = "STANDORTDIENSTE IN EINSTELLUNGEN > PRIVATSPHÄRE AKTIVIEREN, UM BLINQ DAS ERFASSEN DER AKTUELLEN POSITION ZU ERLAUBEN";
 "sos_failed_to_locate_address" = "ADRESSLOKALISIERUNG FEHLGESCHLAGEN.";
 
-"battery_low" ="LOW BATTERY.";
-"battery_low_desc" ="RING LOW BATTERY.";
-"battery_charge_completion" = "CHARGE COMPLETION";
-"battery_charge_completion_desc" = "THE RING HAS BEEN FULLY CHARGED.";
+"battery_low" ="SCHWACHE BATTERIE.";
+"battery_low_desc" ="RING SCHWACHE BATTERIE.";
+"battery_charge_completion" = "LADEENDE";
+"battery_charge_completion_desc" = "RING VOLL GELADEN.";
+
+sos_message_content_template = "Sie sind %@s Notfall-Kontakt und es wird Ihre Hilfe benötigt. Bitterufen Sie diese Person unverzüglich an, um sicherzustellen, dass es kein falscher Alarm ist. Wenn niemand antwortet,schicken sie sofort Hilfe zu folgendem Standort. Diese Nachricht wurde von Blinqs Smart Ring ausgesendet.";
+
+facebook_message_content_template = "NOTFALL: Ich brauche Hilfe oder bin in Schwierigkeiten. Bitteversuche sofort mich zu kontaktieren, um einen Falschalarm auszuschließen.Sollte ich nicht antworten, bitte sofort Hilfe zufolgendem Standort schicken. Diese Nachricht wurde von Blinq Smart Rings Notfall-Sozial-S.O.S.-System gesendet.";
+
+facebook_message_title = "Blinq Smart Ring Notfall-Übertragung";
+
 
 //
 yes = "JA";
 no = "NEIN";
+ok = "OK";
+
+menu_title_notifications = "BENACHRICHTIGUNGEN";
+menu_title_contacts = "KONTAKTE";
+menu_title_play = "ABSPIELEN";
+menu_title_emergency= "SOS NOTFALL";
+menu_title_settings = "EINSTELLUNGEN";
+menu_title_help = "HILFE";
 
 //开始界面
 welcome_page_get_started = "LOS GEHT'S";
@@ -125,6 +140,7 @@ setting_page_disconnect = "GETRENNT";
 setting_page_connect = "VERBUNDEN";
 
 software_label = "SOFTWARE";
+firmware_label = "FIRMWARE";
 
 confirm_mobile_number = "HANDYNUMMER BESTÄTIGEN";
 
@@ -223,3 +239,31 @@ location_describe1 = "WIR BRAUCHEN IHRE STANDORTINFORMATIONEN DAMIT IHR ALARMSIG
 location_describe2 = "ZUGANG ZUM STANDORT IHRES GERÄTS ERMÖGLICHEN DAMIT IHR RING FUNKTIONIERT";
 
 location_buttonTitle = "WEITER";
+
+loading = "IN LADUNG";
+
+// 国家
+UnitedStates = "VEREINIGTE STAATEN";
+Canada = "KANADA";
+Britain = "ENGLAND";
+Germany = "DEUTSCHLAND";
+China = "CHINA";
+India = "INDIEN";
+HongKong = "HONGKONG";
+Macau = "MACAU";
+Taiwan = "TAIWAN";
+
+location_description1 = "WIR BRAUCHEN IHRE STANDORTINFORMATIONEN DAMIT IHR ALARMSIGNAL FUNKTIONIEREN KANN";
+
+location_description2 = "ZUGANG ZUM STANDORT IHRES GERÄTS ERMÖGLICHEN DAMIT IHR RING FUNKTIONIERT";
+
+// need translation
+NSLocationAlwaysUsageDescription = "We need to know your location when sending SOS information. Select \“Allow\" to enable SOS distress functions.";
+
+NSBluetoothPeripheralUsageDescription = "PLEASE TURN ON THE BLUETOOTH DEVICE TO CONNECT TO THE SMART RING,IN“SETTINGS”->”BLUETOOTH”.";
+
+location_alert_title = "LOCATION SERVICES OFF";
+
+location_alert_content = "TURN ON LOCATION SERVICES IN SETTINGS > PRIVACY TO ALLOW BLINQ TO DETERMINE YOUR CURRENT LOCATION";
+
+description = "We'd like to use your location when sending SOS information to your emergency contact by knocking your smart ring.";
