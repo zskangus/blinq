@@ -228,7 +228,7 @@ static BTServer* _defaultBTServer = nil;
     
     NSDictionary *dic = [userDefaults dictionaryRepresentation];
     
-    NSArray *array =@[@"isHaveBeenBound",@"LastPeriphrealIdentifierConnectedKey",@"sensitivityTurnedOn",@"sosVcTurnedOn",@"socialTurnedOn",@"notification_contactVcTurnedOn",@"main_contactVcTurnedOn",@"firstName",@"lastName",@"isUploadSuccessful",@"sendMessagePower",@"locationPower",@"sensitivityLevel"];
+    NSArray *array =@[@"isHaveBeenBound",@"LastPeriphrealIdentifierConnectedKey",@"sensitivityTurnedOn",@"sosVcTurnedOn",@"socialTurnedOn",@"notification_contactVcTurnedOn",@"main_contactVcTurnedOn",@"firstName",@"lastName",@"isUploadSuccessful",@"sendMessagePower",@"locationPower",@"sensitivityLevel",@"openSosFunc",@"isAccpetDisclaimer"];
     
     NSMutableArray *array1 = [NSMutableArray array];
     NSString *string = [[NSString alloc]init];

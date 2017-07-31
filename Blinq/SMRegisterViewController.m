@@ -122,13 +122,17 @@ registerState smRegisterState = registerStandby;
     
     self.textField1.delegate = self;
     [self.textField1 addTarget:self action:@selector(numTextFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    self.textField1.tintColor = [UIColor whiteColor];
     
     self.textFile2.delegate = self;
     [self.textFile2 addTarget:self action:@selector(numTextFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    self.textFile2.tintColor = [UIColor whiteColor];
     
     self.textField3.delegate = self;
     [self.textField3 addTarget:self action:@selector(numTextFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     self.textField3.adjustsFontSizeToFitWidth=YES;
+    self.textField3.tintColor = [UIColor whiteColor];
+
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{

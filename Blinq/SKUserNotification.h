@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UserNotifications/UserNotifications.h>
 
 @interface SKUserNotification : NSObject
 
@@ -14,7 +15,7 @@
 + (BOOL)judgeSystemVersionIsIos10;
 
 // ios 注册通知
-+ (void)requestNotificationAndSetDelegate:(id)delegate;
++ (void)requestNotificationAndSetDelegate:(id)delegate results:(void(^)(BOOL granted))results;
 
 // 发送通知
 + (void)addNotification:(NSString*)title body:(NSString*)body identifier:(NSString*)identifier;

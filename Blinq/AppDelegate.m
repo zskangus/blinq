@@ -48,8 +48,6 @@
 
 #import "SMSocialDescriptionViewController.h"
 
-#import "SKUserNotification.h"
-
 #import "SMNetWorkState.h"
 
 #import "SKFTPManager.h"
@@ -102,7 +100,7 @@ static NSTimeInterval inComingCallTime = 0;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    [[NSUserDefaults standardUserDefaults]setBool:NO forKey:@"openSosFunc"];
+    [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"openSosFunc"];
     
     [SMNetWorkState whetherTheNetworkIsAvailable];
     
@@ -110,14 +108,6 @@ static NSTimeInterval inComingCallTime = 0;
     
     // faceBook相关
     [[FBSDKApplicationDelegate sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
-    
-    if ([SKUserNotification judgeSystemVersionIsIos10]) {
-        [SKUserNotification requestNotificationAndSetDelegate:self];
-    }else{
-        if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
-            [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert categories:nil]];
-        }
-    }
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(onUserClickEvent:) name:@"onUserClickEvent" object:nil];
     

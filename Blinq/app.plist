@@ -168,7 +168,7 @@
 		<key>SchemeName</key>
 		<string>skype</string>
 		<key>Identifiers</key>
-		<string>com.skype.tomskype</string>
+		<string>com.skype.skype</string>
 		<key>catId</key>
 		<string>4</string>
 		<key>appId</key>

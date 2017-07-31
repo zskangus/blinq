@@ -56,6 +56,8 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <FBSDKShareKit/FBSDKShareKit.h>
 
+#import "SMSOSDescribe.h"
+
 #define Screen_height [[UIScreen mainScreen] bounds].size.height
 #define Screen_width [[UIScreen mainScreen] bounds].size.width
 
@@ -378,13 +380,29 @@ static NSInteger checkCount;
         }
             break;
         case 3:
-        {
-            [self fitFrameForChildViewController:self.sos];
-            
-            [self transitionFromOldViewController:_currentVC toNewViewController:self.sos];
-            
-            [self setupNavigationTitle:NSLocalizedString(@"nav_title_SOS_EMERGENCY", nil)];
+        {            
+            if ([SKUserDefaults boolForKey:@"isAccpetDisclaimer"]) {
+                [self fitFrameForChildViewController:self.sos];
+                
+                [self transitionFromOldViewController:_currentVC toNewViewController:self.sos];
+                
+                [self setupNavigationTitle:NSLocalizedString(@"nav_title_SOS_EMERGENCY", nil)];
+            }else{
+                SMSOSDescribe *describe = [[SMSOSDescribe alloc]initWithNibName:@"SMSOSDescribe" bundle:nil];
+                [SKViewTransitionManager presentModalViewControllerFrom:self to:describe duration:0.3 transitionType:TransitionPush directionType:TransitionFromRight];
+                
+                describe.okBlock = ^{
+                    [self fitFrameForChildViewController:self.sos];
+                    
+                    [self transitionFromOldViewController:_currentVC toNewViewController:self.sos];
+                    
+                    [self setupNavigationTitle:NSLocalizedString(@"nav_title_SOS_EMERGENCY", nil)];
+                    self.vcCount = item;
 
+                };
+                
+                return;
+            }
 
         }
             break;
@@ -905,7 +923,7 @@ static NSInteger checkCount;
     BOOL postToWallPower = [SKUserDefaults boolForKey:@"postToWallPower"];
     BOOL socialPower = [SKUserDefaults boolForKey:@"socialPower"];
     
-    if (postToWallPower == NO || socialPower == NO) {
+    if (socialPower == NO) {
         NSLog(@"请确认功能开关及发布开关已开启");
         return;
     }

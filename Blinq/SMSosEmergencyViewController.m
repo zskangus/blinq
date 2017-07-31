@@ -27,6 +27,19 @@
 #import "SMSensitivityView.h"
 #import "BTServer.h"
 
+
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <FBSDKShareKit/FBSDKShareKit.h>
+
+typedef NS_ENUM(NSInteger,loginState){
+    FBlogin = 0,
+    FBlogOut
+};
+
+loginState FBloginState;
+
+
 typedef NS_ENUM(NSInteger,sosDescription){
     
     sosDescriptionOpening = 0,
@@ -37,7 +50,7 @@ typedef NS_ENUM(NSInteger,sosDescription){
 
 sosDescription openStartup = sosDescriptionOpened;
 
-@interface SMSosEmergencyViewController ()<customSwitchDelegate,UITextViewDelegate,CNContactPickerDelegate>
+@interface SMSosEmergencyViewController ()<customSwitchDelegate,UITextViewDelegate,CNContactPickerDelegate,FBSDKLoginButtonDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *emergencyLable;
 @property (weak, nonatomic) IBOutlet UILabel *sensitivityLabel;
@@ -52,6 +65,7 @@ sosDescription openStartup = sosDescriptionOpened;
 @property (weak, nonatomic) IBOutlet customSwitch *sendMessageSwitch;
 @property (weak, nonatomic) IBOutlet customSwitch *socialSOSSwitch;
 @property (weak, nonatomic) IBOutlet customSwitch *sensitivitySwitch;
+@property (weak, nonatomic) IBOutlet UILabel *socialSosLabel;
 
 @property (weak, nonatomic) IBOutlet UIView *addContact;
 
@@ -66,6 +80,17 @@ sosDescription openStartup = sosDescriptionOpened;
 
 @property (weak, nonatomic) IBOutlet UIButton *socialBtn;
 @property (weak, nonatomic) IBOutlet UIView *socialSosView;
+
+
+// 分享
+@property (weak, nonatomic) IBOutlet UILabel *socialTitle;
+
+@property (weak, nonatomic) IBOutlet UILabel *socialDescribe;
+
+@property (weak, nonatomic) IBOutlet UIView *faceBookView;
+@property (weak, nonatomic) IBOutlet UIView *faceBookCellView;
+@property (weak, nonatomic) IBOutlet UIImageView *portraitImage;
+@property (weak, nonatomic) IBOutlet UILabel *accountLabel;
 
 @end
 
@@ -108,6 +133,49 @@ static BOOL isUserClick;
     [self setupCustomSwitchTagAndDelegate];
     
     [self setupUi];
+    
+    [self setupFaceBookLoginButton];
+}
+
+- (void)setupFaceBookLoginButton{
+    
+    FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
+    // Optional: Place the button in the center of your view.
+    loginButton.frame = CGRectMake(45, 111, 280, 47);
+    loginButton.delegate = self;
+    loginButton.loginBehavior = FBSDKLoginBehaviorSystemAccount;
+    [loginButton setTitle: @"Connect using Facebook" forState: UIControlStateNormal];
+    
+    [self.faceBookCellView addSubview:loginButton];
+    
+    
+    //设置发布开关的状态
+    if ([SKUserDefaults boolForKey:@"faceBookConnectState"] == YES) {// 如果为登录状态
+
+        NSLog(@"faceBookPower%@",[SKUserDefaults boolForKey:@"postToWallPower"]?@"YES":@"NO");
+        
+        //显示登录的账号信息
+        self.socialTitle.hidden = YES;
+        self.socialDescribe.hidden = YES;
+        self.faceBookView.hidden = NO;
+        self.socialSOSSwitch.isDisable = NO;
+        
+        NSString *accountName = [SKUserDefaults objectForKey:@"faceBookAccountName"];
+        NSData *portraitData = [SKUserDefaults objectForKey:@"portraitData"];
+        
+        [self setAccountLabel:accountName portrait:portraitData];
+        
+        
+    }else{//如果连接状态为登出
+        //显示登录的账号信息
+        self.socialTitle.hidden = NO;
+        self.socialDescribe.hidden = NO;
+        self.faceBookView.hidden = YES;
+        self.socialSOSSwitch.isDisable = YES;
+
+        [SKUserDefaults setBool:NO forKey:@"postToWallPower"];
+    }
+    
 }
 
 - (void)setupUi{
@@ -122,11 +190,17 @@ static BOOL isUserClick;
         
         [SKAttributeString setLabelFontContent:self.sendTextMessageLabel title:NSLocalizedString(@"sos_send_Message_label", nil) font:Avenir_Book Size:14 spacing:2.46 color:[UIColor whiteColor]];
         
+        [SKAttributeString setLabelFontContent:self.socialSosLabel title:NSLocalizedString(@"bewrite_social_sos_title", nil) font:Avenir_Book Size:16 spacing:2.46 color:[UIColor whiteColor]];
+        
         [SKAttributeString setLabelFontContent:self.socialLabel title:NSLocalizedString(@"sos_social_label", nil) font:Avenir_Book Size:16 spacing:2.46 color:[UIColor whiteColor]];
         
         [SKAttributeString setLabelFontContent:self.placeHolderLabel title:NSLocalizedString(@"sos_textView_Label", nil) font:Avenir_Light Size:10 spacing:2.4 color:[UIColor blackColor]];
         
         [SKAttributeString setButtonFontContent:self.socialBtn title:NSLocalizedString(@"sos_social_setting_label", nil) font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor] forState:UIControlStateNormal];
+        
+        [SKAttributeString setLabelFontContent:self.socialTitle title:NSLocalizedString(@"socicl_page_title", nil) font:Avenir_Black Size:20 spacing:3 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent:self.socialDescribe title:NSLocalizedString(@"socicl_page_describe", nil) font:Avenir_Light Size:10 spacing:3 color:[UIColor whiteColor]];
     }else if ([NSLocalizedString(@"language", nil)isEqualToString:@"中文"]){
         [SKAttributeString setLabelFontContent2:self.promptLable title:NSLocalizedString(@"sos_page_describeLabel", nil) font:Avenir_Light Size:16 spacing:3.3 color:[UIColor whiteColor]];
         self.promptLable.textAlignment = NSTextAlignmentCenter;
@@ -137,11 +211,18 @@ static BOOL isUserClick;
         
         [SKAttributeString setLabelFontContent:self.sendTextMessageLabel title:NSLocalizedString(@"sos_send_Message_label", nil) font:Avenir_Book Size:16 spacing:2.46 color:[UIColor whiteColor]];
         
+        [SKAttributeString setLabelFontContent:self.socialSosLabel title:NSLocalizedString(@"bewrite_social_sos_title", nil) font:Avenir_Book Size:16 spacing:2.46 color:[UIColor whiteColor]];
+        
         [SKAttributeString setLabelFontContent:self.socialLabel title:NSLocalizedString(@"sos_social_label", nil) font:Avenir_Book Size:16 spacing:2.46 color:[UIColor whiteColor]];
         
         [SKAttributeString setLabelFontContent:self.placeHolderLabel title:NSLocalizedString(@"sos_textView_Label", nil) font:Avenir_Light Size:10 spacing:2.4 color:[UIColor blackColor]];
         
         [SKAttributeString setButtonFontContent:self.socialBtn title:NSLocalizedString(@"sos_social_setting_label", nil) font:Avenir_Heavy Size:15 spacing:3.6 color:[UIColor whiteColor] forState:UIControlStateNormal];
+        
+        //
+        [SKAttributeString setLabelFontContent:self.socialTitle title:NSLocalizedString(@"socicl_page_title", nil) font:Avenir_Black Size:20 spacing:3 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent2:self.socialDescribe title:NSLocalizedString(@"socicl_page_describe", nil) font:Avenir_Light Size:15 spacing:1 color:[UIColor whiteColor]];
 
     }else{
         
@@ -153,11 +234,19 @@ static BOOL isUserClick;
         
         [SKAttributeString setLabelFontContent:self.sendTextMessageLabel title:NSLocalizedString(@"sos_send_Message_label", nil) font:Avenir_Book Size:16 spacing:2.46 color:[UIColor whiteColor]];
         
+        [SKAttributeString setLabelFontContent:self.socialSosLabel title:NSLocalizedString(@"bewrite_social_sos_title", nil) font:Avenir_Book Size:16 spacing:2.46 color:[UIColor whiteColor]];
+        
         [SKAttributeString setLabelFontContent:self.socialLabel title:NSLocalizedString(@"sos_social_label", nil) font:Avenir_Book Size:16 spacing:2.46 color:[UIColor whiteColor]];
         
         [SKAttributeString setLabelFontContent:self.placeHolderLabel title:NSLocalizedString(@"sos_textView_Label", nil) font:Avenir_Light Size:10 spacing:2.4 color:[UIColor blackColor]];
         
         [SKAttributeString setButtonFontContent:self.socialBtn title:NSLocalizedString(@"sos_social_setting_label", nil) font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor] forState:UIControlStateNormal];
+        
+        ///--
+        
+        [SKAttributeString setLabelFontContent:self.socialTitle title:NSLocalizedString(@"socicl_page_title", nil) font:Avenir_Black Size:20 spacing:3 color:[UIColor whiteColor]];
+        
+        [SKAttributeString setLabelFontContent:self.socialDescribe title:NSLocalizedString(@"socicl_page_describe", nil) font:Avenir_Light Size:10 spacing:3 color:[UIColor whiteColor]];
     }
     
     
@@ -363,12 +452,11 @@ static BOOL isUserClick;
         case 4:// 响应social的开关按钮
         {
 
-            
             BOOL socialTurnedOn = [SKUserDefaults boolForKey:@"socialTurnedOn"];
             
             if (isOn == YES && socialTurnedOn == NO) {
                 SMSocialDescriptionViewController *description = [[SMSocialDescriptionViewController alloc]initWithNibName:@"SMSocialDescriptionViewController" bundle:nil];
-            [self.navigationController pushViewController:description animated:YES];
+                [SKViewTransitionManager presentModalViewControllerFrom:self to:description duration:0.3 transitionType:TransitionPush directionType:TransitionFromRight];
             }else{
             
             }
@@ -820,4 +908,111 @@ static BOOL isUserClick;
     [self.textView resignFirstResponder];
 }
 
+//faceBook
+- (void)loginButton:(FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result error:(NSError *)error{
+    
+    if (error) {
+        NSLog(@"是否有错误:%@",error);
+        
+        if (error.code == 306) {
+            
+            NSString *str = NSLocalizedString(@"faceBook_login_alert", nil);
+            
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:[str uppercaseString] preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"ok", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                
+            }];
+            
+            [alertController addAction:okAction];
+            
+            [alertController setValue:[self setAlertControllerWithStrring:[str uppercaseString] fontSize:14 spacing:1.85]  forKey:@"attributedMessage"];
+            
+            [self presentViewController:alertController animated:YES completion:nil];
+            
+        }
+        
+    }else if(result.isCancelled){
+        
+    }else{
+        NSLog(@"已登录faceBook");
+        
+        FBloginState = FBlogin;
+        
+        [SKUserDefaults setBool:YES forKey:@"faceBookConnectState"];
+        
+        if ([FBSDKAccessToken currentAccessToken]) {
+            [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
+             startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+                 if (!error) {
+                     NSLog(@"fetched user:%@", result);
+                     
+                     // 用户名
+                     NSString *userName = [result objectForKey:@"name"];
+                     NSString *userId = [result objectForKey:@"id"];
+                     [SKUserDefaults setObject:userName forKey:@"faceBookAccountName"];
+                     
+                     // 用户ID
+                     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?width=%d&height=%d",userId,200,200]];
+                     dispatch_queue_t downloader = dispatch_queue_create("PicDownloader", NULL);
+                     dispatch_async(downloader, ^{
+                         
+                         NSData *data = [NSData dataWithContentsOfURL:url];
+                         [SKUserDefaults setObject:data forKey:@"portraitData"];
+                         
+                         dispatch_async(dispatch_get_main_queue(), ^{
+                             
+                             if (FBloginState == FBlogin) {
+                                 //显示登录的账号信息
+                                 self.socialTitle.hidden = YES;
+                                 self.socialDescribe.hidden = YES;
+                                 self.faceBookView.hidden = NO;
+                                 self.socialSOSSwitch.isDisable = NO;
+                                 [self setAccountLabel:userName portrait:data];
+                             }
+                             
+                         });
+                         
+                     });
+                     
+                     
+                     //----------------------
+                 }
+             }];
+        }
+        
+    }
+    
+}
+
+- (void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton{
+    NSLog(@"faceBook退出登录");
+    
+    FBloginState = FBlogOut;
+    
+    self.socialTitle.hidden = NO;
+    self.socialDescribe.hidden = NO;
+    self.faceBookView.hidden = YES;
+    self.socialSOSSwitch.isDisable = YES;
+    [self.socialSOSSwitch setOn:NO];
+    [SKUserDefaults setBool:NO forKey:@"postToWallPower"];
+    [SKUserDefaults setBool:NO forKey:@"faceBookConnectState"];
+    
+    [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me/permissions/publish_actions"
+                                       parameters:nil
+                                       HTTPMethod:@"DELETE"]
+     startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+         NSLog(@"%@",result);
+     }];
+}
+
+- (void)setAccountLabel:(NSString*)accountName portrait:(NSData*)portrait{
+    
+    [SKAttributeString setLabelFontContent:self.accountLabel title:accountName font:Avenir_Black Size:14 spacing:2.8 color:[UIColor whiteColor]];
+    self.portraitImage.image = [UIImage imageWithData:portrait];
+    
+    self.portraitImage.layer.cornerRadius = self.portraitImage.frame.size.width / 2;
+    
+    self.portraitImage.clipsToBounds = YES;
+}
 @end

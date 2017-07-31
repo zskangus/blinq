@@ -80,44 +80,10 @@
     
     [SKUserDefaults setBool:YES forKey:@"socialTurnedOn"];
     
-//    CATransition * animation = [CATransition animation];
-//    
-//    animation.duration = 0.3;    //  时间
-//    
-//    /**  type：动画类型
-//     *  pageCurl       向上翻一页
-//     *  pageUnCurl     向下翻一页
-//     *  rippleEffect   水滴
-//     *  suckEffect     收缩
-//     *  cube           方块
-//     *  oglFlip        上下翻转
-//     */
-//    //animation.type = @"pageCurl";
-//    
-//    /**  type：页面转换类型
-//     *  kCATransitionFade       淡出
-//     *  kCATransitionMoveIn     覆盖
-//     *  kCATransitionReveal     底部显示
-//     *  kCATransitionPush       推出
-//     */
-//    animation.type = kCATransitionPush;
-//    
-//    //PS：type 更多效果请 搜索： CATransition
-//    
-//    /**  subtype：出现的方向
-//     *  kCATransitionFromRight       右
-//     *  kCATransitionFromLeft        左
-//     *  kCATransitionFromTop         上
-//     *  kCATransitionFromBottom      下
-//     */
-//    animation.subtype = kCATransitionFromLeft;
-//    
-//    [self.view.window.layer addAnimation:animation forKey:nil];
-//    
-//    [self dismissViewControllerAnimated:NO completion:nil];
+    [SKViewTransitionManager dismissViewController:self duration:0.3 transitionType:TransitionPush directionType:TransitionFromLeft];
     
-    SMSocialViewController *ic = [[SMSocialViewController alloc]initWithNibName:@"SMSocialViewController" bundle:nil];
-    [self.navigationController pushViewController:ic animated:YES];
+//    SMSocialViewController *ic = [[SMSocialViewController alloc]initWithNibName:@"SMSocialViewController" bundle:nil];
+//    [self.navigationController pushViewController:ic animated:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{

@@ -476,51 +476,6 @@ static Byte category;
     return NO;
 }
 
-
-- (void)matchingVipContact:(NSString *)sendAppName :(void(^)(SMContactModel *contact,bool isVip))isVip{
-    
-    NSArray *array = [SMContactTool contacts];
-    NSLog(@"获取VIP联系人列表%@",array);
-    
-    BOOL isVipContact = NO;
-    
-    SMContactModel *contactInfo = [[SMContactModel alloc]init];
-    
-    for (SMContactModel *contact in array) {
-        
-        
-        
-        NSString *sortOrderFamilyName = [[NSString alloc]init];
-        
-        
-        NSString *sortOrderGivenName = [[NSString alloc]init];
-        
-        
-        if ([self isBlankString:contact.familyName] || [self isBlankString:contact.givenName]) {
-            sortOrderFamilyName = [NSString stringWithFormat:@"%@%@",contact.familyName,contact.givenName];
-            sortOrderGivenName  = [NSString stringWithFormat:@"%@%@",contact.givenName,contact.familyName];
-        }else{
-            sortOrderFamilyName = [NSString stringWithFormat:@"%@ %@",contact.familyName,contact.givenName];
-            sortOrderGivenName  = [NSString stringWithFormat:@"%@ %@",contact.givenName,contact.familyName];
-        }
-        
-        if ([sortOrderFamilyName isEqualToString:sendAppName] || [sortOrderGivenName isEqualToString:sendAppName]) {
-            NSLog(@"匹配到VIP联系人-%@",sendAppName);
-            contactInfo = contact;
-            isVipContact = YES;
-            break;
-        }else{
-            isVipContact = NO;
-        }
-
-        
-        
-    }
-    
-    isVip(contactInfo,isVipContact);
-
-}
-
 - (BOOL)isBlankString:(NSString *)string {
     if (string == nil || string == NULL) {
         return YES;
@@ -646,9 +601,7 @@ static Byte category;
                 model.color = app.colorId;
                 model.count = 1;
                 NSLog(@"%hhu",model.count);
-                NSLog(@"%@为开启状态---执行,颜色%d",app.title,app.colorId);
             }else{
-                NSLog(@"%@为关闭状态不执行,颜色%d",app.title,app.colorId);
                 return;
             }
         }

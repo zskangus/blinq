@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SMSOSDescribe">
+            <connections>
+                <outlet property="goback" destination="XBS-zy-HTb" id="utP-hG-aaC"/>
+                <outlet property="ok" destination="Rif-Jy-eZg" id="SDD-ha-hJJ"/>
+                <outlet property="textView" destination="bC7-SI-GEs" id="00h-h9-G7T"/>
+                <outlet property="titleLabel" destination="dfl-qd-bls" id="dEY-1r-rYM"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tpH-KF-X2g">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="bC7-SI-GEs">
+                    <rect key="frame" x="5" y="67" width="365" height="556"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <string key="text">1. By using Blinq App and SOS function (hereafter referred to as Blinq SOS), viewing, accessing or otherwise using any of the services or information created, collected, compiled or submitted to Blinq SOS you agree to be bound by the following Terms and Conditions of Service and the Terms and Conditions. If you do not want to be bound by our Terms your only use the services of Blinq SOS feature. You understand, agree and acknowledge that these Terms constitute a legally binding agreement between you and Blinq and that your use of Blinq SOS feature shall indicate your conclusive acceptance of this agreement. 
+2. Provision of Services 
+You agree and acknowledge that Blinq is entitled to modify, improve or discontinue any of its services at its sole discretion and without notice to you even if it may result in you being prevented from accessing any information contained in it. 3. Submitted Content 
+When you submit content to Blinq through comment and email you simultaneously grant Blinq an irrevocable, worldwide, royalty free license to publish, display, modify, distribute and syndicate your content worldwide. You 
+confirm and warrant that you have the required authority to grant the above license to Blinq. Blinq may publicize your content as they please without credit. 4. Disclaimer of Warranties 
+You understand and agree that your use of Blinq SOS feature is entirely at your own risk and that our services are provided “As Is” and “As Available”. Blinq does not make any express or implied warranties, endorsements or representations whatsoever as to the operation of the the Blinq SOS feature, information, content, materials, or products. This shall include, but not be limited to, implied warranties of merchantability and fitness for a particular purpose and non-infringement, and warranties that access to or use of the service will be uninterrupted or error-free or that defects in the service will be corrected. 
+5. Limitation of Liability 
+You understand and agree that Blinq and any of its subsidiaries or affiliates shall in no event be liable for any direct, indirect, incidental, consequential, or exemplary damages. Blinq’s SOS feature provides an extra layer of security and peace of mind, but should never be used as a substitute for 911 (or other local emergency services). Understand and agree that Blinq shall in no event be liable for any direct, indirect, incidental, consequential, or exemplary damages. This shall include, but not be limited to: damages for loss of profits, business interruption, business reputation or goodwill, bodily harm, any harm associated with any emergency situation, loss of programs or information or other intangible loss arising out of the use of or the inability to use the service, or information, or any permanent or temporary cessation of such service or access to information, or the deletion or corruption of any content or information, or the failure to store any content or information. The above limitation shall apply whether or not Blinq has been advised of or should have been aware of the possibility of such damages. In jurisdictions where the exclusion or limitation of liability for consequential or incidental damages is not allowed the liability of Blinq is limited to the greatest extent permitted by law. 
+6. Entire Agreement 
+You understand and agree that the above Terms constitute the entire general agreement between you and Blinq. You may be subject to additional Terms and conditions when you use, purchase or access other services, affiliate services or third-party content or material. 7. Changes to the Terms 
+Blinq reserves the right to modify these Terms from time to time at our sole discretion and without any notice. Changes to our Terms become effective on the date they are posted and your continued use of Blinq SOS after any changes to Terms will signify your agreement to be bound by them. 
+</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DISCLAIMER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfl-qd-bls">
+                    <rect key="frame" x="0.0" y="18" width="375" height="40"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KNi-41-K1Q">
+                    <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <items>
+                        <barButtonItem title="Item" id="XBS-zy-HTb">
+                            <connections>
+                                <action selector="goBack:" destination="-1" id="qsx-pI-rYA"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="Nq3-wJ-EKK"/>
+                        <barButtonItem title="Item" id="Rif-Jy-eZg">
+                            <connections>
+                                <action selector="okBtn:" destination="-1" id="t3M-6a-BXn"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <point key="canvasLocation" x="32.5" y="102.5"/>
+        </view>
+    </objects>
+</document>

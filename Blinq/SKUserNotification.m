@@ -8,7 +8,6 @@
 
 #import "SKUserNotification.h"
 #import <UIKit/UIKit.h>
-#import <UserNotifications/UserNotifications.h>
 
 #define IOS10_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 10.0)
 
@@ -23,8 +22,8 @@
     }
 }
 
-+ (void)requestNotificationAndSetDelegate:(id)delegate{
-    
++ (void)requestNotificationAndSetDelegate:(id)delegate results:(void(^)(BOOL granted))results{
+
     // 使用 UNUserNotificationCenter 来管理通知
     UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
     //监听回调事件
@@ -34,6 +33,9 @@
     [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert + UNAuthorizationOptionSound)
                           completionHandler:^(BOOL granted, NSError * _Nullable error) {
                               // Enable or disable features based on authorization.
+                              
+                              results(granted);
+                              
                           }];
     
     //获取当前的通知设置，UNNotificationSettings 是只读对象，不能直接修改，只能通过以下方法获取

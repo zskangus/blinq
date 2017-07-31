@@ -149,6 +149,8 @@
 		7383BE911CB53A71006EC0A9 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7383BE8C1CB53A71006EC0A9 /* Utils.m */; };
 		73892D2C1DD0237000115D62 /* SOS emergency CONTACT.png in Resources */ = {isa = PBXBuildFile; fileRef = 73892D2B1DD0237000115D62 /* SOS emergency CONTACT.png */; };
 		739ACCE21EEA963E0043D838 /* SKTimerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 739ACCE11EEA963E0043D838 /* SKTimerManager.m */; };
+		73A973891F04FE2600515BF1 /* SMSOSDescribe.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A973871F04FE2600515BF1 /* SMSOSDescribe.m */; };
+		73A9738A1F04FE2600515BF1 /* SMSOSDescribe.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73A973881F04FE2600515BF1 /* SMSOSDescribe.xib */; };
 		73ACD3951EF22B09002427C9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 73ACD3971EF22B09002427C9 /* InfoPlist.strings */; };
 		73C87B471D58242500E0F672 /* otaUpdateFaildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C87B451D58242500E0F672 /* otaUpdateFaildViewController.m */; };
 		73C87B481D58242500E0F672 /* otaUpdateFaildViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73C87B461D58242500E0F672 /* otaUpdateFaildViewController.xib */; };
@@ -458,6 +460,9 @@
 		73892D2B1DD0237000115D62 /* SOS emergency CONTACT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SOS emergency CONTACT.png"; sourceTree = "<group>"; };
 		739ACCE01EEA963E0043D838 /* SKTimerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKTimerManager.h; sourceTree = "<group>"; };
 		739ACCE11EEA963E0043D838 /* SKTimerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKTimerManager.m; sourceTree = "<group>"; };
+		73A973861F04FE2600515BF1 /* SMSOSDescribe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSOSDescribe.h; sourceTree = "<group>"; };
+		73A973871F04FE2600515BF1 /* SMSOSDescribe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSOSDescribe.m; sourceTree = "<group>"; };
+		73A973881F04FE2600515BF1 /* SMSOSDescribe.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SMSOSDescribe.xib; sourceTree = "<group>"; };
 		73ACD3981EF22B0E002427C9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		73ACD3991EF22B0F002427C9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		73ACD39A1EF22B10002427C9 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -794,6 +799,7 @@
 		737B1E451CA4CCDC00A4AA60 /* Blinq */ = {
 			isa = PBXGroup;
 			children = (
+				73A973851F04FD8E00515BF1 /* 免责弹出框 */,
 				73F730EE1D9E519000DABE18 /* Social */,
 				730473481D9CDB70001B5BAF /* bg-navBarNil.jpg */,
 				73D393931CAA83BA007EA376 /* 分类 */,
@@ -941,6 +947,16 @@
 				7383BE8C1CB53A71006EC0A9 /* Utils.m */,
 			);
 			name = "New Group";
+			sourceTree = "<group>";
+		};
+		73A973851F04FD8E00515BF1 /* 免责弹出框 */ = {
+			isa = PBXGroup;
+			children = (
+				73A973861F04FE2600515BF1 /* SMSOSDescribe.h */,
+				73A973871F04FE2600515BF1 /* SMSOSDescribe.m */,
+				73A973881F04FE2600515BF1 /* SMSOSDescribe.xib */,
+			);
+			name = "免责弹出框";
 			sourceTree = "<group>";
 		};
 		73AF5EDE1CB6615D00BDAE5F /* model */ = {
@@ -1480,6 +1496,7 @@
 				73EBE6C91D8A931300C4819B /* SMContentViewController.xib in Resources */,
 				7373DFA71DD06D0D003668D7 /* SMContactsDescriptionViewController.xib in Resources */,
 				7301A5621E1F39ED00719B77 /* BackgroundViewController_ip4.xib in Resources */,
+				73A9738A1F04FE2600515BF1 /* SMSOSDescribe.xib in Resources */,
 				732FA3861E31AA6100AB2B80 /* SKNotificationIntroduce.xib in Resources */,
 				7302195E1CA8D258005620F3 /* ReceiveNotificationCell.xib in Resources */,
 				7301A54B1E1F356800719B77 /* SMStartupViewController_ip4.xib in Resources */,
@@ -1636,6 +1653,7 @@
 				73F18B781CBBE61A009120A0 /* SMContactSosSelectViewController.m in Sources */,
 				730399121D864766008930FE /* otaUpToDateViewController.m in Sources */,
 				7383BE791CB53A50006EC0A9 /* SmartRemindConfig.m in Sources */,
+				73A973891F04FE2600515BF1 /* SMSOSDescribe.m in Sources */,
 				7383BE6B1CB53A50006EC0A9 /* RemindNoticeInfo.m in Sources */,
 				73F348B71CB6B9B100745650 /* RemindNoticeManager.m in Sources */,
 				73EFA6251CC0B0F600DE6D5F /* SMSettingViewController.m in Sources */,
