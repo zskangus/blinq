@@ -80,10 +80,10 @@
     
     [SKUserDefaults setBool:YES forKey:@"socialTurnedOn"];
     
-    [SKViewTransitionManager dismissViewController:self duration:0.3 transitionType:TransitionPush directionType:TransitionFromLeft];
+    //[SKViewTransitionManager dismissViewController:self duration:0.3 transitionType:TransitionPush directionType:TransitionFromLeft];
     
-//    SMSocialViewController *ic = [[SMSocialViewController alloc]initWithNibName:@"SMSocialViewController" bundle:nil];
-//    [self.navigationController pushViewController:ic animated:YES];
+    SMSocialViewController *ic = [[SMSocialViewController alloc]initWithNibName:@"SMSocialViewController" bundle:nil];
+    [self.navigationController pushViewController:ic animated:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{

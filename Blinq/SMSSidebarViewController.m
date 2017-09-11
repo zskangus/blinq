@@ -74,7 +74,6 @@ typedef NS_ENUM(NSInteger,DrawerState){
     
 }
 
-
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
 {
     
@@ -104,6 +103,10 @@ typedef NS_ENUM(NSInteger,DrawerState){
             }
     
         }
+    
+    if (_drawerState == DrawerStateOpen) {
+        [self close];
+    }
     
     return  YES;
 }

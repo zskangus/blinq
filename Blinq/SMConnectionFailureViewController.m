@@ -121,6 +121,20 @@
 
 - (IBAction)tryAgain:(id)sender {
     
+    if ([SMBlinqInfo CBManagerState] != CBManagerStatePoweredOn) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"blueToolSwitchDescribe", nil) message:@"" preferredStyle:UIAlertControllerStyleAlert];
+        
+        
+        UIAlertAction *okAlertAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"ok", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        }];
+        
+        [alertController addAction:okAlertAction];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
+        
+        return;
+    }
+    
     if (screenHeight == 480) {
         SMConnectedEquipmentViewController *connected = [[SMConnectedEquipmentViewController alloc]initWithNibName:@"SMConnectedEquipmentViewController_ip4" bundle:nil];
         [self presentViewController:connected animated:YES completion:nil];

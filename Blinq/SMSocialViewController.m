@@ -12,12 +12,12 @@
 #import <FBSDKShareKit/FBSDKShareKit.h>
 #import "customSwitch.h"
 
-//typedef NS_ENUM(NSInteger,loginState){
-//    FBlogin = 0,
-//    FBlogOut
-//};
-//
-//loginState FBloginState;
+typedef NS_ENUM(NSInteger,loginState){
+    FBlogin = 0,
+    FBlogOut
+};
+
+loginState FBloginState;
 
 @interface SMSocialViewController ()<customSwitchDelegate,UITextViewDelegate,FBSDKLoginButtonDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -192,7 +192,7 @@ static BOOL isUserClick = NO;
     }else{
         NSLog(@"已登录faceBook");
         
-        //FBloginState = FBlogin;
+        FBloginState = FBlogin;
         
         [SKUserDefaults setBool:YES forKey:@"faceBookConnectState"];
         
@@ -217,14 +217,14 @@ static BOOL isUserClick = NO;
                          
                          dispatch_async(dispatch_get_main_queue(), ^{
                              
-//                             if (FBloginState == FBlogin) {
-//                                 //显示登录的账号信息
-//                                 self.label1.hidden = YES;
-//                                 self.accountLabel.hidden = NO;
-//                                 self.portraitImage.hidden = NO;;
-//                                 self.postToWall.isDisable = NO;
-//                                 [self setAccountLabel:userName portrait:data];
-//                             }
+                             if (FBloginState == FBlogin) {
+                                 //显示登录的账号信息
+                                 self.label1.hidden = YES;
+                                 self.accountLabel.hidden = NO;
+                                 self.portraitImage.hidden = NO;;
+                                 self.postToWall.isDisable = NO;
+                                 [self setAccountLabel:userName portrait:data];
+                             }
 
                          });
                          
@@ -243,7 +243,7 @@ static BOOL isUserClick = NO;
 - (void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton{
     NSLog(@"faceBook退出登录");
     
-    // FBloginState = FBlogOut;
+    FBloginState = FBlogOut;
     
     self.label1.hidden = NO;
     self.accountLabel.hidden = YES;

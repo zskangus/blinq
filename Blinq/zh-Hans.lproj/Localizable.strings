@@ -270,3 +270,8 @@ sos_Liability = "   使用Blinq App的SOS功能，访问和查看任何Blinq SOS
 decline = "拒绝";
 accept = "接受";
 
+cancel = "取消";
+confirm = "确定";
+
+blueToolSwitchDescribe = "打开蓝牙来允许 \"Blinq\" 连接到配件";
+

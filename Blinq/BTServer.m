@@ -21,6 +21,7 @@
 
 #import <UIKit/UIKit.h>
 
+#import "SMBlinqInfo.h"
 
 // 敲击时间
 #define AC 800
@@ -228,7 +229,7 @@ static BTServer* _defaultBTServer = nil;
     
     NSDictionary *dic = [userDefaults dictionaryRepresentation];
     
-    NSArray *array =@[@"isHaveBeenBound",@"LastPeriphrealIdentifierConnectedKey",@"sensitivityTurnedOn",@"sosVcTurnedOn",@"socialTurnedOn",@"notification_contactVcTurnedOn",@"main_contactVcTurnedOn",@"firstName",@"lastName",@"isUploadSuccessful",@"sendMessagePower",@"locationPower",@"sensitivityLevel",@"openSosFunc",@"isAccpetDisclaimer"];
+    NSArray *array =@[@"isHaveBeenBound",@"LastPeriphrealIdentifierConnectedKey",@"sensitivityTurnedOn",@"sosVcTurnedOn",@"socialTurnedOn",@"notification_contactVcTurnedOn",@"main_contactVcTurnedOn",@"firstName",@"lastName",@"isUploadSuccessful",@"sendMessagePower",@"locationPower",@"sensitivityLevel",@"openSosFunc",@"isAccpetDisclaimer",@"userInfo",@"stepCounterPower",@"isHaveHealthAuthorized",@"targetSteps",@"isFirstTimeEnter",@"setIsloadedAllData",@"stepDataLastLoadTime",@"CBManagerState"];
     
     NSMutableArray *array1 = [NSMutableArray array];
     NSString *string = [[NSString alloc]init];
@@ -259,6 +260,8 @@ static BTServer* _defaultBTServer = nil;
 #pragma mark - CBCentralManagerDelegate
 // 只要中心管理者初始化，就会触发此代理方法
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central{
+    
+    [SMBlinqInfo setCBManagerState:central.state];
     
     switch (central.state) {
         case CBCentralManagerStateUnknown:
@@ -833,7 +836,8 @@ static BTServer* _defaultBTServer = nil;
                             [userDefaults setBool:YES forKey:@"isBinding"];
                             [userDefaults setBool:YES forKey:@"isFirstTime"];
                             [userDefaults setInteger:5 forKey:@"sensitivityLevel"];
-
+                            [SMBlinqInfo setTargetSteps:3000];
+                            [SMBlinqInfo setIsFirstTimeEnter:YES];
                             
                             if ([userDefaults boolForKey:@"isHaveBeenBound"] == NO) {
                                 [userDefaults setBool:YES forKey:@"sendMessagePower"];
@@ -1010,7 +1014,7 @@ static BTServer* _defaultBTServer = nil;
             NSString* currentVersion = [[NSString alloc] initWithData:data  encoding:NSUTF8StringEncoding];
             NSLog(@"固件版本为%@",currentVersion);
             [[NSUserDefaults standardUserDefaults]setObject:currentVersion forKey:@"version"];
-            
+            [[NSUserDefaults standardUserDefaults]synchronize];
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 [SKNotificationCenter postNotificationName:@"firmwareVersion" object:nil];
@@ -1320,7 +1324,6 @@ static NSInteger checkCount;
 }
 
 //8.在didDiscoverCharacteristicsForService找到特征后 对这个特征进行读取操作
-
 
 -(void)didConnectSuccess{
     

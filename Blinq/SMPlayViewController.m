@@ -12,6 +12,7 @@
 #import "TopPlayManager.h"
 #import "AppConstant.h"
 
+
 @interface SMPlayViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *vibrateBtn;
@@ -77,6 +78,8 @@
     }
     
     self.view.transform = CGAffineTransformMakeScale([UIScreen mainScreen].bounds.size.width / 375, [UIScreen mainScreen].bounds.size.width / 375);
+    
+    [self setupNavigationTitle:NSLocalizedString(@"nav_title_PLAY", nil) isHiddenBar:NO];
     
 }
 

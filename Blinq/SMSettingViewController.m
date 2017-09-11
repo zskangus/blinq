@@ -38,7 +38,6 @@ BleConnectState SMBleConnectState = BleDisConnected;
 
 @interface SMSettingViewController ()<customSwitchDelegate,BTServerDelegate>
 
-
 @property (weak, nonatomic) IBOutlet customSwitch *outOfRangeAlert;
 
 @property (weak, nonatomic) IBOutlet customSwitch *vibRateAlert;
@@ -117,6 +116,8 @@ static NSString * const settingCell = @"SettingCell";
     
     [self.de readBatteryState];
     [self.de readFirmwareVersion];
+    
+    [self setupVersion];
 }
 
 - (void)viewDidLoad {
@@ -124,13 +125,13 @@ static NSString * const settingCell = @"SettingCell";
     
     [self setupUi];
     
-    [self setupVersion];
-    
     [self setupBatteryProgressUI];
 
     self.settingTableView.backgroundColor = [UIColor clearColor];
         
     [self.settingTableView registerNib:[UINib nibWithNibName:@"SettingCell" bundle:nil] forCellReuseIdentifier:settingCell];
+    
+    [self setupNavigationTitle:NSLocalizedString(@"nav_title_SETTINGS", nil) isHiddenBar:NO];
     
 }
 
@@ -139,8 +140,6 @@ static NSString * const settingCell = @"SettingCell";
 }
 
 - (void)setupUi{
-    
-    
     if ([NSLocalizedString(@"language", nil)isEqualToString:@"German"]) {
         [SKAttributeString setButtonFontContent:self.checkUpdateBtn title:NSLocalizedString(@"setting_page_check", nil) font:Avenir_Heavy Size:12 spacing:3.6 color:[UIColor whiteColor] forState:UIControlStateNormal];
     }else if ([NSLocalizedString(@"language", nil)isEqualToString:@"中文"]){
@@ -341,7 +340,7 @@ static NSString * const settingCell = @"SettingCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    BOOL power;
+    BOOL power = false;
     switch (indexPath.row) {
         case 0:
             power = [SKUserDefaults boolForKey:@"vib"];
@@ -381,12 +380,10 @@ static NSString * const settingCell = @"SettingCell";
     // 设置cell 不被选中
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
     return 65;
 }
 
@@ -470,11 +467,6 @@ static NSString * const settingCell = @"SettingCell";
     self.customProgress.maxValue = 100;
     
     [self.batteryView addSubview:self.customProgress];
-
-}
-
-- (void)dealloc{
-    
 
 }
 

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -40,15 +40,19 @@
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="c5T-xV-UaI">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="597"/>
+                    <rect key="frame" x="0.0" y="74" width="375" height="523"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="cVX-ep-w2B"/>
                         <outlet property="delegate" destination="-1" id="eiN-Nb-ZRl"/>
                     </connections>
                 </tableView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="menuLogo" translatesAutoresizingMaskIntoConstraints="NO" id="LzK-Si-PJ4">
+                    <rect key="frame" x="15" y="30" width="78" height="41"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="c5T-xV-UaI" firstAttribute="leading" secondItem="Myp-Sv-cE6" secondAttribute="leading" id="1W8-w0-ycB"/>
                 <constraint firstAttribute="trailing" secondItem="Myp-Sv-cE6" secondAttribute="trailing" id="8XY-YL-wMQ"/>
@@ -56,12 +60,13 @@
                 <constraint firstItem="Myp-Sv-cE6" firstAttribute="top" secondItem="c5T-xV-UaI" secondAttribute="bottom" id="Rdz-Jf-TQc"/>
                 <constraint firstItem="Myp-Sv-cE6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="fiW-pj-MNj"/>
                 <constraint firstAttribute="bottom" secondItem="Myp-Sv-cE6" secondAttribute="bottom" id="rmv-sS-4cm"/>
-                <constraint firstItem="c5T-xV-UaI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="zna-GI-E3Q"/>
+                <constraint firstItem="c5T-xV-UaI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="74" id="zna-GI-E3Q"/>
             </constraints>
             <point key="canvasLocation" x="238.5" y="322.5"/>
         </view>
     </objects>
     <resources>
+        <image name="menuLogo" width="67" height="40"/>
         <image name="pink icon" width="22" height="24"/>
     </resources>
 </document>

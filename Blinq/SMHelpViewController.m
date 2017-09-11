@@ -7,6 +7,7 @@
 //
 
 #import "SMHelpViewController.h"
+#import "SMStepCounterPage.h"
 
 @interface SMHelpViewController ()
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
@@ -21,6 +22,8 @@
     NSURL* url = [NSURL URLWithString:@"http://help.blinqblinq.com"];//创建URL
     NSURLRequest* request = [NSURLRequest requestWithURL:url];//创建NSURLRequest
     [self.webView loadRequest:request];//加载
+    
+    [self setupNavigationTitle:NSLocalizedString(@"nav_title_help", nil) isHiddenBar:NO];
 }
 
 

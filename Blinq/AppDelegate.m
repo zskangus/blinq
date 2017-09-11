@@ -81,6 +81,7 @@
 #import "otaUpdateFaildViewController.h"
 #import "otaUpdateSuccessfulViewController.h"
 #import "otaUpgradeViewController.h"
+#import "SMStepsInfoManager.h"
 
 @interface AppDelegate ()
 
@@ -90,6 +91,7 @@
 
 @property (nonatomic, strong) CTCallCenter *callCenter;
 
+@property(nonatomic,strong)SMStepsInfoManager *stepManager;
 
 @end
 
@@ -121,20 +123,15 @@ static NSTimeInterval inComingCallTime = 0;
     
     screenHeight = [UIScreen mainScreen].bounds.size.height;
     
-    NSError *setCategoryErr = nil;
-    NSError *activationErr  = nil;
-    [[AVAudioSession sharedInstance]setCategory: AVAudioSessionCategoryPlayback error: &setCategoryErr];
-    [[AVAudioSession sharedInstance]setActive: YES error: &activationErr];
-    
     SMMainMenuViewController *mainMenu = [[SMMainMenuViewController alloc]initWithNibName:@"SMMainMenuViewController" bundle:nil];
     
     SMContentViewController *contentVie = [[SMContentViewController alloc]init];
     
     UINavigationController *nvcMenu = [[UINavigationController alloc]initWithRootViewController:mainMenu];
     
-    UINavigationController *nvcsidebar = [[UINavigationController alloc]initWithRootViewController:contentVie];
+    //UINavigationController *nvcsidebar = [[UINavigationController alloc]initWithRootViewController:contentVie];
     
-    SMSSidebarViewController *sidebar = [[SMSSidebarViewController alloc]initWithCenterController:nvcsidebar leftController:nvcMenu];
+    SMSSidebarViewController *sidebar = [[SMSSidebarViewController alloc]initWithCenterController:contentVie leftController:nvcMenu];
     
     BOOL isBinding = [SKUserDefaults boolForKey:@"isBinding"];
     
@@ -418,6 +415,17 @@ static NSString *passWord = @"s3T6m7K6";
     dispatch_queue_t queue = dispatch_get_main_queue();
     dispatch_async(queue, ^{
         if (isBinding) {
+            
+            if ([SMBlinqInfo appleHealthPower]) {
+                [self.stepManager getAllStepDataStart:^{
+                    
+                } completion:^{
+                    
+                } error:^(NSError *error) {
+                    
+                }];
+            }
+            
             [SMMessageManager obtainNotificationInfo];
             NSLog(@"程序进入前台,通知应用设置界面刷新数据");
             [[NSNotificationCenter defaultCenter]postNotificationName:@"ReloadView" object:nil];
@@ -475,6 +483,13 @@ static NSString *passWord = @"s3T6m7K6";
                     ];
     // 在此添加任意自定义逻辑。
     return handled;
+}
+
+- (SMStepsInfoManager *)stepManager{
+    if (!_stepManager) {
+        _stepManager = [[SMStepsInfoManager alloc]init];
+    }
+    return _stepManager;
 }
 
 @end

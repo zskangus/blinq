@@ -13,8 +13,6 @@
 
 typedef void(^xmlBlock)(NSString *version,NSString *name, NSString *url);
 
-+ (BOOL)detectionRingVersion;
-
 @property char memoryType;
 @property int memoryBank;
 @property UInt16 blockSize;
@@ -27,5 +25,11 @@ typedef void(^xmlBlock)(NSString *version,NSString *name, NSString *url);
 @property char spiMISOAddress;
 @property char spiCSAddress;
 @property char spiSCKAddress;
+
++ (BOOL)detectionRingVersion;
+
++ (void)checkFirmwareVersion:(void(^)(NSString *url,NSString *version))need notNeed:(void(^)(void))notNeed;
+
+
 
 @end

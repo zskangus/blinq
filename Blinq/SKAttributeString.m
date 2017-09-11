@@ -54,6 +54,10 @@
 
 + (void)setLabelFontContent:(UILabel*)label title:(NSString*)string font:(Avenir)font Size:(CGFloat)size spacing:(CGFloat)spacing color:(UIColor*)color{
     
+    if (string.length <= 0) {
+        string = @"";
+    }
+    
     NSRange range = NSMakeRange(0, string.length);
     
     NSMutableAttributedString * attribute = [[NSMutableAttributedString alloc]initWithString:string];

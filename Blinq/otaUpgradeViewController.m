@@ -842,6 +842,70 @@ static NSString *_url;
     return isUpdata;
 }
 
++ (void)checkFirmwareVersion:(void(^)(NSString *url,NSString *version))need notNeed:(void(^)(void))notNeed{
+    
+    XMLParsing *xml = [[XMLParsing alloc]init];
+    
+    NSString *hw_version = [[NSUserDefaults standardUserDefaults]objectForKey:@"HW_VERSION"];
+    
+    if (hw_version.length == 0 || hw_version == nil) {
+        notNeed();
+        return;
+    }
+    
+    
+    NSString *urlString = ({
+        NSString *appendStr = @".xml";
+        NSString *str = [hw_version stringByAppendingString:appendStr];
+        [SERVICE_PATH stringByAppendingString:str];
+    });
+    
+    NSLog(@"path=========:%@",urlString);
+    
+    [xml parsingXMLWith:urlString xmlInfo:^(NSString *version, NSString *name, NSString *url) {
+        NSLog(@"--info -%@--%@--%@",version,name,url);
+        
+        
+        NSString * serverVersion = version;
+        
+        NSString * localVersion = [[NSUserDefaults standardUserDefaults]objectForKey:@"version"];
+        
+        serverVersion = [[serverVersion componentsSeparatedByCharactersInSet:[[NSCharacterSet characterSetWithCharactersInString:@"0123456789."] invertedSet]] componentsJoinedByString:@""];
+        
+        localVersion = [[localVersion componentsSeparatedByCharactersInSet:[[NSCharacterSet characterSetWithCharactersInString:@"0123456789."] invertedSet]] componentsJoinedByString:@""];
+        
+        if ([serverVersion isEqualToString:localVersion]) {
+            notNeed();
+            return;
+        }
+        
+        //以"."分隔数字然后分配到不同数组
+        NSArray * serverArray = [serverVersion componentsSeparatedByString:@"."];
+        
+        NSArray * localArray = [localVersion componentsSeparatedByString:@"."];
+        
+        for (int i = 0; i < serverArray.count; i++) {
+            
+            //以服务器版本为基准，判断本地版本位数小于服务器版本时，直接返回（并且判断为新版本，比如服务器1.5.1 本地为1.5）
+            if(i > (localArray.count -1)){
+                NSLog(@"需要更新，当前最新版本为%@",version);
+                need(url,version);
+                break;
+            }
+            //有新版本，服务器版本对应数字大于本地
+            if ( [serverArray[i] intValue] > [localArray[i] intValue]) {
+                NSLog(@"需要更新，软件版本为%@，当前最新版本为%@",localVersion,version);
+                need(url,version);
+                break;
+            }else if([serverArray[i] intValue] < [localArray[i] intValue]){
+                notNeed();
+                break;
+            }
+        }
+    }];
+    
+}
+
 - (void)downloadUpgradeFile{
     
     NSURL *url = [NSURL URLWithString:_url];

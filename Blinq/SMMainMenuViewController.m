@@ -44,14 +44,18 @@ static NSString * const mainMeunCell = @"MainMenuCell";
                             NSLocalizedString(@"menu_title_contacts", nil),
                             NSLocalizedString(@"menu_title_play", nil),
                             NSLocalizedString(@"menu_title_emergency", nil),
+                            NSLocalizedString(@"STEP COUNTER", nil),
                             NSLocalizedString(@"menu_title_settings", nil),
-                            NSLocalizedString(@"menu_title_help", nil)];
+                            NSLocalizedString(@"menu_title_help", nil)
+                            ];
         }else{
             _labelArray = @[NSLocalizedString(@"menu_title_notifications", nil),
                             NSLocalizedString(@"menu_title_contacts", nil),
                             NSLocalizedString(@"menu_title_play", nil),
+                            NSLocalizedString(@"STEP COUNTER", nil),
                             NSLocalizedString(@"menu_title_settings", nil),
-                            NSLocalizedString(@"menu_title_help", nil)];
+                            NSLocalizedString(@"menu_title_help", nil),
+                            NSLocalizedString(@"STEP COUNTER", nil)];
         }
         
     }
@@ -61,9 +65,9 @@ static NSString * const mainMeunCell = @"MainMenuCell";
 -(NSArray *)imageArray{
     if (!_imageArray) {
         if ([[NSUserDefaults standardUserDefaults]boolForKey:@"openSosFunc"]) {
-            _imageArray = @[@"icon-shape",@"icon-lists",@"icon-home",@"icon-profile",@"icon-settings",@"icon-form"];
+            _imageArray = @[@"icon-shape",@"icon-lists",@"icon-home",@"icon-profile",@"icon-form",@"icon-settings",@"icon-form"];
         }else{
-            _imageArray = @[@"icon-shape",@"icon-lists",@"icon-home",@"icon-settings",@"icon-form"];
+            _imageArray = @[@"icon-shape",@"icon-lists",@"icon-home",@"icon-form",@"icon-settings",@"icon-form"];
         }
     }
     return _imageArray;
@@ -94,17 +98,20 @@ static NSString * const mainMeunCell = @"MainMenuCell";
 
 - (void)SetupNavigationBarColorAndLogo{
     
-    // 设置导航栏背景颜色
-    [self.navigationController.navigationBar setBarTintColor:[UIColor blackColor]];
-    
-    // 设置导航栏为不透明
-    self.navigationController.navigationBar.translucent = NO;
+    // 设置背景颜色
+    [self.navigationController.navigationBar setBackgroundColor:[UIColor clearColor]];
+    // 设置导航栏半透明
+    self.navigationController.navigationBar.translucent = true;
+    // 设置导航栏背景图片
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    // 设置导航栏阴影图片
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
     
     // 设置导航栏左边的LOGO显示 注意需要将图片Render AS选项设置为orignal image选项，保证图片是没有经过渲染的原图。在图片管理器的第三选项卡
-    UIBarButtonItem *logoItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menuLogo"] style:UIBarButtonItemStyleDone target:nil action:nil];
-    logoItem.enabled = NO;
-    
-    self.navigationItem.leftBarButtonItem = logoItem;
+//    UIBarButtonItem *logoItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menuLogo"] style:UIBarButtonItemStyleDone target:nil action:nil];
+//    logoItem.enabled = NO;
+//    
+//    self.navigationItem.leftBarButtonItem = logoItem;
 
 }
 

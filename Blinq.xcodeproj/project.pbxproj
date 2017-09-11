@@ -59,7 +59,10 @@
 		731EF8EF1D546DAB00BD9C7F /* otaUpdateSuccessfulViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 731EF8ED1D546DAB00BD9C7F /* otaUpdateSuccessfulViewController.m */; };
 		731EF8F01D546DAB00BD9C7F /* otaUpdateSuccessfulViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 731EF8EE1D546DAB00BD9C7F /* otaUpdateSuccessfulViewController.xib */; };
 		7321CD151D60E72B000F0502 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7321CD171D60E72B000F0502 /* LaunchScreen.storyboard */; };
+		7322B7F91F3C7B8B005FF388 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7322B7F81F3C7B8B005FF388 /* MBProgressHUD.m */; };
 		73247CD21DD594AC00AA0833 /* SKUserNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 73247CD11DD594AC00AA0833 /* SKUserNotification.m */; };
+		73270BFB1F3423D700535AF3 /* SKPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73270BFA1F3423D700535AF3 /* SKPickerView.m */; };
+		73270C001F345B6400535AF3 /* SMPersonalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73270BFF1F345B6400535AF3 /* SMPersonalModel.m */; };
 		7328E8861D9B6967000E0EFF /* SMNotificationBewriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7328E8841D9B6967000E0EFF /* SMNotificationBewriteViewController.m */; };
 		7328E8871D9B6967000E0EFF /* SMNotificationBewriteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7328E8851D9B6967000E0EFF /* SMNotificationBewriteViewController.xib */; };
 		7328E88B1D9B9A61000E0EFF /* SMLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7328E8891D9B9A61000E0EFF /* SMLocationViewController.m */; };
@@ -77,6 +80,11 @@
 		73392E621DDAF7E20068845E /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73392E5F1DDAF7E20068845E /* FBSDKLoginKit.framework */; };
 		73392E631DDAF7E20068845E /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73392E601DDAF7E20068845E /* FBSDKShareKit.framework */; };
 		73392E651DDAF8340068845E /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73392E641DDAF8340068845E /* Bolts.framework */; };
+		733B60821F32C0D50017FDF3 /* ZZCircleProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 733B60811F32C0D50017FDF3 /* ZZCircleProgress.m */; };
+		733B60851F32C0E10017FDF3 /* UIImage+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 733B60841F32C0E10017FDF3 /* UIImage+Tool.m */; };
+		733B60881F32C1370017FDF3 /* NSTimer+timerBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 733B60871F32C1370017FDF3 /* NSTimer+timerBlock.m */; };
+		733B608C1F32D4BB0017FDF3 /* SMProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 733B608B1F32D4BB0017FDF3 /* SMProgress.m */; };
+		733B608E1F32D69E0017FDF3 /* Group 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 733B608D1F32D69E0017FDF3 /* Group 2.png */; };
 		733E46EC1D080056009D859E /* logMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 733E46EB1D080056009D859E /* logMessage.m */; };
 		733FEEAB1DC9BD1C008D6842 /* SMNetWorkState.m in Sources */ = {isa = PBXBuildFile; fileRef = 733FEEAA1DC9BD1C008D6842 /* SMNetWorkState.m */; };
 		7340860C1DADD29500A9FED5 /* SMRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7340860A1DADD29500A9FED5 /* SMRegisterViewController.m */; };
@@ -84,7 +92,11 @@
 		734102711E9E2A6800799C73 /* SMSensitivityDescriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7341026F1E9E2A6800799C73 /* SMSensitivityDescriptionViewController.m */; };
 		734102721E9E2A6800799C73 /* SMSensitivityDescriptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 734102701E9E2A6800799C73 /* SMSensitivityDescriptionViewController.xib */; };
 		734102751E9E5B0200799C73 /* SMSOSCheckAlgorithmService.m in Sources */ = {isa = PBXBuildFile; fileRef = 734102741E9E5B0200799C73 /* SMSOSCheckAlgorithmService.m */; };
+		7343287F1F307CBB00C4E95B /* SMStepDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 7343287E1F307CBB00C4E95B /* SMStepDB.m */; };
+		734328821F307D5F00C4E95B /* SMStepModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 734328811F307D5F00C4E95B /* SMStepModel.m */; };
 		73461C381DD4756500F3DE59 /* SKViewTransitionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73461C371DD4756500F3DE59 /* SKViewTransitionManager.m */; };
+		7346CD231F31B6BC006430B1 /* SMBlinqInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7346CD221F31B6BC006430B1 /* SMBlinqInfo.m */; };
+		7346CD261F31C6D4006430B1 /* SMViewSelectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7346CD251F31C6D4006430B1 /* SMViewSelectButton.m */; };
 		73574E191EFB9ECD00789E6C /* countresList_deutsch.plist in Resources */ = {isa = PBXBuildFile; fileRef = 73574E181EFB9ECD00789E6C /* countresList_deutsch.plist */; };
 		73574E1B1EFBA2BA00789E6C /* countresList_chinese.plist in Resources */ = {isa = PBXBuildFile; fileRef = 73574E1A1EFBA2BA00789E6C /* countresList_chinese.plist */; };
 		735B23A71CEF044E004915D4 /* SMMessageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 735B23A61CEF044E004915D4 /* SMMessageManager.m */; };
@@ -149,9 +161,23 @@
 		7383BE911CB53A71006EC0A9 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7383BE8C1CB53A71006EC0A9 /* Utils.m */; };
 		73892D2C1DD0237000115D62 /* SOS emergency CONTACT.png in Resources */ = {isa = PBXBuildFile; fileRef = 73892D2B1DD0237000115D62 /* SOS emergency CONTACT.png */; };
 		739ACCE21EEA963E0043D838 /* SKTimerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 739ACCE11EEA963E0043D838 /* SKTimerManager.m */; };
+		73A374321F2F1363008A2184 /* SMStepCounterPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A374301F2F1363008A2184 /* SMStepCounterPage.m */; };
+		73A374331F2F1363008A2184 /* SMStepCounterPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73A374311F2F1363008A2184 /* SMStepCounterPage.xib */; };
+		73A374361F3016A0008A2184 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73A374351F3016A0008A2184 /* HealthKit.framework */; };
+		73A901311F42D715000E7F92 /* SMStepService.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A901301F42D715000E7F92 /* SMStepService.m */; };
+		73A901341F42DF4F000E7F92 /* SMStepsInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A901331F42DF4F000E7F92 /* SMStepsInfoManager.m */; };
 		73A973891F04FE2600515BF1 /* SMSOSDescribe.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A973871F04FE2600515BF1 /* SMSOSDescribe.m */; };
 		73A9738A1F04FE2600515BF1 /* SMSOSDescribe.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73A973881F04FE2600515BF1 /* SMSOSDescribe.xib */; };
+		73AC042C1F316C8200849D03 /* SMStepSettingPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 73AC042A1F316C8200849D03 /* SMStepSettingPage.m */; };
+		73AC042D1F316C8200849D03 /* SMStepSettingPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73AC042B1F316C8200849D03 /* SMStepSettingPage.xib */; };
+		73AC04341F31813400849D03 /* SMStepTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 73AC04321F31813400849D03 /* SMStepTableViewCell.m */; };
+		73AC04351F31813400849D03 /* SMStepTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73AC04331F31813400849D03 /* SMStepTableViewCell.xib */; };
 		73ACD3951EF22B09002427C9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 73ACD3971EF22B09002427C9 /* InfoPlist.strings */; };
+		73ACFE1B1F395FAD00DB6E93 /* Group 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 73ACFE1A1F395FAD00DB6E93 /* Group 3.png */; };
+		73ACFE1E1F39650700DB6E93 /* SMMonthView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73ACFE1D1F39650700DB6E93 /* SMMonthView.m */; };
+		73ACFE221F3994F100DB6E93 /* SMHistoryPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 73ACFE201F3994F100DB6E93 /* SMHistoryPage.m */; };
+		73ACFE231F3994F100DB6E93 /* SMHistoryPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73ACFE211F3994F100DB6E93 /* SMHistoryPage.xib */; };
+		73AEE0431F417C820085641F /* NSDate+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 73AEE0421F417C820085641F /* NSDate+Tool.m */; };
 		73C87B471D58242500E0F672 /* otaUpdateFaildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C87B451D58242500E0F672 /* otaUpdateFaildViewController.m */; };
 		73C87B481D58242500E0F672 /* otaUpdateFaildViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73C87B461D58242500E0F672 /* otaUpdateFaildViewController.xib */; };
 		73C87B4B1D58696500E0F672 /* SMBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C87B4A1D58696500E0F672 /* SMBaseTableViewController.m */; };
@@ -299,8 +325,14 @@
 		731EF8ED1D546DAB00BD9C7F /* otaUpdateSuccessfulViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = otaUpdateSuccessfulViewController.m; sourceTree = "<group>"; };
 		731EF8EE1D546DAB00BD9C7F /* otaUpdateSuccessfulViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = otaUpdateSuccessfulViewController.xib; sourceTree = "<group>"; };
 		7321CD161D60E72B000F0502 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7322B7F71F3C7B8B005FF388 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		7322B7F81F3C7B8B005FF388 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		73247CD01DD594AC00AA0833 /* SKUserNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKUserNotification.h; sourceTree = "<group>"; };
 		73247CD11DD594AC00AA0833 /* SKUserNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKUserNotification.m; sourceTree = "<group>"; };
+		73270BF91F3423D700535AF3 /* SKPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPickerView.h; sourceTree = "<group>"; };
+		73270BFA1F3423D700535AF3 /* SKPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKPickerView.m; sourceTree = "<group>"; };
+		73270BFE1F345B6400535AF3 /* SMPersonalModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPersonalModel.h; sourceTree = "<group>"; };
+		73270BFF1F345B6400535AF3 /* SMPersonalModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPersonalModel.m; sourceTree = "<group>"; };
 		7328E8831D9B6967000E0EFF /* SMNotificationBewriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMNotificationBewriteViewController.h; sourceTree = "<group>"; };
 		7328E8841D9B6967000E0EFF /* SMNotificationBewriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMNotificationBewriteViewController.m; sourceTree = "<group>"; };
 		7328E8851D9B6967000E0EFF /* SMNotificationBewriteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SMNotificationBewriteViewController.xib; sourceTree = "<group>"; };
@@ -325,6 +357,15 @@
 		73392E5F1DDAF7E20068845E /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		73392E601DDAF7E20068845E /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		73392E641DDAF8340068845E /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		733B60801F32C0D50017FDF3 /* ZZCircleProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZCircleProgress.h; sourceTree = "<group>"; };
+		733B60811F32C0D50017FDF3 /* ZZCircleProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZCircleProgress.m; sourceTree = "<group>"; };
+		733B60831F32C0E10017FDF3 /* UIImage+Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Tool.h"; sourceTree = "<group>"; };
+		733B60841F32C0E10017FDF3 /* UIImage+Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Tool.m"; sourceTree = "<group>"; };
+		733B60861F32C1370017FDF3 /* NSTimer+timerBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+timerBlock.h"; sourceTree = "<group>"; };
+		733B60871F32C1370017FDF3 /* NSTimer+timerBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+timerBlock.m"; sourceTree = "<group>"; };
+		733B608A1F32D4BB0017FDF3 /* SMProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMProgress.h; sourceTree = "<group>"; };
+		733B608B1F32D4BB0017FDF3 /* SMProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMProgress.m; sourceTree = "<group>"; };
+		733B608D1F32D69E0017FDF3 /* Group 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Group 2.png"; sourceTree = "<group>"; };
 		733E46EA1D080056009D859E /* logMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = logMessage.h; sourceTree = "<group>"; };
 		733E46EB1D080056009D859E /* logMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = logMessage.m; sourceTree = "<group>"; };
 		733FEEA91DC9BD1C008D6842 /* SMNetWorkState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMNetWorkState.h; sourceTree = "<group>"; };
@@ -337,8 +378,16 @@
 		734102701E9E2A6800799C73 /* SMSensitivityDescriptionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SMSensitivityDescriptionViewController.xib; sourceTree = "<group>"; };
 		734102731E9E5B0200799C73 /* SMSOSCheckAlgorithmService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSOSCheckAlgorithmService.h; sourceTree = "<group>"; };
 		734102741E9E5B0200799C73 /* SMSOSCheckAlgorithmService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSOSCheckAlgorithmService.m; sourceTree = "<group>"; };
+		7343287D1F307CBB00C4E95B /* SMStepDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMStepDB.h; sourceTree = "<group>"; };
+		7343287E1F307CBB00C4E95B /* SMStepDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMStepDB.m; sourceTree = "<group>"; };
+		734328801F307D5F00C4E95B /* SMStepModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMStepModel.h; sourceTree = "<group>"; };
+		734328811F307D5F00C4E95B /* SMStepModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMStepModel.m; sourceTree = "<group>"; };
 		73461C361DD4756500F3DE59 /* SKViewTransitionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKViewTransitionManager.h; sourceTree = "<group>"; };
 		73461C371DD4756500F3DE59 /* SKViewTransitionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKViewTransitionManager.m; sourceTree = "<group>"; };
+		7346CD211F31B6BC006430B1 /* SMBlinqInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMBlinqInfo.h; sourceTree = "<group>"; };
+		7346CD221F31B6BC006430B1 /* SMBlinqInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMBlinqInfo.m; sourceTree = "<group>"; };
+		7346CD241F31C6D4006430B1 /* SMViewSelectButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMViewSelectButton.h; sourceTree = "<group>"; };
+		7346CD251F31C6D4006430B1 /* SMViewSelectButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMViewSelectButton.m; sourceTree = "<group>"; };
 		73574E181EFB9ECD00789E6C /* countresList_deutsch.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = countresList_deutsch.plist; sourceTree = "<group>"; };
 		73574E1A1EFBA2BA00789E6C /* countresList_chinese.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = countresList_chinese.plist; sourceTree = "<group>"; };
 		735B23A51CEF044E004915D4 /* SMMessageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMMessageManager.h; sourceTree = "<group>"; };
@@ -460,13 +509,36 @@
 		73892D2B1DD0237000115D62 /* SOS emergency CONTACT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SOS emergency CONTACT.png"; sourceTree = "<group>"; };
 		739ACCE01EEA963E0043D838 /* SKTimerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKTimerManager.h; sourceTree = "<group>"; };
 		739ACCE11EEA963E0043D838 /* SKTimerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKTimerManager.m; sourceTree = "<group>"; };
+		73A3742F1F2F1363008A2184 /* SMStepCounterPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMStepCounterPage.h; sourceTree = "<group>"; };
+		73A374301F2F1363008A2184 /* SMStepCounterPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMStepCounterPage.m; sourceTree = "<group>"; };
+		73A374311F2F1363008A2184 /* SMStepCounterPage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SMStepCounterPage.xib; sourceTree = "<group>"; };
+		73A374341F3016A0008A2184 /* Blinq.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Blinq.entitlements; sourceTree = "<group>"; };
+		73A374351F3016A0008A2184 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		73A9012F1F42D715000E7F92 /* SMStepService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMStepService.h; sourceTree = "<group>"; };
+		73A901301F42D715000E7F92 /* SMStepService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMStepService.m; sourceTree = "<group>"; };
+		73A901321F42DF4F000E7F92 /* SMStepsInfoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMStepsInfoManager.h; sourceTree = "<group>"; };
+		73A901331F42DF4F000E7F92 /* SMStepsInfoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMStepsInfoManager.m; sourceTree = "<group>"; };
 		73A973861F04FE2600515BF1 /* SMSOSDescribe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSOSDescribe.h; sourceTree = "<group>"; };
 		73A973871F04FE2600515BF1 /* SMSOSDescribe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSOSDescribe.m; sourceTree = "<group>"; };
 		73A973881F04FE2600515BF1 /* SMSOSDescribe.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SMSOSDescribe.xib; sourceTree = "<group>"; };
+		73AC04291F316C8200849D03 /* SMStepSettingPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMStepSettingPage.h; sourceTree = "<group>"; };
+		73AC042A1F316C8200849D03 /* SMStepSettingPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMStepSettingPage.m; sourceTree = "<group>"; };
+		73AC042B1F316C8200849D03 /* SMStepSettingPage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SMStepSettingPage.xib; sourceTree = "<group>"; };
+		73AC04311F31813400849D03 /* SMStepTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMStepTableViewCell.h; sourceTree = "<group>"; };
+		73AC04321F31813400849D03 /* SMStepTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMStepTableViewCell.m; sourceTree = "<group>"; };
+		73AC04331F31813400849D03 /* SMStepTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SMStepTableViewCell.xib; sourceTree = "<group>"; };
 		73ACD3981EF22B0E002427C9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		73ACD3991EF22B0F002427C9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		73ACD39A1EF22B10002427C9 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		73ACFE1A1F395FAD00DB6E93 /* Group 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Group 3.png"; sourceTree = "<group>"; };
+		73ACFE1C1F39650700DB6E93 /* SMMonthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMMonthView.h; sourceTree = "<group>"; };
+		73ACFE1D1F39650700DB6E93 /* SMMonthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMMonthView.m; sourceTree = "<group>"; };
+		73ACFE1F1F3994F100DB6E93 /* SMHistoryPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMHistoryPage.h; sourceTree = "<group>"; };
+		73ACFE201F3994F100DB6E93 /* SMHistoryPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMHistoryPage.m; sourceTree = "<group>"; };
+		73ACFE211F3994F100DB6E93 /* SMHistoryPage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SMHistoryPage.xib; sourceTree = "<group>"; };
 		73ADC04F1EEF7FDF008C2BED /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		73AEE0411F417C820085641F /* NSDate+Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Tool.h"; sourceTree = "<group>"; };
+		73AEE0421F417C820085641F /* NSDate+Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Tool.m"; sourceTree = "<group>"; };
 		73C87B441D58242500E0F672 /* otaUpdateFaildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = otaUpdateFaildViewController.h; sourceTree = "<group>"; };
 		73C87B451D58242500E0F672 /* otaUpdateFaildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = otaUpdateFaildViewController.m; sourceTree = "<group>"; };
 		73C87B461D58242500E0F672 /* otaUpdateFaildViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = otaUpdateFaildViewController.xib; sourceTree = "<group>"; };
@@ -557,6 +629,7 @@
 				73392E651DDAF8340068845E /* Bolts.framework in Frameworks */,
 				73392E631DDAF7E20068845E /* FBSDKShareKit.framework in Frameworks */,
 				C9931E0E45C119D0F561EB9C /* libPods.a in Frameworks */,
+				73A374361F3016A0008A2184 /* HealthKit.framework in Frameworks */,
 				73392E611DDAF7E20068845E /* FBSDKCoreKit.framework in Frameworks */,
 				73392E621DDAF7E20068845E /* FBSDKLoginKit.framework in Frameworks */,
 			);
@@ -649,6 +722,8 @@
 		730F129E1D51944E00AAD594 /* tool */ = {
 			isa = PBXGroup;
 			children = (
+				73AEE0411F417C820085641F /* NSDate+Tool.h */,
+				73AEE0421F417C820085641F /* NSDate+Tool.m */,
 				73247CD01DD594AC00AA0833 /* SKUserNotification.h */,
 				73247CD11DD594AC00AA0833 /* SKUserNotification.m */,
 				730F129B1D51943100AAD594 /* SKConst.h */,
@@ -701,6 +776,32 @@
 			name = view;
 			sourceTree = "<group>";
 		};
+		73270BFC1F34489100535AF3 /* 计步设置 */ = {
+			isa = PBXGroup;
+			children = (
+				73AC04291F316C8200849D03 /* SMStepSettingPage.h */,
+				73AC042A1F316C8200849D03 /* SMStepSettingPage.m */,
+				73AC042B1F316C8200849D03 /* SMStepSettingPage.xib */,
+				73AC04311F31813400849D03 /* SMStepTableViewCell.h */,
+				73AC04321F31813400849D03 /* SMStepTableViewCell.m */,
+				73AC04331F31813400849D03 /* SMStepTableViewCell.xib */,
+				73270BF91F3423D700535AF3 /* SKPickerView.h */,
+				73270BFA1F3423D700535AF3 /* SKPickerView.m */,
+			);
+			name = "计步设置";
+			sourceTree = "<group>";
+		};
+		73270BFD1F3448B900535AF3 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				7343287D1F307CBB00C4E95B /* SMStepDB.h */,
+				7343287E1F307CBB00C4E95B /* SMStepDB.m */,
+				734328801F307D5F00C4E95B /* SMStepModel.h */,
+				734328811F307D5F00C4E95B /* SMStepModel.m */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
 		7328E8821D9B691C000E0EFF /* 介绍界面 */ = {
 			isa = PBXGroup;
 			children = (
@@ -748,6 +849,23 @@
 				7329D9911E10C009001BFF68 /* SMMailchimp.m */,
 			);
 			name = mailchimp;
+			sourceTree = "<group>";
+		};
+		733B60891F32D48A0017FDF3 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				7346CD241F31C6D4006430B1 /* SMViewSelectButton.h */,
+				7346CD251F31C6D4006430B1 /* SMViewSelectButton.m */,
+				733B608A1F32D4BB0017FDF3 /* SMProgress.h */,
+				733B608B1F32D4BB0017FDF3 /* SMProgress.m */,
+				733B60801F32C0D50017FDF3 /* ZZCircleProgress.h */,
+				733B60811F32C0D50017FDF3 /* ZZCircleProgress.m */,
+				733B60831F32C0E10017FDF3 /* UIImage+Tool.h */,
+				733B60841F32C0E10017FDF3 /* UIImage+Tool.m */,
+				733B60861F32C1370017FDF3 /* NSTimer+timerBlock.h */,
+				733B60871F32C1370017FDF3 /* NSTimer+timerBlock.m */,
+			);
+			name = view;
 			sourceTree = "<group>";
 		};
 		733E46E91D08000A009D859E /* appLog */ = {
@@ -799,6 +917,13 @@
 		737B1E451CA4CCDC00A4AA60 /* Blinq */ = {
 			isa = PBXGroup;
 			children = (
+				7346CD211F31B6BC006430B1 /* SMBlinqInfo.h */,
+				7346CD221F31B6BC006430B1 /* SMBlinqInfo.m */,
+				7322B7F71F3C7B8B005FF388 /* MBProgressHUD.h */,
+				7322B7F81F3C7B8B005FF388 /* MBProgressHUD.m */,
+				73270BFE1F345B6400535AF3 /* SMPersonalModel.h */,
+				73270BFF1F345B6400535AF3 /* SMPersonalModel.m */,
+				73A3742E1F2F12C3008A2184 /* 计步 */,
 				73A973851F04FD8E00515BF1 /* 免责弹出框 */,
 				73F730EE1D9E519000DABE18 /* Social */,
 				730473481D9CDB70001B5BAF /* bg-navBarNil.jpg */,
@@ -949,6 +1074,26 @@
 			name = "New Group";
 			sourceTree = "<group>";
 		};
+		73A3742E1F2F12C3008A2184 /* 计步 */ = {
+			isa = PBXGroup;
+			children = (
+				73A374341F3016A0008A2184 /* Blinq.entitlements */,
+				73A3742F1F2F1363008A2184 /* SMStepCounterPage.h */,
+				73A374301F2F1363008A2184 /* SMStepCounterPage.m */,
+				73A374311F2F1363008A2184 /* SMStepCounterPage.xib */,
+				733B608D1F32D69E0017FDF3 /* Group 2.png */,
+				73A901321F42DF4F000E7F92 /* SMStepsInfoManager.h */,
+				73A901331F42DF4F000E7F92 /* SMStepsInfoManager.m */,
+				73A9012F1F42D715000E7F92 /* SMStepService.h */,
+				73A901301F42D715000E7F92 /* SMStepService.m */,
+				73270BFC1F34489100535AF3 /* 计步设置 */,
+				73ACFE111F395E7C00DB6E93 /* 步数历史 */,
+				733B60891F32D48A0017FDF3 /* view */,
+				73270BFD1F3448B900535AF3 /* model */,
+			);
+			name = "计步";
+			sourceTree = "<group>";
+		};
 		73A973851F04FD8E00515BF1 /* 免责弹出框 */ = {
 			isa = PBXGroup;
 			children = (
@@ -957,6 +1102,19 @@
 				73A973881F04FE2600515BF1 /* SMSOSDescribe.xib */,
 			);
 			name = "免责弹出框";
+			sourceTree = "<group>";
+		};
+		73ACFE111F395E7C00DB6E93 /* 步数历史 */ = {
+			isa = PBXGroup;
+			children = (
+				73ACFE1F1F3994F100DB6E93 /* SMHistoryPage.h */,
+				73ACFE201F3994F100DB6E93 /* SMHistoryPage.m */,
+				73ACFE211F3994F100DB6E93 /* SMHistoryPage.xib */,
+				73ACFE1C1F39650700DB6E93 /* SMMonthView.h */,
+				73ACFE1D1F39650700DB6E93 /* SMMonthView.m */,
+				73ACFE1A1F395FAD00DB6E93 /* Group 3.png */,
+			);
+			name = "步数历史";
 			sourceTree = "<group>";
 		};
 		73AF5EDE1CB6615D00BDAE5F /* model */ = {
@@ -1357,6 +1515,7 @@
 		D3A27BE2D516F095C7C80B47 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				73A374351F3016A0008A2184 /* HealthKit.framework */,
 				4EE5AE44A505F9902159A7B7 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -1437,6 +1596,9 @@
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
 						};
 					};
 					737B1E5B1CA4CCDC00A4AA60 = {
@@ -1478,6 +1640,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73ACFE1B1F395FAD00DB6E93 /* Group 3.png in Resources */,
 				737B1E8B1CA4ED2D00A4AA60 /* SMConnectedSuccessViewController.xib in Resources */,
 				73F8580A1CBA999C005170E8 /* SosContactCell.xib in Resources */,
 				7301A55B1E1F383300719B77 /* IMG_2350.PNG in Resources */,
@@ -1485,6 +1648,7 @@
 				73C87B481D58242500E0F672 /* otaUpdateFaildViewController.xib in Resources */,
 				7321CD151D60E72B000F0502 /* LaunchScreen.storyboard in Resources */,
 				73F81BBB1DBF51ED00ED39EA /* Assets.xcassets in Resources */,
+				73AC04351F31813400849D03 /* SMStepTableViewCell.xib in Resources */,
 				730219631CA8D407005620F3 /* ManAgeContactAlertsCell.xib in Resources */,
 				73892D2C1DD0237000115D62 /* SOS emergency CONTACT.png in Resources */,
 				731EF8F01D546DAB00BD9C7F /* otaUpdateSuccessfulViewController.xib in Resources */,
@@ -1513,6 +1677,7 @@
 				737B1E7D1CA4CCF000A4AA60 /* SMStartupViewController.xib in Resources */,
 				7301A55E1E1F38B000719B77 /* IMG_2337.PNG in Resources */,
 				73ACD3951EF22B09002427C9 /* InfoPlist.strings in Resources */,
+				73A374331F2F1363008A2184 /* SMStepCounterPage.xib in Resources */,
 				73F730F31D9E51C400DABE18 /* SMSocialViewController.xib in Resources */,
 				7328E8951D9BC67D000E0EFF /* NationalListViewController.xib in Resources */,
 				73574E1B1EFBA2BA00789E6C /* countresList_chinese.plist in Resources */,
@@ -1521,6 +1686,7 @@
 				7301A55A1E1F383300719B77 /* IMG_2349.PNG in Resources */,
 				7328E8871D9B6967000E0EFF /* SMNotificationBewriteViewController.xib in Resources */,
 				737B1E511CA4CCDC00A4AA60 /* Main.storyboard in Resources */,
+				73AC042D1F316C8200849D03 /* SMStepSettingPage.xib in Resources */,
 				73574E191EFB9ECD00789E6C /* countresList_deutsch.plist in Resources */,
 				737B1EAB1CA50F2E00A4AA60 /* SMMainMenuCell.xib in Resources */,
 				73EF4F461CA83DB9001B000E /* NormalCell.xib in Resources */,
@@ -1532,8 +1698,10 @@
 				7340860D1DADD29500A9FED5 /* SMRegisterViewController.xib in Resources */,
 				7301A56C1E1F42F800719B77 /* SMConnectionFailureViewController_ip4.xib in Resources */,
 				73E682A61D5AD7C800F873BE /* Localizable.strings in Resources */,
+				733B608E1F32D69E0017FDF3 /* Group 2.png in Resources */,
 				73CC33401DD20DDB0009387B /* SMHelpViewController.xib in Resources */,
 				7301A5681E1F3FB500719B77 /* SMBindingViewController_ip4.xib in Resources */,
+				73ACFE231F3994F100DB6E93 /* SMHistoryPage.xib in Resources */,
 				737B1E861CA4E71300A4AA60 /* SMBindingViewController.xib in Resources */,
 				7301A5591E1F383300719B77 /* IMG_2348.PNG in Resources */,
 				73F38C0D1CC942E900F0DF31 /* SettingCell.xib in Resources */,
@@ -1628,6 +1796,7 @@
 				730219621CA8D407005620F3 /* ManAgeContactAlertsCell.m in Sources */,
 				7383BE621CB53A50006EC0A9 /* BTServer.m in Sources */,
 				7383BE6C1CB53A50006EC0A9 /* PeriperalInfo.m in Sources */,
+				733B60821F32C0D50017FDF3 /* ZZCircleProgress.m in Sources */,
 				7383BE7D1CB53A50006EC0A9 /* SOSData.m in Sources */,
 				7310A4201E1258A3004EFE1E /* SMRegisterSuccessfullyViewController.m in Sources */,
 				734102751E9E5B0200799C73 /* SMSOSCheckAlgorithmService.m in Sources */,
@@ -1653,7 +1822,10 @@
 				73F18B781CBBE61A009120A0 /* SMContactSosSelectViewController.m in Sources */,
 				730399121D864766008930FE /* otaUpToDateViewController.m in Sources */,
 				7383BE791CB53A50006EC0A9 /* SmartRemindConfig.m in Sources */,
+				73A374321F2F1363008A2184 /* SMStepCounterPage.m in Sources */,
+				7346CD261F31C6D4006430B1 /* SMViewSelectButton.m in Sources */,
 				73A973891F04FE2600515BF1 /* SMSOSDescribe.m in Sources */,
+				73ACFE221F3994F100DB6E93 /* SMHistoryPage.m in Sources */,
 				7383BE6B1CB53A50006EC0A9 /* RemindNoticeInfo.m in Sources */,
 				73F348B71CB6B9B100745650 /* RemindNoticeManager.m in Sources */,
 				73EFA6251CC0B0F600DE6D5F /* SMSettingViewController.m in Sources */,
@@ -1673,6 +1845,7 @@
 				73E682B01D5B25C500F873BE /* NSDictionary+decription.m in Sources */,
 				73065FC71CEB2D8C00AABA61 /* SMContactTool.m in Sources */,
 				73022EB61DFFA3B100BF86BC /* SMInstructionModel.m in Sources */,
+				733B60881F32C1370017FDF3 /* NSTimer+timerBlock.m in Sources */,
 				737B1E911CA4F21D00A4AA60 /* SMConnectedEquipmentViewController.m in Sources */,
 				7302195D1CA8D258005620F3 /* ReceiveNotificationCell.m in Sources */,
 				73F730F21D9E51C400DABE18 /* SMSocialViewController.m in Sources */,
@@ -1680,10 +1853,12 @@
 				7383BE6F1CB53A50006EC0A9 /* MessageHead.m in Sources */,
 				734102711E9E2A6800799C73 /* SMSensitivityDescriptionViewController.m in Sources */,
 				7340860C1DADD29500A9FED5 /* SMRegisterViewController.m in Sources */,
+				7322B7F91F3C7B8B005FF388 /* MBProgressHUD.m in Sources */,
 				737B1E851CA4E71300A4AA60 /* SMBindingViewController.m in Sources */,
 				7383BE7B1CB53A50006EC0A9 /* SmartRemindData.m in Sources */,
 				73F858091CBA999C005170E8 /* SosContactCell.m in Sources */,
 				73F8580E1CBA9C6C005170E8 /* contactModel.m in Sources */,
+				733B608C1F32D4BB0017FDF3 /* SMProgress.m in Sources */,
 				7376F05E1ED57EA000BEBF11 /* SMSensitivityView.m in Sources */,
 				7373DFAB1DD07EB7003668D7 /* SMSosDescriptionViewController.m in Sources */,
 				73F348C31CB6C31600745650 /* SmartRemindManager.m in Sources */,
@@ -1691,18 +1866,26 @@
 				73EF8F361CAA2EDB000F9A0C /* ContactCell.m in Sources */,
 				7302196E1CA8EACD005620F3 /* SMContentViewController.m in Sources */,
 				7383BE7A1CB53A50006EC0A9 /* SmartRemindModule.m in Sources */,
+				73270BFB1F3423D700535AF3 /* SKPickerView.m in Sources */,
 				73EF8F2F1CAA28F8000F9A0C /* SMContactNotificationsViewController.m in Sources */,
 				7383BE721CB53A50006EC0A9 /* TopPlayModule.m in Sources */,
 				730AD3881D5F4D4C0091BB62 /* AntiLostData.m in Sources */,
+				73A901311F42D715000E7F92 /* SMStepService.m in Sources */,
+				73ACFE1E1F39650700DB6E93 /* SMMonthView.m in Sources */,
+				73AEE0431F417C820085641F /* NSDate+Tool.m in Sources */,
 				7383BE751CB53A50006EC0A9 /* AntiLostModule.m in Sources */,
 				730C98D21D53335D00B729DC /* otaUpgradeViewController.m in Sources */,
+				734328821F307D5F00C4E95B /* SMStepModel.m in Sources */,
+				73A901341F42DF4F000E7F92 /* SMStepsInfoManager.m in Sources */,
 				73065FC31CEB2D2400AABA61 /* SMContactModel.m in Sources */,
 				73FAEF591CDB0C4100AECC8B /* AlidayuManager.m in Sources */,
 				73247CD21DD594AC00AA0833 /* SKUserNotification.m in Sources */,
 				731EF8EF1D546DAB00BD9C7F /* otaUpdateSuccessfulViewController.m in Sources */,
+				73270C001F345B6400535AF3 /* SMPersonalModel.m in Sources */,
 				730C98D11D53335D00B729DC /* model.m in Sources */,
 				73E0B8101DF0014E0008C70D /* SMDataPackageManager.m in Sources */,
 				7328E8941D9BC67D000E0EFF /* NationalListViewController.m in Sources */,
+				73AC04341F31813400849D03 /* SMStepTableViewCell.m in Sources */,
 				73EA60D41CAFAD3400630F52 /* customSwitch.m in Sources */,
 				737F65AF1DACC0CA005265D4 /* BackgroundViewController.m in Sources */,
 				730473421D9BE51C001B5BAF /* countriesModel.m in Sources */,
@@ -1728,10 +1911,14 @@
 				737B1EA61CA50AC000A4AA60 /* SMSSidebarViewController.m in Sources */,
 				737B1EAA1CA50F2E00A4AA60 /* SMMainMenuCell.m in Sources */,
 				73EA00411CBD08600018B165 /* bulidMessage.m in Sources */,
+				733B60851F32C0E10017FDF3 /* UIImage+Tool.m in Sources */,
+				7346CD231F31B6BC006430B1 /* SMBlinqInfo.m in Sources */,
 				7383BE781CB53A50006EC0A9 /* NotificationConfig.m in Sources */,
 				7330D03C1DFD6C9B0049850D /* SKFTPManager.m in Sources */,
 				73D3937D1CAA692B007EA376 /* SMSosEmergencyViewController.m in Sources */,
 				73C87B471D58242500E0F672 /* otaUpdateFaildViewController.m in Sources */,
+				7343287F1F307CBB00C4E95B /* SMStepDB.m in Sources */,
+				73AC042C1F316C8200849D03 /* SMStepSettingPage.m in Sources */,
 				73461C381DD4756500F3DE59 /* SKViewTransitionManager.m in Sources */,
 				7383BE7E1CB53A50006EC0A9 /* SOSModule.m in Sources */,
 				730F129D1D51943100AAD594 /* SKConst.m in Sources */,
@@ -1900,6 +2087,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = Blinq/Blinq.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1920,6 +2108,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = Blinq/Blinq.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

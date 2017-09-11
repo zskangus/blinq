@@ -41,6 +41,19 @@ fprintf(stderr, "-------\n");                                               \
 //获取沙盒 Cache
 #define SKPathCache [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject]
 
+// 屏幕宽高
+#define GET_SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
+#define GET_SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
+
+#define SCREEN_MAX_LENGTH (MAX(GET_SCREEN_WIDTH, GET_SCREEN_HEIGHT))
+#define SCREEN_MIN_LENGTH (MIN(GET_SCREEN_WIDTH, GET_SCREEN_HEIGHT))
+// 设备型号
+#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define IS_IPHONE_4_OR_LESS (IS_IPHONE && SCREEN_MAX_LENGTH < 568.0)
+#define IS_IPHONE_5 (IS_IPHONE && SCREEN_MAX_LENGTH == 568.0)
+#define IS_IPHONE_6_7 (IS_IPHONE && SCREEN_MAX_LENGTH == 667.0)
+#define IS_IPHONE_6P_7P (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
+
 extern NSInteger screenWidth;
 extern NSInteger screenHeight;
 

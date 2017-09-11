@@ -66,9 +66,27 @@
         
         [SKAttributeString setButtonFontContent:self.pairBtn title:NSLocalizedString(@"binding_page_buttonTitle", nil) font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
     }
+    
+    self.defaultBTServer = [BTServer sharedBluetooth];
+    
+    [self.defaultBTServer initBLE];
 }
 
 - (IBAction)pairNow:(id)sender {
+    
+    if ([SMBlinqInfo CBManagerState] != CBManagerStatePoweredOn) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"blueToolSwitchDescribe", nil) message:@"" preferredStyle:UIAlertControllerStyleAlert];
+        
+        
+        UIAlertAction *okAlertAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"ok", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        }];
+        
+        [alertController addAction:okAlertAction];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
+        
+        return;
+    }
     
     if (screenHeight == 480) {
         SMConnectedEquipmentViewController *connectEq = [[SMConnectedEquipmentViewController alloc]initWithNibName:@"SMConnectedEquipmentViewController_ip4" bundle:nil];

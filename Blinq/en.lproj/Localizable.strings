@@ -274,3 +274,8 @@ sos_Liability = "By using Blinq App and SOS function (hereafter referred to as B
 
 decline = "Decline";
 accept = "Accept";
+
+cancel = "CANCEL";
+confirm = "CONFIRM";
+
+blueToolSwitchDescribe = "Turn On BlueTooth to Allow \"Blinq\" to Connect to Accessories";

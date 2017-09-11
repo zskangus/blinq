@@ -45,6 +45,7 @@ static NSString * const contactCell = @"ContactCell";
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+
     [self SetupContacts];
     [self autoDetectionRingVersion];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(beginEditing) name:@"beginEditing" object:nil];
@@ -74,6 +75,11 @@ static NSString * const contactCell = @"ContactCell";
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [self.tableView setBackgroundColor:[UIColor clearColor]];
+    
+    
+    if (self.isModalVc == NO) {
+        [self setupNavigationTitle:NSLocalizedString(@"nav_title_CONTACT_NOTIFICATIONS", nil) isHiddenBar:NO];
+    }
 
 }
 

@@ -76,9 +76,7 @@
     
     UINavigationController *nvcMenu = [[UINavigationController alloc]initWithRootViewController:mainMenu];
     
-    UINavigationController *nvcsidebar = [[UINavigationController alloc]initWithRootViewController:contentVie];
-    
-    SMSSidebarViewController *sidebar = [[SMSSidebarViewController alloc]initWithCenterController:nvcsidebar leftController:nvcMenu];
+    SMSSidebarViewController *sidebar = [[SMSSidebarViewController alloc]initWithCenterController:contentVie leftController:nvcMenu];
     
     [self presentViewController:sidebar animated:YES completion:nil];
 }

@@ -11,4 +11,6 @@
 
 @interface SMContactNotificationsViewController : SMBaseViewController
 
+@property(nonatomic,assign)BOOL isModalVc;
+
 @end

@@ -339,6 +339,20 @@ static int keyboardHeight;
                 
             }
             
+            SMPersonalModel *userInfo = [[SMPersonalModel alloc]init];
+            userInfo.familyName = firstName;
+            userInfo.givenName = lastName;
+            userInfo.heightString = @"6'0\"";
+            userInfo.heightRow = 58;
+            userInfo.heightComponent = 0;
+            userInfo.weight = 150;
+            userInfo.weightRow = 119;
+            userInfo.weightComponent = 0;
+            userInfo.birthday = @"2000-1-1";
+            userInfo.age = 17;
+            
+            [SMBlinqInfo setUserInfo:userInfo];
+            
             [SMMailchimp registerUserInfo:firstName lastName:lastName emailAddress:emailAddress];
             
  

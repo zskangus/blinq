@@ -58,6 +58,8 @@
 
 #import "SMSOSDescribe.h"
 
+#import "SMStepCounterPage.h"
+
 #define Screen_height [[UIScreen mainScreen] bounds].size.height
 #define Screen_width [[UIScreen mainScreen] bounds].size.width
 
@@ -96,6 +98,16 @@ location SMlocationStartup;
 
 @property(nonnull,strong)SMHelpViewController *help;
 
+@property(nonatomic,strong)UINavigationController *navNotification;
+@property(nonatomic,strong)UINavigationController *navContact;
+@property(nonatomic,strong)UINavigationController *navPlay;
+@property(nonatomic,strong)UINavigationController *navSos;
+@property(nonatomic,strong)UINavigationController *navSetting;
+@property(nonatomic,strong)UINavigationController *navHelp;
+@property(nonatomic,strong)UINavigationController *navStepCounter;
+
+
+
 @property(nonatomic,assign)NSInteger vcCount;
 
 @property(nonatomic,strong)NSString *sosAddress;
@@ -103,6 +115,8 @@ location SMlocationStartup;
 @property(nonatomic,strong)NSTimer *timer;
 
 @property(nonatomic, unsafe_unretained)UIBackgroundTaskIdentifier backgroundTaskIdentifier;
+
+@property(nonatomic,strong)SMStepCounterPage *stepCounter;
 
 @end
 
@@ -119,7 +133,7 @@ static NSInteger checkCount;
 
 - (void)viewWillAppear:(BOOL)animated{
     
-    [self setupNavigation];
+    //[self setupNavigation];
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(receiveMessage:) name:@"update" object:nil];
     
@@ -133,19 +147,9 @@ static NSInteger checkCount;
     // 紧急求救
     [[NSNotificationCenter defaultCenter] addObserver: self selector:@selector(sosAction:) name:NOTIFICATION_SOS object:nil];
     
-    BOOL isBinding = [[NSUserDefaults standardUserDefaults] boolForKey:@"isBinding"];
-    
-    if (isBinding) {
-        
-        [self.navigationController setNavigationBarHidden:NO animated:YES];
-        
-        [self setupNavigationTitle:NSLocalizedString(@"nav_title_APP_NOTIFICATIONS", nil)];
-    
-        [self addSubControllers];
-        
-        //[self.view addSubview:self.contentView];
-        
-    }
+
+    [self addSubControllers];
+
     
     
     SMlocationStartup = SystemStartup;
@@ -154,7 +158,7 @@ static NSInteger checkCount;
         [self setupLocation];
     }
     
-    [self viewClickEvent];
+    //[self viewClickEvent];
     
     [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];
     
@@ -170,144 +174,106 @@ static NSInteger checkCount;
     }
 }
 
-- (void)setupNavigation{
-    
-    // 设置导航栏title的显示效果
-    NSDictionary *TitleDict = @{NSFontAttributeName:[UIFont fontWithName: @"Avenir" size:16],
-                                NSForegroundColorAttributeName:[UIColor whiteColor],
-                                NSKernAttributeName:@2.46};
-    
-    [[UINavigationBar appearance]setTitleTextAttributes:TitleDict];
-    
-    // 避免内容被导航条遮挡
-    //self.edgesForExtendedLayout = UIRectEdgeNone;
-    //self.extendedLayoutIncludesOpaqueBars = NO;
-    //self.modalPresentationCapturesStatusBarAppearance = NO;
-    
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"bg-navBar"] forBarMetrics:UIBarMetricsDefault];
-    
-    // 注意需要将图片Render AS选项设置为orignal image选项，保证图片是没有经过渲染的原图。在图片管理器的第三选项卡
-    UIBarButtonItem *logoItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu"] style:UIBarButtonItemStyleDone target:self action:@selector(popupSidebar)];
-    
-    self.navigationItem.leftBarButtonItem = logoItem;
-}
+//- (void)setupNavigation{
+//    
+//    // 设置导航栏title的显示效果
+//    NSDictionary *TitleDict = @{NSFontAttributeName:[UIFont fontWithName: @"Avenir" size:16],
+//                                NSForegroundColorAttributeName:[UIColor whiteColor],
+//                                NSKernAttributeName:@2.46};
+//    
+//    [[UINavigationBar appearance]setTitleTextAttributes:TitleDict];
+//    
+//    // 避免内容被导航条遮挡
+//    //self.edgesForExtendedLayout = UIRectEdgeNone;
+//    //self.extendedLayoutIncludesOpaqueBars = NO;
+//    //self.modalPresentationCapturesStatusBarAppearance = NO;
+//    
+//    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"bg-navBar"] forBarMetrics:UIBarMetricsDefault];
+//    
+//    // 注意需要将图片Render AS选项设置为orignal image选项，保证图片是没有经过渲染的原图。在图片管理器的第三选项卡
+//    UIBarButtonItem *logoItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu"] style:UIBarButtonItemStyleDone target:self action:@selector(popupSidebar)];
+//    
+//    self.navigationItem.leftBarButtonItem = logoItem;
+//}
 
-- (void)setupNavigationTitle:(NSString *)string{
-    
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0, 200, 44)];
-    
-    titleLabel.backgroundColor = [UIColor clearColor];
-    
-    titleLabel.text = string;
-    
-    if (![string isEqualToString:@"CONTACT NOTIFICATIONS"]) {
-        titleLabel.font = [UIFont fontWithName: @"Avenir-Book" size:16];
-    }else{
-        
-        if (self.view.frame.size.width == 320) {
-            titleLabel.font = [UIFont fontWithName: @"Avenir-Book" size:12];
-        }else{
-            titleLabel.font = [UIFont fontWithName: @"Avenir-Book" size:15];
-        }
-
-        
-        NSLog(@"pingmukuandu%@",NSStringFromCGRect(self.view.frame));
-    }
-    
-    if ([string isEqualToString:@"APP-BENACHRICHTIGUNGEN"]) {
-        titleLabel.font = [UIFont fontWithName: @"Avenir-Book" size:14];
-    }
-    
-    if ([string isEqualToString:@"KONTAKT-BENACHRICHTIGUNGEN"]) {
-        titleLabel.font = [UIFont fontWithName: @"Avenir-Book" size:11];
-    }
-    
-    titleLabel.textAlignment = NSTextAlignmentCenter;
-    
-    NSRange range = NSMakeRange(0, titleLabel.text.length);
-    
-    NSMutableAttributedString * attribute = [[NSMutableAttributedString alloc]initWithString:titleLabel.text];
-    
-    // 设置文字颜色
-    [attribute addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:range];
-    
-    CGFloat floatNum = 2.46f;
-    NSNumber *num = [NSNumber numberWithFloat:floatNum];
-    
-    // 设置文字间距
-    [attribute addAttribute:NSKernAttributeName value:num range:range];
-    
-    titleLabel.attributedText = attribute;
-    
-    self.navigationItem.titleView = titleLabel;
-}
 
 - (void)addSubControllers{
     
     self.notification = [[SMNotificationMainViewController alloc]initWithNibName:@"SMNotificationMainViewController" bundle:nil];
-    [self addChildViewController:self.notification];
+    self.navNotification = [[UINavigationController alloc]initWithRootViewController:self.notification];
+    [self addChildViewController:self.navNotification];
     
     self.contact = [[SMContactNotificationsViewController alloc]initWithNibName:@"SMContactNotificationsViewController" bundle:nil];
-    [self addChildViewController:self.contact];
+    self.navContact = [[UINavigationController alloc]initWithRootViewController:self.contact];
+    
+    [self addChildViewController:self.navContact];
     
     self.play = [[SMPlayViewController alloc]initWithNibName:@"SMPlayViewController" bundle:nil];
-    [self addChildViewController:self.play];
+    self.navPlay = [[UINavigationController alloc]initWithRootViewController:self.play];
+    [self addChildViewController:self.navPlay];
 
     self.sos = [[SMSosEmergencyViewController alloc]initWithNibName:@"SMSosEmergencyViewController" bundle:nil];
-    [self addChildViewController:self.sos];
+    self.navSos = [[UINavigationController alloc]initWithRootViewController:self.sos];
+    [self addChildViewController:self.navSos];
+    
+    self.stepCounter = [[SMStepCounterPage alloc]initWithNibName:@"SMStepCounterPage" bundle:nil];
+    self.navStepCounter = [[UINavigationController alloc]initWithRootViewController:self.stepCounter];
+    [self addChildViewController:self.navStepCounter];
     
     self.setting = [[SMSettingViewController alloc]initWithNibName:@"SMSettingViewController" bundle:nil];
-    [self addChildViewController:self.setting];
+    self.navSetting = [[UINavigationController alloc]initWithRootViewController:self.setting];
+    [self addChildViewController:self.navSetting];
     
     self.help = [[SMHelpViewController alloc]initWithNibName:@"SMHelpViewController" bundle:nil];
-    [self addChildViewController:self.help];
-
-
+    self.navHelp = [[UINavigationController alloc]initWithRootViewController:self.help];
+    [self addChildViewController:self.navHelp];
+    
     //调整子视图控制器的Frame已适应容器View
-    [self fitFrameForChildViewController:self.notification];
+    [self fitFrameForChildViewController:self.navNotification];
     
     //设置默认显示在容器View的内容
-    [self.contentView addSubview:self.notification.view];
+    //self.navNotification.view.transform = CGAffineTransformMakeScale([UIScreen mainScreen].bounds.size.width / 375, [UIScreen mainScreen].bounds.size.width / 375);
+    [self.contentView addSubview:self.navNotification.view];
     
     self.vcCount = 0;
     
     NSLog(@"contentView-%@",NSStringFromCGRect(self.contentView.frame));
     NSLog(@"notification-%@",NSStringFromCGRect(self.notification.view.frame));
     
-    self.currentVC = self.notification;
+    self.currentVC = self.navNotification;
     //[self addChildViewController:self.currentVC];
 }
 
-- (void)viewClickEvent{ // 监听view的点击事件
-    
-    UITapGestureRecognizer*tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(packupSidebar)];
-    
-    tapGesture.delegate = (id<UIGestureRecognizerDelegate>)self;;
-    
-    [self.view addGestureRecognizer:tapGesture];
-}
-
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
-{
-    
-    NSLog(@"%@", NSStringFromClass([touch.view class]));
-    
-//    if ([NSStringFromClass([touch.view class])isEqualToString:@"UIWebBrowserView"]) {
-//        [self packupSidebar];
-//    }
+//- (void)viewClickEvent{ // 监听view的点击事件
 //    
-    // 若为UITableViewCellContentView（即点击了tableViewCell），则不截获Touch事件
-    if ([NSStringFromClass([touch.view class]) isEqualToString:@"UITableViewCellEditControl"]) {
-        return NO;
-    }
-    
+//    UITapGestureRecognizer*tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(packupSidebar)];
+//    
+//    tapGesture.delegate = (id<UIGestureRecognizerDelegate>)self;;
+//    
+//    [self.view addGestureRecognizer:tapGesture];
+//}
+//
+//- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+//{
+//    
+//    NSLog(@"%@", NSStringFromClass([touch.view class]));
+//    
+////    if ([NSStringFromClass([touch.view class])isEqualToString:@"UIWebBrowserView"]) {
+////        [self packupSidebar];
+////    }
+////    
+//    // 若为UITableViewCellContentView（即点击了tableViewCell），则不截获Touch事件
 //    if ([NSStringFromClass([touch.view class]) isEqualToString:@"UITableViewCellEditControl"]) {
 //        return NO;
 //    }
-    
-    
-    return  YES;
-}
+//    
+////    if ([NSStringFromClass([touch.view class]) isEqualToString:@"UITableViewCellEditControl"]) {
+////        return NO;
+////    }
+//    
+//    
+//    return  YES;
+//}
 
 
 - (void)packupSidebar{// 点击界面收起侧边栏
@@ -337,12 +303,10 @@ static NSInteger checkCount;
     switch (item) {
         case 0:
         {
-            [self fitFrameForChildViewController:self.notification];
+            [self fitFrameForChildViewController:self.navNotification];
             
-            [self transitionFromOldViewController:self.currentVC toNewViewController:self.notification];
+            [self transitionFromOldViewController:self.currentVC toNewViewController:self.navNotification];
             
-            [self setupNavigationTitle:NSLocalizedString(@"nav_title_APP_NOTIFICATIONS", nil)];
-
         }
             break;
         case 1:
@@ -361,42 +325,37 @@ static NSInteger checkCount;
                 };
             }
             
-            [self fitFrameForChildViewController:self.contact];
+            [self fitFrameForChildViewController:self.navContact];
             
-            [self transitionFromOldViewController:_currentVC toNewViewController:self.contact];
-            
-            [self setupNavigationTitle:NSLocalizedString(@"nav_title_CONTACT_NOTIFICATIONS", nil)];
-            
+            [self transitionFromOldViewController:_currentVC toNewViewController:self.navContact];
+                        
         }
             break;
         case 2:
         {
-            [self fitFrameForChildViewController:self.play];
+            [self fitFrameForChildViewController:self.navPlay];
             
-            [self transitionFromOldViewController:_currentVC toNewViewController:self.play];
+            [self transitionFromOldViewController:_currentVC toNewViewController:self.navPlay];
             
-            [self setupNavigationTitle:NSLocalizedString(@"nav_title_PLAY", nil)];
-
         }
             break;
         case 3:
         {            
             if ([SKUserDefaults boolForKey:@"isAccpetDisclaimer"]) {
-                [self fitFrameForChildViewController:self.sos];
+                [self fitFrameForChildViewController:self.navSos];
                 
-                [self transitionFromOldViewController:_currentVC toNewViewController:self.sos];
+                [self transitionFromOldViewController:_currentVC toNewViewController:self.navSos];
                 
-                [self setupNavigationTitle:NSLocalizedString(@"nav_title_SOS_EMERGENCY", nil)];
+                //[self setupNavigationTitle:NSLocalizedString(@"nav_title_SOS_EMERGENCY", nil)];
             }else{
                 SMSOSDescribe *describe = [[SMSOSDescribe alloc]initWithNibName:@"SMSOSDescribe" bundle:nil];
                 [SKViewTransitionManager presentModalViewControllerFrom:self to:describe duration:0.3 transitionType:TransitionPush directionType:TransitionFromRight];
                 
                 describe.okBlock = ^{
-                    [self fitFrameForChildViewController:self.sos];
+                    [self fitFrameForChildViewController:self.navSos];
                     
-                    [self transitionFromOldViewController:_currentVC toNewViewController:self.sos];
+                    [self transitionFromOldViewController:_currentVC toNewViewController:self.navSos];
                     
-                    [self setupNavigationTitle:NSLocalizedString(@"nav_title_SOS_EMERGENCY", nil)];
                     self.vcCount = item;
 
                 };
@@ -409,24 +368,23 @@ static NSInteger checkCount;
             
         case 4:
         {
-            [self fitFrameForChildViewController:self.setting];
+            [self fitFrameForChildViewController:self.navStepCounter];
             
-            [self transitionFromOldViewController:_currentVC toNewViewController:self.setting];
-            
-            [self setupNavigationTitle:NSLocalizedString(@"nav_title_SETTINGS", nil)];
-            
+            [self transitionFromOldViewController:_currentVC toNewViewController:self.navStepCounter];
         }
             break;
-            
-            
         case 5:
         {
-            [self fitFrameForChildViewController:self.help];
+            [self fitFrameForChildViewController:self.navSetting];
             
-            [self transitionFromOldViewController:_currentVC toNewViewController:self.help];
+            [self transitionFromOldViewController:_currentVC toNewViewController:self.navSetting];
+        }
+            break;
+        case 6:
+        {
+            [self fitFrameForChildViewController:self.navHelp];
             
-            [self setupNavigationTitle:NSLocalizedString(@"nav_title_help", nil)];
-
+            [self transitionFromOldViewController:_currentVC toNewViewController:self.navHelp];
         }
             break;
         default:
@@ -445,7 +403,7 @@ static NSInteger checkCount;
             
             [self transitionFromOldViewController:self.currentVC toNewViewController:self.notification];
             
-            [self setupNavigationTitle:NSLocalizedString(@"nav_title_APP_NOTIFICATIONS", nil)];
+            //[self setupNavigationTitle:NSLocalizedString(@"nav_title_APP_NOTIFICATIONS", nil)];
             
         }
             break;
@@ -469,7 +427,7 @@ static NSInteger checkCount;
             
             [self transitionFromOldViewController:_currentVC toNewViewController:self.contact];
             
-            [self setupNavigationTitle:NSLocalizedString(@"nav_title_CONTACT_NOTIFICATIONS", nil)];
+            //[self setupNavigationTitle:NSLocalizedString(@"nav_title_CONTACT_NOTIFICATIONS", nil)];
             
         }
             break;
@@ -479,7 +437,7 @@ static NSInteger checkCount;
             
             [self transitionFromOldViewController:_currentVC toNewViewController:self.play];
             
-            [self setupNavigationTitle:NSLocalizedString(@"nav_title_PLAY", nil)];
+            //[self setupNavigationTitle:NSLocalizedString(@"nav_title_PLAY", nil)];
             
         }
             break;
@@ -489,7 +447,7 @@ static NSInteger checkCount;
             
             [self transitionFromOldViewController:_currentVC toNewViewController:self.setting];
             
-            [self setupNavigationTitle:NSLocalizedString(@"nav_title_SETTINGS", nil)];
+            //[self setupNavigationTitle:NSLocalizedString(@"nav_title_SETTINGS", nil)];
             
         }
             break;
@@ -501,7 +459,7 @@ static NSInteger checkCount;
             
             [self transitionFromOldViewController:_currentVC toNewViewController:self.help];
             
-            [self setupNavigationTitle:NSLocalizedString(@"nav_title_help", nil)];
+            //[self setupNavigationTitle:NSLocalizedString(@"nav_title_help", nil)];
             
         }
             break;
@@ -512,15 +470,16 @@ static NSInteger checkCount;
 }
 
 - (void)fitFrameForChildViewController:(UIViewController *)chileViewController{
-    CGRect frame = self.contentView.frame;
-    frame.origin.y = 0;
-    chileViewController.view.frame = frame;
-    NSLog(@"视图尺寸%@",NSStringFromCGRect(frame));
+//    CGRect frame = self.contentView.frame;
+//    frame.origin.y = 0;
+//    chileViewController.view.frame = frame;
+//    NSLog(@"视图尺寸%@",NSStringFromCGRect(frame));
 }
 
 //转换子视图控制器
 - (void)transitionFromOldViewController:(UIViewController *)oldViewController toNewViewController:(UIViewController *)newViewController{
-    [self transitionFromViewController:oldViewController toViewController:newViewController duration:0.3 options:UIViewAnimationOptionTransitionCrossDissolve animations:nil completion:^(BOOL finished) {
+    
+    [self transitionFromViewController:oldViewController toViewController:newViewController duration:0 options:UIViewAnimationOptionTransitionCrossDissolve animations:nil completion:^(BOOL finished) {
         if (finished) {
             [newViewController didMoveToParentViewController:self];
             _currentVC = newViewController;
@@ -538,35 +497,7 @@ static NSInteger checkCount;
     }
 }
 
--(void)ChildViewController:(UIViewController *)childVc andTitle:(NSString *)title{
-    
-    childVc.title = title;
-    
-    NSDictionary *TitleDict = @{NSFontAttributeName:[UIFont fontWithName: @"Avenir" size:16],
-                               NSForegroundColorAttributeName:[UIColor whiteColor],
-                                 NSKernAttributeName:@2.46};
-    
-    [[UINavigationBar appearance]setTitleTextAttributes:TitleDict];
-    
-//    // 避免内容被导航条遮挡
-//    childVc.edgesForExtendedLayout = UIRectEdgeNone;
-//    childVc.extendedLayoutIncludesOpaqueBars = NO;
-//    childVc.modalPresentationCapturesStatusBarAppearance = NO;
-    
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:childVc];
-    
-    [childVc.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"bg-navBar"] forBarMetrics:UIBarMetricsDefault];
-    
-    // 注意需要将图片Render AS选项设置为orignal image选项，保证图片是没有经过渲染的原图。在图片管理器的第三选项卡
-    UIBarButtonItem *logoItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu"] style:UIBarButtonItemStyleDone target:self action:@selector(popupSidebar)];
-    
-    childVc.navigationItem.leftBarButtonItem = logoItem;
-    
-    [self addChildViewController:nav];
-    
-    [self.view addSubview:nav.view];
-    
-}
+
 
 - (void)showAlertController:(NSString*)title body:(NSString*)body type:(NSString*)type{
     [self remorveNotification:type];

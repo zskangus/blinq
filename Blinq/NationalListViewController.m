@@ -62,12 +62,12 @@ static NSString * const CountriesCell = @"countriesCell";
 //    
 //    [self.navigationController.navigationBar setTintColor:[UIColor blackColor]];
     
-    self.navigationController.navigationBar.translucent = NO;
-    
+    //self.navigationController.navigationBar.translucent = NO;
+//    
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    
-    [self.navigationController.navigationBar setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
-                                                           [UIColor blackColor], NSForegroundColorAttributeName,nil]];
+//    
+//    [self.navigationController.navigationBar setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+//                                                           [UIColor blackColor], NSForegroundColorAttributeName,nil]];
     
     [self.navigationItem setHidesBackButton:YES];
 }
@@ -408,5 +408,9 @@ static NSString * const CountriesCell = @"countriesCell";
 
 }
 
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"bg-navBar"] forBarMetrics:UIBarMetricsDefault];
+}
 
 @end

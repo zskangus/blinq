@@ -69,8 +69,13 @@ static NSString * const manAgeContactAlertsCell = @"ManAgeContactAlertsCell";
     [self.tableView registerNib:[UINib nibWithNibName:@"NormalCell" bundle:nil] forCellReuseIdentifier:normalCell];
     [self.tableView registerNib:[UINib nibWithNibName:@"ReceiveNotificationCell" bundle:nil] forCellReuseIdentifier:receiveNotificationCell];
     [self.tableView registerNib:[UINib nibWithNibName:@"ManAgeContactAlertsCell" bundle:nil] forCellReuseIdentifier:manAgeContactAlertsCell];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
+    [self setupNavigationTitle:NSLocalizedString(@"nav_title_APP_NOTIFICATIONS", nil) isHiddenBar:NO];
+
 }
+
+
 
 - (void)setupAppData{
     // 取得 在链接成功页面里获取到的APP配置信息
@@ -255,12 +260,9 @@ static NSString * const manAgeContactAlertsCell = @"ManAgeContactAlertsCell";
             
             SMContactNotificationsViewController *contactView = [[SMContactNotificationsViewController alloc]init];
             
-            contactView.title = NSLocalizedString(@"nav_title_CONTACT_NOTIFICATIONS", nil);
+            contactView.isModalVc = YES;
             
-            //            // 避免内容被导航条遮挡
-            //            contactView.edgesForExtendedLayout = UIRectEdgeNone;
-            //            contactView.extendedLayoutIncludesOpaqueBars = NO;
-            //            contactView.modalPresentationCapturesStatusBarAppearance = NO;
+            //contactView.title = ;
             
             UINavigationController *nvc = [[UINavigationController alloc]initWithRootViewController:contactView];
             
@@ -270,6 +272,31 @@ static NSString * const manAgeContactAlertsCell = @"ManAgeContactAlertsCell";
             UIBarButtonItem *backArrow = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"BackArrow"] style:UIBarButtonItemStyleDone target:self action:@selector(packupContactView)];
             
             contactView.navigationItem.leftBarButtonItem = backArrow;
+            
+            UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0, 200, 44)];
+            
+            titleLabel.backgroundColor = [UIColor clearColor];
+            
+            titleLabel.text = NSLocalizedString(@"nav_title_CONTACT_NOTIFICATIONS", nil);
+            
+            titleLabel.textAlignment = NSTextAlignmentCenter;
+            
+            NSRange range = NSMakeRange(0, titleLabel.text.length);
+            
+            NSMutableAttributedString * attribute = [[NSMutableAttributedString alloc]initWithString:titleLabel.text];
+            
+            // 设置文字颜色
+            [attribute addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:range];
+            
+            CGFloat floatNum = 2.46f;
+            NSNumber *num = [NSNumber numberWithFloat:floatNum];
+            
+            // 设置文字间距
+            [attribute addAttribute:NSKernAttributeName value:num range:range];
+            
+            titleLabel.attributedText = attribute;
+            
+            contactView.navigationItem.titleView = titleLabel;
             
             BOOL notification_contactVcTurnedOn = [SKUserDefaults boolForKey:@"notification_contactVcTurnedOn"];
             
