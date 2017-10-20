@@ -20,6 +20,8 @@
 
 - (void)autoDetectionRingVersion;
 
+- (void)autoCheckAppVersion;
+
 - (CGRect)getScreenSize;
 
 - (BOOL)isBlankString:(NSString *)string;

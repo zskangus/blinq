@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,7 +13,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SMPlayViewController">
             <connections>
                 <outlet property="playTitle" destination="dhi-eG-zML" id="OBp-J6-50V"/>
-                <outlet property="pulseBtn" destination="1S9-Hu-xwd" id="LdB-Nk-5fK"/>
                 <outlet property="vibrateBtn" destination="6b1-cN-NHc" id="ge4-yX-4uk"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -82,7 +81,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6b1-cN-NHc">
-                    <rect key="frame" x="18" y="480" width="338" height="60"/>
+                    <rect key="frame" x="18" y="507" width="338" height="60"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="6b1-cN-NHc" secondAttribute="height" multiplier="169:30" id="ndy-FW-eTf"/>
                     </constraints>
@@ -96,40 +95,22 @@
                         <action selector="vibrate:" destination="-1" eventType="touchUpInside" id="aUf-lQ-bGp"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1S9-Hu-xwd">
-                    <rect key="frame" x="18" y="550" width="338" height="60"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="1S9-Hu-xwd" secondAttribute="height" multiplier="169:30" id="Rgb-Kn-v3l"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="15"/>
-                    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                    <state key="normal" title="PULSE" backgroundImage="WhiteLace">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                    <state key="selected" backgroundImage="PLAYBTNCOLOR"/>
-                    <connections>
-                        <action selector="pulse:" destination="-1" eventType="touchUpInside" id="Wg2-6M-kYp"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="tz2-Xg-OMq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="55" id="1J4-YL-JOh"/>
-                <constraint firstItem="1S9-Hu-xwd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="18" id="2GJ-jX-jpF"/>
                 <constraint firstItem="smr-lU-WIL" firstAttribute="leading" secondItem="LLN-u7-fW6" secondAttribute="trailing" constant="47" id="3up-Xd-aeN"/>
-                <constraint firstAttribute="bottom" secondItem="1S9-Hu-xwd" secondAttribute="bottom" constant="57" id="8bD-rI-u2j"/>
                 <constraint firstItem="smr-lU-WIL" firstAttribute="centerY" secondItem="LLN-u7-fW6" secondAttribute="centerY" id="Ahq-WB-UST"/>
                 <constraint firstAttribute="trailing" secondItem="dkv-V5-GRu" secondAttribute="trailing" constant="55" id="Cxb-Rk-1gX"/>
                 <constraint firstItem="6b1-cN-NHc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="18" id="E0B-Hu-LZp"/>
                 <constraint firstItem="LLN-u7-fW6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="55" id="EbK-KZ-fp2"/>
                 <constraint firstItem="smr-lU-WIL" firstAttribute="width" secondItem="LLN-u7-fW6" secondAttribute="width" id="Gn3-GD-pez"/>
                 <constraint firstAttribute="trailing" secondItem="6b1-cN-NHc" secondAttribute="trailing" constant="19" id="Pem-0Z-KzI"/>
-                <constraint firstAttribute="trailing" secondItem="1S9-Hu-xwd" secondAttribute="trailing" constant="19" id="SIT-XQ-rq2"/>
                 <constraint firstItem="dkv-V5-GRu" firstAttribute="centerY" secondItem="tz2-Xg-OMq" secondAttribute="centerY" id="TMP-Gk-vLy"/>
-                <constraint firstItem="1S9-Hu-xwd" firstAttribute="top" secondItem="6b1-cN-NHc" secondAttribute="bottom" constant="10" id="V3x-95-d8D"/>
                 <constraint firstItem="dkv-V5-GRu" firstAttribute="leading" secondItem="tz2-Xg-OMq" secondAttribute="trailing" constant="47" id="W8G-hn-h5R"/>
+                <constraint firstAttribute="bottom" secondItem="6b1-cN-NHc" secondAttribute="bottom" constant="100" id="Zyf-J8-obo"/>
                 <constraint firstItem="dkv-V5-GRu" firstAttribute="height" secondItem="tz2-Xg-OMq" secondAttribute="height" id="bP3-cg-fu6"/>
-                <constraint firstItem="6b1-cN-NHc" firstAttribute="top" secondItem="tz2-Xg-OMq" secondAttribute="bottom" constant="40" id="bYC-v5-Oxy"/>
+                <constraint firstItem="6b1-cN-NHc" firstAttribute="top" secondItem="tz2-Xg-OMq" secondAttribute="bottom" constant="67" id="bYC-v5-Oxy"/>
                 <constraint firstItem="dkv-V5-GRu" firstAttribute="width" secondItem="tz2-Xg-OMq" secondAttribute="width" id="g8J-9I-dX6"/>
                 <constraint firstItem="smr-lU-WIL" firstAttribute="height" secondItem="LLN-u7-fW6" secondAttribute="height" id="m1J-CP-y4H"/>
                 <constraint firstItem="smr-lU-WIL" firstAttribute="top" secondItem="dhi-eG-zML" secondAttribute="bottom" constant="18" id="m2X-WE-AT3"/>

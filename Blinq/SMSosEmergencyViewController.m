@@ -26,6 +26,7 @@
 #import "SMSOSCheckAlgorithmService.h"
 #import "SMSensitivityView.h"
 #import "BTServer.h"
+#import <CoreLocation/CoreLocation.h>
 
 typedef NS_ENUM(NSInteger,sosDescription){
     
@@ -90,6 +91,7 @@ static BOOL isUserClick;
 - (void)viewWillAppear:(BOOL)animated{
     
     [self autoDetectionRingVersion];
+
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupContactInfo) name:@"ReloadSettingView" object:nil];
     
@@ -105,7 +107,19 @@ static BOOL isUserClick;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillResignActive)
                                                  name:UIApplicationWillResignActiveNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(appLicationDidBecomeActive)
+                                                 name:UIApplicationDidBecomeActiveNotification
+                                               object:nil];
+    
+    
     [self setupContactInfo];
+    
+     if ([CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedAlways){
+         [self showAuthorizationHintAlertController];
+     }
+
 }
 
 - (void)viewDidLoad {
@@ -325,8 +339,6 @@ static BOOL isUserClick;
         // 显示联系人视图
         self.contactView.hidden = NO;
         
-        [self.customSwitch setOn:emergencyPower];
-        
         [self.sendMessageSwitch setOn:sendMessagePower];
         
         [self.locationSwitch setOn:locationPower];
@@ -336,6 +348,14 @@ static BOOL isUserClick;
         [self.sensitivitySwitch setOn:sensitivityPower];
         
         [self setupText];
+        
+        if ([CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedAlways){
+            [SKUserDefaults setBool:NO forKey:@"emergencyPower"];
+            [self.customSwitch setOn:NO];
+
+        }else{
+            [self.customSwitch setOn:emergencyPower];
+        }
         
         //[self isOpenDescription];
         
@@ -380,6 +400,14 @@ static BOOL isUserClick;
     switch (Switch.tag) {
         case 1:// 响应紧急联系人的开关按钮
         {
+            
+            if ([CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedAlways){
+                [SKUserDefaults setBool:NO forKey:@"emergencyPower"];
+                [self.customSwitch setOn:NO];
+                [self showAuthorizationHintAlertController];
+                return;
+            }
+            
             [SKUserDefaults setBool:isOn forKey:@"emergencyPower"];
 
 //            [SMMessageManager emergencyPower:isOn];
@@ -847,6 +875,20 @@ static BOOL isUserClick;
     
 }
 
+- (void)appLicationDidBecomeActive{
+    if ([CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedAlways){
+        [SKUserDefaults setBool:NO forKey:@"emergencyPower"];
+        [self.customSwitch setOn:NO];
+        [self showAuthorizationHintAlertController];
+    }
+
+    if ([SKUserDefaults boolForKey:@"isGotoStetting"] && [CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedAlways) {
+        [SKUserDefaults setBool:NO forKey:@"isGotoStetting"];
+        [SKUserDefaults setBool:YES forKey:@"emergencyPower"];
+        [self.customSwitch setOn:YES];
+    }
+}
+
 - (void)viewWillDisappear:(BOOL)animated{
     [self.textView resignFirstResponder];
     [[NSNotificationCenter defaultCenter]removeObserver:self];
@@ -865,4 +907,32 @@ static BOOL isUserClick;
     
     self.portraitImage.clipsToBounds = YES;
 }
+
+- (void)showAuthorizationHintAlertController{
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"", nil) message:NSLocalizedString(@"location_services_switch", nil) preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *settingAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"setting_title", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+        
+        [SKUserDefaults setBool:YES forKey:@"isGotoStetting"];
+        
+        if ([[UIApplication sharedApplication] canOpenURL:url]) {
+            
+            [[UIApplication sharedApplication] openURL:url];
+            
+        }
+    }];
+    
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"update_available_page_buttonTitle2", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    
+    //[alertController setValue:[self setAlertControllerWithStrring:NSLocalizedString(@"tip_fill_text", nil) fontSize:14 spacing:1.85]  forKey:@"attributedMessage"];
+    [alertController addAction:settingAction];
+    [alertController addAction:okAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
 @end

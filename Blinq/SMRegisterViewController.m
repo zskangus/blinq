@@ -11,7 +11,9 @@
 #import "SMNetWorkState.h"
 #import "SKFTPManager.h"
 #import "SMMailchimp.h"
+#import "UITextField+Extension.h"
 #import "SMRegisterSuccessfullyViewController.h"
+#import "SMTextField.h"
 
 typedef NS_ENUM(NSUInteger, registerState) {
     registerWorking,
@@ -128,10 +130,10 @@ registerState smRegisterState = registerStandby;
     [self.textFile2 addTarget:self action:@selector(numTextFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     self.textFile2.tintColor = [UIColor whiteColor];
     
-    self.textField3.delegate = self;
-    [self.textField3 addTarget:self action:@selector(numTextFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
-    self.textField3.adjustsFontSizeToFitWidth=YES;
-    self.textField3.tintColor = [UIColor whiteColor];
+//    self.textField3.delegate = self;
+//    [self.textField3 addTarget:self action:@selector(numTextFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+//    self.textField3.adjustsFontSizeToFitWidth=YES;
+//    self.textField3.tintColor = [UIColor whiteColor];
 
 }
 
@@ -142,9 +144,9 @@ registerState smRegisterState = registerStandby;
         [self.textFile2 becomeFirstResponder];
     }else if (textField == self.textFile2){
         [self.textFile2 resignFirstResponder];
-        [self.textField3 becomeFirstResponder];
-    }else{
-        [self.textField3 resignFirstResponder];
+//        [self.textField3 becomeFirstResponder];
+//    }else{
+//        [self.textField3 resignFirstResponder];
     }
     return YES;
 }
@@ -152,11 +154,15 @@ registerState smRegisterState = registerStandby;
 - (void)textFieldDidBeginEditing:(UITextField *)textField{
     
     self.textframe = textField.frame;
+    
 }
 
 - (void)numTextFieldDidChange:(id) sender {
     
     UITextField *field = (UITextField *)sender;
+    
+    NSRange cursor = [field selectedCursorRange];
+    NSLog(@"%@",NSStringFromRange(cursor));
     
     NSString *content = field.text;
     
@@ -164,34 +170,34 @@ registerState smRegisterState = registerStandby;
         case 1:
             NSLog(@"输入的内容:%@",content);
             [SKUserDefaults setObject:content forKey:@"firstName"];
-            [self setText:self.textField1 content:content];
-
             break;
         case 2:
+        {
             NSLog(@"输入的内容:%@",content);
             [SKUserDefaults setObject:content forKey:@"lastName"];
-            [self setText:self.textFile2 content:content];
+    }
             break;
         case 3:
+        {
             NSLog(@"输入的内容:%@",content);
-            [SKUserDefaults setObject:content forKey:@"emailAddress"];
-            [self setText:self.textField3 content:content];
+//            [SKUserDefaults setObject:content forKey:@"emailAddress"];
+        }
             break;
         default:
             break;
     }
     
-}
+    
+    NSDictionary *attrsDictionary =@{
+                                     NSFontAttributeName:[UIFont fontWithName:@"Avenir-Light" size:13],
+                                     NSKernAttributeName:[NSNumber numberWithFloat:3.9f],//这里修改字符间距
+                                     NSForegroundColorAttributeName:[UIColor whiteColor]
+                                     };
+    field.attributedText=[[NSAttributedString alloc]initWithString:content attributes:attrsDictionary];
+    
+    [field setSelectedRange:cursor];
 
 
-- (void)setText:(UITextField*)textField content:(NSString*)content{
-    if (content.length == 0) {
-        textField.attributedText = [[NSMutableAttributedString alloc]initWithString:@" "];
-        textField.text = @"";
-    }else{
-        
-        textField.attributedText = [SKAttributeString setTextFieldContent:content font:Avenir_Light Size:13 spacing:3.9 color:[UIColor whiteColor]];
-    }
 }
 
 static int keyboardHeight;
@@ -238,8 +244,6 @@ static int keyboardHeight;
 
 -(void)textFieldDidEndEditing:(UITextField *)textField{
     
-    
-    
     NSString *content = textField.text;
     
     switch (textField.tag) {
@@ -282,9 +286,9 @@ static int keyboardHeight;
     
     NSString *firstName = self.textField1.text;
     NSString *lastName = self.textFile2.text;
-    NSString *emailAddress = self.textField3.text;
+    //NSString *emailAddress = self.textField3.text;
     
-    if ([self isBlankString:firstName] || [self isBlankString:lastName] || [self isBlankString:emailAddress]) {
+    if ([self isBlankString:firstName] || [self isBlankString:lastName]) {
         
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:NSLocalizedString(@"tip_fill_text", nil) preferredStyle:UIAlertControllerStyleAlert];
         
@@ -302,43 +306,43 @@ static int keyboardHeight;
     }else{
         NSLog(@"填写的内容：%@-%@-%@",self.textField1.text,self.textFile2.text,self.textField3.text);
         
-        if ([SMNetWorkState state] == NO) {
-            
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"warning", nil) message:NSLocalizedString(@"tip_network", nil) preferredStyle:UIAlertControllerStyleAlert];
-            
-            UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"ok", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                
-            }];
-            
-            [alertController addAction:okAction];
-            
-            [alertController setValue:[self setAlertControllerWithStrring:NSLocalizedString(@"warning", nil) fontSize:17 spacing:1.85] forKey:@"attributedTitle"];
-            
-            [alertController setValue:[self setAlertControllerWithStrring:NSLocalizedString(@"tip_network", nil) fontSize:14 spacing:1.85]  forKey:@"attributedMessage"];
-            
-            [self presentViewController:alertController animated:YES completion:nil];
-            
-            return;
-        }else{
-            
-            if ([self isValidateEmail:emailAddress] == NO) {
-                
-                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:[NSLocalizedString(@"tip_email_address", nil) uppercaseString] preferredStyle:UIAlertControllerStyleAlert];
-                
-                UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"close", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                    [self.textField3 becomeFirstResponder];
-                }];
-                
-                [alertController addAction:okAction];
-                
-                [alertController setValue:[self setAlertControllerWithStrring:NSLocalizedString(@"tip_email_address", nil) fontSize:14 spacing:1.85]  forKey:@"attributedMessage"];
-                
-                [self presentViewController:alertController animated:YES completion:nil];
-                
-                return;
-                
-            }
-            
+//        if ([SMNetWorkState state] == NO) {
+//
+//            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"warning", nil) message:NSLocalizedString(@"tip_network", nil) preferredStyle:UIAlertControllerStyleAlert];
+//
+//            UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"ok", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//
+//            }];
+//
+//            [alertController addAction:okAction];
+//
+//            [alertController setValue:[self setAlertControllerWithStrring:NSLocalizedString(@"warning", nil) fontSize:17 spacing:1.85] forKey:@"attributedTitle"];
+//
+//            [alertController setValue:[self setAlertControllerWithStrring:NSLocalizedString(@"tip_network", nil) fontSize:14 spacing:1.85]  forKey:@"attributedMessage"];
+//
+//            [self presentViewController:alertController animated:YES completion:nil];
+//
+//            return;
+//        }else{
+//
+//            if ([self isValidateEmail:emailAddress] == NO) {
+//
+//                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:[NSLocalizedString(@"tip_email_address", nil) uppercaseString] preferredStyle:UIAlertControllerStyleAlert];
+//
+//                UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"close", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//                    [self.textField3 becomeFirstResponder];
+//                }];
+//
+//                [alertController addAction:okAction];
+//
+//                [alertController setValue:[self setAlertControllerWithStrring:NSLocalizedString(@"tip_email_address", nil) fontSize:14 spacing:1.85]  forKey:@"attributedMessage"];
+//
+//                [self presentViewController:alertController animated:YES completion:nil];
+//
+//                return;
+//
+//            }
+        
             SMPersonalModel *userInfo = [[SMPersonalModel alloc]init];
             userInfo.familyName = firstName;
             userInfo.givenName = lastName;
@@ -352,8 +356,10 @@ static int keyboardHeight;
             userInfo.age = 17;
             
             [SMBlinqInfo setUserInfo:userInfo];
-            
-            [SMMailchimp registerUserInfo:firstName lastName:lastName emailAddress:emailAddress];
+        
+        [SMBlinqInfo setIsFirstTimeInStepPage:YES];
+        
+            //[SMMailchimp registerUserInfo:firstName lastName:lastName emailAddress:emailAddress];
             
  
             
@@ -367,7 +373,7 @@ static int keyboardHeight;
         
         }
         
-    }
+    //}
 }
 
 
@@ -384,7 +390,7 @@ static int keyboardHeight;
 - (void)setupTextField{
     NSString *firstName = [SKUserDefaults objectForKey:@"firstName"];
     NSString *lastName = [SKUserDefaults objectForKey:@"lastName"];
-    NSString *emailAddress = [SKUserDefaults objectForKey:@"emailAddress"];
+    //NSString *emailAddress = [SKUserDefaults objectForKey:@"emailAddress"];
     
     if (![self isBlankString:firstName]) {
         //self.textField1.text = firstName;
@@ -396,10 +402,10 @@ static int keyboardHeight;
         self.textFile2.attributedText = [SKAttributeString setTextFieldContent:lastName font:Avenir_Light Size:13 spacing:3.9 color:[UIColor whiteColor]];
     }
     
-    if (![self isBlankString:emailAddress]) {
-        //self.textField3.text = emailAddress;
-        self.textField3.attributedText = [SKAttributeString setTextFieldContent:emailAddress font:Avenir_Light Size:13 spacing:3.9 color:[UIColor whiteColor]];
-    }
+//    if (![self isBlankString:emailAddress]) {
+//        //self.textField3.text = emailAddress;
+//        self.textField3.attributedText = [SKAttributeString setTextFieldContent:emailAddress font:Avenir_Light Size:13 spacing:3.9 color:[UIColor whiteColor]];
+//    }
 
 }
 

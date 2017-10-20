@@ -60,6 +60,8 @@
 
 #import "SMStepCounterPage.h"
 
+#import "SMStepCounterDescribeInterface.h"
+
 #define Screen_height [[UIScreen mainScreen] bounds].size.height
 #define Screen_width [[UIScreen mainScreen] bounds].size.width
 
@@ -368,9 +370,26 @@ static NSInteger checkCount;
             
         case 4:
         {
-            [self fitFrameForChildViewController:self.navStepCounter];
             
-            [self transitionFromOldViewController:_currentVC toNewViewController:self.navStepCounter];
+            BOOL stepVcTurnedOn = [SKUserDefaults boolForKey:@"stepVcTurnedOn"];
+            
+            if (stepVcTurnedOn == NO) {
+                SMStepCounterDescribeInterface *description = [[SMStepCounterDescribeInterface alloc]initWithNibName:@"SMStepCounterDescribeInterface" bundle:nil];
+                
+                [SKViewTransitionManager presentModalViewControllerFrom:self to:description duration:0.3 transitionType:TransitionPush directionType:TransitionFromRight];
+                
+                description.returnBlock = ^(){
+                    [self fitFrameForChildViewController:self.navStepCounter];
+                    
+                    [self transitionFromOldViewController:_currentVC toNewViewController:self.navStepCounter];
+                };
+            }else{
+                [self fitFrameForChildViewController:self.navStepCounter];
+                
+                [self transitionFromOldViewController:_currentVC toNewViewController:self.navStepCounter];
+            }
+            
+         
         }
             break;
         case 5:

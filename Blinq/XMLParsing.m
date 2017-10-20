@@ -39,14 +39,14 @@
     // 开始解析
     [parser parse];
     
-        NSLog(@"---解析错唔%@",[parser parserError]);
+    NSLog(@"---解析错唔%@",[parser parserError]);
     
     [self.info enumerateObjectsUsingBlock:^(model *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         info(obj.version,obj.name,obj.url);
         
         NSLog(@"%@%@%@",obj.version,obj.name,obj.url);
     }];
-
+    
 }
 
 //当扫描到文档的开始时调用（开始解析）
@@ -93,7 +93,7 @@
 
 // 发现文本
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
-
+    
     if ([self.lastElement isEqualToString:@"version"]) {
         self.modelInfo.version = string;
     }else if([self.lastElement isEqualToString:@"name"]){

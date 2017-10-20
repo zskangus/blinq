@@ -7,6 +7,8 @@
 //
 
 #import "SMSosDescriptionViewController.h"
+#import "SMUserInfoViewController.h"
+#import "SKViewTransitionManager.h"
 
 @interface SMSosDescriptionViewController ()
 
@@ -36,7 +38,7 @@
         
         [SKAttributeString setLabelFontContent:self.label4 title:NSLocalizedString(@"bewrite_sos_label4", nil) font:Avenir_Light Size:10 spacing:3 color:[UIColor whiteColor]];
         
-        [SKAttributeString setButtonFontContent:self.nextButton title:self.bottomButtonTitle font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
+        [SKAttributeString setButtonFontContent:self.nextButton title:NSLocalizedString(@"bewrite_notification_buttontTitle", nil) font:Avenir_Light Size:20 spacing:3 color:[UIColor whiteColor] forState:UIControlStateNormal];
 
 
     }else if ([NSLocalizedString(@"language", nil)isEqualToString:@"中文"]){
@@ -74,8 +76,20 @@
     
 }
 - (IBAction)nextBtn:(id)sender {
-    [self dismissViewControllerAnimated:NO completion:nil];
-    self.returnBlock();
+    
+    SMUserInfoViewController *userInfo = [[SMUserInfoViewController alloc]initWithNibName:@"SMUserInfoViewController" bundle:nil];
+    
+    userInfo.bottomButtonTitle = self.bottomButtonTitle;
+    
+    [SKViewTransitionManager presentModalViewControllerFrom:self to:userInfo duration:0.3 transitionType:TransitionPush directionType:TransitionFromRight];
+    
+
+    userInfo.returnBlock = ^(){
+            [self dismissViewControllerAnimated:NO completion:nil];
+            self.returnBlock();
+    };
+//
+    
 }
 
 @end

@@ -140,6 +140,7 @@ confirm_mobile_number = "确认电话号码";
 
 tip = "提示";
 
+
 tip_disconnect = "你的戒指断开了。 您可能需要忽略“设置->蓝牙”中已配对的戒指，重新连接后重试。";
 tip_network = "网络不可用，请检查";
 
@@ -237,6 +238,10 @@ location_buttonTitle = "下一步";
 
 loading = "加载中";
 
+location_services_switch = "请在【设置】->隐私->定位服务->BLINQ 选择“始终”允许访问位置信息";
+
+setting_title = "设置";
+
 // 国家
 UnitedStates = "UNITED STATES";
 Canada = "CANADA";
@@ -274,4 +279,85 @@ cancel = "取消";
 confirm = "确定";
 
 blueToolSwitchDescribe = "打开蓝牙来允许 \"Blinq\" 连接到配件";
+
+find_new_title="软件有新的版本";
+find_new_version="是否立即更新?";
+
+
+//计步功能
+step_counter = "计步";
+
+step_authorization = "在【设置】->隐私->运动与健身->BLINQ->允许“BLINQ“读取数据。";
+
+steps_to_goal = "目标步数还差";
+calories_to_goal = "目标卡路里还差";
+distance_to_goal = "目标距离还差";
+steps = "步数";
+calories = "卡路里";
+distance = "距离";
+step_settings = "计步设置";
+apple_health =  "苹果健康";
+daily_step_goal = "每日步数";
+age = "年龄";
+weight = "体重";
+height = "身高";
+confirm = "CONFIRM";
+total_steps = "运动步数";
+goals_reached = "达成次数";
+distance_kms = "运动距离";
+January = "1月";
+February = "2月";
+March = "3月";
+April = "4月";
+May = "5月";
+June = "6月";
+July = "7月";
+August = "8月";
+September = "9月";
+October = "10月";
+November = "11月";
+December = "12月";
+Loading = "加载中...";
+CALORIES = "CALORIES";
+DISTANCE = "DISTANCE";
+years_old = "岁";
+goal_reached = "目标达成!";
+OF = "OF";
+
+// 用户信息界面
+your_info_title = "你的信息";
+yout_info_title1 = "为SOS输入你的名字";
+your_info_label = "请输入您的名字，它会出现在SOS求救信息中。";
+your_info_firstName = "名";
+your_info_lastName = "姓";
+your_info_button_title = "下一步";
+
+// 计步功能描述界面
+//step_counter_Describe_title = "连接到苹果健康";
+//
+//step_counter_Describe_label2 = "在下一个页面";
+//
+//step_counter_Describe_label1 = "为了让Blinq可以读写苹果健康应用的数据，请确保允许Blinq可以访问苹果健康中所有类别数据";
+//
+//step_counter_Describe_label1_particular = "所有类别";
+//
+//step_counter_Describe_label3 = "打开所有类别";
+//
+//step_counter_Describe_label3_particular = "打开";
+//
+//step_counter_Describe_button_title = "好的，懂了";
+
+// 计步功能描述界面
+step_counter_Describe_title = "连接到苹果健康";
+
+step_counter_Describe_label1 = "为了让Blinq可以读写苹果健康应用的数据，请确保允许Blinq可以访问苹果健康中所有类别数据";
+
+step_counter_Describe_label2 = "1.开启“计步”";
+
+step_counter_Describe_label3 = "2.开启“苹果健康";
+
+step_counter_Describe_label4 = "3.在“苹果健康”中开启“步数”";
+
+step_counter_Describe_button_title = "好的，懂了";
+
 

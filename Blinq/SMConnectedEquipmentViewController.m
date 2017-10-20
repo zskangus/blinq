@@ -95,6 +95,7 @@
     BOOL isConnect = [boolNum boolValue];
     
     if (isConnect) {
+        [self.bleConnectTimer stopTimer];
         // 连接成功进入 成功界面
         NSLog(@"跳转到连接成功界面");
         SMConnectedSuccessViewController *success = [[SMConnectedSuccessViewController alloc]initWithNibName:@"SMConnectedSuccessViewController" bundle:nil];
@@ -132,8 +133,7 @@ static NSInteger _seconds;
         [self.ble connectDeviceFromBluetoothlList];
         
         self.bleConnectTimer = [[SKTimerManager alloc]init];
-        [self.bleConnectTimer createTimerWithType:TimerType_create_open updateInterval:5 repeatCount:1 update:^{
-            // 连接失败进图 失败界面
+        [self.bleConnectTimer createTimerWithType:TimerType_create_open updateInterval:8 repeatCount:1 update:^{
             
             if (screenHeight == 480) {
                 SMConnectionFailureViewController *failure = [[SMConnectionFailureViewController alloc]initWithNibName:@"SMConnectionFailureViewController_ip4" bundle:nil];

@@ -82,8 +82,7 @@
     
     dispatch_async(queue, ^{
         
-        if ([otaUpgradeViewController detectionRingVersion]) {
-            NSLog(@"otashengji%@",isDetect?@"YES":@"NO");
+        [otaUpgradeViewController checkFirmwareVersion:^(NSString *url, NSString *version) {
             if (isDetect) {
                 
                 dispatch_queue_t queue = dispatch_get_main_queue();
@@ -96,8 +95,9 @@
                 });
                 
             }
+        } notNeed:^{
             
-        }
+        }];
         
     });
     

@@ -8,6 +8,7 @@
 
 #import "BackgroundViewController.h"
 #import "SMRegisterViewController.h"
+#import "SMBindingViewController.h"
 
 @interface BackgroundViewController ()
 
@@ -44,16 +45,24 @@
 
 - (IBAction)goVc:(id)sender {
     
-    if (screenHeight == 480) {
-        SMRegisterViewController *registervc = [[SMRegisterViewController alloc]initWithNibName:@"SMRegisterViewController_ip4" bundle:nil];
-        
-        [self presentViewController:registervc animated:YES completion:nil];
-    }else{
-        SMRegisterViewController *registervc = [[SMRegisterViewController alloc]initWithNibName:@"SMRegisterViewController" bundle:nil];
-        
-        [self presentViewController:registervc animated:YES completion:nil];
-    }
+    SMPersonalModel *userInfo = [[SMPersonalModel alloc]init];
+//    userInfo.familyName = firstName;
+//    userInfo.givenName = lastName;
+    userInfo.heightString = @"6'0\"";
+    userInfo.heightRow = 58;
+    userInfo.heightComponent = 0;
+    userInfo.weight = 150;
+    userInfo.weightRow = 119;
+    userInfo.weightComponent = 0;
+    userInfo.birthday = @"2000-1-1";
+    userInfo.age = 17;
     
+    [SMBlinqInfo setUserInfo:userInfo];
+    
+    [SMBlinqInfo setIsFirstTimeInStepPage:YES];
+    
+    SMBindingViewController *bind = [[SMBindingViewController alloc]initWithNibName:@"SMBindingViewController" bundle:nil];
+    [self presentViewController:bind animated:YES completion:nil];
 
 }
 

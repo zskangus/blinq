@@ -112,6 +112,7 @@ static NSString * const settingCell = @"SettingCell";
     
     [self setupConnectStatus];
     [self autoDetectionRingVersion];
+
     [self batteryLevelUpdated];
     
     [self.de readBatteryState];
@@ -255,19 +256,18 @@ static NSString * const settingCell = @"SettingCell";
         return;
     }
     
-    if ([otaUpgradeViewController detectionRingVersion]) {
+    [otaUpgradeViewController checkFirmwareVersion:^(NSString *url, NSString *version) {
+        
+        [SMBlinqInfo setRingFirmwareUpdateFileUrl:url];
         
         otaUpdateAvailableViewController *updateAvailableView = [[otaUpdateAvailableViewController alloc]initWithNibName:@"otaUpdateAvailableViewController" bundle:nil];
         
         [self presentViewController:updateAvailableView animated:YES completion:nil];
-        
-    }else{
-    
+    } notNeed:^{
         otaUpToDateViewController *upToDate = [[otaUpToDateViewController alloc]initWithNibName:@"otaUpToDateViewController" bundle:nil];
         
         [self presentViewController:upToDate animated:YES completion:nil];
-
-    }
+    }];
 }
 
 - (IBAction)disConnect:(id)sender {

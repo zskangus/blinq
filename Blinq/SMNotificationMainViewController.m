@@ -52,7 +52,8 @@ static NSString * const manAgeContactAlertsCell = @"ManAgeContactAlertsCell";
 - (void)viewWillAppear:(BOOL)animated{
     
     [self autoDetectionRingVersion];
-    
+    [self autoCheckAppVersion];
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedNotif:) name:@"ReloadView" object:nil];
     [self setupAppData];
 }
@@ -81,9 +82,9 @@ static NSString * const manAgeContactAlertsCell = @"ManAgeContactAlertsCell";
     // 取得 在链接成功页面里获取到的APP配置信息
     NSMutableArray *apps = [NSMutableArray arrayWithArray:[SMAppTool Apps]];
     
-    if (apps.count == 0) {
-        [SMMessageManager againSetupNotificationInfo];
-    }
+//    if (apps.count == 0) {
+//        [SMMessageManager againSetupNotificationInfo];
+//    }
     
     // 对象排序
     NSArray *sortedArray = [apps sortedArrayUsingComparator:^NSComparisonResult(SMAppModel *p1, SMAppModel *p2){

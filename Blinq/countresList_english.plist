@@ -32,6 +32,14 @@
 	</dict>
 	<dict>
 		<key>Number</key>
+		<string>66</string>
+		<key>Name</key>
+		<string>KINGDOM OF THAILAND</string>
+		<key>CountryCode</key>
+		<string>THA</string>
+	</dict>
+	<dict>
+		<key>Number</key>
 		<string>86</string>
 		<key>Name</key>
 		<string>CHINA</string>

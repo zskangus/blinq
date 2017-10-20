@@ -29,6 +29,7 @@
                                              selector:@selector(appLicationDidBecomeActive)
                                                  name:UIApplicationDidBecomeActiveNotification
                                                object:nil];
+    
 
 }
 
@@ -88,35 +89,119 @@
         return;
     }
     
+    BOOL isHaveAppliedForAuthorization = [[NSUserDefaults standardUserDefaults]boolForKey:@"IsHaveAppliedForAuthorization"];
     
-    SMlocationManager *location = [SMlocationManager sharedLocationManager];
     
-    location.isReverseGeocodeLocation = NO;
-    
-    [location startLocationAndGetPlaceInfo:^(BOOL results) {
+    if (isHaveAppliedForAuthorization) {
         
-        if (results == NO) {
+        if([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedAlways){
             BackgroundViewController *binding = [[BackgroundViewController alloc]initWithNibName:@"BackgroundViewController" bundle:nil];
             
             [self presentViewController:binding animated:YES completion:nil];
+        }else{
+            [self showAuthorizationHintAlertController];
         }
+    }else{
+        SMlocationManager *location = [SMlocationManager sharedLocationManager];
         
+        [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"IsHaveAppliedForAuthorization"];
         
-    }];
-    location.returnBlock=^(NSMutableDictionary * addresss,CLLocationCoordinate2D currentUserCoordinate, BOOL isSuccessful){
+        [location requestAlwaysAuthorization:^(CLAuthorizationStatus status) {
+            
+            switch (status) {
+                case kCLAuthorizationStatusAuthorizedAlways:
+                {
+                    BackgroundViewController *binding = [[BackgroundViewController alloc]initWithNibName:@"BackgroundViewController" bundle:nil];
+                    
+                    [self presentViewController:binding animated:YES completion:nil];
+                }
+                    break;
+                case kCLAuthorizationStatusNotDetermined:
+                    break;
+                case kCLAuthorizationStatusDenied:
+                case kCLAuthorizationStatusRestricted:
+                case kCLAuthorizationStatusAuthorizedWhenInUse:
+                {
+                    [self showAuthorizationHintAlertController];
+                }
+                    
+                    break;
+                default:
+                    break;
+            }
+            
+            //        二、第二个枚举值：kCLAuthorizationStatusRestricted的意思是：定位服务授权状态是受限制的。可能是由于活动限制定位服务，用户不能改变。这个状态可能不是用户拒绝的定位服务。
+            //        三、第三个枚举值：kCLAuthorizationStatusDenied的意思是：定位服务授权状态已经被用户明确禁止，或者在设置里的定位服务中关闭。
+            //        四、第四个枚举值：kCLAuthorizationStatusAuthorizedAlways的意思是：定位服务授权状态已经被用户允许在任何状态下获取位置信息。包括监测区域、访问区域、或者在有显著的位置变化的时候。
+            //        五、第五个枚举值：kCLAuthorizationStatusAuthorizedWhenInUse的意思是：定位服务授权状态仅被允许在使用应用程序的时候。
+            //        六、第六个枚举值：kCLAuthorizationStatusAuthorized的意思是：这个枚举值已经被废弃了。他相当于
+            //        kCLAuthorizationStatusAuthorizedAlways这个值。
+            
+        }];
+    }
+    
 
-        BackgroundViewController *binding = [[BackgroundViewController alloc]initWithNibName:@"BackgroundViewController" bundle:nil];
-        
-        [self presentViewController:binding animated:YES completion:nil];
-        
-    };
+    
+//    location.isReverseGeocodeLocation = NO;
+//
+//    [location startLocationAndGetPlaceInfo:^(BOOL results) {
+//
+//        if (results == NO) {
+//            BackgroundViewController *binding = [[BackgroundViewController alloc]initWithNibName:@"BackgroundViewController" bundle:nil];
+//
+//            [self presentViewController:binding animated:YES completion:nil];
+//        }
+//
+//
+//    }];
+//    location.returnBlock=^(NSMutableDictionary * addresss,CLLocationCoordinate2D currentUserCoordinate, BOOL isSuccessful){
+//
+//        BackgroundViewController *binding = [[BackgroundViewController alloc]initWithNibName:@"BackgroundViewController" bundle:nil];
+//
+//        [self presentViewController:binding animated:YES completion:nil];
+//
+//    };
 
 
 }
 
+- (void)showAuthorizationHintAlertController{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"", nil) message:NSLocalizedString(@"location_services_switch", nil) preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *settingAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"setting_title", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+        
+        if ([[UIApplication sharedApplication] canOpenURL:url]) {
+            
+            [[UIApplication sharedApplication] openURL:url];
+            
+        }
+    }];
+    
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"update_available_page_buttonTitle2", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        BackgroundViewController *binding = [[BackgroundViewController alloc]initWithNibName:@"BackgroundViewController" bundle:nil];
+        
+        [self presentViewController:binding animated:YES completion:nil];
+    }];
+    
+    //[alertController setValue:[self setAlertControllerWithStrring:NSLocalizedString(@"tip_fill_text", nil) fontSize:14 spacing:1.85]  forKey:@"attributedMessage"];
+    [alertController addAction:settingAction];
+    [alertController addAction:okAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
 - (void)appLicationDidBecomeActive{
-
-
+    BOOL isHaveAppliedForAuthorization = [[NSUserDefaults standardUserDefaults]boolForKey:@"IsHaveAppliedForAuthorization"];
+    
+    if (isHaveAppliedForAuthorization == YES && [CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedAlways) {
+        
+        BackgroundViewController *binding = [[BackgroundViewController alloc]initWithNibName:@"BackgroundViewController" bundle:nil];
+        
+        [self presentViewController:binding animated:YES completion:nil];
+    }else if(isHaveAppliedForAuthorization == YES && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedAlways){
+        [self showAuthorizationHintAlertController];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated{

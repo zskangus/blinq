@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.1.5</string>
+	<string>2.2.5</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
@@ -236,8 +236,10 @@
 	<string>If you choose “Don’t allow”, you will not be able to record your Motion &amp; Fitness Activity.</string>
 	<key>NSHealthUpdateUsageDescription</key>
 	<string>wowoo</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>We need to know your location when sending SOS information. Select “Always Allow" to enable SOS distress functions. </string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>We need to know your location when sending SOS information. Select “Allow" to enable SOS distress functions. </string>
+	<string>We need to know your location when sending SOS information. Select “Always Allow" to enable SOS distress functions. </string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>YES</string>
 	<key>NSMotionUsageDescription</key>
@@ -251,11 +253,6 @@
 	<false/>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
-	<key>UIRequiredDeviceCapabilities</key>
-	<array>
-		<string>armv7</string>
-		<string>healthkit</string>
-	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

@@ -58,7 +58,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [self autoDetectionRingVersion];
-    
+
     [self addObserver:self forKeyPath:@"colorArray" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
 }
 

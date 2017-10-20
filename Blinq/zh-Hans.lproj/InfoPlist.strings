@@ -6,4 +6,8 @@
   Copyright © 2017年 zsk. All rights reserved.
 */
 
-NSLocationAlwaysUsageDescription = "We need to know your location when sending SOS information. Select \“Allow\" to enable SOS distress functions.";
+NSLocationAlwaysAndWhenInUseUsageDescription = "我们需要知道您发送SOS信息的位置。选择“始终允许”启用SOS求救功能。";
+
+NSMotionUsageDescription = "若不允许，你将不能使用你的运动数据。";
+
+NSHealthShareUsageDescription = "如果你选择“不允许”，你将无法查看你的健康数据。";

@@ -44,7 +44,7 @@ static NSString * const mainMeunCell = @"MainMenuCell";
                             NSLocalizedString(@"menu_title_contacts", nil),
                             NSLocalizedString(@"menu_title_play", nil),
                             NSLocalizedString(@"menu_title_emergency", nil),
-                            NSLocalizedString(@"STEP COUNTER", nil),
+                            NSLocalizedString(@"step_counter", nil),
                             NSLocalizedString(@"menu_title_settings", nil),
                             NSLocalizedString(@"menu_title_help", nil)
                             ];
@@ -52,10 +52,9 @@ static NSString * const mainMeunCell = @"MainMenuCell";
             _labelArray = @[NSLocalizedString(@"menu_title_notifications", nil),
                             NSLocalizedString(@"menu_title_contacts", nil),
                             NSLocalizedString(@"menu_title_play", nil),
-                            NSLocalizedString(@"STEP COUNTER", nil),
+                            NSLocalizedString(@"step_counter", nil),
                             NSLocalizedString(@"menu_title_settings", nil),
-                            NSLocalizedString(@"menu_title_help", nil),
-                            NSLocalizedString(@"STEP COUNTER", nil)];
+                            NSLocalizedString(@"menu_title_help", nil)];
         }
         
     }
@@ -65,9 +64,9 @@ static NSString * const mainMeunCell = @"MainMenuCell";
 -(NSArray *)imageArray{
     if (!_imageArray) {
         if ([[NSUserDefaults standardUserDefaults]boolForKey:@"openSosFunc"]) {
-            _imageArray = @[@"icon-shape",@"icon-lists",@"icon-home",@"icon-profile",@"icon-form",@"icon-settings",@"icon-form"];
+            _imageArray = @[@"icon-shape",@"icon-lists",@"icon-home",@"icon-profile",@"icon-stepCounter",@"icon-settings",@"icon-form"];
         }else{
-            _imageArray = @[@"icon-shape",@"icon-lists",@"icon-home",@"icon-form",@"icon-settings",@"icon-form"];
+            _imageArray = @[@"icon-shape",@"icon-lists",@"icon-home",@"icon-stepCounter",@"icon-settings",@"icon-form"];
         }
     }
     return _imageArray;

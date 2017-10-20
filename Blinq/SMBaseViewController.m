@@ -9,6 +9,8 @@
 #import "SMBaseViewController.h"
 #import "otaUpgradeViewController.h"
 #import "otaUpdateAvailableViewController.h"
+#import <AFNetworking.h>
+#import "NSDate+Tool.h"
 
 @interface SMBaseViewController ()
 
@@ -176,25 +178,124 @@
     
     dispatch_async(queue, ^{
         
-        if ([otaUpgradeViewController detectionRingVersion]) {
-            NSLog(@"有可用升级-是否需要提示%@",isDetect?@"YES":@"NO");
+        [otaUpgradeViewController checkFirmwareVersion:^(NSString *url, NSString *version) {
             if (isDetect) {
+                
+                [SMBlinqInfo setRingFirmwareUpdateFileUrl:url];
                 
                 dispatch_queue_t queue = dispatch_get_main_queue();
                 dispatch_async(queue, ^{
-    
+                    
                     otaUpdateAvailableViewController *updateAvailableView = [[otaUpdateAvailableViewController alloc]initWithNibName:@"otaUpdateAvailableViewController" bundle:nil];
                     
                     [self presentViewController:updateAvailableView animated:YES completion:nil];
-
+                    
                 });
                 
             }
+        } notNeed:^{
             
-        }
+        }];
         
     });
     
+}
+
+- (void)autoCheckAppVersion{
+    
+    NSDate *nowDate = [NSDate getStartTimeWithDate:[NSDate date]];
+    
+    NSString *nowDateString = [NSDate stringFormDate:nowDate withDateFormat:@"yyyy-MM-dd"];
+    
+    NSString *appOldDateString = [SMBlinqInfo timeOfTheLastHintAppNewVersion];
+    
+    if ([nowDateString isEqualToString:appOldDateString]) {
+        return;
+    }
+    
+    GCD_GLOBAL(^{
+        [self checkAppVersion:^(NSString *appServerVersion) {
+            
+            
+            // 蓝牙的取消
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"find_new_title", nil)  message:NSLocalizedString(@"find_new_version", nil) preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"no", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                [SMBlinqInfo setTimeOfTheLastHintNewAppVersionWithDate:nowDateString];
+            }];
+            
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"yes", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [SMBlinqInfo setTimeOfTheLastHintNewAppVersionWithDate:nowDateString];
+
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/app/id1112810994"]];
+            }];
+            
+            [alertController addAction:cancelAction];
+            [alertController addAction:okAction];
+            
+            [self presentViewController:alertController animated:YES completion:nil];
+        } notNeed:^{
+            
+        }];
+        
+    });
+    
+}
+
+- (void)checkAppVersion:(void(^)(NSString *appServerVersion))need notNeed:(void(^)(void))notNeed{
+    AFHTTPSessionManager *sessionManager = [[AFHTTPSessionManager alloc]init];
+    [sessionManager POST:@"http://itunes.apple.com/lookup?id=1112810994" parameters:nil progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSArray *array = responseObject[@"results"];
+        NSDictionary *dict = [array lastObject];
+        
+        NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+        
+        NSString *appServerVersion = dict[@"version"];
+        
+        NSString * localVersion = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+        
+        NSLog(@"app store 版本为：%@，当前版本为：%@",appServerVersion,localVersion);
+        
+        appServerVersion = [[appServerVersion componentsSeparatedByCharactersInSet:[[NSCharacterSet characterSetWithCharactersInString:@"0123456789."] invertedSet]] componentsJoinedByString:@""];
+        
+        localVersion = [[localVersion componentsSeparatedByCharactersInSet:[[NSCharacterSet characterSetWithCharactersInString:@"0123456789."] invertedSet]] componentsJoinedByString:@""];
+        
+        if ([appServerVersion isEqualToString:localVersion]) {
+            notNeed();
+            return;
+        }
+        
+        //以"."分隔数字然后分配到不同数组
+        NSArray * serverArray = [appServerVersion componentsSeparatedByString:@"."];
+        
+        NSArray * localArray = [localVersion componentsSeparatedByString:@"."];
+        
+        for (int i = 0; i < serverArray.count; i++) {
+            
+            //以服务器版本为基准，判断本地版本位数小于服务器版本时，直接返回（并且判断为新版本，比如服务器1.5.1 本地为1.5）
+            if(i > (localArray.count -1)){
+                NSLog(@"需要更新，当前最新版本为%@",appServerVersion);
+                need(appServerVersion);
+                break;
+            }
+            //有新版本，服务器版本对应数字大于本地
+            if ( [serverArray[i] intValue] > [localArray[i] intValue]) {
+                NSLog(@"需要更新，软件版本为%@，当前最新版本为%@",localVersion,appServerVersion);
+                need(appServerVersion);
+                break;
+            }else if([serverArray[i] intValue] < [localArray[i] intValue]){
+                notNeed();
+                break;
+            }
+        }
+        
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
 }
 
 - (CGRect)getScreenSize{

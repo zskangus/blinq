@@ -13,11 +13,15 @@
 
 typedef void(^ReturnBlock)(BOOL results);
 
+typedef void(^authoriztionBlock)(CLAuthorizationStatus status);
+
 //定位成功回调
 typedef void(^ReturnLocation)(NSMutableDictionary *address,CLLocationCoordinate2D currentUserCoordinate,BOOL isSuccessful);
 
 // 单例
 + (SMlocationManager *)sharedLocationManager;
+
+- (void)requestAlwaysAuthorization:(authoriztionBlock)authoriztionStatus;
 
 /// 开始定位并获得位置相关信息
 - (void)startLocationAndGetPlaceInfo:(ReturnBlock)results;

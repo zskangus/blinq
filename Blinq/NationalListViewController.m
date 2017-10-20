@@ -74,6 +74,8 @@ static NSString * const CountriesCell = @"countriesCell";
 
 - (void)setupPhoneNumberAndCurrentCountresLabel{
     
+    self.currentCountryCode.text = self.contact.countryCode;
+    
     if ((self.currentCountryCode.text.integerValue == 1 && [[self.contact.phoneNum substringToIndex:1] isEqualToString:@"1"])){
         
         [self setupAreaCode:[NSString stringWithFormat:@"+%@",self.contact.countryCode]];
@@ -81,8 +83,9 @@ static NSString * const CountriesCell = @"countriesCell";
         NSString *str = [self.contact.phoneNum substringFromIndex:1];
         
         [self setupCellNumber:str];
-        
+        NSLog(@"%@--str",str);
         self.currentCountres.text = self.contact.countriesName;
+        
         self.currentCountryCode.text = [NSString stringWithFormat:@"+%@",self.contact.countryCode];;
         
     }else{
@@ -388,6 +391,8 @@ static NSString * const CountriesCell = @"countriesCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     countriesModel *countries = self.countresList[indexPath.row];
+    
+    self.currentCountryCode.text = countries.countriesNumBer;
     
     if ((self.currentCountryCode.text.integerValue == 1 && [[self.contact.phoneNum substringToIndex:1] isEqualToString:@"1"])){
         self.currentCountres.text = countries.countriesName;

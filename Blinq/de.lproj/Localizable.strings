@@ -242,6 +242,10 @@ location_buttonTitle = "WEITER";
 
 loading = "IN LADUNG";
 
+location_services_switch = "BITTE WÄHLE „IMMER ZULASSEN” IN DEN EINSTELLUNGEN -> DATENSCHUTZ -> STANDORT SERVICE -> BLINQ - > IMMER ZULASSEN";
+
+setting_title = "EINSTELL";
+
 // 国家
 UnitedStates = "VEREINIGTE STAATEN";
 Canada = "KANADA";
@@ -275,3 +279,73 @@ sos_Liability = "Durch die Verwendung der Blinq App und SOS-Funktion (nachfolgen
 
 decline = "ABLEHNEN";
 accept = "AKZEPTIEREN";
+
+find_new_title="NEW SOFTWARE FOUND";
+find_new_version="UPDATE NOW?";
+
+cancel = "STORNIEREN";
+
+//计步功能
+step_counter = "SCHRITTZÄHLER";
+
+step_authorization = "ERLAUBE BLINQ DEN ZUGRIFF AUF BEWEGUNG & FITNESS INNERHALB DEN PRIVATEN EINSTELLUNGEN DEINES MOBILTELEFONS";
+
+steps_to_goal = "SCHRITTE BIS ZUM ZIEL";
+calories_to_goal = "KALORIEN BIS ZUM ZIEL";
+distance_to_goal = "ENTFERNUNG BIS ZUM ZIEL";
+steps = "SCHRITTE";
+calories = "KALORIEN";
+distance = "ENTFERNUNG";
+step_settings = "SCHRITT EINSTELLUNGEN";
+apple_health =  "APPLE HEALTH";
+daily_step_goal = "TÄGLICHES SCHRITTE ZIEL";
+age = "ALTER";
+weight = "GEWICHT";
+height = "GRÖSSE";
+confirm = "BESTÄTIGEN";
+total_steps = "SCHRITTE GESAMT";
+goals_reached = "ZIELE ERREICHT";
+distance_kms = "ZURÜCKGELEGTE KM";
+January = "JANUAR";
+February = "FEBRUAR";
+March = "MÄRZ";
+April = "APRIL";
+May = "MAI";
+June = "JUNI";
+July = "JULY";
+August = "AUGUST";
+September = "SEPTEMBER";
+October = "OKTOBER";
+November = "NOVEMBER";
+December = "DEZEMBER";
+Loading = "LÄDT";
+CALORIES = "KALORIEN";
+DISTANCE = "ENTFERNUNG";
+years_old = "JAHRE ALT";
+goal_reached = "ZIEL ERREICHT!";
+OF = "VON";
+
+// 用户信息界面
+your_info_title = "IHREN INFO";
+yout_info_title1 = "TRAGEN DEINEN NAMEN FÜR S.O.S EIN";
+your_info_label = "BITTE TRAGE DEINEN NAMEN SO EIN, WIE ER BEI DER NUTZUNG DER SOS NOTFALL NACHRICHT VERWENDET WERDEN SOLL.";
+your_info_firstName = "VORNAME";
+your_info_lastName = "NACHNAME";
+your_info_button_title = "WEITER";
+
+// 计步功能描述界面
+step_counter_Describe_title = "BLINQ\rVERBINDET MIT\rAPPLE HEALTH";
+
+step_counter_Describe_label1 = "BLINQ CAN FITNESS DATEN AN APPLE´S HEALTH APP SCHICKEN. BITTE STELLE DAZU FOLGENDE SCHRITTE SICHER: ";
+
+step_counter_Describe_label2 = "1. ERLAUBE „SCHRITT ZÄHLER\"";
+
+step_counter_Describe_label3 = "2. ERLAUBE „APPLE HEALTH\"";
+
+step_counter_Describe_label4 = "3. ERLAUBE „SCHRITTE\" BEI APPLE HEALTH FÜR DIE BLINQ APP";
+
+step_counter_Describe_button_title = "OK, ERLEDIGT";
+
+
+
+

@@ -25,6 +25,8 @@
 
 @property(nonatomic,strong)NSMutableArray *accuracyArray;
 
+@property(nonatomic,copy)authoriztionBlock authoriztionStatus;
+
 @end
 
 static NSInteger checkCount;
@@ -68,42 +70,35 @@ static SMlocationManager* _defaultLocation = nil;
     return _defaultLocation;
 }
 
+- (CLLocationManager *)locationManager{
+    
+    if (!_locationManager) {
+        // 1. 实例化定位管理器
+        _locationManager = [[CLLocationManager alloc] init];
+        // 2. 设置代理
+        _locationManager.delegate = self;
+        // 3. 定位精度
+        [_locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
+        _locationManager.distanceFilter = kCLDistanceFilterNone; //1.0f;
+        _locationManager.pausesLocationUpdatesAutomatically = NO; //NO表示一直请求定位服务
+    }
+    return _locationManager;
+}
+
 // 开始定位并获得位置相关信息(如国家等)
 - (void)startLocationAndGetPlaceInfo:(ReturnBlock)results
 {
+
     
     if ([CLLocationManager locationServicesEnabled] &&
-        ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorized
+        ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedAlways
          || [CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined)) {
             
             [self.accuracyArray removeAllObjects];
+            // 更新用户位置
+            [self.locationManager startUpdatingLocation];
+            [self startTheAccuracyTimer];
             
-            // 开始定位用户的位置
-            if (!self.locationManager)
-            {
-                // 1. 实例化定位管理器
-                self.locationManager = [[CLLocationManager alloc] init];
-                // 2. 设置代理
-                self.locationManager.delegate = self;
-                // 3. 定位精度
-                [self.locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
-                
-                // 授权
-                [self.locationManager requestAlwaysAuthorization];
-                
-                // 4.请求用户权限：分为：?只在前台开启定位?在后台也可定位，
-                //注意：建议只请求?和?中的一个，如果两个权限都需要，只请求?即可，
-                //??这样的顺序，将导致bug：第一次启动程序后，系统将只请求?的权限，?的权限系统不会请求，只会在下一次启动应用时请求?
-                self.locationManager.distanceFilter = kCLDistanceFilterNone; //1.0f;
-                self.locationManager.pausesLocationUpdatesAutomatically = NO; //NO表示一直请求定位服务
-                // 6. 更新用户位置
-                [self.locationManager startUpdatingLocation];
-                [self startTheAccuracyTimer];
-            }else{
-                //开始定位
-                [self.locationManager startUpdatingLocation];
-                [self startTheAccuracyTimer];
-            }
             results(YES);
             
         }
@@ -113,8 +108,26 @@ static SMlocationManager* _defaultLocation = nil;
         // 2.提醒用户打开定位开关
         results(NO);
     }
+}
+
+
+
+- (void)requestAlwaysAuthorization:(authoriztionBlock)authoriztionStatus{
     
+    self.authoriztionStatus = authoriztionStatus;
+
+    if ([CLLocationManager locationServicesEnabled]){
+        [self.locationManager requestAlwaysAuthorization];
+    }
     
+}
+
+// 授权回调
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
+    if (self.authoriztionStatus) {
+        self.authoriztionStatus(status);
+    }
+    NSLog(@"定位权限%d",status);
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation{

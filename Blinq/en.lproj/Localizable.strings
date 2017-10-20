@@ -241,6 +241,10 @@ location_buttonTitle = "NEXT";
 
 loading = "LOADING";
 
+location_services_switch = "PLEASE SELECT “ALWAYS ALLOW” IN SETTING -> PRIVACY -> LOCATION SERVICES -> BLINQ -> ALWAYS ALLOW";
+
+setting_title = "SETTING";
+
 // 国家
 UnitedStates = "UNITED STATES";
 Canada = "CANADA";
@@ -279,3 +283,68 @@ cancel = "CANCEL";
 confirm = "CONFIRM";
 
 blueToolSwitchDescribe = "Turn On BlueTooth to Allow \"Blinq\" to Connect to Accessories";
+
+find_new_title="NEW SOFTWARE FOUND";
+find_new_version="UPDATE NOW?";
+
+//计步功能
+step_counter = "STEP COUNTER";
+
+step_authorization = "ALLOW BLINQ TO ACCESS MOTION & FITNESS ON SETTINGS -> PRIVACY ON YOUR IPHONE";
+
+steps_to_goal = "STEPS TO GOAL";
+calories_to_goal = "CALORIES TO GOAL";
+distance_to_goal = "DISTANCE TO GOAL";
+steps = "STEPS";
+calories = "CALORIES";
+distance = "DISTANCE";
+step_settings = "STEP SETTINGS";
+apple_health =  "APPLE HEALTH";
+daily_step_goal = "DAILY STEP GOAL";
+age = "AGE";
+weight = "WEIGHT";
+height = "HEIGHT";
+confirm = "CONFIRM";
+total_steps = "TOTAL STEPS";
+goals_reached = "GOALS REACHED";
+distance_kms = "DISTANCE KMS";
+January = "January";
+February = "February";
+March = "March";
+April = "April";
+May = "May";
+June = "June";
+July = "July";
+August = "August";
+September = "September";
+October = "October";
+November = "November";
+December = "December";
+Loading = "LOADING...";
+CALORIES = "CALORIES";
+DISTANCE = "DISTANCE";
+years_old = "YEARS OLD";
+goal_reached = "GOAL REACHED!";
+OF = "OF";
+
+// 用户信息界面
+your_info_title = "YOUR INFO";
+yout_info_title1 = "ENTER YOUR NAME FOR S.O.S.";
+your_info_label = "PLEASE ENTER YOUR NAME AS YOU WOULD LIKE IT TO APPEAR IN THE SOS DISTRESS MESSAGE.";
+your_info_firstName = "FIRST NAME";
+your_info_lastName = "LAST NAME";
+your_info_button_title = "NEXT";
+
+// 计步功能描述界面
+step_counter_Describe_title = "BLINQ\rCONNECTS WITH\rAPPLE HEALTH";
+
+step_counter_Describe_label1 = "BLINQ CAN SEND FITNESS DATA TO APPLE’S HEALTH APP. PLEASE MAKE SURE YOU FOLLOW THESE STEPS :";
+
+step_counter_Describe_label2 = "1. ENABLE “STEP COUNTER”";
+
+step_counter_Describe_label3 = "2. ENABLE “APPLE HEALTH” ";
+
+step_counter_Describe_label4 = "3. ENABLE “STEPS” IN APPLE HEALTH FOR THE BLINQ APP";
+
+step_counter_Describe_button_title = "OK GOT IT";
+

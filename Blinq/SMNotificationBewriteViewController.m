@@ -73,6 +73,28 @@
     }else{
         if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)]) {
             [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert categories:nil]];
+            
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (screenHeight == 480) {
+                    BackgroundViewController *binding = [[BackgroundViewController alloc]initWithNibName:@"BackgroundViewController_ip4" bundle:nil];
+                    
+                    [self presentViewController:binding animated:YES completion:nil];
+                    
+                }else{
+                    
+                    
+                    if ([[NSUserDefaults standardUserDefaults]boolForKey:@"openSosFunc"]) {
+                        SMLocationViewController *binding = [[SMLocationViewController alloc]initWithNibName:@"SMLocationViewController" bundle:nil];
+                        
+                        [self presentViewController:binding animated:YES completion:nil];
+                    }else{
+                        BackgroundViewController *binding = [[BackgroundViewController alloc]initWithNibName:@"BackgroundViewController" bundle:nil];
+                        
+                        [self presentViewController:binding animated:YES completion:nil];
+                    }
+                }
+            });
         }
     }
     

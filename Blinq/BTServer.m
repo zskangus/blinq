@@ -229,7 +229,7 @@ static BTServer* _defaultBTServer = nil;
     
     NSDictionary *dic = [userDefaults dictionaryRepresentation];
     
-    NSArray *array =@[@"isHaveBeenBound",@"LastPeriphrealIdentifierConnectedKey",@"sensitivityTurnedOn",@"sosVcTurnedOn",@"socialTurnedOn",@"notification_contactVcTurnedOn",@"main_contactVcTurnedOn",@"firstName",@"lastName",@"isUploadSuccessful",@"sendMessagePower",@"locationPower",@"sensitivityLevel",@"openSosFunc",@"isAccpetDisclaimer",@"userInfo",@"stepCounterPower",@"isHaveHealthAuthorized",@"targetSteps",@"isFirstTimeEnter",@"setIsloadedAllData",@"stepDataLastLoadTime",@"CBManagerState"];
+    NSArray *array =@[@"isHaveBeenBound",@"LastPeriphrealIdentifierConnectedKey",@"sensitivityTurnedOn",@"sosVcTurnedOn",@"socialTurnedOn",@"notification_contactVcTurnedOn",@"main_contactVcTurnedOn",@"firstName",@"lastName",@"isUploadSuccessful",@"sendMessagePower",@"locationPower",@"sensitivityLevel",@"openSosFunc",@"isAccpetDisclaimer",@"userInfo",@"stepCounterPower",@"isHaveHealthAuthorized",@"targetSteps",@"isFirstTimeEnter",@"setIsloadedAllData",@"stepDataLastLoadTime",@"CBManagerState",@"isFirstTimeInStepPage",@"stepVcTurnedOn"];
     
     NSMutableArray *array1 = [NSMutableArray array];
     NSString *string = [[NSString alloc]init];
@@ -374,6 +374,11 @@ static BTServer* _defaultBTServer = nil;
     
     // 查看上次存入的 identifier 还能否找到 peripheral
     NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:lastPeripheralIdentifierConnected];
+    
+    if (uuid == nil) {
+        return;
+    }
+    
     NSArray *peripherals = [self.centralManager retrievePeripheralsWithIdentifiers:@[uuid]];
 
     for (CBPeripheral *peripheral in peripherals) {
@@ -384,8 +389,9 @@ static BTServer* _defaultBTServer = nil;
             [self.centralManager connectPeripheral:peripheral options:nil];
             return;
         }
-        
     }
+    
+
     
     
 
@@ -620,14 +626,14 @@ static BTServer* _defaultBTServer = nil;
     for (CBPeripheral *peripheral in peripherals) {
         self.peripherals = peripheral;
         //if (peripheral.state == CBPeripheralStateConnecting || peripheral.state == CBPeripheralStateConnected) {
-            [self.centralManager connectPeripheral:self.peripherals options:nil];
-            return;
+        [[NSUserDefaults standardUserDefaults] setObject:self.peripherals.identifier.UUIDString forKey:LastPeriphrealIdentifierConnectedKey];
+        
+        [self.centralManager connectPeripheral:self.peripherals options:nil];
+        return;
         //}
         NSLog(@"蓝牙列表的外设=:%@",peripheral);
     }
-
 }
-
 
 -(CBUUID *) IntToCBUUID:(UInt16)UUID {
     UInt16 cz = [self swap:UUID];
@@ -1260,6 +1266,7 @@ static NSInteger checkCount;
     dispatch_queue_t queue = dispatch_get_main_queue();
     dispatch_async(queue, ^{
         [SKNotificationCenter postNotificationName:bluetoothConnectState object:dic];
+        [SKNotificationCenter postNotificationName:@"otaPagebleConnectStatus" object:[NSNumber numberWithBool:status]];
     });
 }
 
