@@ -6,4 +6,8 @@
   Copyright © 2017年 zsk. All rights reserved.
 */
 
-NSLocationAlwaysUsageDescription = "We need to know your location when sending SOS information. Select \“Allow\" to enable SOS distress functions.";
+NSLocationAlwaysAndWhenInUseUsageDescription = "We need to know your location when sending SOS information. Select \“Always Allow\" to enable SOS distress functions.";
+
+NSMotionUsageDescription = "Based on the motion sensor, record your number of steps";
+
+NSHealthShareUsageDescription = "If you choose “Don’t allow”, you will not be able to record your Motion & Fitness Activity.";

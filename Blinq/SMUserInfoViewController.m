@@ -149,12 +149,12 @@
     switch (field.tag) {
         case 1:
             NSLog(@"输入的内容:%@",content);
-            //[SKUserDefaults setObject:content forKey:@"firstName"];
+            [SKUserDefaults setObject:content forKey:@"firstName"];
             break;
         case 2:
         {
             NSLog(@"输入的内容:%@",content);
-            //[SKUserDefaults setObject:content forKey:@"lastName"];
+            [SKUserDefaults setObject:content forKey:@"lastName"];
         }
             break;
         case 3:
@@ -289,7 +289,10 @@ static int keyboardHeight;
         [SMBlinqInfo setUserInfo:userInfo];
         
         [self dismissViewControllerAnimated:NO completion:nil];
-        self.returnBlock();
+        
+        if (self.returnBlock) {
+            self.returnBlock();
+        }
     }
 
 }

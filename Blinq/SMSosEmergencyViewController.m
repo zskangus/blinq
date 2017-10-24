@@ -28,6 +28,8 @@
 #import "BTServer.h"
 #import <CoreLocation/CoreLocation.h>
 
+#import "SMUserInfoViewController.h"
+
 typedef NS_ENUM(NSInteger,sosDescription){
     
     sosDescriptionOpening = 0,
@@ -136,7 +138,9 @@ static BOOL isUserClick;
     //[self setupFaceBookLoginButton];
     
     [self setupNavigationTitle:NSLocalizedString(@"nav_title_SOS_EMERGENCY", nil) isHiddenBar:NO];
+    
 }
+
 
 //- (void)setupFaceBookLoginButton{
 //
@@ -298,6 +302,54 @@ static BOOL isUserClick;
             default:
                 break;
         }
+//        switch (sensitivityLevel) {
+//            case 0:
+//                level.Count = 8;
+//                level.DPercent = 6.0 / 8;
+//                break;
+//            case 1:
+//                level.Count = 9;
+//                level.DPercent = 8.0 / 9;
+//                break;
+//            case 2:
+//                level.Count = 10;
+//                level.DPercent = 8.0 / 10;
+//                break;
+//            case 3:
+//                level.Count = 11;
+//                level.DPercent = 8.0 / 11;
+//                break;
+//            case 4:
+//                level.Count = 12;
+//                level.DPercent = 10.0 / 12;
+//                break;
+//            case 5:
+//                level.Count = 13;
+//                level.DPercent = 10.0 / 13;
+//                break;
+//            case 6:
+//                level.Count = 14;
+//                level.DPercent = 12.0 / 14;
+//                break;
+//            case 7:
+//                level.Count = 15;
+//                level.DPercent = 12.0 / 15;
+//                break;
+//            case 8:
+//                level.Count = 16;
+//                level.DPercent = 12.0 / 16;
+//                break;
+//            case 9:
+//                level.Count = 17;
+//                level.DPercent = 14.0 / 17;
+//                break;
+//            case 10:
+//                level.Count = 18;
+//                level.DPercent = 14.0 / 18;
+//                break;
+//            default:
+//                break;
+//        }
         
         
         NSLog(@"灵敏度等级%d -- 百分比%f",level.Count,level.DPercent);
@@ -357,7 +409,7 @@ static BOOL isUserClick;
             [self.customSwitch setOn:emergencyPower];
         }
         
-        //[self isOpenDescription];
+        [self performSelector:@selector(checkUserInfo) withObject:nil afterDelay:1];
         
     }else{
         NSLog(@"没有紧急联系人");
@@ -374,6 +426,17 @@ static BOOL isUserClick;
         //[SMMessageManager emergencyPower:NO];
     }
 
+}
+
+- (void)checkUserInfo{
+    NSString *firstName = [SKUserDefaults objectForKey:@"firstName"];
+    NSString *lastName = [SKUserDefaults objectForKey:@"lastName"];
+    
+    if ([self isBlankString:firstName] || [self isBlankString:lastName]) {
+        SMUserInfoViewController *alloc = [[SMUserInfoViewController alloc]initWithNibName:@"SMUserInfoViewController" bundle:nil];
+        alloc.bottomButtonTitle = NSLocalizedString(@"socicl_page_done", nil);
+        [self presentViewController:alloc animated:YES completion:nil];
+    }
 }
 
 // 设置自定义switch的tag值及代理

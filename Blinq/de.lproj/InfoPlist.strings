@@ -6,4 +6,8 @@
   Copyright © 2017年 zsk. All rights reserved.
 */
 
-NSLocationAlwaysUsageDescription = "Wir müssen Ihren Standort beim Senden von SOS-Informationen kennen. Wählen Sie „Erlauben”, um SOS-Notfunktionen zu aktivieren.";
+NSLocationAlwaysAndWhenInUseUsageDescription = "Wir müssen Ihren Standort beim Senden von SOS-Informationen kennen. Wählen Sie „Immer Erlauben”, um SOS-Notfunktionen zu aktivieren.";
+
+NSMotionUsageDescription = "Basierend auf dem Bewegungssenor, zeichne Deine Schrittanzahl auf";
+
+NSHealthShareUsageDescription = "Wenn Du „nicht erlauben” wähltst, ist es Dir nicht möglich Deine Bewegungen und Fittness Aktivitäten aufzuzeichnen";
