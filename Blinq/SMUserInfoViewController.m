@@ -141,8 +141,8 @@
     
     UITextField *field = (UITextField *)sender;
     
-    NSRange cursor = [field selectedCursorRange];
-    NSLog(@"%@",NSStringFromRange(cursor));
+//    NSRange cursor = [field selectedCursorRange];
+  //  NSLog(@"%@",NSStringFromRange(cursor));
     
     NSString *content = field.text;
     
@@ -168,16 +168,16 @@
             break;
     }
     
-    field.text = content;
-
-    NSDictionary *attrsDictionary =@{
-                                     NSFontAttributeName:[UIFont fontWithName:@"Avenir-Light" size:13],
-                                     NSKernAttributeName:[NSNumber numberWithFloat:3.9f],//这里修改字符间距
-                                     NSForegroundColorAttributeName:[UIColor whiteColor]
-                                     };
-    field.attributedText=[[NSAttributedString alloc]initWithString:content attributes:attrsDictionary];
-    
-    [field setSelectedRange:cursor];
+//    field.text = content;
+//
+//    NSDictionary *attrsDictionary =@{
+//                                     NSFontAttributeName:[UIFont fontWithName:@"Avenir-Light" size:13],
+//                                     NSKernAttributeName:[NSNumber numberWithFloat:3.9f],//这里修改字符间距
+//                                     NSForegroundColorAttributeName:[UIColor whiteColor]
+//                                     };
+//    field.attributedText=[[NSAttributedString alloc]initWithString:content attributes:attrsDictionary];
+//    
+//    [field setSelectedRange:cursor];
     
     
 }

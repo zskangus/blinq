@@ -27,7 +27,8 @@
 // 年龄
 @property(nonatomic,assign)NSInteger age;
 
-@property(nonatomic,copy)NSString *heightString;
+//@property(nonatomic,copy)NSString *heightString;
+@property(nonatomic,strong)NSDictionary *heightDic;
 
 @property(nonatomic,assign)NSInteger heightRow;
 
@@ -35,7 +36,8 @@
 
 @property(nonatomic,assign)double weight;
 
-@property(nonatomic,copy)NSString *weightString;
+//@property(nonatomic,copy)NSString *weightString;
+@property(nonatomic,copy)NSDictionary *weightDic;
 
 @property(nonatomic,assign)NSInteger weightRow;
 

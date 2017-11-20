@@ -114,17 +114,57 @@
             [SKAttributeString setLabelFontContent:self.titleLabel title:NSLocalizedString(@"height", nil) font:Avenir_Book Size:17 spacing:5 color:[UIColor whiteColor]];
             //[SKAttributeString setLabelFontContent:self.contentLabel title:[NSString stringWithFormat:@"%.0f CM",userInfo.height] font:Avenir_Book Size:17 spacing:5 color:[UIColor whiteColor]];
             
-            if (userInfo.heightString.length <= 0) {
-                userInfo.heightString = @"0'0\"";
+            NSDictionary *dic = userInfo.heightDic;
+            
+            if (([dic isKindOfClass:[NSDictionary class]] && [dic objectForKey:@"usaUnit"]) ||
+                ([dic isKindOfClass:[NSDictionary class]] && [dic objectForKey:@"otherUnit"])) {
+                NSLog(@"有");
+            }else{
+                
+                dic = @{@"usaUnit":@"6'0\"",@"otherUnit":@"184"};
+                userInfo.heightDic = dic;
+                [SMBlinqInfo setUserInfo:userInfo];
             }
-            [SKAttributeString setLabelFontContent:self.contentLabel title:userInfo.heightString font:Avenir_Book Size:17 spacing:5 color:[UIColor whiteColor]];
+            
+            NSString *heightString = [[NSString alloc]init];
+            
+            // 设置身高体重的单位
+            if ([NSLocalizedString(@"language", nil)isEqualToString:@"English"]){
+                heightString = [NSString stringWithFormat:@"%@",dic[@"usaUnit"]];
+            }else{
+                heightString = [NSString stringWithFormat:@"%@ CM",dic[@"otherUnit"]];
+            }
+            
+            [SKAttributeString setLabelFontContent:self.contentLabel title:heightString font:Avenir_Book Size:17 spacing:5 color:[UIColor whiteColor]];
 
 
             break;
         }
         case 5: {
             [SKAttributeString setLabelFontContent:self.titleLabel title:NSLocalizedString(@"weight", nil) font:Avenir_Book Size:17 spacing:5 color:[UIColor whiteColor]];
-            [SKAttributeString setLabelFontContent:self.contentLabel title:[NSString stringWithFormat:@"%.0f LBS",userInfo.weight] font:Avenir_Book Size:17 spacing:5 color:[UIColor whiteColor]];
+            
+            NSDictionary *dic = userInfo.weightDic;
+            
+            if (([dic isKindOfClass:[NSDictionary class]] && [dic objectForKey:@"usaUnit"]) ||
+                ([dic isKindOfClass:[NSDictionary class]] && [dic objectForKey:@"otherUnit"])) {
+                NSLog(@"有");
+            }else{
+                
+                dic = @{@"usaUnit":@"150",@"otherUnit":@"67"};
+                userInfo.weightDic = dic;
+                [SMBlinqInfo setUserInfo:userInfo];
+            }
+            
+            NSString *weightString = [[NSString alloc]init];
+            
+            // 设置身高体重的单位
+            if ([NSLocalizedString(@"language", nil)isEqualToString:@"English"]){
+                weightString = [NSString stringWithFormat:@"%@ LBS",dic[@"usaUnit"]];
+            }else{
+                weightString = [NSString stringWithFormat:@"%@ KG",dic[@"otherUnit"]];
+            }
+            
+            [SKAttributeString setLabelFontContent:self.contentLabel title:weightString font:Avenir_Book Size:17 spacing:5 color:[UIColor whiteColor]];
 
             break;
         }

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void(^returnsResult)(NSString *content,NSInteger row,NSInteger component);
+typedef void(^returnsResult)(NSDictionary *content,NSInteger row,NSInteger component);
 
 @interface SKPickerView : UIView
 

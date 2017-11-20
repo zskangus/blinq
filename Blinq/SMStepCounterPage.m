@@ -93,7 +93,7 @@ typedef NS_ENUM(NSInteger,progressTypes){
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setNavigationController];
+    //[self setNavigationController];
     
     [self setupNavigationTitle:NSLocalizedString(@"step_counter", nil) isHiddenBar:YES];
     

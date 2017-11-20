@@ -32,6 +32,10 @@
 
 @property(nonatomic,strong)MBProgressHUD *hud;
 
+@property(nonatomic,strong)NSMutableArray *heightArray;
+
+@property(nonatomic,strong)NSMutableArray *weightArray;
+
 @end
 
 @implementation SMStepSettingPage
@@ -39,10 +43,9 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.userInfo = [SMBlinqInfo userInfo];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(someMethod)
-                                                 name:UIApplicationDidBecomeActiveNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(someMethod)
+//                                                 name:UIApplicationDidBecomeActiveNotification object:nil];
 
     if ([SMBlinqInfo isHaveHealthAuthorized] == NO) {
         
@@ -82,6 +85,8 @@
     // Do any additional setup after loading the view from its nib.
     
     [self setTableView];
+    
+    [self createPickerListData];
     
     [self setUI];
     
@@ -136,72 +141,142 @@
         [SMBlinqInfo setUserInfo:blockself.userInfo];
         [blockself.tableView reloadData];
     };
-    
-    NSMutableArray *height = [NSMutableArray array];
-    NSMutableArray *weight = [NSMutableArray array];
 
-    double heightValue = 30;
-    double weightValue = 30;
 
-    for (int i = 0 ; i<200; i++) {
-        heightValue++;
-        weightValue++;
     
-        NSInteger us = (NSInteger)round(heightValue / 2.54);
-        NSInteger inches = us % (12);
-        NSInteger feet = us /12;
-        
-        //[height addObject:[NSNumber numberWithDouble:heightValue]];
-        [height addObject:[NSString stringWithFormat:@"%ld'%ld\"",(long)feet,(long)inches]];
-
-        [weight addObject:[NSNumber numberWithDouble:weightValue]];
-        //NSLog(@"%ld'%ld\" %f:",(long)feet,(long)inches,heightValue);
-
-    }
+    self.heightPicker = [[SKPickerView alloc]initPickerViewWithFrame:[self getScreenSize] title:NSLocalizedString(@"height", nil) list:self.heightArray];
     
-    NSMutableArray *heightArray = [[NSMutableArray alloc] init];
-    for (unsigned i = 0; i < [height count]; i++){
-        if ([heightArray containsObject:[height objectAtIndex:i]] == NO){
-            [heightArray addObject:[height objectAtIndex:i]];
-        }
-        
-    }
-    
-    self.heightPicker = [[SKPickerView alloc]initPickerViewWithFrame:[self getScreenSize] title:NSLocalizedString(@"height", nil) list:heightArray];
-    self.heightPicker.unit = @"";
-    
-    self.heightPicker.returnsResult = ^(NSString *content, NSInteger row, NSInteger component) {
-        blockself.userInfo.heightString = content;
+    self.heightPicker.returnsResult = ^(NSDictionary *content, NSInteger row, NSInteger component) {
+        blockself.userInfo.heightDic = content;
         blockself.userInfo.heightRow = row;
         blockself.userInfo.heightComponent = component;
         [SMBlinqInfo setUserInfo:blockself.userInfo];
         [blockself.tableView reloadData];
     };
     
-    self.weightPicker = [[SKPickerView alloc]initPickerViewWithFrame:[self getScreenSize] title:NSLocalizedString(@"weight", nil) list:weight];
-    self.weightPicker.unit = @"LBS";
+    self.weightPicker = [[SKPickerView alloc]initPickerViewWithFrame:[self getScreenSize] title:NSLocalizedString(@"weight", nil) list:self.weightArray];
 
-    self.weightPicker.returnsResult = ^(NSString *content, NSInteger row, NSInteger component) {
-        blockself.userInfo.weight = [content doubleValue];
-        blockself.userInfo.weightString = content;
+    self.weightPicker.returnsResult = ^(NSDictionary *content, NSInteger row, NSInteger component) {
+        blockself.userInfo.weight = [content[@"usaUnit"]doubleValue];
+        blockself.userInfo.weightDic = content;
         blockself.userInfo.weightRow = row;
         blockself.userInfo.weightComponent = component;
         [SMBlinqInfo setUserInfo:blockself.userInfo];
         [blockself.tableView reloadData];
     };
     
+
     
+    // 设置身高体重的单位
+    if ([NSLocalizedString(@"language", nil)isEqualToString:@"English"]){
+        self.heightPicker.unit = @"";
+        
+        self.weightPicker.unit = @"LBS";
+    }else{
+        self.heightPicker.unit = @"CM";
+        
+        self.weightPicker.unit = @"KG";
+    }
 
     [SKAttributeString setButtonFontContent:self.doneButton title:NSLocalizedString(@"socicl_page_done", nil) font:Avenir_Heavy Size:15 spacing:3.6 color:[UIColor whiteColor] forState:UIControlStateNormal];
 
 }
 
-- (void)someMethod{
-    
-    //[SMBlinqInfo setStepCounter:[self.health authorizationStatus]];
-    
-    //[self.tableView reloadData];
+- (void)createPickerListData{
 
+    NSMutableArray *usaheight = [NSMutableArray array];
+    
+    NSMutableArray *usarweight = [NSMutableArray array];
+    
+    NSMutableArray *ontherheight = [NSMutableArray array];
+    
+    NSMutableArray *ontherweight = [NSMutableArray array];
+    
+    NSMutableArray *HFilterArray = [NSMutableArray array];
+    
+    NSMutableArray *WFilterArray = [NSMutableArray array];
+
+    
+    double heightValue = 30;
+    double weightValue = 30;
+    
+    for (int i = 0 ; i<200; i++) {
+        heightValue++;
+        weightValue++;
+        
+        NSInteger us = (NSInteger)round(heightValue / 2.54);
+        NSInteger inches = us % (12);
+        NSInteger feet = us /12;
+        
+        NSInteger kg = weightValue * 0.4532;
+        
+        // 厘米
+        NSString *cmString = [NSString stringWithFormat:@"%d",(int)heightValue];
+        
+        // 英寸
+        NSString *inchesString = [NSString stringWithFormat:@"%ld'%ld\"",(long)feet,(long)inches];
+        
+        // LBS
+        NSString *lbsString = [NSString stringWithFormat:@"%d",(int)weightValue];
+        
+        // KG
+        NSString *kgString = [NSString stringWithFormat:@"%ld",(long)kg];
+        
+        
+        [usaheight addObject:inchesString];
+        
+        [usarweight addObject:lbsString];
+        
+        [ontherheight addObject:cmString];
+        
+        [ontherweight addObject:kgString];
+        
+    }
+    
+    NSLog(@"美国--身高:%@  体重:%@   其他--升高:%@  体重:%@",usaheight,ontherheight,usarweight,ontherweight);
+    
+    
+    if ([NSLocalizedString(@"language", nil)isEqualToString:@"English"]){
+        
+        // 删除身高中的相同对象
+        for (unsigned i = 0; i < [usaheight count]; i++){
+            if ([HFilterArray containsObject:[usaheight objectAtIndex:i]] == NO){
+                [HFilterArray addObject:[usaheight objectAtIndex:i]];
+                
+                NSDictionary *dic = @{@"usaUnit":usaheight[i],@"otherUnit":ontherheight[i]};
+                
+                [self.heightArray addObject:dic];
+        }
+        }
+        
+        for (unsigned p = 0; p < [usarweight count]; p++) {
+            NSDictionary *dic = @{@"usaUnit":usarweight[p],@"otherUnit":ontherweight[p]};
+            
+            [self.weightArray addObject:dic];
+        }
+        
+        
+    }else{
+        
+        // 删除体重中的相同对象
+        for (unsigned i = 0; i < [usarweight count]; i++){
+            if ([WFilterArray containsObject:[usarweight objectAtIndex:i]] == NO){
+                [WFilterArray addObject:[usarweight objectAtIndex:i]];
+                
+                NSDictionary *dic = @{@"usaUnit":usarweight[i],@"otherUnit":ontherweight[i]};
+                
+                [self.weightArray addObject:dic];
+            }
+        }
+        
+        for (unsigned p = 0; p < [usaheight count]; p++) {
+            NSDictionary *dic = @{@"usaUnit":usaheight[p],@"otherUnit":ontherheight[p]};
+            
+            [self.heightArray addObject:dic];
+        }
+        
+    }
+    NSLog(@"%@-----%@",self.heightArray,self.weightArray);
 }
 
 - (void)dateChange:(id)datePicker {
@@ -405,17 +480,38 @@
         }
         [self.agePicker pushPickerView];
     }
+    
+
+    NSInteger heightRow = [self.heightArray indexOfObject:user.heightDic];
+    
+    NSInteger weightRow = [self.weightArray indexOfObject:user.weightDic];
+    
+    
     if (indexPath.row == 4) {
-        [self.heightPicker selectRow:user.heightRow inComponent:user.heightComponent animated:NO];
+        [self.heightPicker selectRow:heightRow inComponent:user.heightComponent animated:NO];
         [self.heightPicker pushPickerView];
     }
     if (indexPath.row == 5) {
-        [self.weightPicker selectRow:user.weightRow inComponent:user.weightComponent animated:NO];
+        [self.weightPicker selectRow:weightRow inComponent:user.weightComponent animated:NO];
         [self.weightPicker pushPickerView];
     }
     
     
 
+}
+
+- (NSMutableArray *)heightArray{
+    if (!_heightArray) {
+        _heightArray = [NSMutableArray array];
+    }
+    return _heightArray;
+}
+
+- (NSMutableArray *)weightArray{
+    if (!_weightArray) {
+        _weightArray = [NSMutableArray array];
+    }
+    return _weightArray;
 }
 
 // 设置行的高度

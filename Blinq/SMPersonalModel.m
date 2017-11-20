@@ -18,11 +18,11 @@
     [aCoder encodeObject:[NSNumber numberWithInteger:self.sex] forKey:@"c_sex"];
     [aCoder encodeObject:self.birthday forKey:@"c_birthday"];
     [aCoder encodeObject:[NSNumber numberWithInteger:self.age] forKey:@"c_age"];
-    [aCoder encodeObject:self.heightString forKey:@"c_heightString"];
+    [aCoder encodeObject:self.heightDic forKey:@"c_heightString"];
     [aCoder encodeObject:[NSNumber numberWithInteger:self.heightRow] forKey:@"c_heightRow"];
     [aCoder encodeObject:[NSNumber numberWithInteger:self.heightComponent] forKey:@"c_heightComponent"];
     [aCoder encodeObject:[NSNumber numberWithDouble:self.weight] forKey:@"c_weight"];
-    [aCoder encodeObject:self.weightString forKey:@"c_weightString"];
+    [aCoder encodeObject:self.weightDic forKey:@"c_weightString"];
     [aCoder encodeObject:[NSNumber numberWithInteger:self.weightRow] forKey:@"c_weightRow"];
     [aCoder encodeObject:[NSNumber numberWithInteger:self.weightComponent] forKey:@"c_weightComponent"];
     [aCoder encodeObject:self.organizationName forKey:@"c_organizationName"];
@@ -42,11 +42,11 @@
         self.sex = [[aDecoder decodeObjectForKey:@"c_sex"]integerValue];
         self.birthday = [aDecoder decodeObjectForKey:@"c_birthday"];
         self.age = [[aDecoder decodeObjectForKey:@"c_age"]integerValue];
-        self.heightString = [aDecoder decodeObjectForKey:@"c_heightString"];
+        self.heightDic = [aDecoder decodeObjectForKey:@"c_heightString"];
         self.heightRow = [[aDecoder decodeObjectForKey:@"c_heightRow"]integerValue];
         self.heightComponent = [[aDecoder decodeObjectForKey:@"c_heightComponent"]integerValue];
         self.weight = [[aDecoder decodeObjectForKey:@"c_weight"]doubleValue];
-        self.weightString = [aDecoder decodeObjectForKey:@"c_weightString"];
+        self.weightDic = [aDecoder decodeObjectForKey:@"c_weightString"];
         self.weightRow = [[aDecoder decodeObjectForKey:@"c_weightRow"]integerValue];
         self.weightComponent = [[aDecoder decodeObjectForKey:@"c_weightComponent"]integerValue];
         self.organizationName = [aDecoder decodeObjectForKey:@"c_organizationName"];

@@ -48,14 +48,25 @@
     SMPersonalModel *userInfo = [[SMPersonalModel alloc]init];
 //    userInfo.familyName = firstName;
 //    userInfo.givenName = lastName;
-    userInfo.heightString = @"6'0\"";
-    userInfo.heightRow = 58;
+    
+    userInfo.heightDic = @{@"usaUnit":@"6'0\"",@"otherUnit":@"184"};
+    userInfo.weightDic = @{@"usaUnit":@"150",@"otherUnit":@"67"};
+    userInfo.heightRow = 153;
     userInfo.heightComponent = 0;
-    userInfo.weight = 150;
+    userInfo.weight = 153;
     userInfo.weightRow = 119;
     userInfo.weightComponent = 0;
     userInfo.birthday = @"2000-1-1";
     userInfo.age = 17;
+    
+    if ([NSLocalizedString(@"language", nil)isEqualToString:@"English"]){
+        userInfo.heightRow = 58;
+        userInfo.weight = 150;
+    }else{
+        userInfo.heightRow = 153;
+        userInfo.weightRow = 36;
+    }
+
     
     [SMBlinqInfo setUserInfo:userInfo];
     

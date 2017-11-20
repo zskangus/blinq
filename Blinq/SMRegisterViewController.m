@@ -346,7 +346,7 @@ static int keyboardHeight;
             SMPersonalModel *userInfo = [[SMPersonalModel alloc]init];
             userInfo.familyName = firstName;
             userInfo.givenName = lastName;
-            userInfo.heightString = @"6'0\"";
+            //userInfo.heightString = @"6'0\"";
             userInfo.heightRow = 58;
             userInfo.heightComponent = 0;
             userInfo.weight = 150;

@@ -20,7 +20,7 @@
 
 @property(nonatomic,strong)NSArray *dataList;
 
-@property(nonatomic,copy)NSString *selectContent;
+@property(nonatomic,copy)NSDictionary *selectContent;
 
 @property(nonatomic,assign)NSInteger row;
 
@@ -91,7 +91,7 @@
         
         
         self.dataList = list;
-        
+    
     }
     return self;
 }
@@ -112,8 +112,13 @@
 
 -(NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
     
-    return self.dataList[row];
+    NSDictionary *dic = self.dataList[row];
     
+    if ([NSLocalizedString(@"language", nil)isEqualToString:@"English"]){
+        return dic[@"usaUnit"];
+    }else{
+        return dic[@"otherUnit"];
+    }
 }
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
@@ -124,6 +129,8 @@
     self.row = row;
     
     self.component = component;
+    
+    NSLog(@"%@----row:%ld----component:%ld",self.dataList[row],row,component);
 }
 
 //自定义每个pickview的label

@@ -176,29 +176,6 @@ static NSInteger checkCount;
     }
 }
 
-//- (void)setupNavigation{
-//    
-//    // 设置导航栏title的显示效果
-//    NSDictionary *TitleDict = @{NSFontAttributeName:[UIFont fontWithName: @"Avenir" size:16],
-//                                NSForegroundColorAttributeName:[UIColor whiteColor],
-//                                NSKernAttributeName:@2.46};
-//    
-//    [[UINavigationBar appearance]setTitleTextAttributes:TitleDict];
-//    
-//    // 避免内容被导航条遮挡
-//    //self.edgesForExtendedLayout = UIRectEdgeNone;
-//    //self.extendedLayoutIncludesOpaqueBars = NO;
-//    //self.modalPresentationCapturesStatusBarAppearance = NO;
-//    
-//    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"bg-navBar"] forBarMetrics:UIBarMetricsDefault];
-//    
-//    // 注意需要将图片Render AS选项设置为orignal image选项，保证图片是没有经过渲染的原图。在图片管理器的第三选项卡
-//    UIBarButtonItem *logoItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu"] style:UIBarButtonItemStyleDone target:self action:@selector(popupSidebar)];
-//    
-//    self.navigationItem.leftBarButtonItem = logoItem;
-//}
-
-
 - (void)addSubControllers{
     
     self.notification = [[SMNotificationMainViewController alloc]initWithNibName:@"SMNotificationMainViewController" bundle:nil];
@@ -489,10 +466,10 @@ static NSInteger checkCount;
 }
 
 - (void)fitFrameForChildViewController:(UIViewController *)chileViewController{
-//    CGRect frame = self.contentView.frame;
-//    frame.origin.y = 0;
-//    chileViewController.view.frame = frame;
-//    NSLog(@"视图尺寸%@",NSStringFromCGRect(frame));
+    CGRect frame = self.contentView.frame;
+    frame.origin.y = 0;
+    chileViewController.view.frame = frame;
+    NSLog(@"视图尺寸%@",NSStringFromCGRect(frame));
 }
 
 //转换子视图控制器
